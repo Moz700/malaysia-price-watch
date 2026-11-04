@@ -1,0 +1,12 @@
+ item_code | shop_months | above_controlled | pct_at_or_below 
+-----------+-------------+------------------+-----------------
+         0 |       34609 |               17 |           99.95
+      1589 |       23022 |               10 |           99.96
+       918 |       11587 |                7 |           99.94
+(3 rows)
+
+ districts_listed | districts_reporting | districts_4plus | coverage_pct 
+------------------+---------------------+-----------------+--------------
+              178 |                 166 |             136 |         76.4
+(1 row)
+

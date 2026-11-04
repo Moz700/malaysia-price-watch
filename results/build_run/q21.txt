@@ -1,0 +1,41 @@
+Timing is on.
+psql:sql/04_analysis/q21_festive_price_effect.sql:23: NOTICE:  table "festive_pairs" does not exist, skipping
+DROP TABLE
+Time: 1.167 ms
+SELECT 847640
+Time: 32765.726 ms (00:32.766)
+       festival       | festival_date |         item_set          | matched_pairs | median_change_pct | mean_change_pct | pct_pairs_up | pct_pairs_down 
+----------------------+---------------+---------------------------+---------------+-------------------+-----------------+--------------+----------------
+ Deepavali            | 2025-10-20    | Festive staples           |         11801 |              0.00 |           -0.05 |         26.7 |           35.7
+ Deepavali            | 2025-10-20    | All other items (control) |         30989 |              0.00 |            2.13 |         35.1 |           31.4
+ Chinese New Year     | 2026-02-17    | Festive staples           |         29420 |              0.00 |           -2.42 |         17.8 |           38.3
+ Chinese New Year     | 2026-02-17    | All other items (control) |        167616 |              0.00 |           -1.24 |         14.1 |           22.1
+ Ramadan              | 2026-02-19    | Festive staples           |         29376 |              0.00 |           -2.56 |         17.3 |           38.4
+ Ramadan              | 2026-02-19    | All other items (control) |        167529 |              0.00 |           -1.19 |         14.2 |           22.0
+ Hari Raya Aidilfitri | 2026-03-21    | Festive staples           |         29359 |              0.00 |           -4.98 |         15.5 |           47.8
+ Hari Raya Aidilfitri | 2026-03-21    | All other items (control) |        164438 |              0.00 |           -0.50 |         17.3 |           23.2
+ Hari Raya Haji       | 2026-05-27    | Festive staples           |         29998 |              0.00 |            0.96 |         32.5 |           23.4
+ Hari Raya Haji       | 2026-05-27    | All other items (control) |        187114 |              0.00 |            1.53 |         19.7 |           15.7
+(10 rows)
+
+Time: 2134.172 ms (00:02.134)
+       festival       |                                         item                                         | matched_pairs | mean_change_pct | pct_shops_up 
+----------------------+--------------------------------------------------------------------------------------+---------------+-----------------+--------------
+ Hari Raya Haji       | TELUR AYAM GRED C                                                                    |          1166 |            11.2 |           82
+ Hari Raya Haji       | CILI AKAR HIJAU                                                                      |          1298 |            10.0 |           69
+ Chinese New Year     | BAWANG KECIL MERAH ROSE IMPORT (INDIA)                                               |           842 |             7.1 |           49
+ Deepavali            | BAWANG KECIL MERAH BIASA IMPORT (INDIA)                                              |           606 |             6.4 |           29
+ Ramadan              | BAWANG KECIL MERAH ROSE IMPORT (INDIA)                                               |           835 |             5.9 |           45
+ Hari Raya Haji       | TELUR AYAM GRED B                                                                    |          1343 |             4.9 |           72
+ Hari Raya Haji       | CILI HIJAU                                                                           |          1213 |             4.5 |           52
+ Hari Raya Haji       | TELUR AYAM GRED A                                                                    |          1111 |             4.1 |           74
+ Chinese New Year     | AYAM BERSIH - STANDARD                                                               |          1127 |             3.2 |           75
+ Deepavali            | CILI HIJAU                                                                           |           878 |             3.0 |           43
+ Ramadan              | AYAM BERSIH - STANDARD                                                               |          1129 |             3.0 |           74
+ Hari Raya Haji       | CILI MERAH - KULAI                                                                   |           644 |             2.5 |           46
+ Hari Raya Haji       | CILI MERAH - MINYAK                                                                  |          1034 |             2.4 |           49
+ Hari Raya Aidilfitri | TELUR AYAM GRED A                                                                    |          1050 |             2.2 |           70
+ Chinese New Year     | DAGING KAMBING BEBIRI IMPORT TANPA TULANG (MUTTON) (TIDAK TERMASUK PAHA - AUSTRALIA) |            32 |             2.1 |           16
+(15 rows)
+
+Time: 445.240 ms

@@ -1,0 +1,20 @@
+COPY 16
+COPY 166
+COPY 2087
+COPY 3939
+COPY 160
+COPY 12786
+COPY 15799
+COPY 4488
+           file           | rows  
+--------------------------+-------
+ state_basket             |    16
+ district_basket          |   166
+ premise_index            |  2087
+ item_monthly             |  3939
+ festive_effect           |   160
+ weekly_spikes            | 12786
+ item_price_by_state_type | 15799
+ cheapest_by_item_state   |  4488
+(8 rows)
+

@@ -1,0 +1,62 @@
+Timing is on.
+      state      |   district    | reporting_premises | items_priced |            premise_types             
+-----------------+---------------+--------------------+--------------+--------------------------------------
+ Sabah           | Membakut      |                  1 |           65 | Sundry shop
+ Johor           | Ledang        |                  1 |           71 | Wet market
+ Negeri Sembilan | Johol         |                  1 |           85 | Mini market
+ Sarawak         | Batu Niah     |                  1 |          100 | Mini market
+ Sarawak         | Julau         |                  2 |           63 | Sundry shop
+ Sarawak         | Engkelili     |                  2 |           66 | Sundry shop
+ Sabah           | Pitas         |                  2 |           76 | Sundry shop
+ Sarawak         | Pakan         |                  2 |           76 | Mini market
+ Sabah           | Nabawan       |                  2 |           79 | Mini market
+ Sabah           | Sook          |                  2 |           82 | Mini market
+ Sarawak         | Tanjung Manis |                  2 |           82 | Mini market
+ Sarawak         | Dalat         |                  2 |           87 | Mini market, Sundry shop
+ Sarawak         | Kanowit       |                  2 |          138 | Mini market, Supermarket
+ Sarawak         | Betong        |                  2 |          145 | Supermarket, Wet market
+ W.P. Labuan     | W.P Labuan    |                  2 |          153 | Mini market, Supermarket
+ Selangor        | Kuala Langat  |                  2 |          214 | Supermarket, Wet market
+ Negeri Sembilan | Tampin        |                  2 |          216 | Supermarket, Wet market
+ Sarawak         | Belaga        |                  3 |           43 | Sundry shop
+ Sabah           | Tenom         |                  3 |           80 | Mini market
+ Sabah           | Tambunan      |                  3 |           84 | Mini market
+ Sarawak         | Simunjan      |                  3 |           88 | Sundry shop
+ Sabah           | Kuala Penyu   |                  3 |           98 | Sundry shop, Wet market
+ Sarawak         | Marudi        |                  3 |          101 | Sundry shop
+ Sabah           | Kimanis       |                  3 |          109 | Mini market, Sundry shop, Wet market
+ Sarawak         | Selangau      |                  3 |          126 | Mini market
+ Sarawak         | Lundu         |                  3 |          134 | Mini market
+ Negeri Sembilan | Jelebu        |                  3 |          137 | Mini market, Sundry shop, Wet market
+ Kedah           | Pokok Sena    |                  3 |          193 | Supermarket, Wet market
+ Sabah           | Sipitang      |                  3 |          197 | Supermarket, Wet market
+ Perak           | Bagan Datuk   |                  3 |          238 | Supermarket, Wet market
+(30 rows)
+
+Time: 7561.505 ms (00:07.562)
+ district_band  | districts 
+----------------+-----------
+ 1-3 premises   |        30
+ 4-10 premises  |        49
+ 11-25 premises |        74
+ 26+ premises   |        13
+(4 rows)
+
+Time: 1790.645 ms (00:01.791)
+      state      |     district      | premises_listed 
+-----------------+-------------------+-----------------
+ Kelantan        | Lojing            |               1
+ Negeri Sembilan | Gemas             |               6
+ Negeri Sembilan | Rompin            |               7
+ Pahang          | Cameron Highlands |               6
+ Perak           | Gerik             |               2
+ Perak           | Kampar            |               8
+ Perak           | Parit Buntar      |               1
+ Perak           | Tapah             |               1
+ Sarawak         | Balingian         |               3
+ Sarawak         | Lubok Antu        |               1
+ Sarawak         | Saratok           |               2
+ Selangor        | Rawang            |               6
+(12 rows)
+
+Time: 823.103 ms

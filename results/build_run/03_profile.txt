@@ -1,0 +1,235 @@
+Timing is on.
+ total_rows | null_date | null_premise_code | null_item_code | null_price | min_price | max_price | avg_price | median_price 
+------------+-----------+-------------------+----------------+------------+-----------+-----------+-----------+--------------
+   21039347 |         0 |                 0 |              0 |          0 |      0.01 |   7985.00 |     11.84 |         8.99
+(1 row)
+
+Time: 32911.649 ms (00:32.912)
+ distinct_dates | distinct_premises | distinct_items | distinct_prices 
+----------------+-------------------+----------------+-----------------
+            346 |              2263 |            356 |            3735
+(1 row)
+
+Time: 47200.641 ms (00:47.201)
+  premise_type_as_written   | premises_in_lookup | price_rows 
+----------------------------+--------------------+------------
+ [Pasar Raya / Supermarket] |                888 |   11326261
+ [Pasar Basah ]             |                338 |    3689719
+ [Hypermarket]              |                180 |    2677928
+ [Pasar Mini]               |                924 |    2280030
+ [Kedai Runcit]             |                623 |     887278
+ [Pasar Basah]              |                 22 |     177749
+ [Borong]                   |                 15 |        369
+ [Restoran Melayu]          |                297 |          0
+ [Restoran India Muslim]    |                223 |          0
+ [Restoran Cina]            |                196 |          0
+ [Medan Selera]             |                126 |          0
+ [Foodcourt]                |                 94 |          0
+ [Kedai Serbaneka]          |                  2 |          0
+                            |                  1 |          0
+(14 rows)
+
+Time: 62806.923 ms (01:02.807)
+       state       | premises_in_lookup | premises_reporting | price_rows 
+-------------------+--------------------+--------------------+------------
+ Johor             |                390 |                224 |    2455833
+ W.P. Kuala Lumpur |                373 |                191 |    2381145
+ Perak             |                370 |                195 |    2096853
+ Sarawak           |                396 |                243 |    1975637
+ Pahang            |                308 |                195 |    1713442
+ Selangor          |                248 |                139 |    1661760
+ Kelantan          |                378 |                216 |    1597165
+ Pulau Pinang      |                225 |                153 |    1486556
+ Sabah             |                349 |                221 |    1302544
+ Kedah             |                222 |                122 |    1210405
+ Terengganu        |                253 |                151 |    1155371
+ Negeri Sembilan   |                160 |                 75 |     738573
+ Melaka            |                 92 |                 54 |     522747
+ W.P. Putrajaya    |                 51 |                 28 |     325815
+ Perlis            |                 87 |                 39 |     290754
+ W.P. Labuan       |                 26 |                 16 |     124734
+                   |                  1 |                  0 |          0
+(17 rows)
+
+Time: 62033.494 ms (01:02.033)
+        item_group        | items_in_lookup | items_priced | price_rows 
+--------------------------+-----------------+--------------+------------
+ BARANGAN SEGAR           |             164 |          122 |   12448037
+ BARANGAN BERBUNGKUS      |             219 |          109 |    3795472
+ BARANGAN KERING          |              27 |           24 |    2369541
+ SUSU DAN BARANGAN BAYI   |              50 |           26 |    1047584
+ MINUMAN                  |              50 |           31 |     540372
+ PRODUK KEBERSIHAN        |              46 |           27 |     524743
+                          |               1 |            0 |          0
+ BARANGAN KEDAI SERBANEKA |              49 |            0 |          0
+ MAKANAN SIAP MASAK       |             191 |            0 |          0
+(9 rows)
+
+Time: 83592.442 ms (01:23.592)
+       item_group       |          item_category          | items_priced | price_rows 
+------------------------+---------------------------------+--------------+------------
+ BARANGAN BERBUNGKUS    | MINYAK DAN LEMAK                |           33 |     965383
+ BARANGAN BERBUNGKUS    | REMPAH RATUS (BERBUNGKUS)       |           14 |     759473
+ BARANGAN BERBUNGKUS    | KICAP DAN SOS                   |            6 |     426699
+ BARANGAN BERBUNGKUS    | SAPUAN (SPREADS)                |            8 |     293064
+ BARANGAN BERBUNGKUS    | KRIMER DAN SUSU TEPUNG          |            5 |     231503
+ BARANGAN BERBUNGKUS    | SANTAN (KOTAK)                  |            4 |     221158
+ BARANGAN BERBUNGKUS    | IKAN DALAM TIN                  |            3 |     161346
+ BARANGAN BERBUNGKUS    | GULA                            |            3 |     138148
+ BARANGAN BERBUNGKUS    | TEPUNG                          |            5 |     137971
+ BARANGAN BERBUNGKUS    | BIHUN                           |            4 |     137421
+ BARANGAN BERBUNGKUS    | BERAS                           |           19 |     133012
+ BARANGAN BERBUNGKUS    | MI SEGERA                       |            1 |      89001
+ BARANGAN BERBUNGKUS    | ESEN DAN RAGI                   |            2 |      52279
+ BARANGAN BERBUNGKUS    | MENTEGA                         |            1 |      31414
+ BARANGAN BERBUNGKUS    | REMPAH RATUS (TIDAK BERBUNGKUS) |            1 |      17600
+ BARANGAN KERING        | BAWANG                          |           10 |    1698714
+ BARANGAN KERING        | UBI KENTANG                     |            3 |     409296
+ BARANGAN KERING        | KACANG                          |            7 |     149029
+ BARANGAN KERING        | CILI KERING                     |            2 |      86238
+ BARANGAN KERING        | HASIL LAUT KERING               |            2 |      26264
+ BARANGAN SEGAR         | SAYUR-SAYURAN                   |           37 |    7336536
+ BARANGAN SEGAR         | BAHAN LAUT                      |           27 |    2521089
+ BARANGAN SEGAR         | BUAH-BUAHAN                     |           16 |     760401
+ BARANGAN SEGAR         | TELUR                           |            6 |     672011
+ BARANGAN SEGAR         | AYAM                            |            7 |     563505
+ BARANGAN SEGAR         | IKAN DARAT                      |            2 |     395093
+ BARANGAN SEGAR         | DAGING                          |           22 |      87387
+ BARANGAN SEGAR         | MEE/KUETIAU                     |            1 |      63898
+ BARANGAN SEGAR         | KELAPA                          |            4 |      48117
+ MINUMAN                | TERSEDIA MINUM                  |           20 |     362141
+ MINUMAN                | BAHAN-BAHAN MINUMAN             |           11 |     178231
+ PRODUK KEBERSIHAN      | PENJAGAAN DIRI                  |           15 |     285767
+ PRODUK KEBERSIHAN      | PENJAGAAN RUMAH                 |           12 |     238976
+ SUSU DAN BARANGAN BAYI | SUSU BAYI                       |           15 |     639811
+ SUSU DAN BARANGAN BAYI | LAMPIN PAKAI BUANG              |            6 |     242327
+ SUSU DAN BARANGAN BAYI | MAKANAN BAYI                    |            5 |     165446
+(36 rows)
+
+Time: 72613.541 ms (01:12.614)
+ item_code |             item             | unit | price_rows | premises | avg_price 
+-----------+------------------------------+------+------------+----------+-----------
+        95 | HALIA BASAH (TUA)            | 1kg  |     394446 |     2044 |      8.95
+       129 | BAWANG BESAR KUNING/HOLLAND  | 1kg  |     394385 |     2090 |      3.76
+      1564 | BAWANG PUTIH IMPORT (CHINA)  | 1kg  |     386673 |     2069 |      9.18
+       109 | LOBAK MERAH                  | 1kg  |     379877 |     1783 |      3.99
+       113 | TIMUN                        | 1kg  |     376923 |     1778 |      4.08
+       114 | TOMATO                       | 1kg  |     371482 |     1786 |      6.58
+      1481 | KUBIS BUNGA (CAULIFLOWER)    | 1kg  |     351988 |     1832 |      8.47
+       108 | KUNYIT HIDUP                 | 1kg  |     345965 |     1636 |     10.01
+      1928 | LIMAU KASTURI                | 1kg  |     344045 |     1676 |      7.46
+      1819 | LENGKUAS                     | 1kg  |     341822 |     1640 |     10.31
+      1131 | UBI KENTANG IMPORT (CHINA)   | 1kg  |     336730 |     2028 |      3.08
+        96 | KACANG BENDI                 | 1kg  |     325934 |     1762 |      9.40
+      1458 | KUBIS BULAT IMPORT (BEIJING) | 1kg  |     320752 |     1497 |      4.69
+      2087 | LOBAK PUTIH (1KG)            | 1kg  |     319823 |     1543 |      5.37
+        98 | KACANG PANJANG               | 1kg  |     319805 |     1741 |      8.77
+      1132 | LIMAU NIPIS                  | 1kg  |     319673 |     1610 |      8.53
+      1558 | SAWI HIJAU                   | 1kg  |     313682 |     1654 |      5.99
+        97 | KACANG BUNCIS                | 1kg  |     313198 |     1715 |     11.70
+      1440 | BAWANG BESAR IMPORT (INDIA)  | 1kg  |     309423 |     1897 |      3.39
+      1926 | CILI AKAR HIJAU              | 1kg  |     301632 |     1619 |     14.20
+(20 rows)
+
+Time: 86610.704 ms (01:26.611)
+ premise_code |                premise                |       premise_type       |       state       | price_rows | items | days_reported 
+--------------+---------------------------------------+--------------------------+-------------------+------------+-------+---------------
+         5274 | MYDIN USJ                             | Hypermarket              | Selangor          |      24199 |   267 |           336
+        15903 | MYDIN MERU RAYA                       | Hypermarket              | Perak             |      24128 |   270 |           337
+        20705 | MYDIN RTC GOPENG                      | Pasar Raya / Supermarket | Perak             |      23941 |   272 |           337
+        10975 | TF VALUE MART BATU GAJAH              | Pasar Raya / Supermarket | Perak             |      23818 |   261 |           338
+         5137 | HERO MARKET ( BANDAR SRI PERMAISURI ) | Pasar Raya / Supermarket | W.P. Kuala Lumpur |      23814 |   244 |           338
+        17636 | BILLION JELAPANG                      | Pasar Raya / Supermarket | Perak             |      23770 |   262 |           336
+         5416 | TF VALUE MART RAUB                    | Pasar Raya / Supermarket | Pahang            |      23769 |   250 |           338
+        18673 | TF VALUEMART KUALA KANGSAR            | Pasar Raya / Supermarket | Perak             |      23661 |   259 |           337
+        21079 | TF VALUE MART ( TAMAN CONNOUGHT )     | Pasar Raya / Supermarket | W.P. Kuala Lumpur |      23652 |   247 |           337
+          506 | PASARAYA ONG TAI KIM ( SENTUL )       | Pasar Raya / Supermarket | W.P. Kuala Lumpur |      23640 |   252 |           338
+         5355 | PASARAYA ONG TAI KIM ( WANGSA MAJU )  | Pasar Raya / Supermarket | W.P. Kuala Lumpur |      23485 |   247 |           338
+        20703 | TF VALUE MART TAMBUN                  | Pasar Raya / Supermarket | Perak             |      23473 |   261 |           337
+        15976 | TF VALUE MART TAPAH                   | Pasar Raya / Supermarket | Perak             |      23454 |   254 |           337
+         2838 | TF VALUE MART SG SIPUT                | Pasar Raya / Supermarket | Perak             |      23245 |   261 |           337
+        17371 | TF VALUE MART GERIK                   | Pasar Raya / Supermarket | Perak             |      23231 |   268 |           337
+         3103 | PASARAYA TF VALUE MART JERANTUT       | Pasar Raya / Supermarket | Pahang            |      23210 |   247 |           338
+        18700 | TF VALUE MART SDN BHD                 | Pasar Raya / Supermarket | Perak             |      23209 |   256 |           338
+        17330 | PASARAYA TF VALUE MART SDN BHD (BERA) | Pasar Raya / Supermarket | Pahang            |      23207 |   253 |           338
+        16547 | MYDIN SEREMBAN 2                      | Hypermarket              | Negeri Sembilan   |      23199 |   265 |           336
+        21078 | HERO MARKET ( SUNGAI MAS PLAZA )      | Pasar Raya / Supermarket | W.P. Kuala Lumpur |      23178 |   250 |           338
+(20 rows)
+
+Time: 86197.422 ms (01:26.197)
+ missing_date | weekday 
+--------------+---------
+ 2025-12-25   | Thu
+ 2026-02-13   | Fri
+ 2026-02-17   | Tue
+ 2026-02-18   | Wed
+ 2026-03-14   | Sat
+ 2026-03-19   | Thu
+ 2026-03-20   | Fri
+ 2026-03-21   | Sat
+ 2026-03-22   | Sun
+ 2026-03-23   | Mon
+ 2026-05-01   | Fri
+ 2026-05-27   | Wed
+ 2026-06-01   | Mon
+ 2026-06-17   | Wed
+ 2026-06-20   | Sat
+ 2026-08-25   | Tue
+ 2026-08-31   | Mon
+ 2026-09-16   | Wed
+ 2026-09-30   | Wed
+(19 rows)
+
+Time: 18831.763 ms (00:18.832)
+       premise_type       | weekday | price_rows | pct_of_type 
+--------------------------+---------+------------+-------------
+ Hypermarket              | Mon     |      98876 |        44.5
+ Hypermarket              | Tue     |      24351 |        11.0
+ Hypermarket              | Wed     |      15214 |         6.8
+ Hypermarket              | Thu     |      20747 |         9.3
+ Hypermarket              | Fri     |      20929 |         9.4
+ Hypermarket              | Sat     |      20968 |         9.4
+ Hypermarket              | Sun     |      21019 |         9.5
+ Kedai Runcit             | Mon     |      67321 |        95.9
+ Kedai Runcit             | Tue     |        595 |         0.8
+ Kedai Runcit             | Wed     |        352 |         0.5
+ Kedai Runcit             | Thu     |        482 |         0.7
+ Kedai Runcit             | Fri     |        492 |         0.7
+ Kedai Runcit             | Sat     |        474 |         0.7
+ Kedai Runcit             | Sun     |        467 |         0.7
+ Pasar Basah              | Mon     |      59862 |        18.8
+ Pasar Basah              | Tue     |      50876 |        15.9
+ Pasar Basah              | Wed     |      32446 |        10.2
+ Pasar Basah              | Thu     |      43458 |        13.6
+ Pasar Basah              | Fri     |      43661 |        13.7
+ Pasar Basah              | Sat     |      43626 |        13.7
+ Pasar Basah              | Sun     |      45140 |        14.1
+ Pasar Mini               | Mon     |     171905 |        92.3
+ Pasar Mini               | Tue     |       2916 |         1.6
+ Pasar Mini               | Wed     |       1772 |         1.0
+ Pasar Mini               | Thu     |       2395 |         1.3
+ Pasar Mini               | Fri     |       2384 |         1.3
+ Pasar Mini               | Sat     |       2390 |         1.3
+ Pasar Mini               | Sun     |       2398 |         1.3
+ Pasar Raya / Supermarket | Mon     |     401128 |        42.5
+ Pasar Raya / Supermarket | Tue     |     109583 |        11.6
+ Pasar Raya / Supermarket | Wed     |      67734 |         7.2
+ Pasar Raya / Supermarket | Thu     |      90958 |         9.6
+ Pasar Raya / Supermarket | Fri     |      91526 |         9.7
+ Pasar Raya / Supermarket | Sat     |      91888 |         9.7
+ Pasar Raya / Supermarket | Sun     |      91974 |         9.7
+(35 rows)
+
+Time: 12155.529 ms (00:12.156)
+ weekday | price_rows | pct_of_all_rows 
+---------+------------+-----------------
+ Mon     |    8896915 |            42.3
+ Tue     |    1907676 |             9.1
+ Wed     |    1996960 |             9.5
+ Thu     |    2578627 |            12.3
+ Fri     |    1898738 |             9.0
+ Sat     |    1832037 |             8.7
+ Sun     |    1928394 |             9.2
+(7 rows)
+
+Time: 13063.410 ms (00:13.063)

@@ -1,0 +1,52 @@
+Timing is on.
+psql:sql/04_analysis/q11_premise_price_index.sql:16: NOTICE:  table "premise_index" does not exist, skipping
+DROP TABLE
+Time: 0.502 ms
+SELECT 2087
+Time: 364.766 ms
+                    premise                    | premise_type_en |      state      |   district    | items_priced | price_index 
+-----------------------------------------------+-----------------+-----------------+---------------+--------------+-------------
+ PASAR GURUN                                   | Wet market      | Kedah           | Kuala Muda    |           41 |        84.0
+ PASARAYA ECONSAVE SEGAMAT                     | Supermarket     | Johor           | Segamat       |          201 |        84.9
+ ECONSAVE CASH AND CARRY MALIM S/B             | Supermarket     | Melaka          | Melaka Tengah |          206 |        85.2
+ LONGWAN GUAR CHEMPEDAK                        | Supermarket     | Kedah           | Yan           |          125 |        85.4
+ MERLIMAU POINT                                | Mini market     | Melaka          | Jasin         |          143 |        85.4
+ GM RETAIL & WHOLESALE (SP) SDN. BHD. (G MART) | Supermarket     | Kedah           | Kuala Muda    |          146 |        85.7
+ PASARAYA ECONSAVE JASIN                       | Supermarket     | Melaka          | Jasin         |          194 |        85.8
+ PASARAYA ECONSAVE FOREST HEIGHT               | Supermarket     | Negeri Sembilan | Seremban      |          217 |        85.8
+ PASARAYA ECONSAVE BAKRI MUAR                  | Supermarket     | Johor           | Muar          |          209 |        86.5
+ ECONSAVE KLUANG                               | Supermarket     | Johor           | Kluang        |          199 |        86.5
+ ECONSAVE CASH & CARRY (BH) SDN BHD. BAHAU     | Supermarket     | Negeri Sembilan | Bahau         |          209 |        86.7
+ PASARAYA ECONSAVE MUAR                        | Supermarket     | Johor           | Muar          |          208 |        86.7
+ ECONSAVE PORT DICKSON                         | Hypermarket     | Negeri Sembilan | Port Dickson  |          211 |        86.9
+ ECONSAVE SERI ISKANDAR                        | Supermarket     | Perak           | Perak Tengah  |          218 |        87.1
+ ECONSAVE CASH & CARRY (TPJ) SDN BHD           | Hypermarket     | Kedah           | Kuala Muda    |          208 |        87.3
+(15 rows)
+
+Time: 4.306 ms
+ premises_scored | cheapest | p10  | median |  p90  | dearest 
+-----------------+----------+------+--------+-------+---------
+            2087 |     84.0 | 93.6 |  102.9 | 114.8 |   156.1
+(1 row)
+
+Time: 0.837 ms
+ name_first_word | branches | avg_index | cheapest_branch | dearest_branch 
+-----------------+----------+-----------+-----------------+----------------
+ TESCO           |       15 |      89.3 |            88.7 |           90.1
+ LOTUS'S         |        7 |      89.4 |            88.1 |           90.9
+ LOTUSS          |       12 |      89.4 |            88.7 |           89.8
+ ECONSAVE        |       58 |      90.2 |            85.2 |          100.9
+ TARGET          |        6 |      91.3 |            89.7 |           93.5
+ ECONO           |        5 |      91.4 |            87.6 |           93.9
+ BILLION         |        9 |      93.4 |            91.0 |           97.9
+ NSK             |       11 |      94.2 |            91.9 |           96.3
+ MYDIN           |       30 |      95.0 |            92.3 |          104.0
+ 99              |      121 |      95.3 |            92.8 |           98.0
+ SK              |        8 |      96.6 |            92.5 |          109.8
+ TY              |        6 |      96.7 |            94.6 |           97.9
+ TF              |       23 |      96.9 |            91.3 |          100.0
+ BATARAS         |       20 |      96.9 |            93.8 |           99.5
+ NIRWANA         |        5 |      97.4 |            95.9 |           98.4
+(15 rows)
+
+Time: 3.090 ms

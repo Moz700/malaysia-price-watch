@@ -1,0 +1,28 @@
+Timing is on.
+    level     |       name        | premises | price_rows | avg_items_per_premise | avg_price_index 
+--------------+-------------------+----------+------------+-----------------------+-----------------
+ State        | W.P. Putrajaya    |       28 |      26807 |                   140 |           111.5
+ State        | W.P. Labuan       |       15 |      10424 |                   113 |           109.2
+ State        | Sarawak           |      234 |     160424 |                   105 |           108.8
+ State        | Sabah             |      191 |     110747 |                    99 |           108.0
+ State        | W.P. Kuala Lumpur |      180 |     191703 |                   127 |           107.3
+ State        | Terengganu        |      139 |      95230 |                    99 |           103.2
+ State        | Johor             |      214 |     199368 |                   130 |           102.7
+ State        | Selangor          |      136 |     132764 |                   123 |           102.7
+ State        | Negeri Sembilan   |       64 |      59088 |                   124 |           102.6
+ State        | Perlis            |       37 |      24464 |                    96 |           102.5
+ State        | Melaka            |       53 |      42177 |                   119 |           102.4
+ State        | Pulau Pinang      |      147 |     120840 |                   106 |           102.1
+ State        | Pahang            |      190 |     142677 |                   104 |           101.8
+ State        | Kelantan          |      199 |     129448 |                    97 |           101.7
+ State        | Kedah             |      122 |      98233 |                   110 |            99.1
+ State        | Perak             |      192 |     171529 |                   120 |            98.7
+ Premise type | Wet market        |      306 |     319055 |                    68 |           108.2
+ Premise type | Sundry shop       |      352 |      70087 |                    60 |           106.8
+ Premise type | Mini market       |      654 |     185560 |                    83 |           103.4
+ Premise type | Supermarket       |      679 |     924367 |                   169 |           101.4
+ Premise type | Hypermarket       |      150 |     216854 |                   191 |            98.4
+ Malaysia     | All               |     2141 |    1715923 |                   112 |           103.6
+(22 rows)
+
+Time: 906.871 ms

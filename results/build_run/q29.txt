@@ -1,0 +1,52 @@
+Timing is on.
+psql:sql/04_analysis/q29_most_stable_prices.sql:14: NOTICE:  table "item_stability" does not exist, skipping
+DROP TABLE
+Time: 3.787 ms
+SELECT 283
+Time: 20133.028 ms (00:20.133)
+                         item                          | unit  |       item_category       | lowest_monthly_median_rm | highest_monthly_median_rm | cv_pct 
+-------------------------------------------------------+-------+---------------------------+--------------------------+---------------------------+--------
+ UBI KENTANG HOLLAND                                   | 1kg   | UBI KENTANG               |                     4.00 |                      4.00 |   0.00
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)                  | 1kg   | MINYAK DAN LEMAK          |                     2.50 |                      2.50 |   0.00
+ LACTOGEN 2 RUMUSAN SUSULAN (KOTAK)                    | 650g  | SUSU BAYI                 |                    28.50 |                     28.50 |   0.00
+ BERAS SUPER SAZARICE CAP ANGGUR (BERAS PUTIH IMPORT ) | 10 kg | BERAS                     |                    28.50 |                     28.50 |   0.00
+ MINYAK MASAK SEBATIAN CAP KNIFE                       | 1kg   | MINYAK DAN LEMAK          |                     8.50 |                      8.50 |   0.00
+ SOS CILI LIFE                                         | 340 g | KICAP DAN SOS             |                     4.50 |                      4.50 |   0.00
+ MARJERIN DAISY                                        | 480 g | SAPUAN (SPREADS)          |                     9.50 |                      9.50 |   0.00
+ LACTOGEN 1 RUMUSAN BAYI (KOTAK)                       | 650g  | SUSU BAYI                 |                    28.50 |                     28.50 |   0.00
+ DUMEX DUPRO 2 (RUMUSAN SUSULAN)                       | 850g  | SUSU BAYI                 |                    29.50 |                     29.50 |   0.00
+ KICAP MANIS ADABI                                     | 340ml | KICAP DAN SOS             |                     5.20 |                      5.20 |   0.00
+ NESTLE CERELAC GANDUM DAN MADU - KOTAK                | 225g  | MAKANAN BAYI              |                     9.90 |                      9.90 |   0.00
+ PERENCAH TOM YAM ADABI                                | 40 g  | REMPAH RATUS (BERBUNGKUS) |                     2.40 |                      2.40 |   0.00
+ MINYAK MASAK TULEN CAP BURUH                          | 1kg   | MINYAK DAN LEMAK          |                     6.90 |                      6.90 |   0.00
+ MINYAK MASAK TULEN CAP VESAWIT                        | 1kg   | MINYAK DAN LEMAK          |                     6.90 |                      6.90 |   0.00
+ MINYAK MASAK TULEN CAP SERI MURNI                     | 1kg   | MINYAK DAN LEMAK          |                     6.90 |                      6.90 |   0.00
+(15 rows)
+
+Time: 87.029 ms
+                  item                  | unit | item_category | lowest_monthly_median_rm | highest_monthly_median_rm | cv_pct 
+----------------------------------------+------+---------------+--------------------------+---------------------------+--------
+ CILI AKAR MERAH                        | 1kg  | SAYUR-SAYURAN |                    13.99 |                     32.00 |  33.39
+ BAWANG KECIL MERAH ROSE IMPORT (INDIA) | 1kg  | BAWANG        |                     5.70 |                     12.99 |  32.35
+ ANGGUR MERAH BERBIJI                   | 1kg  | BUAH-BUAHAN   |                    10.50 |                     22.90 |  28.27
+ TOMATO                                 | 1kg  | SAYUR-SAYURAN |                     4.00 |                      9.49 |  26.81
+ TEMBIKAI MERAH TANPA BIJI              | 1kg  | BUAH-BUAHAN   |                     1.99 |                      4.49 |  22.14
+ KUBIS BUNGA (CAULIFLOWER)              | 1kg  | SAYUR-SAYURAN |                     6.00 |                     11.90 |  19.56
+ LIMAU KASTURI                          | 1kg  | BUAH-BUAHAN   |                     6.00 |                     10.00 |  17.81
+ CILI MERAH - MINYAK                    | 1kg  | SAYUR-SAYURAN |                    10.99 |                     19.99 |  17.70
+ CILI AKAR HIJAU                        | 1kg  | SAYUR-SAYURAN |                    10.99 |                     20.00 |  17.37
+ KACANG BUNCIS                          | 1kg  | SAYUR-SAYURAN |                    10.00 |                     15.37 |  16.09
+(10 rows)
+
+Time: 1.237 ms
+     item_group_en      | items | avg_cv_pct | items_with_no_change_at_all 
+------------------------+-------+------------+-----------------------------
+ Packaged goods         |    92 |       0.87 |                           5
+ Milk and baby products |    25 |       0.89 |                           3
+ Beverages              |    27 |       0.98 |                           0
+ Household and hygiene  |    27 |       1.75 |                           0
+ Dry goods              |    17 |       5.96 |                           1
+ Fresh produce          |    95 |       6.92 |                           0
+(6 rows)
+
+Time: 23.153 ms

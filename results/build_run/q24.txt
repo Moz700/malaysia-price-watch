@@ -1,0 +1,49 @@
+Timing is on.
+psql:sql/04_analysis/q24_price_change_frequency.sql:20: NOTICE:  table "series_change" does not exist, skipping
+DROP TABLE
+Time: 1.536 ms
+SELECT 300296
+Time: 325771.689 ms (05:25.772)
+ premise_type_en | premises | pct_reports_with_change | pct_of_changes_that_are_rises 
+-----------------+----------+-------------------------+-------------------------------
+ Wholesaler      |        1 |                    28.8 |                          55.3
+ Wet market      |      313 |                    20.2 |                          49.9
+ Hypermarket     |      153 |                    14.8 |                          49.6
+ Supermarket     |      721 |                    13.4 |                          50.3
+ Mini market     |      689 |                    13.3 |                          51.0
+ Sundry shop     |      370 |                     9.8 |                          51.3
+(6 rows)
+
+Time: 390.735 ms
+      grp       |              premise              | premise_type_en |       state       | pct_reports_with_change 
+----------------+-----------------------------------+-----------------+-------------------+-------------------------
+ Most frequent  | PASAR BESAR SEREMBAN              | Wet market      | Negeri Sembilan   |                    44.4
+ Most frequent  | PASAR BESAR IPOH                  | Wet market      | Perak             |                    44.2
+ Most frequent  | PASAR KAMPUNG MELAYU SUBANG       | Wet market      | Selangor          |                    43.5
+ Most frequent  | PASAR GOPENG                      | Wet market      | Perak             |                    43.4
+ Most frequent  | PASAR TAMPIN                      | Wet market      | Negeri Sembilan   |                    42.0
+ Least frequent | SO CONVENIENT  STORE              | Mini market     | Pulau Pinang      |                     0.5
+ Least frequent | KEDAI UBAT & RUNCIT KIM LOY       | Sundry shop     | W.P. Kuala Lumpur |                     0.5
+ Least frequent | HALOO MART                        | Sundry shop     | Pulau Pinang      |                     0.7
+ Least frequent | KEDAI UBAT & RUNCIT BAN SOON HENG | Sundry shop     | W.P. Kuala Lumpur |                     0.8
+ Least frequent | CARNIVAL CASH & CARRY SDN.BHD     | Mini market     | Kedah             |                     0.8
+(10 rows)
+
+Time: 83.013 ms
+     item_group_en      | pct_reports_with_change 
+------------------------+-------------------------
+ Fresh produce          |                    19.0
+ Beverages              |                    12.8
+ Household and hygiene  |                    12.0
+ Milk and baby products |                     9.9
+ Dry goods              |                     8.4
+ Packaged goods         |                     6.1
+(6 rows)
+
+Time: 79.388 ms
+ pct_series_never_changed | series_with_10plus_reports 
+--------------------------+----------------------------
+                     30.7 |                     254510
+(1 row)
+
+Time: 38.483 ms

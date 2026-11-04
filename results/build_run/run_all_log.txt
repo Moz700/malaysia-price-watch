@@ -1,0 +1,505 @@
+Timing is on.
+== 00 setup
+CREATE SCHEMA
+Time: 10.313 ms
+CREATE SCHEMA
+Time: 2.740 ms
+CREATE SCHEMA
+Time: 0.409 ms
+CREATE SCHEMA
+Time: 6.134 ms
+ schema_name 
+-------------
+ core
+ mart
+ ref
+ staging
+(4 rows)
+
+Time: 59.658 ms
+psql:sql/00_setup/02_create_staging_tables.sql:21: NOTICE:  table "raw_price" does not exist, skipping
+DROP TABLE
+Time: 3.858 ms
+CREATE TABLE
+Time: 21.534 ms
+psql:sql/00_setup/02_create_staging_tables.sql:29: NOTICE:  table "lookup_item" does not exist, skipping
+DROP TABLE
+Time: 0.106 ms
+CREATE TABLE
+Time: 7.827 ms
+psql:sql/00_setup/02_create_staging_tables.sql:38: NOTICE:  table "lookup_premise" does not exist, skipping
+DROP TABLE
+Time: 0.108 ms
+CREATE TABLE
+Time: 3.572 ms
+psql:sql/00_setup/02_create_staging_tables.sql:50: NOTICE:  table "cpi_state" does not exist, skipping
+DROP TABLE
+Time: 0.090 ms
+CREATE TABLE
+Time: 6.103 ms
+== 01 load (about 30 seconds)
+Timing is on.
+TRUNCATE TABLE
+Time: 63.413 ms
+COPY 797
+Time: 19.190 ms
+COPY 3929
+Time: 55.371 ms
+COPY 44800
+Time: 184.885 ms
+COPY 1822288
+Time: 5534.416 ms (00:05.534)
+COPY 1783107
+Time: 4178.405 ms (00:04.178)
+COPY 1782274
+Time: 4282.337 ms (00:04.282)
+COPY 1976483
+Time: 3326.171 ms (00:03.326)
+COPY 1369552
+Time: 2434.944 ms (00:02.435)
+COPY 1547695
+Time: 3520.303 ms (00:03.520)
+COPY 1785221
+Time: 3622.675 ms (00:03.623)
+COPY 1717713
+Time: 5204.106 ms (00:05.204)
+COPY 1763560
+Time: 4297.673 ms (00:04.298)
+COPY 1815849
+Time: 3282.106 ms (00:03.282)
+COPY 1933285
+Time: 3616.253 ms (00:03.616)
+COPY 1742320
+Time: 2722.713 ms (00:02.723)
+ANALYZE
+Time: 3860.962 ms (00:03.861)
+Timing is off.
+   table_name   | row_count 
+----------------+-----------
+ raw_price      |  21039347
+ lookup_item    |       797
+ lookup_premise |      3929
+ cpi_state      |     44800
+(4 rows)
+
+   month    | row_count | first_day  |  last_day  | days_with_data 
+------------+-----------+------------+------------+----------------
+ 2025-10-01 |   1822288 | 2025-10-01 | 2025-10-31 |             31
+ 2025-11-01 |   1783107 | 2025-11-01 | 2025-11-30 |             30
+ 2025-12-01 |   1782274 | 2025-12-01 | 2025-12-31 |             30
+ 2026-01-01 |   1976483 | 2026-01-01 | 2026-01-31 |             31
+ 2026-02-01 |   1369552 | 2026-02-01 | 2026-02-28 |             25
+ 2026-03-01 |   1547695 | 2026-03-01 | 2026-03-31 |             25
+ 2026-04-01 |   1785221 | 2026-04-01 | 2026-04-30 |             30
+ 2026-05-01 |   1717713 | 2026-05-02 | 2026-05-31 |             29
+ 2026-06-01 |   1763560 | 2026-06-02 | 2026-06-30 |             27
+ 2026-07-01 |   1815849 | 2026-07-01 | 2026-07-31 |             31
+ 2026-08-01 |   1933285 | 2026-08-01 | 2026-08-30 |             29
+ 2026-09-01 |   1742320 | 2026-09-01 | 2026-09-29 |             28
+(12 rows)
+
+ first_date | last_date  | distinct_premises | distinct_items 
+------------+------------+-------------------+----------------
+ 2025-10-01 | 2026-09-29 |              2263 |            356
+(1 row)
+
+    date    | premise_code | item_code | price 
+------------+--------------+-----------+-------
+ 2025-10-01 |            2 |         1 | 10.60
+ 2025-10-01 |            2 |        47 | 10.00
+ 2025-10-01 |            2 |        69 |  6.00
+ 2025-10-01 |            2 |        88 |  9.00
+ 2025-10-01 |            2 |        92 |  7.00
+ 2025-10-01 |            2 |        94 | 12.00
+ 2025-10-01 |            2 |        95 | 10.00
+ 2025-10-01 |            2 |        96 |  6.00
+ 2025-10-01 |            2 |        97 |  7.00
+ 2025-10-01 |            2 |        98 |  6.00
+ 2025-10-01 |            2 |       104 |  3.50
+ 2025-10-01 |            2 |       105 |  2.80
+ 2025-10-01 |            2 |       108 | 12.00
+ 2025-10-01 |            2 |       109 |  4.00
+ 2025-10-01 |            2 |       113 |  3.50
+ 2025-10-01 |            2 |       114 |  4.00
+ 2025-10-01 |            2 |       129 |  5.00
+ 2025-10-01 |            2 |       131 |  6.00
+ 2025-10-01 |            2 |       132 | 12.00
+ 2025-10-01 |            2 |       845 | 32.00
+(20 rows)
+
+== 03 model: dimensions
+psql:sql/03_model/01_dim_item.sql:17: NOTICE:  table "dim_item" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 796
+      item_group_en      | items 
+-------------------------+-------
+ Packaged goods          |   219
+ Cooked food             |   191
+ Fresh produce           |   164
+ Milk and baby products  |    50
+ Beverages               |    50
+ Convenience store goods |    49
+ Household and hygiene   |    46
+ Dry goods               |    27
+(8 rows)
+
+psql:sql/03_model/02_dim_premise.sql:15: NOTICE:  table "dim_premise" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 3928
+      premise_type_en      | premises 
+---------------------------+----------
+ Mini market               |      924
+ Supermarket               |      888
+ Sundry shop               |      623
+ Wet market                |      360
+ Malay restaurant          |      297
+ Indian Muslim restaurant  |      223
+ Chinese restaurant        |      196
+ Hypermarket               |      180
+ Food court (Medan Selera) |      126
+ Food court                |       94
+ Wholesaler                |       15
+ Convenience store         |        2
+(12 rows)
+
+psql:sql/03_model/03_dim_date.sql:19: NOTICE:  table "dim_festival" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 5
+psql:sql/03_model/03_dim_date.sql:33: NOTICE:  table "dim_date" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 365
+      festive_period      | days | from_date  |  to_date   
+--------------------------+------+------------+------------
+ (not festive)            |  307 | 2025-10-01 | 2026-09-30
+ Pre-Deepavali            |   14 | 2025-10-06 | 2025-10-19
+ Pre-Chinese New Year     |   14 | 2026-02-03 | 2026-02-16
+ Pre-Ramadan              |    2 | 2026-02-17 | 2026-02-18
+ Pre-Hari Raya Aidilfitri |   14 | 2026-03-07 | 2026-03-20
+ Pre-Hari Raya Haji       |   14 | 2026-05-13 | 2026-05-26
+(6 rows)
+
+== 03 model: fact table with quality rules (about 5 minutes)
+psql:sql/03_model/04_fact_price.sql:27: NOTICE:  table "price_step1" does not exist, skipping
+DROP TABLE
+SELECT 20725660
+psql:sql/03_model/04_fact_price.sql:44: NOTICE:  table "item_month_median" does not exist, skipping
+DROP TABLE
+SELECT 3939
+psql:sql/03_model/04_fact_price.sql:66: NOTICE:  table "fact_price" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 20722545
+ALTER TABLE
+ANALYZE
+UPDATE 2262
+UPDATE 1666
+psql:sql/03_model/04_fact_price.sql:118: NOTICE:  table "data_quality_log" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 7
+ step |                      check_name                       |   rows   |       action        | pct_of_loaded 
+------+-------------------------------------------------------+----------+---------------------+---------------
+    0 | Rows loaded into staging                              | 21039347 | start               |       100.000
+    1 | Price missing or below RM 0.10                        |       76 | dropped             |         0.000
+    2 | Duplicate / conflicting prices (same day, shop, item) |        0 | collapsed to median |         0.000
+    4 | Item code not in lookup_item                          |   313598 | dropped             |         1.491
+    5 | Premise code not in lookup_premise                    |       13 | dropped             |         0.000
+    6 | Outlier: >5x or <1/5 of item median for the month     |     3115 | dropped             |         0.015
+    9 | Rows in core.fact_price                               | 20722545 | final               |        98.494
+(7 rows)
+
+ rows_removed | pct_removed 
+--------------+-------------
+       316802 |        1.51
+(1 row)
+
+== 03 model: indexes and timing test
+psql:sql/03_model/05_indexes_and_timing.sql:20: NOTICE:  index "idx_fact_item_date" does not exist, skipping
+DROP INDEX
+psql:sql/03_model/05_indexes_and_timing.sql:21: NOTICE:  index "idx_fact_premise" does not exist, skipping
+DROP INDEX
+                                                                    QUERY PLAN                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ GroupAggregate  (cost=254007.14..292202.43 rows=345 width=12) (actual time=8095.880..8347.559 rows=346 loops=1)
+   Group Key: date
+   ->  Gather Merge  (cost=254007.14..289887.55 rows=308075 width=10) (actual time=8092.669..8284.355 rows=290686 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         ->  Sort  (cost=253007.12..253328.03 rows=128365 width=10) (actual time=7692.353..7708.390 rows=96895 loops=3)
+               Sort Key: date
+               Sort Method: external merge  Disk: 3896kB
+               Worker 0:  Sort Method: quicksort  Memory: 3864kB
+               Worker 1:  Sort Method: quicksort  Memory: 3106kB
+               ->  Parallel Seq Scan on fact_price  (cost=0.00..239920.92 rows=128365 width=10) (actual time=64.078..7463.145 rows=96895 loops=3)
+                     Filter: (item_code = 1)
+                     Rows Removed by Filter: 6810620
+ Planning Time: 2.487 ms
+ JIT:
+   Functions: 16
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 55.360 ms, Inlining 0.000 ms, Optimization 19.998 ms, Emission 173.650 ms, Total 249.008 ms
+ Execution Time: 8405.243 ms
+(19 rows)
+
+                                                                    QUERY PLAN                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ GroupAggregate  (cost=254007.14..292202.43 rows=345 width=12) (actual time=2834.180..2933.150 rows=346 loops=1)
+   Group Key: date
+   ->  Gather Merge  (cost=254007.14..289887.55 rows=308075 width=10) (actual time=2833.836..2876.908 rows=290686 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         ->  Sort  (cost=253007.12..253328.03 rows=128365 width=10) (actual time=2636.262..2641.241 rows=96895 loops=3)
+               Sort Key: date
+               Sort Method: external merge  Disk: 3896kB
+               Worker 0:  Sort Method: quicksort  Memory: 3471kB
+               Worker 1:  Sort Method: quicksort  Memory: 3499kB
+               ->  Parallel Seq Scan on fact_price  (cost=0.00..239920.92 rows=128365 width=10) (actual time=41.978..2584.860 rows=96895 loops=3)
+                     Filter: (item_code = 1)
+                     Rows Removed by Filter: 6810620
+ Planning Time: 2.966 ms
+ JIT:
+   Functions: 16
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 35.435 ms, Inlining 0.000 ms, Optimization 15.950 ms, Emission 109.450 ms, Total 160.835 ms
+ Execution Time: 2967.923 ms
+(19 rows)
+
+                                                                     QUERY PLAN                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=241136.24..241258.15 rows=310 width=44) (actual time=372.730..379.049 rows=255 loops=1)
+   Group Key: item_code
+   ->  Gather Merge  (cost=241136.24..241248.08 rows=620 width=44) (actual time=372.651..378.786 rows=526 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         ->  Partial GroupAggregate  (cost=240136.22..240176.49 rows=310 width=44) (actual time=342.748..343.645 rows=175 loops=3)
+               Group Key: item_code
+               ->  Sort  (cost=240136.22..240145.32 rows=3640 width=10) (actual time=342.666..342.944 rows=7880 loops=3)
+                     Sort Key: item_code
+                     Sort Method: quicksort  Memory: 789kB
+                     Worker 0:  Sort Method: quicksort  Memory: 402kB
+                     Worker 1:  Sort Method: quicksort  Memory: 502kB
+                     ->  Parallel Seq Scan on fact_price  (cost=0.00..239920.92 rows=3640 width=10) (actual time=13.233..336.786 rows=7880 loops=3)
+                           Filter: (premise_code = 5274)
+                           Rows Removed by Filter: 6899635
+ Planning Time: 0.559 ms
+ JIT:
+   Functions: 30
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 2.940 ms, Inlining 0.000 ms, Optimization 0.846 ms, Emission 38.245 ms, Total 42.031 ms
+ Execution Time: 381.323 ms
+(21 rows)
+
+                                                                     QUERY PLAN                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=241136.24..241258.15 rows=310 width=44) (actual time=369.641..375.280 rows=255 loops=1)
+   Group Key: item_code
+   ->  Gather Merge  (cost=241136.24..241248.08 rows=620 width=44) (actual time=369.595..375.053 rows=537 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         ->  Partial GroupAggregate  (cost=240136.22..240176.49 rows=310 width=44) (actual time=345.965..346.903 rows=179 loops=3)
+               Group Key: item_code
+               ->  Sort  (cost=240136.22..240145.32 rows=3640 width=10) (actual time=345.907..346.186 rows=7880 loops=3)
+                     Sort Key: item_code
+                     Sort Method: quicksort  Memory: 736kB
+                     Worker 0:  Sort Method: quicksort  Memory: 741kB
+                     Worker 1:  Sort Method: quicksort  Memory: 409kB
+                     ->  Parallel Seq Scan on fact_price  (cost=0.00..239920.92 rows=3640 width=10) (actual time=15.032..344.405 rows=7880 loops=3)
+                           Filter: (premise_code = 5274)
+                           Rows Removed by Filter: 6899635
+ Planning Time: 0.102 ms
+ JIT:
+   Functions: 30
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 1.404 ms, Inlining 0.000 ms, Optimization 0.744 ms, Emission 25.668 ms, Total 27.816 ms
+ Execution Time: 376.051 ms
+(21 rows)
+
+                                                                 QUERY PLAN                                                                 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=110551.61..110578.86 rows=2180 width=36) (actual time=542.878..543.166 rows=1191 loops=1)
+   Group Key: premise_code
+   Batches: 1  Memory Usage: 625kB
+   ->  Bitmap Heap Scan on fact_price  (cost=47035.28..110426.32 rows=25057 width=10) (actual time=520.046..533.570 rows=24595 loops=1)
+         Recheck Cond: ((date >= '2026-09-01'::date) AND (date < '2026-10-01'::date) AND (item_code = 1))
+         Heap Blocks: exact=158
+         ->  Bitmap Index Scan on pk_fact_price  (cost=0.00..47029.01 rows=25057 width=0) (actual time=519.461..519.462 rows=24595 loops=1)
+               Index Cond: ((date >= '2026-09-01'::date) AND (date < '2026-10-01'::date) AND (item_code = 1))
+ Planning Time: 2.206 ms
+ JIT:
+   Functions: 8
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 0.526 ms, Inlining 0.000 ms, Optimization 0.824 ms, Emission 4.750 ms, Total 6.100 ms
+ Execution Time: 543.859 ms
+(14 rows)
+
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=110551.61..110578.86 rows=2180 width=36) (actual time=42.260..42.535 rows=1191 loops=1)
+   Group Key: premise_code
+   Batches: 1  Memory Usage: 625kB
+   ->  Bitmap Heap Scan on fact_price  (cost=47035.28..110426.32 rows=25057 width=10) (actual time=32.778..34.197 rows=24595 loops=1)
+         Recheck Cond: ((date >= '2026-09-01'::date) AND (date < '2026-10-01'::date) AND (item_code = 1))
+         Heap Blocks: exact=158
+         ->  Bitmap Index Scan on pk_fact_price  (cost=0.00..47029.01 rows=25057 width=0) (actual time=32.761..32.761 rows=24595 loops=1)
+               Index Cond: ((date >= '2026-09-01'::date) AND (date < '2026-10-01'::date) AND (item_code = 1))
+ Planning Time: 0.321 ms
+ JIT:
+   Functions: 8
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 0.464 ms, Inlining 0.000 ms, Optimization 0.315 ms, Emission 4.839 ms, Total 5.619 ms
+ Execution Time: 43.102 ms
+(14 rows)
+
+CREATE INDEX
+CREATE INDEX
+ANALYZE
+                                                                      QUERY PLAN                                                                       
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ GroupAggregate  (cost=0.44..239710.46 rows=345 width=12) (actual time=54.688..393.250 rows=346 loops=1)
+   Group Key: date
+   ->  Index Scan using idx_fact_item_date on fact_price  (cost=0.44..237670.15 rows=271466 width=10) (actual time=0.534..267.930 rows=290686 loops=1)
+         Index Cond: (item_code = 1)
+ Planning Time: 5.639 ms
+ JIT:
+   Functions: 8
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 13.833 ms, Inlining 0.000 ms, Optimization 6.919 ms, Emission 45.969 ms, Total 66.722 ms
+ Execution Time: 408.170 ms
+(10 rows)
+
+                                                                      QUERY PLAN                                                                      
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ GroupAggregate  (cost=0.44..239710.46 rows=345 width=12) (actual time=8.198..88.924 rows=346 loops=1)
+   Group Key: date
+   ->  Index Scan using idx_fact_item_date on fact_price  (cost=0.44..237670.15 rows=271466 width=10) (actual time=0.017..23.435 rows=290686 loops=1)
+         Index Cond: (item_code = 1)
+ Planning Time: 0.136 ms
+ JIT:
+   Functions: 8
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 1.300 ms, Inlining 0.000 ms, Optimization 0.386 ms, Emission 7.536 ms, Total 9.222 ms
+ Execution Time: 90.348 ms
+(10 rows)
+
+                                                               QUERY PLAN                                                                
+-----------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=71700.70..71704.42 rows=298 width=44) (actual time=1862.189..1862.285 rows=255 loops=1)
+   Group Key: item_code
+   Batches: 1  Memory Usage: 157kB
+   ->  Bitmap Heap Scan on fact_price  (cost=334.63..71477.93 rows=29702 width=10) (actual time=10.956..1844.041 rows=23641 loops=1)
+         Recheck Cond: (premise_code = 5274)
+         Heap Blocks: exact=23141
+         ->  Bitmap Index Scan on idx_fact_premise  (cost=0.00..327.20 rows=29702 width=0) (actual time=7.801..7.801 rows=23641 loops=1)
+               Index Cond: (premise_code = 5274)
+ Planning Time: 0.408 ms
+ Execution Time: 1862.785 ms
+(10 rows)
+
+                                                               QUERY PLAN                                                                
+-----------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=71700.70..71704.42 rows=298 width=44) (actual time=287.219..287.311 rows=255 loops=1)
+   Group Key: item_code
+   Batches: 1  Memory Usage: 157kB
+   ->  Bitmap Heap Scan on fact_price  (cost=334.63..71477.93 rows=29702 width=10) (actual time=11.386..279.619 rows=23641 loops=1)
+         Recheck Cond: (premise_code = 5274)
+         Heap Blocks: exact=23141
+         ->  Bitmap Index Scan on idx_fact_premise  (cost=0.00..327.20 rows=29702 width=0) (actual time=8.670..8.671 rows=23641 loops=1)
+               Index Cond: (premise_code = 5274)
+ Planning Time: 0.179 ms
+ Execution Time: 287.360 ms
+(10 rows)
+
+                                                                    QUERY PLAN                                                                     
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=35317.20..35344.41 rows=2177 width=36) (actual time=17.486..17.780 rows=1191 loops=1)
+   Group Key: premise_code
+   Batches: 1  Memory Usage: 625kB
+   ->  Index Scan using idx_fact_item_date on fact_price  (cost=0.44..35210.43 rows=21355 width=10) (actual time=0.420..13.322 rows=24595 loops=1)
+         Index Cond: ((item_code = 1) AND (date >= '2026-09-01'::date) AND (date < '2026-10-01'::date))
+ Planning Time: 1.418 ms
+ Execution Time: 17.849 ms
+(7 rows)
+
+                                                                    QUERY PLAN                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=35317.20..35344.41 rows=2177 width=36) (actual time=4.853..5.113 rows=1191 loops=1)
+   Group Key: premise_code
+   Batches: 1  Memory Usage: 625kB
+   ->  Index Scan using idx_fact_item_date on fact_price  (cost=0.44..35210.43 rows=21355 width=10) (actual time=0.009..1.835 rows=24595 loops=1)
+         Index Cond: ((item_code = 1) AND (date >= '2026-09-01'::date) AND (date < '2026-10-01'::date))
+ Planning Time: 0.092 ms
+ Execution Time: 5.163 ms
+(7 rows)
+
+       object       |  size   
+--------------------+---------
+ fact_price         | 1031 MB
+ pk_fact_price      | 623 MB
+ idx_fact_item_date | 143 MB
+ idx_fact_premise   | 138 MB
+(4 rows)
+
+== 03 model: monthly aggregate fact (about 1 minute)
+psql:sql/03_model/06_fact_premise_item_month.sql:26: NOTICE:  table "fact_premise_item_month" does not exist, skipping
+DROP TABLE
+SELECT 2851413
+ALTER TABLE
+CREATE INDEX
+ANALYZE
+   month    | shop_item_rows | raw_rows 
+------------+----------------+----------
+ 2025-10-01 |         238303 |  1797312
+ 2025-11-01 |         238338 |  1757696
+ 2025-12-01 |         238391 |  1756680
+ 2026-01-01 |         243148 |  1944905
+ 2026-02-01 |         231603 |  1350451
+ 2026-03-01 |         235439 |  1523321
+ 2026-04-01 |         234266 |  1761016
+ 2026-05-01 |         237271 |  1691007
+ 2026-06-01 |         238046 |  1733241
+ 2026-07-01 |         236264 |  1790187
+ 2026-08-01 |         241390 |  1900806
+ 2026-09-01 |         238954 |  1715923
+(12 rows)
+
+ premise_type_en | avg_reports_per_shop_item_month 
+-----------------+---------------------------------
+ Wet market      |                            15.4
+ Supermarket     |                             8.1
+ Hypermarket     |                             7.6
+ Mini market     |                             3.4
+ Sundry shop     |                             3.3
+(5 rows)
+
+ items | items_where_medians_differ | items_differ_by_over_5pct | largest_difference_pct 
+-------+----------------------------+---------------------------+------------------------
+   329 |                        123 |                        25 |                   25.6
+(1 row)
+
+== 05 views (about 1 minute)
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+CREATE VIEW
+psql:sql/05_views/01_create_views.sql:221: NOTICE:  materialized view "mv_item_weekly_spikes" does not exist, skipping
+DROP MATERIALIZED VIEW
+SELECT 12786
+CREATE INDEX
+        object         |  rows  
+-----------------------+--------
+ v_state_basket        |     16
+ v_district_basket     |    166
+ v_premise_index       |   2087
+ v_premise_item_price  | 238954
+ v_item_monthly        |   3939
+ v_festive_effect      |    160
+ mv_item_weekly_spikes |  12786
+(7 rows)
+
+== Done. Quality checks (sql/02_quality) and analysis (sql/04_analysis) run one file at a time.

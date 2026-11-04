@@ -1,0 +1,24 @@
+Timing is on.
+ premise_type_en | items_compared | price_index | items_below_national | items_above_national 
+-----------------+----------------+-------------+----------------------+----------------------
+ Hypermarket     |            181 |        95.0 |                  136 |                   30
+ Supermarket     |            181 |        97.7 |                  102 |                   39
+ Mini market     |            181 |       102.3 |                   55 |                   85
+ Wet market      |            181 |       104.2 |                   32 |                  108
+ Sundry shop     |            181 |       104.3 |                   27 |                  129
+(5 rows)
+
+Time: 702.992 ms
+                    item                     |  unit   | hypermarket | supermarket | mini_market | sundry_shop | wet_market 
+---------------------------------------------+---------+-------------+-------------+-------------+-------------+------------
+ AYAM BERSIH - STANDARD                      | 1kg     |        8.99 |        8.99 |        9.50 |        9.90 |      10.50
+ BAWANG BESAR KUNING/HOLLAND                 | 1kg     |        3.59 |        3.60 |        4.00 |        4.50 |       5.00
+ BAWANG PUTIH IMPORT (CHINA)                 | 1kg     |        6.99 |        8.49 |        9.49 |       10.00 |      10.00
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 10 kg   |       31.85 |       32.55 |       31.90 |       33.00 |      35.00
+ CILI MERAH - KULAI                          | 1kg     |       17.50 |       15.99 |       16.90 |       18.00 |      18.00
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 1kg     |        2.85 |        2.85 |        2.85 |        2.85 |       2.85
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 1kg     |        2.50 |        2.50 |        2.50 |        2.50 |       2.50
+ TELUR AYAM GRED B                           | 30 biji |       14.49 |       15.00 |       15.40 |       15.60 |      15.60
+(8 rows)
+
+Time: 88.993 ms

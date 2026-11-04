@@ -1,0 +1,52 @@
+Timing is on.
+psql:sql/04_analysis/q13_biggest_price_changes.sql:20: NOTICE:  table "item_change" does not exist, skipping
+DROP TABLE
+Time: 0.320 ms
+SELECT 288
+Time: 5188.731 ms (00:05.189)
+                                item                                 | unit  | matched_premises | matched_change_pct | naive_change_pct | pct_shops_raising 
+---------------------------------------------------------------------+-------+------------------+--------------------+------------------+-------------------
+ TOMATO                                                              | 1kg   |             1518 |               69.4 |             60.0 |                95
+ BAWANG BESAR IMPORT (PAKISTAN)                                      | 1kg   |               30 |               35.2 |              3.7 |                77
+ TERUNG BULAT                                                        | 1kg   |              777 |               31.9 |             34.1 |                84
+ BAWANG BESAR IMPORT (CHINA)                                         | 1kg   |              200 |               30.3 |             18.5 |                74
+ BETIK BIASA                                                         | 1kg   |              209 |               28.8 |             27.1 |                92
+ BAWANG KECIL MERAH BIASA IMPORT (INDIA)                             | 1kg   |              850 |               24.0 |             12.8 |                65
+ PISANG EMAS                                                         | 1kg   |               65 |               16.7 |             20.2 |                80
+ BAWANG BESAR IMPORT (INDIA)                                         | 1kg   |             1318 |               16.7 |             14.0 |                64
+ MINYAK SAPI CAP WINDMILL GHEEBLEND                                  | 400 g |              489 |               15.2 |              9.5 |                79
+ PISANG BERANGAN                                                     | 1kg   |              153 |               14.3 |              8.6 |                86
+ DAGING KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (AUSTRALIA - KOTAK) | 1kg   |              177 |               13.4 |             13.3 |                96
+ CILI KERING KERINTING (BERTANGKAI/TIDAK BERTANGKAI)                 | 1kg   |             1143 |               13.3 |              9.3 |                66
+ KAILAN                                                              | 1kg   |              895 |               12.0 |             12.9 |                63
+ DAGING KERBAU IMPORT (INDIA) * (CHUCK)                              | 1kg   |              100 |               12.0 |             13.5 |                90
+ SOTONG KERING (SAIZ SERDAHANA)                                      | 1kg   |               79 |               11.1 |             24.7 |                65
+(15 rows)
+
+Time: 3.449 ms
+                        item                         |        unit         | matched_premises | matched_change_pct | naive_change_pct | pct_shops_raising 
+-----------------------------------------------------+---------------------+------------------+--------------------+------------------+-------------------
+ TEMBIKAI MERAH TANPA BIJI                           | 1kg                 |              239 |              -33.2 |            -33.4 |                10
+ KUBIS BUNGA (CAULIFLOWER)                           | 1kg                 |             1464 |              -27.3 |            -30.7 |                 5
+ BROKOLI                                             | 1kg                 |              796 |              -20.1 |            -17.4 |                 7
+ TIMUN                                               | 1kg                 |             1527 |               -9.1 |             -2.5 |                23
+ HALIA BASAH (TUA)                                   | 1kg                 |             1714 |               -7.8 |            -10.0 |                16
+ NESCAFE 3 IN 1 ORIGINAL (AROMATIC & BALANCED)       | 25 x 18g            |              705 |               -6.7 |             -6.5 |                23
+ SANTAN KELAPA JENAMA AYAM BRAND                     | 1 liter             |             1417 |               -6.1 |             -6.1 |                 7
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)                 | 10 kg               |              699 |               -5.7 |             -8.3 |                 8
+ UDANG PUTIH KECIL (b    % 61 EKOR SEKILOGRAM)       | 1kg                 |              117 |               -4.6 |            -11.0 |                23
+ UDANG HARIMAU (ANTARA 20 HINGGA 30 EKOR SEKILOGRAM) | 1kg                 |              194 |               -4.1 |             -7.1 |                30
+ TEPUNG GANDUM NGP (BERBUNGKUS, CAP MUHIBAH)         | 1kg                 |               78 |               -3.6 |             -3.0 |                12
+ KUBIS BULAT (TEMPATAN)                              | 1kg                 |              614 |               -3.0 |             -2.1 |                29
+ BERAS CAP JASMINE SUPER 5 SPECIAL (IMPORT)          | 10 kg               |              633 |               -2.6 |             -4.1 |                 8
+ LIMAU NIPIS                                         | 1kg                 |             1333 |               -2.2 |            -11.4 |                25
+ HUGGIES DRY TAPE                                    | S80, M60, L54, XL42 |              644 |               -2.1 |             -6.1 |                21
+(15 rows)
+
+Time: 0.960 ms
+ items | up_more_than_5pct | within_5pct | down_more_than_5pct | median_item_change_pct | naive_off_by_over_2pts | naive_opposite_direction | avg_gap_naive_vs_matched_pts 
+-------+-------------------+-------------+---------------------+------------------------+------------------------+--------------------------+------------------------------
+   288 |                38 |         242 |                   8 |                   0.00 |                     82 |                        0 |                          1.9
+(1 row)
+
+Time: 12.953 ms

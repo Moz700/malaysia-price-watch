@@ -1,0 +1,70 @@
+Timing is on.
+       festival       |       state       | matched_pairs | staple_change_pct | rank_in_festival 
+----------------------+-------------------+---------------+-------------------+------------------
+ Chinese New Year     | W.P. Labuan       |           161 |              1.85 |                1
+ Chinese New Year     | Sabah             |          1905 |              0.35 |                2
+ Chinese New Year     | Sarawak           |          2820 |             -0.04 |                3
+ Chinese New Year     | Kedah             |          1551 |             -2.29 |                4
+ Chinese New Year     | Johor             |          3721 |             -2.40 |                5
+ Chinese New Year     | Melaka            |           872 |             -2.47 |                6
+ Chinese New Year     | W.P. Putrajaya    |           478 |             -2.51 |                7
+ Chinese New Year     | Pulau Pinang      |          2161 |             -2.51 |                8
+ Chinese New Year     | Perak             |          3033 |             -2.61 |                9
+ Chinese New Year     | Selangor          |          2431 |             -2.64 |               10
+ Chinese New Year     | Negeri Sembilan   |          1097 |             -2.71 |               11
+ Chinese New Year     | W.P. Kuala Lumpur |          2963 |             -2.92 |               12
+ Chinese New Year     | Perlis            |           398 |             -3.43 |               13
+ Chinese New Year     | Pahang            |          2270 |             -3.64 |               14
+ Chinese New Year     | Terengganu        |          1647 |             -4.17 |               15
+ Chinese New Year     | Kelantan          |          1912 |             -4.38 |               16
+ Hari Raya Aidilfitri | Sabah             |          1852 |             -1.02 |                1
+ Hari Raya Aidilfitri | W.P. Labuan       |           149 |             -1.10 |                2
+ Hari Raya Aidilfitri | Sarawak           |          2851 |             -3.67 |                3
+ Hari Raya Aidilfitri | Perlis            |           423 |             -4.37 |                4
+ Hari Raya Aidilfitri | W.P. Putrajaya    |           476 |             -4.89 |                5
+ Hari Raya Aidilfitri | Kelantan          |          1939 |             -5.09 |                6
+ Hari Raya Aidilfitri | Pulau Pinang      |          2116 |             -5.17 |                7
+ Hari Raya Aidilfitri | Terengganu        |          1672 |             -5.24 |                8
+ Hari Raya Aidilfitri | Johor             |          3702 |             -5.31 |                9
+ Hari Raya Aidilfitri | Negeri Sembilan   |          1086 |             -5.45 |               10
+ Hari Raya Aidilfitri | Melaka            |           878 |             -5.50 |               11
+ Hari Raya Aidilfitri | Perak             |          3035 |             -5.51 |               12
+ Hari Raya Aidilfitri | W.P. Kuala Lumpur |          2965 |             -5.63 |               13
+ Hari Raya Aidilfitri | Kedah             |          1553 |             -5.66 |               14
+ Hari Raya Aidilfitri | Pahang            |          2300 |             -5.86 |               15
+ Hari Raya Aidilfitri | Selangor          |          2362 |             -5.88 |               16
+ Hari Raya Haji       | Kedah             |          1556 |              2.50 |                1
+ Hari Raya Haji       | Kelantan          |          2007 |              2.05 |                2
+ Hari Raya Haji       | Perak             |          3109 |              2.03 |                3
+ Hari Raya Haji       | Pulau Pinang      |          2168 |              1.79 |                4
+ Hari Raya Haji       | Melaka            |           863 |              1.75 |                5
+ Hari Raya Haji       | Johor             |          3762 |              1.71 |                6
+ Hari Raya Haji       | Pahang            |          2313 |              1.56 |                7
+ Hari Raya Haji       | W.P. Kuala Lumpur |          3002 |              1.49 |                8
+ Hari Raya Haji       | Negeri Sembilan   |          1107 |              1.18 |                9
+ Hari Raya Haji       | Terengganu        |          1706 |              1.13 |               10
+ Hari Raya Haji       | Perlis            |           426 |              1.10 |               11
+ Hari Raya Haji       | Selangor          |          2430 |              1.01 |               12
+ Hari Raya Haji       | W.P. Putrajaya    |           463 |              0.71 |               13
+ Hari Raya Haji       | Sabah             |          2026 |             -1.71 |               14
+ Hari Raya Haji       | Sarawak           |          2879 |             -2.72 |               15
+ Hari Raya Haji       | W.P. Labuan       |           181 |             -3.14 |               16
+ Ramadan              | W.P. Labuan       |           160 |              1.58 |                1
+ Ramadan              | Sabah             |          1889 |              0.28 |                2
+ Ramadan              | Sarawak           |          2805 |             -0.32 |                3
+ Ramadan              | Kedah             |          1549 |             -2.44 |                4
+ Ramadan              | Johor             |          3717 |             -2.49 |                5
+ Ramadan              | Melaka            |           870 |             -2.51 |                6
+ Ramadan              | W.P. Putrajaya    |           477 |             -2.58 |                7
+ Ramadan              | Pulau Pinang      |          2161 |             -2.68 |                8
+ Ramadan              | Selangor          |          2423 |             -2.74 |                9
+ Ramadan              | Perak             |          3028 |             -2.75 |               10
+ Ramadan              | Negeri Sembilan   |          1106 |             -2.77 |               11
+ Ramadan              | W.P. Kuala Lumpur |          2969 |             -3.06 |               12
+ Ramadan              | Perlis            |           397 |             -3.47 |               13
+ Ramadan              | Pahang            |          2270 |             -3.75 |               14
+ Ramadan              | Terengganu        |          1646 |             -4.32 |               15
+ Ramadan              | Kelantan          |          1909 |             -4.60 |               16
+(64 rows)
+
+Time: 13613.536 ms (00:13.614)

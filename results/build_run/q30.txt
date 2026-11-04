@@ -1,0 +1,9 @@
+Timing is on.
+ finding |              stakeholder              |                                                                  headline                                                                   
+---------+---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------
+       1 | B. Retail category manager            | Hypermarkets were 9.0% cheaper than sundry shops on the same 181 items (Sep 2026)
+       2 | A. Consumer and policy analyst (KPDN) | The same 265-item basket cost RM 4,349.65 in W.P. Kuala Lumpur vs RM 3,959.53 in Kedah: 9.9% more
+       3 | C. Procurement / supply chain analyst | 84% of 288 items moved less than 5% in a year; 3 categories (SAYUR-SAYURAN, BAWANG, DAGING) made 58% of all increases with 17% of the items
+(3 rows)
+
+Time: 11115.280 ms (00:11.115)

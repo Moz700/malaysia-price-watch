@@ -1,0 +1,19 @@
+psql:sql/05_views/02_materialized_view_timing.sql:13: NOTICE:  view "v_item_weekly_spikes_live" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+Timing is on.
+ count | round 
+-------+-------
+    53 |  8.92
+(1 row)
+
+Time: 52546.007 ms (00:52.546)
+ count | round 
+-------+-------
+    53 |  8.92
+(1 row)
+
+Time: 46.445 ms
+REFRESH MATERIALIZED VIEW
+Time: 50555.154 ms (00:50.555)
+Timing is off.

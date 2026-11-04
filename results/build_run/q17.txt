@@ -1,0 +1,109 @@
+Timing is on.
+psql:sql/04_analysis/q17_month_on_month_change.sql:16: NOTICE:  table "item_month" does not exist, skipping
+DROP TABLE
+Time: 0.713 ms
+SELECT 3939
+Time: 10668.349 ms (00:10.668)
+                    item                     |   month    | median_rm | prev_month_rm | mom_change_pct 
+---------------------------------------------+------------+-----------+---------------+----------------
+ AYAM BERSIH - STANDARD                      | 2025-10-01 |      8.59 |               |               
+ AYAM BERSIH - STANDARD                      | 2025-11-01 |      9.00 |          8.59 |            4.8
+ AYAM BERSIH - STANDARD                      | 2025-12-01 |      8.69 |          9.00 |           -3.4
+ AYAM BERSIH - STANDARD                      | 2026-01-01 |      8.99 |          8.69 |            3.5
+ AYAM BERSIH - STANDARD                      | 2026-02-01 |      9.30 |          8.99 |            3.4
+ AYAM BERSIH - STANDARD                      | 2026-03-01 |      8.50 |          9.30 |           -8.6
+ AYAM BERSIH - STANDARD                      | 2026-04-01 |      8.39 |          8.50 |           -1.3
+ AYAM BERSIH - STANDARD                      | 2026-05-01 |      8.60 |          8.39 |            2.5
+ AYAM BERSIH - STANDARD                      | 2026-06-01 |      9.30 |          8.60 |            8.1
+ AYAM BERSIH - STANDARD                      | 2026-07-01 |      9.40 |          9.30 |            1.1
+ AYAM BERSIH - STANDARD                      | 2026-08-01 |      9.40 |          9.40 |            0.0
+ AYAM BERSIH - STANDARD                      | 2026-09-01 |      9.40 |          9.40 |            0.0
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-10-01 |     34.90 |               |               
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-11-01 |     34.49 |         34.90 |           -1.2
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-12-01 |     33.99 |         34.49 |           -1.4
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-01-01 |     33.90 |         33.99 |           -0.3
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-02-01 |     33.88 |         33.90 |           -0.1
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-03-01 |     32.59 |         33.88 |           -3.8
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-04-01 |     32.99 |         32.59 |            1.2
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-05-01 |     32.99 |         32.99 |            0.0
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-01 |     31.99 |         32.99 |           -3.0
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-07-01 |     32.00 |         31.99 |            0.0
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-08-01 |     31.99 |         32.00 |            0.0
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-09-01 |     31.99 |         31.99 |            0.0
+ CILI MERAH - KULAI                          | 2025-10-01 |     16.00 |               |               
+ CILI MERAH - KULAI                          | 2025-11-01 |     16.00 |         16.00 |            0.0
+ CILI MERAH - KULAI                          | 2025-12-01 |     19.00 |         16.00 |           18.8
+ CILI MERAH - KULAI                          | 2026-01-01 |     20.00 |         19.00 |            5.3
+ CILI MERAH - KULAI                          | 2026-02-01 |     18.00 |         20.00 |          -10.0
+ CILI MERAH - KULAI                          | 2026-03-01 |     15.00 |         18.00 |          -16.7
+ CILI MERAH - KULAI                          | 2026-04-01 |     14.00 |         15.00 |           -6.7
+ CILI MERAH - KULAI                          | 2026-05-01 |     13.90 |         14.00 |           -0.7
+ CILI MERAH - KULAI                          | 2026-06-01 |     15.55 |         13.90 |           11.9
+ CILI MERAH - KULAI                          | 2026-07-01 |     16.00 |         15.55 |            2.9
+ CILI MERAH - KULAI                          | 2026-08-01 |     16.00 |         16.00 |            0.0
+ CILI MERAH - KULAI                          | 2026-09-01 |     17.00 |         16.00 |            6.3
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-10-01 |      2.85 |               |               
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-11-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-12-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-01-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-02-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-04-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-05-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-07-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-08-01 |      2.85 |          2.85 |            0.0
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-09-01 |      2.85 |          2.85 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-10-01 |      2.50 |               |               
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-11-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-12-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-01-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-02-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-03-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-04-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-05-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-07-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-08-01 |      2.50 |          2.50 |            0.0
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-09-01 |      2.50 |          2.50 |            0.0
+ TELUR AYAM GRED B                           | 2025-10-01 |     13.90 |               |               
+ TELUR AYAM GRED B                           | 2025-11-01 |     11.69 |         13.90 |          -15.9
+ TELUR AYAM GRED B                           | 2025-12-01 |     13.30 |         11.69 |           13.8
+ TELUR AYAM GRED B                           | 2026-01-01 |     13.50 |         13.30 |            1.5
+ TELUR AYAM GRED B                           | 2026-02-01 |     12.75 |         13.50 |           -5.6
+ TELUR AYAM GRED B                           | 2026-03-01 |     12.40 |         12.75 |           -2.7
+ TELUR AYAM GRED B                           | 2026-04-01 |     10.50 |         12.40 |          -15.3
+ TELUR AYAM GRED B                           | 2026-05-01 |     10.60 |         10.50 |            1.0
+ TELUR AYAM GRED B                           | 2026-06-01 |     11.90 |         10.60 |           12.3
+ TELUR AYAM GRED B                           | 2026-07-01 |     12.90 |         11.90 |            8.4
+ TELUR AYAM GRED B                           | 2026-08-01 |     14.39 |         12.90 |           11.6
+ TELUR AYAM GRED B                           | 2026-09-01 |     15.30 |         14.39 |            6.3
+(72 rows)
+
+Time: 29.520 ms
+                 item                  | unit |   month    | premises | median_rm | mom_change_pct 
+---------------------------------------+------+------------+----------+-----------+----------------
+ TEMBIKAI MERAH TANPA BIJI             | 1kg  | 2026-06-01 |      275 |      3.69 |           85.4
+ CILI AKAR MERAH                       | 1kg  | 2025-12-01 |     1219 |     28.00 |           65.7
+ SAWI PENDEK/JEPUN/SIOW PAK CHOY (1KG) | 1kg  | 2025-12-01 |     1337 |      9.00 |           50.0
+ TOMATO                                | 1kg  | 2026-06-01 |     1634 |      7.00 |           40.0
+ KANGKUNG                              | 1kg  | 2025-12-01 |     1230 |      6.99 |           39.8
+ BAWANG KECIL MERAH IMPORT (CHINA)     | 1kg  | 2026-01-01 |       87 |      6.90 |           38.0
+ KAILAN                                | 1kg  | 2025-12-01 |     1032 |     10.00 |           37.9
+ CILI AKAR HIJAU                       | 1kg  | 2026-05-01 |     1372 |     14.90 |           35.6
+ CILI AKAR MERAH                       | 1kg  | 2026-03-01 |     1203 |     15.00 |          -34.8
+ CILI AKAR HIJAU                       | 1kg  | 2025-12-01 |     1370 |     20.00 |           33.4
+(10 rows)
+
+Time: 7.056 ms
+     item_group_en      | items | avg_abs_mom_change_pct | pct_months_no_change 
+------------------------+-------+------------------------+----------------------
+ Fresh produce          |    97 |                   4.94 |                 29.3
+ Dry goods              |    19 |                   3.18 |                 45.3
+ Household and hygiene  |    27 |                   1.51 |                 34.0
+ Packaged goods         |   100 |                   0.55 |                 65.4
+ Beverages              |    29 |                   0.54 |                 57.0
+ Milk and baby products |    25 |                   0.50 |                 52.7
+(6 rows)
+
+Time: 16.979 ms

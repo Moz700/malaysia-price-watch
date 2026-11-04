@@ -1,0 +1,262 @@
+Timing is on.
+                    item                     | week_start | premises | weekly_median_rm | rolling_4wk_avg_rm 
+---------------------------------------------+------------+----------+------------------+--------------------
+ AYAM BERSIH - STANDARD                      | 2025-09-29 |      839 |             8.27 |               8.27
+ AYAM BERSIH - STANDARD                      | 2025-10-06 |     1129 |             8.50 |               8.39
+ AYAM BERSIH - STANDARD                      | 2025-10-13 |     1138 |             8.58 |               8.45
+ AYAM BERSIH - STANDARD                      | 2025-10-20 |      841 |             8.49 |               8.46
+ AYAM BERSIH - STANDARD                      | 2025-10-27 |     1132 |             8.89 |               8.62
+ AYAM BERSIH - STANDARD                      | 2025-11-03 |     1123 |             8.99 |               8.74
+ AYAM BERSIH - STANDARD                      | 2025-11-10 |     1121 |             8.99 |               8.84
+ AYAM BERSIH - STANDARD                      | 2025-11-17 |     1123 |             8.99 |               8.97
+ AYAM BERSIH - STANDARD                      | 2025-11-24 |     1118 |             8.95 |               8.98
+ AYAM BERSIH - STANDARD                      | 2025-12-01 |     1118 |             8.90 |               8.96
+ AYAM BERSIH - STANDARD                      | 2025-12-08 |     1119 |             8.84 |               8.92
+ AYAM BERSIH - STANDARD                      | 2025-12-15 |     1131 |             8.49 |               8.79
+ AYAM BERSIH - STANDARD                      | 2025-12-22 |     1123 |             8.27 |               8.63
+ AYAM BERSIH - STANDARD                      | 2025-12-29 |      837 |             8.72 |               8.58
+ AYAM BERSIH - STANDARD                      | 2026-01-05 |     1112 |             8.96 |               8.61
+ AYAM BERSIH - STANDARD                      | 2026-01-12 |     1120 |             8.99 |               8.74
+ AYAM BERSIH - STANDARD                      | 2026-01-19 |     1119 |             8.99 |               8.92
+ AYAM BERSIH - STANDARD                      | 2026-01-26 |     1128 |             9.15 |               9.02
+ AYAM BERSIH - STANDARD                      | 2026-02-02 |      838 |             9.20 |               9.08
+ AYAM BERSIH - STANDARD                      | 2026-02-09 |     1133 |             9.29 |               9.16
+ AYAM BERSIH - STANDARD                      | 2026-02-16 |      836 |             9.29 |               9.23
+ AYAM BERSIH - STANDARD                      | 2026-02-23 |     1139 |             9.30 |               9.27
+ AYAM BERSIH - STANDARD                      | 2026-03-02 |     1120 |             9.04 |               9.23
+ AYAM BERSIH - STANDARD                      | 2026-03-09 |     1129 |             8.59 |               9.05
+ AYAM BERSIH - STANDARD                      | 2026-03-16 |     1129 |             8.49 |               8.85
+ AYAM BERSIH - STANDARD                      | 2026-03-23 |      839 |             8.02 |               8.53
+ AYAM BERSIH - STANDARD                      | 2026-03-30 |     1119 |             7.69 |               8.20
+ AYAM BERSIH - STANDARD                      | 2026-04-06 |     1123 |             7.76 |               7.99
+ AYAM BERSIH - STANDARD                      | 2026-04-13 |     1127 |             8.36 |               7.96
+ AYAM BERSIH - STANDARD                      | 2026-04-20 |     1132 |             8.60 |               8.10
+ AYAM BERSIH - STANDARD                      | 2026-04-27 |     1129 |             8.50 |               8.31
+ AYAM BERSIH - STANDARD                      | 2026-05-04 |     1127 |             8.42 |               8.47
+ AYAM BERSIH - STANDARD                      | 2026-05-11 |     1132 |             8.50 |               8.50
+ AYAM BERSIH - STANDARD                      | 2026-05-18 |     1150 |             8.65 |               8.52
+ AYAM BERSIH - STANDARD                      | 2026-05-25 |     1092 |             8.94 |               8.63
+ AYAM BERSIH - STANDARD                      | 2026-06-01 |     1132 |             9.10 |               8.80
+ AYAM BERSIH - STANDARD                      | 2026-06-08 |     1158 |             9.08 |               8.94
+ AYAM BERSIH - STANDARD                      | 2026-06-15 |     1161 |             9.37 |               9.12
+ AYAM BERSIH - STANDARD                      | 2026-06-22 |     1152 |             9.40 |               9.24
+ AYAM BERSIH - STANDARD                      | 2026-06-29 |     1151 |             9.39 |               9.31
+ AYAM BERSIH - STANDARD                      | 2026-07-06 |     1157 |             9.39 |               9.39
+ AYAM BERSIH - STANDARD                      | 2026-07-13 |     1153 |             9.40 |               9.40
+ AYAM BERSIH - STANDARD                      | 2026-07-20 |     1154 |             9.40 |               9.40
+ AYAM BERSIH - STANDARD                      | 2026-07-27 |     1151 |             9.39 |               9.40
+ AYAM BERSIH - STANDARD                      | 2026-08-03 |     1158 |             9.39 |               9.40
+ AYAM BERSIH - STANDARD                      | 2026-08-10 |     1152 |             9.39 |               9.39
+ AYAM BERSIH - STANDARD                      | 2026-08-17 |     1154 |             9.39 |               9.39
+ AYAM BERSIH - STANDARD                      | 2026-08-24 |     1166 |             9.39 |               9.39
+ AYAM BERSIH - STANDARD                      | 2026-08-31 |      869 |             9.29 |               9.37
+ AYAM BERSIH - STANDARD                      | 2026-09-07 |     1156 |             9.39 |               9.37
+ AYAM BERSIH - STANDARD                      | 2026-09-14 |     1158 |             9.39 |               9.37
+ AYAM BERSIH - STANDARD                      | 2026-09-21 |     1160 |             9.39 |               9.37
+ AYAM BERSIH - STANDARD                      | 2026-09-28 |     1149 |             9.39 |               9.39
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-10-06 |      724 |            34.90 |              34.90
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-10-13 |      759 |            34.90 |              34.90
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-10-27 |      736 |            34.90 |              34.90
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-11-03 |      743 |            34.90 |              34.90
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-11-10 |      733 |            34.50 |              34.80
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-11-17 |      741 |            34.90 |              34.80
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-11-24 |      752 |            33.99 |              34.57
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-12-01 |      732 |            33.99 |              34.35
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-12-08 |      718 |            33.99 |              34.22
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-12-15 |      728 |            34.00 |              33.99
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2025-12-22 |      735 |            33.99 |              33.99
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-01-05 |      740 |            33.99 |              33.99
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-01-12 |      725 |            33.90 |              33.97
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-01-19 |      724 |            33.88 |              33.94
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-01-26 |      781 |            33.90 |              33.92
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-02-09 |      765 |            33.90 |              33.90
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-02-23 |      680 |            32.99 |              33.67
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-03-02 |      727 |            32.90 |              33.42
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-03-09 |      760 |            32.59 |              33.10
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-03-16 |      780 |            32.90 |              32.85
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-03-30 |      773 |            32.99 |              32.85
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-04-06 |      763 |            32.99 |              32.87
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-04-13 |      761 |            32.99 |              32.97
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-04-20 |      790 |            32.99 |              32.99
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-04-27 |      826 |            32.99 |              32.99
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-05-04 |      798 |            33.90 |              33.22
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-05-11 |      791 |            32.99 |              33.22
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-05-18 |      795 |            32.90 |              33.20
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-05-25 |      692 |            31.99 |              32.95
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-01 |      764 |            32.50 |              32.60
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-08 |      785 |            32.50 |              32.47
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-15 |      767 |            32.00 |              32.25
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-22 |      773 |            31.99 |              32.25
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-06-29 |      794 |            31.99 |              32.12
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-07-06 |      765 |            32.50 |              32.12
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-07-13 |      740 |            32.50 |              32.25
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-07-20 |      774 |            32.50 |              32.37
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-07-27 |      805 |            32.00 |              32.38
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-08-03 |      796 |            32.90 |              32.48
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-08-10 |      766 |            32.90 |              32.58
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-08-17 |      793 |            31.99 |              32.45
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-08-24 |      833 |            31.95 |              32.44
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-09-07 |      757 |            32.49 |              32.33
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-09-14 |      770 |            32.00 |              32.11
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-09-21 |      774 |            31.97 |              32.10
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 2026-09-28 |      798 |            31.90 |              32.09
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-10-06 |     1793 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-10-13 |     1870 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-10-20 |      159 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-10-27 |     1829 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-11-03 |     1815 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-11-10 |     1806 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-11-17 |     1824 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-11-24 |     1828 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-12-01 |     1826 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-12-08 |     1766 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-12-15 |     1763 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2025-12-22 |     1808 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-01-05 |     1801 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-01-12 |     1805 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-01-19 |     1833 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-01-26 |     1882 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-02-09 |     1887 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-02-23 |     1769 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-02 |     1784 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-09 |     1814 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-16 |     1796 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-23 |      134 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-03-30 |     1666 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-04-06 |     1783 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-04-13 |     1805 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-04-20 |     1814 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-04-27 |     1821 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-05-04 |     1819 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-05-11 |     1836 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-05-18 |     1804 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-05-25 |     1641 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-01 |     1540 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-08 |     1800 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-15 |     1826 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-22 |     1815 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-06-29 |     1817 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-07-06 |     1821 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-07-13 |     1837 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-07-20 |     1829 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-07-27 |     1831 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-08-03 |     1830 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-08-10 |     1827 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-08-17 |     1841 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-08-24 |     1886 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-09-07 |     1842 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-09-14 |     1850 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-09-21 |     1846 |             2.85 |               2.85
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 2026-09-28 |     1839 |             2.85 |               2.85
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-10-06 |      561 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-10-13 |      696 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-10-27 |      611 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-11-03 |      548 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-11-10 |      559 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-11-17 |      605 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-11-24 |      614 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-12-01 |      600 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-12-08 |      576 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-12-15 |      632 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2025-12-22 |      636 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-01-05 |      514 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-01-12 |      562 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-01-19 |      630 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-01-26 |      764 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-02-09 |      750 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-02-23 |      589 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-03-02 |      624 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-03-09 |      708 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-03-16 |      747 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-03-30 |      726 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-04-06 |      746 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-04-13 |      760 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-04-20 |      802 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-04-27 |      843 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-05-04 |      767 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-05-11 |      778 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-05-18 |      788 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-05-25 |      769 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-01 |      697 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-08 |      740 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-15 |      787 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-22 |      805 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-06-29 |      826 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-07-06 |      751 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-07-13 |      754 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-07-20 |      782 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-07-27 |      808 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-08-03 |      705 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-08-10 |      733 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-08-17 |      755 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-08-24 |      842 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-09-07 |      676 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-09-14 |      689 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-09-21 |      709 |             2.50 |               2.50
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 2026-09-28 |      703 |             2.50 |               2.50
+ TELUR AYAM GRED B                           | 2025-09-29 |      725 |            13.90 |              13.90
+ TELUR AYAM GRED B                           | 2025-10-06 |     1107 |            14.00 |              13.95
+ TELUR AYAM GRED B                           | 2025-10-13 |     1194 |            13.90 |              13.93
+ TELUR AYAM GRED B                           | 2025-10-20 |      770 |            13.50 |              13.83
+ TELUR AYAM GRED B                           | 2025-10-27 |     1156 |            13.20 |              13.65
+ TELUR AYAM GRED B                           | 2025-11-03 |     1152 |            12.17 |              13.19
+ TELUR AYAM GRED B                           | 2025-11-10 |     1155 |            11.50 |              12.59
+ TELUR AYAM GRED B                           | 2025-11-17 |     1158 |            11.40 |              12.07
+ TELUR AYAM GRED B                           | 2025-11-24 |     1137 |            11.39 |              11.62
+ TELUR AYAM GRED B                           | 2025-12-01 |     1177 |            11.65 |              11.49
+ TELUR AYAM GRED B                           | 2025-12-08 |     1173 |            12.80 |              11.81
+ TELUR AYAM GRED B                           | 2025-12-15 |     1187 |            13.50 |              12.34
+ TELUR AYAM GRED B                           | 2025-12-22 |     1181 |            13.80 |              12.94
+ TELUR AYAM GRED B                           | 2025-12-29 |      780 |            13.70 |              13.45
+ TELUR AYAM GRED B                           | 2026-01-05 |     1182 |            13.76 |              13.69
+ TELUR AYAM GRED B                           | 2026-01-12 |     1182 |            13.50 |              13.69
+ TELUR AYAM GRED B                           | 2026-01-19 |     1228 |            13.20 |              13.54
+ TELUR AYAM GRED B                           | 2026-01-26 |     1273 |            12.90 |              13.34
+ TELUR AYAM GRED B                           | 2026-02-02 |      781 |            12.45 |              13.01
+ TELUR AYAM GRED B                           | 2026-02-09 |     1242 |            12.60 |              12.79
+ TELUR AYAM GRED B                           | 2026-02-16 |      750 |            12.50 |              12.61
+ TELUR AYAM GRED B                           | 2026-02-23 |     1212 |            12.60 |              12.54
+ TELUR AYAM GRED B                           | 2026-03-02 |     1208 |            12.49 |              12.55
+ TELUR AYAM GRED B                           | 2026-03-09 |     1228 |            12.30 |              12.47
+ TELUR AYAM GRED B                           | 2026-03-16 |     1204 |            12.00 |              12.35
+ TELUR AYAM GRED B                           | 2026-03-23 |      793 |            11.75 |              12.14
+ TELUR AYAM GRED B                           | 2026-03-30 |     1209 |            11.70 |              11.94
+ TELUR AYAM GRED B                           | 2026-04-06 |     1241 |            11.09 |              11.63
+ TELUR AYAM GRED B                           | 2026-04-13 |     1290 |            10.41 |              11.24
+ TELUR AYAM GRED B                           | 2026-04-20 |     1278 |             9.90 |              10.77
+ TELUR AYAM GRED B                           | 2026-04-27 |     1278 |             9.99 |              10.35
+ TELUR AYAM GRED B                           | 2026-05-04 |     1280 |            10.20 |              10.12
+ TELUR AYAM GRED B                           | 2026-05-11 |     1282 |            10.30 |              10.10
+ TELUR AYAM GRED B                           | 2026-05-18 |     1302 |            10.80 |              10.32
+ TELUR AYAM GRED B                           | 2026-05-25 |     1223 |            11.40 |              10.68
+ TELUR AYAM GRED B                           | 2026-06-01 |     1189 |            11.58 |              11.02
+ TELUR AYAM GRED B                           | 2026-06-08 |     1259 |            11.71 |              11.37
+ TELUR AYAM GRED B                           | 2026-06-15 |     1269 |            11.79 |              11.62
+ TELUR AYAM GRED B                           | 2026-06-22 |     1262 |            11.70 |              11.69
+ TELUR AYAM GRED B                           | 2026-06-29 |     1268 |            11.91 |              11.78
+ TELUR AYAM GRED B                           | 2026-07-06 |     1255 |            12.10 |              11.88
+ TELUR AYAM GRED B                           | 2026-07-13 |     1285 |            12.70 |              12.10
+ TELUR AYAM GRED B                           | 2026-07-20 |     1271 |            12.95 |              12.42
+ TELUR AYAM GRED B                           | 2026-07-27 |     1289 |            12.99 |              12.68
+ TELUR AYAM GRED B                           | 2026-08-03 |     1264 |            13.20 |              12.96
+ TELUR AYAM GRED B                           | 2026-08-10 |     1277 |            13.70 |              13.21
+ TELUR AYAM GRED B                           | 2026-08-17 |     1264 |            14.70 |              13.65
+ TELUR AYAM GRED B                           | 2026-08-24 |     1321 |            15.14 |              14.19
+ TELUR AYAM GRED B                           | 2026-08-31 |      796 |            15.00 |              14.64
+ TELUR AYAM GRED B                           | 2026-09-07 |     1225 |            15.20 |              15.01
+ TELUR AYAM GRED B                           | 2026-09-14 |     1208 |            15.20 |              15.14
+ TELUR AYAM GRED B                           | 2026-09-21 |     1227 |            15.19 |              15.15
+ TELUR AYAM GRED B                           | 2026-09-28 |     1143 |            15.19 |              15.20
+(246 rows)
+
+Time: 1443.475 ms (00:01.443)
+                    item                     | lowest_rm | highest_rm | range_pct | peak_week  
+---------------------------------------------+-----------+------------+-----------+------------
+ TELUR AYAM GRED B                           |     10.10 |      15.20 |      50.5 | 2026-09-28
+ AYAM BERSIH - STANDARD                      |      7.96 |       9.40 |      18.0 | 2026-07-27
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         |     32.09 |      34.90 |       8.8 | 2025-10-27
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) |      2.85 |       2.85 |       0.0 | 2025-10-20
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        |      2.50 |       2.50 |       0.0 | 2025-10-27
+(5 rows)
+
+Time: 681.320 ms

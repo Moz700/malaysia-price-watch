@@ -1,0 +1,49 @@
+Timing is on.
+psql:sql/04_analysis/q23_price_spike_detection.sql:30: NOTICE:  table "item_week_spike" does not exist, skipping
+DROP TABLE
+Time: 2.487 ms
+SELECT 12786
+Time: 46630.536 ms (00:46.631)
+                 item                  | item_group_en | spike_weeks | weeks_tested 
+---------------------------------------+---------------+-------------+--------------
+ TOMATO                                | Fresh produce |          10 |           45
+ TELUR AYAM GRED C                     | Fresh produce |           9 |           44
+ KUBIS BULAT IMPORT (BEIJING)          | Fresh produce |           8 |           45
+ CILI HIJAU                            | Fresh produce |           8 |           45
+ CILI MERAH - MINYAK                   | Fresh produce |           8 |           45
+ LIMAU KASTURI                         | Fresh produce |           8 |           45
+ KACANG BENDI                          | Fresh produce |           8 |           45
+ LOBAK PUTIH (1KG)                     | Fresh produce |           7 |           45
+ CILI MERAH - KULAI                    | Fresh produce |           7 |           45
+ PISANG BERANGAN                       | Fresh produce |           6 |           38
+ SAWI PENDEK/JEPUN/SIOW PAK CHOY (1KG) | Fresh produce |           6 |           45
+ BAWANG KECIL MERAH IMPORT (THAILAND)  | Dry goods     |           6 |           45
+ TELUR AYAM GRED B                     | Fresh produce |           6 |           44
+ KACANG PANJANG                        | Fresh produce |           6 |           45
+ LADA BENGGALA HIJAU (CAPSICUM)        | Fresh produce |           6 |           38
+(15 rows)
+
+Time: 53.203 ms
+     week_type      | item_weeks_tested | spike_weeks | spike_rate_pct 
+--------------------+-------------------+-------------+----------------
+ Other weeks        |              8535 |         386 |           4.52
+ Pre-festival weeks |              1979 |          56 |           2.83
+(2 rows)
+
+Time: 10.314 ms
+  month  | spike_weeks | of_which_fresh | spike_rate_pct 
+---------+-------------+----------------+----------------
+ 2025-11 |          12 |             11 |          21.82
+ 2025-12 |          78 |             74 |           8.60
+ 2026-01 |          40 |             30 |           3.79
+ 2026-02 |          22 |             14 |           3.46
+ 2026-03 |          20 |             11 |           1.80
+ 2026-04 |          32 |             22 |           3.05
+ 2026-05 |          36 |             28 |           3.34
+ 2026-06 |          59 |             40 |           4.44
+ 2026-07 |          38 |             25 |           3.52
+ 2026-08 |          59 |             49 |           5.19
+ 2026-09 |          46 |             16 |           4.27
+(11 rows)
+
+Time: 14.234 ms

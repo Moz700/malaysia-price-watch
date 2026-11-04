@@ -1,0 +1,56 @@
+Timing is on.
+psql:sql/04_analysis/q15_rank_premises_in_district.sql:22: NOTICE:  table "district_rank" does not exist, skipping
+DROP TABLE
+Time: 1.416 ms
+SELECT 238954
+Time: 10788.089 ms (00:10.788)
+                 premise                  | premise_type_en | avg_price | row_num | price_rank | dense_price_rank 
+------------------------------------------+-----------------+-----------+---------+------------+------------------
+ TESCO SEKSYEN 13                         | Hypermarket     |      8.59 |       1 |          1 |                1
+ MYDIN MART SEKSYEN 18                    | Supermarket     |      8.69 |       2 |          2 |                2
+ ECONSAVE KOTA KEMUNING                   | Supermarket     |      8.95 |       6 |          3 |                3
+ GIANT KEMUNING UTAMA                     | Hypermarket     |      8.95 |       5 |          3 |                3
+ GIANT SEKSYEN 13                         | Hypermarket     |      8.95 |       4 |          3 |                3
+ GIANT SEKSYEN 7 SHAH ALAM                | Supermarket     |      8.95 |       3 |          3 |                3
+ MYDIN USJ                                | Hypermarket     |      8.99 |       8 |          7 |                4
+ ST ROSYAM MART (SHAH ALAM)               | Hypermarket     |      8.99 |       7 |          7 |                4
+ HERO KG BARU SUBANG                      | Supermarket     |      9.07 |       9 |          9 |                5
+ PASARAYA HERO SEK 13                     | Supermarket     |      9.12 |      10 |         10 |                6
+ SEGI PUCHONG                             | Supermarket     |      9.13 |      11 |         11 |                7
+ AEON BIG SEKSYEN 23                      | Hypermarket     |      9.24 |      12 |         12 |                8
+ AEON BIG SEKSYEN 32                      | Hypermarket     |      9.29 |      13 |         13 |                9
+ AEON BIG SUBANG JAYA                     | Hypermarket     |      9.29 |      14 |         13 |                9
+ SEGI KEM RIMBA                           | Supermarket     |      9.34 |      15 |         15 |               10
+ AL ASYI SEK 7 SHAH ALAM                  | Mini market     |      9.50 |      17 |         16 |               11
+ NOVI FROZEN FOODS SEK 7 SHAH ALAM        | Mini market     |      9.50 |      16 |         16 |               11
+ ONG THAI KIM (OTK)                       | Supermarket     |      9.79 |      18 |         18 |               12
+ PASARAYA INA FRESH MART SEK 18 SHAH ALAM | Mini market     |      9.80 |      19 |         19 |               13
+ AQILAH KHAYLA PADANG JAWA                | Mini market     |     10.00 |      20 |         20 |               14
+ WELL MART SEK 17 SHAH ALAM               | Mini market     |     10.19 |      21 |         21 |               15
+ PASAR SEKSYEN 16                         | Wet market      |     10.38 |      22 |         22 |               16
+ BIG BAZAAR SEK 7 SHAH ALAM               | Mini market     |     10.50 |      24 |         23 |               17
+ KEDAI KAREEM SEK 24 SHAH ALAM            | Mini market     |     10.50 |      25 |         23 |               17
+ PASAR BASAH SEKSYEN 6                    | Wet market      |     10.50 |      23 |         23 |               17
+ PASAR MINI AM                            | Mini market     |     10.50 |      26 |         23 |               17
+ PASAR KAMPUNG MELAYU SUBANG              | Wet market      |     10.67 |      27 |         27 |               18
+ PASAR FAMA PUCHONG                       | Wet market      |     10.80 |      28 |         28 |               19
+ AMANSAF SEK 24 SHAH ALAM                 | Mini market     |     12.00 |      29 |         29 |               20
+(29 rows)
+
+Time: 49.990 ms
+ shop_item_rankings | rows_ranked_after_a_tie | rows_sharing_a_price | pct_sharing_a_price | district_item_groups 
+--------------------+-------------------------+----------------------+---------------------+----------------------
+             238954 |                   57930 |                88706 |                37.1 |                35381
+(1 row)
+
+Time: 550.545 ms
+ premise_type_en | times_ranked_cheapest | rankings_entered | win_rate_pct 
+-----------------+-----------------------+------------------+--------------
+ Hypermarket     |                  6222 |            27017 |         23.0
+ Supermarket     |                 18739 |           106286 |         17.6
+ Mini market     |                  7296 |            51699 |         14.1
+ Sundry shop     |                  2145 |            19712 |         10.9
+ Wet market      |                  1274 |            19138 |          6.7
+(5 rows)
+
+Time: 54.761 ms

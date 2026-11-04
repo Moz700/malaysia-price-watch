@@ -1,0 +1,35 @@
+Timing is on.
+psql:sql/04_analysis/q16_cheapest_most_often.sql:15: NOTICE:  table "price_leader" does not exist, skipping
+DROP TABLE
+Time: 34.033 ms
+SELECT 24605
+Time: 36672.809 ms (00:36.673)
+                    item                     |           premise           | premise_type_en | days_cheapest | days_competed 
+---------------------------------------------+-----------------------------+-----------------+---------------+---------------
+ AYAM BERSIH - STANDARD                      | MYDIN MART SEKSYEN 18       | Supermarket     |            14 |            27
+ BAWANG BESAR KUNING/HOLLAND                 | ST ROSYAM MART (SHAH ALAM)  | Hypermarket     |            21 |            27
+ BAWANG PUTIH IMPORT (CHINA)                 | MYDIN USJ                   | Hypermarket     |            17 |            27
+ BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | TESCO SEKSYEN 13            | Hypermarket     |             2 |             4
+ CILI MERAH - KULAI                          | PASAR KAMPUNG MELAYU SUBANG | Wet market      |             8 |            13
+ GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | TESCO SEKSYEN 13            | Hypermarket     |             4 |             4
+ MINYAK MASAK PAKET (PELBAGAI JENAMA)        | GIANT SEKSYEN 13            | Hypermarket     |             4 |             4
+ TELUR AYAM GRED B                           | TESCO SEKSYEN 13            | Hypermarket     |            18 |            25
+(8 rows)
+
+Time: 109.326 ms
+ premise_type_en | leader_titles | pct_of_titles | pct_of_premises 
+-----------------+---------------+---------------+-----------------
+ Supermarket     |         14582 |          59.3 |            31.7
+ Hypermarket     |          4947 |          20.1 |             7.0
+ Mini market     |          3072 |          12.5 |            30.5
+ Wet market      |          1044 |           4.2 |            14.3
+ Sundry shop     |           960 |           3.9 |            16.4
+(5 rows)
+
+Time: 3691.795 ms (00:03.692)
+ district_item_races | avg_leader_win_rate_pct | leaders_winning_80pct_plus 
+---------------------+-------------------------+----------------------------
+               24605 |                    88.3 |                      17536
+(1 row)
+
+Time: 23.524 ms

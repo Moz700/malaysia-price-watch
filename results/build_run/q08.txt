@@ -1,0 +1,53 @@
+Timing is on.
+     item_group_en      |       item_category       | items | avg_cv_pct | avg_p90_to_p10 
+------------------------+---------------------------+-------+------------+----------------
+ Dry goods              | HASIL LAUT KERING         |     2 |       40.3 |           2.80
+ Fresh produce          | SAYUR-SAYURAN             |    28 |       32.4 |           2.30
+ Dry goods              | BAWANG                    |     9 |       28.8 |           1.98
+ Dry goods              | KACANG                    |     3 |       28.2 |           1.76
+ Fresh produce          | BUAH-BUAHAN               |    14 |       28.0 |           2.01
+ Dry goods              | UBI KENTANG               |     3 |       27.0 |           2.10
+ Dry goods              | CILI KERING               |     2 |       24.0 |           1.80
+ Fresh produce          | BAHAN LAUT                |    25 |       23.4 |           1.77
+ Fresh produce          | KELAPA                    |     4 |       22.1 |           1.74
+ Fresh produce          | IKAN DARAT                |     2 |       19.3 |           1.54
+ Packaged goods         | BIHUN                     |     3 |       16.6 |           1.54
+ Fresh produce          | DAGING                    |    13 |       15.1 |           1.44
+ Household and hygiene  | PENJAGAAN DIRI            |    15 |       14.7 |           1.49
+ Packaged goods         | REMPAH RATUS (BERBUNGKUS) |    14 |       12.6 |           1.42
+ Milk and baby products | LAMPIN PAKAI BUANG        |     6 |       11.9 |           1.31
+ Fresh produce          | AYAM                      |     7 |       11.5 |           1.32
+ Beverages              | TERSEDIA MINUM            |    18 |       11.0 |           1.30
+ Packaged goods         | TEPUNG                    |     4 |        9.8 |           1.26
+ Milk and baby products | MAKANAN BAYI              |     5 |        9.8 |           1.17
+ Household and hygiene  | PENJAGAAN RUMAH           |    12 |        9.6 |           1.28
+ Packaged goods         | GULA                      |     3 |        9.6 |           1.31
+ Packaged goods         | SANTAN (KOTAK)            |     4 |        9.2 |           1.25
+ Beverages              | BAHAN-BAHAN MINUMAN       |    11 |        8.8 |           1.23
+ Packaged goods         | KICAP DAN SOS             |     6 |        8.1 |           1.20
+ Packaged goods         | SAPUAN (SPREADS)          |     8 |        8.1 |           1.23
+ Packaged goods         | IKAN DALAM TIN            |     3 |        7.0 |           1.20
+ Packaged goods         | ESEN DAN RAGI             |     2 |        6.6 |           1.16
+ Packaged goods         | KRIMER DAN SUSU TEPUNG    |     5 |        6.1 |           1.14
+ Fresh produce          | TELUR                     |     3 |        5.8 |           1.13
+ Packaged goods         | MINYAK DAN LEMAK          |    30 |        5.5 |           1.12
+ Milk and baby products | SUSU BAYI                 |    14 |        5.3 |           1.14
+ Packaged goods         | BERAS                     |    15 |        3.3 |           1.07
+(32 rows)
+
+Time: 137.326 ms
+                 item                  |  unit  | premises | cv_pct | p10_rm | p90_rm 
+---------------------------------------+--------+----------+--------+--------+--------
+ BIJI SAWI                             | 100 g  |      373 |   56.0 |   0.75 |   2.80
+ SOTONG KERING (SAIZ SERDAHANA)        | 1kg    |       96 |   50.0 |  54.99 | 195.45
+ GARAM HALUS BIASA (PELBAGAI JENAMA)   | +-350g |      584 |   48.1 |   0.60 |   2.00
+ CILI AKAR MERAH                       | 1kg    |     1238 |   44.7 |  10.00 |  29.90
+ SAWI PENDEK/JEPUN/SIOW PAK CHOY (1KG) | 1kg    |     1398 |   44.5 |   3.15 |  10.00
+ SAWI HIJAU                            | 1kg    |     1450 |   43.1 |   2.95 |   8.90
+ KAILAN                                | 1kg    |     1027 |   42.1 |   4.99 |  14.16
+ KANGKUNG                              | 1kg    |     1255 |   40.9 |   2.99 |   8.00
+ BAYAM HIJAU                           | 1kg    |     1167 |   40.1 |   2.99 |   8.10
+ DRAGON FRUIT MERAH                    | 1kg    |      272 |   39.2 |   5.99 |  14.90
+(10 rows)
+
+Time: 126.739 ms

@@ -1,0 +1,22 @@
+Timing is on.
+ premise_type_en | items_priced | items_above_national | items_below_national | items_at_national | pct_above 
+-----------------+--------------+----------------------+----------------------+-------------------+-----------
+ Sundry shop     |          268 |                  182 |                   48 |                38 |      67.9
+ Wet market      |          204 |                  116 |                   40 |                48 |      56.9
+ Mini market     |          307 |                  134 |                  104 |                69 |      43.6
+ Supermarket     |          324 |                  105 |                  120 |                99 |      32.4
+ Hypermarket     |          315 |                   63 |                  217 |                35 |      20.0
+(5 rows)
+
+Time: 1420.863 ms (00:01.421)
+     item_group_en      | items | above | below | hyper_index 
+------------------------+-------+-------+-------+-------------
+ Fresh produce          |   105 |    34 |    65 |        98.0
+ Milk and baby products |    25 |     6 |    18 |        97.7
+ Packaged goods         |   107 |    11 |    76 |        97.1
+ Beverages              |    31 |     4 |    21 |        95.7
+ Household and hygiene  |    27 |     5 |    20 |        95.5
+ Dry goods              |    20 |     3 |    17 |        87.7
+(6 rows)
+
+Time: 246.248 ms

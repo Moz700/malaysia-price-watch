@@ -1,0 +1,85 @@
+Timing is on.
+psql:sql/04_analysis/q19_premise_price_quartiles.sql:13: NOTICE:  table "premise_quartile" does not exist, skipping
+DROP TABLE
+Time: 1.355 ms
+SELECT 2087
+Time: 382.442 ms
+       state       | price_quartile | premises | from_index | to_index 
+-------------------+----------------+----------+------------+----------
+ Johor             |              1 |       53 |       84.9 |     96.1
+ Johor             |              2 |       53 |       96.2 |    101.3
+ Johor             |              3 |       53 |      101.3 |    109.6
+ Johor             |              4 |       53 |      109.6 |    133.9
+ Kedah             |              1 |       30 |       84.0 |     94.6
+ Kedah             |              2 |       30 |       94.7 |     97.6
+ Kedah             |              3 |       30 |       97.6 |    103.0
+ Kedah             |              4 |       30 |      103.4 |    124.6
+ Kelantan          |              1 |       49 |       87.8 |     98.7
+ Kelantan          |              2 |       48 |       98.8 |    101.6
+ Kelantan          |              3 |       48 |      101.6 |    103.7
+ Kelantan          |              4 |       48 |      103.8 |    126.4
+ Melaka            |              1 |       14 |       85.2 |     95.2
+ Melaka            |              2 |       13 |       95.6 |    100.3
+ Melaka            |              3 |       13 |      101.1 |    109.9
+ Melaka            |              4 |       13 |      110.0 |    136.9
+ Negeri Sembilan   |              1 |       16 |       85.8 |     95.1
+ Negeri Sembilan   |              2 |       16 |       96.2 |    102.1
+ Negeri Sembilan   |              3 |       16 |      103.3 |    108.5
+ Negeri Sembilan   |              4 |       16 |      108.6 |    123.6
+ Pahang            |              1 |       45 |       88.5 |     95.9
+ Pahang            |              2 |       45 |       95.9 |     98.3
+ Pahang            |              3 |       45 |       98.4 |    106.5
+ Pahang            |              4 |       44 |      106.6 |    135.1
+ Perak             |              1 |       48 |       87.1 |     94.4
+ Perak             |              2 |       48 |       94.5 |     97.4
+ Perak             |              3 |       48 |       97.4 |    103.0
+ Perak             |              4 |       47 |      103.1 |    124.2
+ Perlis            |              1 |       10 |       90.7 |     95.7
+ Perlis            |              2 |        9 |       96.5 |    100.2
+ Perlis            |              3 |        9 |      100.8 |    105.4
+ Perlis            |              4 |        9 |      106.5 |    125.6
+ Pulau Pinang      |              1 |       37 |       87.5 |     94.9
+ Pulau Pinang      |              2 |       37 |       95.0 |    102.2
+ Pulau Pinang      |              3 |       37 |      102.4 |    108.3
+ Pulau Pinang      |              4 |       36 |      108.8 |    126.1
+ Sabah             |              1 |       47 |       91.8 |    104.8
+ Sabah             |              2 |       46 |      105.0 |    108.8
+ Sabah             |              3 |       46 |      108.8 |    111.4
+ Sabah             |              4 |       46 |      111.5 |    126.9
+ Sarawak           |              1 |       55 |       94.9 |    104.3
+ Sarawak           |              2 |       55 |      104.4 |    107.0
+ Sarawak           |              3 |       54 |      107.1 |    110.7
+ Sarawak           |              4 |       54 |      110.7 |    156.1
+ Selangor          |              1 |       34 |       87.5 |     95.2
+ Selangor          |              2 |       34 |       95.4 |    101.1
+ Selangor          |              3 |       34 |      101.1 |    108.6
+ Selangor          |              4 |       33 |      108.6 |    147.4
+ Terengganu        |              1 |       34 |       88.5 |     98.5
+ Terengganu        |              2 |       34 |       98.8 |    101.8
+ Terengganu        |              3 |       34 |      101.9 |    107.4
+ Terengganu        |              4 |       34 |      107.5 |    125.6
+ W.P. Kuala Lumpur |              1 |       44 |       87.8 |     98.7
+ W.P. Kuala Lumpur |              2 |       44 |       98.9 |    108.0
+ W.P. Kuala Lumpur |              3 |       43 |      108.7 |    115.0
+ W.P. Kuala Lumpur |              4 |       43 |      115.0 |    145.7
+ W.P. Labuan       |              1 |        4 |       99.5 |    107.0
+ W.P. Labuan       |              2 |        4 |      107.3 |    108.5
+ W.P. Labuan       |              3 |        4 |      109.2 |    110.0
+ W.P. Labuan       |              4 |        3 |      113.8 |    119.5
+ W.P. Putrajaya    |              1 |        7 |       91.9 |    103.1
+ W.P. Putrajaya    |              2 |        7 |      103.5 |    110.2
+ W.P. Putrajaya    |              3 |        7 |      111.7 |    120.8
+ W.P. Putrajaya    |              4 |        7 |      121.2 |    129.4
+(64 rows)
+
+Time: 3.224 ms
+ premise_type_en | premises | pct_in_cheapest_q | pct_in_dearest_q 
+-----------------+----------+-------------------+------------------
+ Hypermarket     |      150 |              54.7 |              8.7
+ Supermarket     |      679 |              34.2 |             10.9
+ Mini market     |      645 |              23.3 |             25.6
+ Sundry shop     |      320 |              10.6 |             37.2
+ Wet market      |      293 |               9.9 |             49.5
+(5 rows)
+
+Time: 0.825 ms

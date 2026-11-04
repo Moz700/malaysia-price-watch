@@ -1,0 +1,37 @@
+Timing is on.
+                item                 |  unit   | types_compared | cheapest_type | cheapest_rm | dearest_type | dearest_rm | gap_rm | gap_pct 
+-------------------------------------+---------+----------------+---------------+-------------+--------------+------------+--------+---------
+ KUBIS BULAT IMPORT (CHINA)          | 1kg     |              5 | Hypermarket   |        1.89 | Sundry shop  |       4.00 |   2.11 |   111.6
+ DEODORAN REXONA MEN (SPORT DEFENSE) | 50 ml   |              3 | Mini market   |        6.99 | Hypermarket  |      13.30 |   6.31 |    90.3
+ KUBIS BULAT IMPORT (BEIJING)        | 1kg     |              5 | Hypermarket   |        3.29 | Wet market   |       6.00 |   2.71 |    82.4
+ TIMUN                               | 1kg     |              5 | Hypermarket   |        2.79 | Sundry shop  |       5.00 |   2.21 |    79.2
+ LOBAK PUTIH (1KG)                   | 1kg     |              5 | Hypermarket   |        3.59 | Sundry shop  |       6.20 |   2.61 |    72.7
+ LOBAK MERAH                         | 1kg     |              5 | Hypermarket   |        2.90 | Wet market   |       5.00 |   2.10 |    72.4
+ GULA MERAH LEMBUT (PELBAGAI JENAMA) | +- 500g |              3 | Hypermarket   |        2.65 | Mini market  |       4.50 |   1.85 |    69.8
+ HALIA BASAH (TUA)                   | 1kg     |              5 | Hypermarket   |        5.99 | Sundry shop  |      10.00 |   4.01 |    66.9
+ BAWANG BESAR IMPORT (CHINA)         | 1kg     |              5 | Hypermarket   |        2.79 | Wet market   |       4.50 |   1.71 |    61.3
+ CILI MERAH - MINYAK                 | 1kg     |              5 | Hypermarket   |       10.49 | Sundry shop  |      16.90 |   6.41 |    61.1
+ UBI KENTANG IMPORT (CHINA)          | 1kg     |              5 | Hypermarket   |        2.49 | Wet market   |       4.00 |   1.51 |    60.6
+ UBI KENTANG IMPORT (PAKISTAN)       | 1kg     |              4 | Supermarket   |        2.50 | Sundry shop  |       4.00 |   1.50 |    60.0
+ SANTAN KELAPA SEGAR (BIASA)         | 1kg     |              4 | Supermarket   |        8.80 | Wet market   |      14.00 |   5.20 |    59.1
+ KUBIS BULAT (TEMPATAN)              | 1kg     |              5 | Supermarket   |        3.50 | Sundry shop  |       5.50 |   2.00 |    57.1
+ BAWANG BESAR IMPORT (INDIA)         | 1kg     |              5 | Hypermarket   |        2.99 | Wet market   |       4.50 |   1.51 |    50.5
+(15 rows)
+
+Time: 303.189 ms
+ premise_type_en | times_cheapest | times_dearest 
+-----------------+----------------+---------------
+ Hypermarket     |            159 |            27
+ Mini market     |             38 |            51
+ Supermarket     |             31 |            25
+ Wet market      |             10 |            39
+ Sundry shop     |              4 |           100
+(5 rows)
+
+Time: 256.484 ms
+ items | median_gap_pct 
+-------+----------------
+   242 |           10.0
+(1 row)
+
+Time: 223.363 ms

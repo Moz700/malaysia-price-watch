@@ -1,0 +1,131 @@
+######## sql/02_quality/01_bad_prices.sql
+Timing is on.
+ rows_affected | null_price | zero_or_negative | below_10_sen 
+---------------+------------+------------------+--------------
+            76 |          0 |                0 |           76
+(1 row)
+
+Time: 12066.722 ms (00:12.067)
+######## sql/02_quality/02_exact_duplicates.sql
+Timing is on.
+ duplicated_groups | extra_rows_to_remove 
+-------------------+----------------------
+                 0 |                    0
+(1 row)
+
+Time: 64211.698 ms (01:04.212)
+######## sql/02_quality/03_conflicting_prices.sql
+Timing is on.
+ keys_with_more_than_one_row | keys_with_different_prices | extra_rows_collapsed 
+-----------------------------+----------------------------+----------------------
+                           0 |                          0 |                    0
+(1 row)
+
+Time: 17464.719 ms (00:17.465)
+######## sql/02_quality/04_orphan_items.sql
+Timing is on.
+ rows_affected 
+---------------
+        313598
+(1 row)
+
+Time: 6566.332 ms (00:06.566)
+ item_code | price_rows | premises | first_seen | last_seen  | avg_price 
+-----------+------------+----------+------------+------------+-----------
+      2057 |      36169 |      882 | 2025-10-06 | 2026-09-28 |      6.02
+      2094 |      34626 |      845 | 2025-10-06 | 2026-09-28 |      6.73
+      2053 |      32256 |      827 | 2025-10-06 | 2026-09-28 |     12.05
+      2059 |      31858 |      865 | 2025-10-06 | 2026-09-28 |      8.63
+      2095 |      30082 |      819 | 2025-10-06 | 2026-09-28 |     14.38
+      2089 |      29514 |      783 | 2025-10-06 | 2026-09-28 |      9.91
+      2090 |      25513 |      772 | 2025-10-06 | 2026-09-28 |      5.75
+      2091 |      22016 |      617 | 2025-10-06 | 2026-09-28 |      2.55
+      2023 |      19466 |      517 | 2025-10-06 | 2026-09-28 |     16.86
+      2092 |      19100 |      590 | 2025-10-06 | 2026-09-28 |      5.74
+      2096 |      17325 |      598 | 2025-10-06 | 2026-09-28 |      6.19
+      2093 |      15288 |      440 | 2025-10-06 | 2026-09-28 |      6.38
+      2048 |        237 |       10 | 2025-10-06 | 2026-09-28 |      3.20
+      2035 |        143 |       10 | 2025-10-06 | 2026-09-28 |     19.29
+      2070 |          3 |        2 | 2025-10-05 | 2025-11-03 |     33.96
+      2065 |          1 |        1 | 2025-11-03 | 2025-11-03 |     33.99
+      2064 |          1 |        1 | 2025-11-03 | 2025-11-03 |     54.90
+(17 rows)
+
+Time: 1505.441 ms (00:01.505)
+######## sql/02_quality/05_orphan_premises.sql
+Timing is on.
+ premise_code | rows_affected | first_seen | last_seen  
+--------------+---------------+------------+------------
+        22280 |            13 | 2026-09-25 | 2026-09-26
+(1 row)
+
+Time: 1852.383 ms (00:01.852)
+######## sql/02_quality/06_price_outliers.sql
+Timing is on.
+ rows_above_5x | rows_below_one_fifth | rows_affected 
+---------------+----------------------+---------------
+           367 |                 2748 |          3115
+(1 row)
+
+Time: 220528.932 ms (03:40.529)
+                       item                       | unit | direction | rows | typical_median | min_flagged_price | max_flagged_price 
+--------------------------------------------------+------+-----------+------+----------------+-------------------+-------------------
+ SAWI HIJAU                                       | 1kg  | too low   |  276 |           5.60 |              0.49 |              1.29
+ TOMATO                                           | 1kg  | too low   |  256 |           5.14 |              0.20 |              1.00
+ SAWI PENDEK/JEPUN/SIOW PAK CHOY (1KG)            | 1kg  | too low   |  255 |           6.11 |              0.49 |              1.30
+ UBI KENTANG IMPORT (CHINA)                       | 1kg  | too low   |  192 |           2.99 |              0.15 |              0.50
+ KANGKUNG                                         | 1kg  | too low   |  103 |           5.08 |              0.29 |              1.00
+ BAYAM HIJAU                                      | 1kg  | too low   |   97 |           5.26 |              0.36 |              1.00
+ KUBIS BULAT IMPORT (BEIJING)                     | 1kg  | too low   |   65 |           4.62 |              0.29 |              0.99
+ KACANG BUNCIS                                    | 1kg  | too low   |   60 |          10.89 |              0.11 |              2.85
+ LIMAU KASTURI                                    | 1kg  | too low   |   56 |           6.81 |              0.39 |              1.59
+ IKAN KERISI (ANTARA 5 HINGGA 10 EKOR SEKILOGRAM) | 1kg  | too low   |   50 |          15.90 |              0.16 |              3.00
+ KACANG BENDI                                     | 1kg  | too low   |   46 |          10.17 |              0.10 |              2.00
+ CILI MERAH - KULAI                               | 1kg  | too low   |   45 |          16.03 |              0.13 |              2.99
+ TIMUN                                            | 1kg  | too low   |   41 |           4.32 |              0.19 |              1.00
+ KAILAN                                           | 1kg  | too low   |   40 |           7.68 |              0.49 |              1.59
+ SOTONG (ANTARA 11 HINGGA17 EKOR SEKILOGRAM)      | 1kg  | too low   |   38 |          36.08 |              1.11 |              7.00
+(15 rows)
+
+Time: 168614.928 ms (02:48.615)
+######## sql/02_quality/07_premise_reporting_gaps.sql
+Timing is on.
+        reporting_pattern         | premises | avg_days_reported 
+----------------------------------+----------+-------------------
+ 1. Full year                     |     2028 |               202
+ 2. Joined late                   |      114 |                68
+ 3. Stopped early                 |      110 |                88
+ 4. Joined late and stopped early |       11 |                16
+(4 rows)
+
+Time: 52080.182 ms (00:52.080)
+ premise_code |                premise                 |       premise_type       |       state       | first_seen | last_seen  
+--------------+----------------------------------------+--------------------------+-------------------+------------+------------
+         5206 | SHC SUCCESS MARKETING                  | Kedai Runcit             | Negeri Sembilan   | 2025-10-06 | 2025-10-06
+        17789 | G-MART BORNEO RETAIL SDN BHD           | Pasar Raya / Supermarket | Sabah             | 2025-10-16 | 2025-10-16
+        21802 | BUKHARY MART SDN.BHD (KADOK)           | Pasar Mini               | Kelantan          | 2025-10-06 | 2025-10-16
+        22102 | BATARAS SUPERSTORE KENINGAU            | Pasar Raya / Supermarket | Sabah             | 2025-10-24 | 2025-10-24
+        21025 | FT MINI MARKET                         | Pasar Mini               | Pahang            | 2025-10-06 | 2025-10-27
+          598 | SYARIKAT PERNIAGAAN MESRA              | Pasar Mini               | Kelantan          | 2025-10-06 | 2025-10-27
+        22098 | BATARAS FRESH MART (KOTA KINABALU)     | Pasar Raya / Supermarket | Sabah             | 2025-10-27 | 2025-10-27
+        20722 | PASAR SUNTEX                           | Pasar Basah              | Selangor          | 2025-10-01 | 2025-10-31
+        18184 | SUPER SEVEN CHERAS JAYA                | Pasar Raya / Supermarket | Selangor          | 2025-10-01 | 2025-10-31
+        20815 | PASARAYA JMART (SERIAB)                | Pasar Mini               | Perlis            | 2025-10-06 | 2025-11-17
+        21471 | SABASUN ETEK                           | Pasar Mini               | Terengganu        | 2025-10-06 | 2025-11-24
+        21124 | MYDIN SENAWANG HYPERMARKET             | Hypermarket              | Negeri Sembilan   | 2025-11-24 | 2025-11-24
+        22023 | TGT MART                               | Kedai Runcit             | Pulau Pinang      | 2025-10-06 | 2025-11-24
+        18691 | PASAR HOSEY SDN BHD                    | Pasar Mini               | Johor             | 2025-10-01 | 2025-11-26
+        20956 | KOPERASI PEKEBUN KECIL BERA            | Pasar Raya / Supermarket | Pahang            | 2025-10-01 | 2025-11-28
+        21084 | SEGI CASH & CARRY ( SETAPAK VILLAGE )  | Pasar Raya / Supermarket | W.P. Kuala Lumpur | 2025-10-01 | 2025-11-30
+        17537 | TRELEAF MART SDN. BHD. (PASIR PANJANG) | Pasar Mini               | Terengganu        | 2025-10-06 | 2025-12-08
+        15881 | TRELEAF SEB TAKIR                      | Pasar Mini               | Terengganu        | 2025-10-13 | 2025-12-08
+        20844 | TRELEAF MART HULU TAKIR                | Pasar Mini               | Terengganu        | 2025-10-06 | 2025-12-08
+        17987 | MYDIN HYPERMARKET VISTA TUNKU          | Hypermarket              | Sarawak           | 2025-10-01 | 2025-12-11
+        21596 | TRELEAF RHU MUDA                       | Pasar Mini               | Terengganu        | 2025-10-06 | 2025-12-15
+        18016 | TRELEAF MART SDN. BHD. (KUBANG JELA)   | Pasar Mini               | Terengganu        | 2025-10-06 | 2025-12-15
+         4582 | HOCK CHUAN LEE                         | Pasar Mini               | Pahang            | 2025-10-06 | 2025-12-15
+        21761 | AD MOHD ENTERPRISE                     | Pasar Mini               | Kelantan          | 2025-10-06 | 2025-12-22
+        22068 | RESTU MART KUNDASANG                   | Pasar Mini               | Sabah             | 2025-10-06 | 2025-12-22
+(25 rows)
+
+Time: 15780.026 ms (00:15.780)

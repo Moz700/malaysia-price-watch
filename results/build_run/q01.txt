@@ -1,0 +1,362 @@
+Timing is on.
+ item_code |                                          item                                          |        unit         |     item_group_en      | premises | median_price_rm | cheapest_shop_rm | dearest_shop_rm 
+-----------+----------------------------------------------------------------------------------------+---------------------+------------------------+----------+-----------------+------------------+-----------------
+      1355 | 100 PLUS (ORIGINAL)                                                                    | 1.5 liter           | Beverages              |      724 |            3.75 |             2.49 |            5.00
+       228 | COCA COLA (BOTOL)                                                                      | 1.5 liter           | Beverages              |      590 |            3.90 |             1.99 |            5.00
+      1507 | COCA COLA (TIN)                                                                        | 320 ml              | Beverages              |      634 |            1.90 |             1.39 |            2.95
+      1852 | DESA FRESH MILK (KOTAK)                                                                | 1 liter             | Beverages              |       24 |            7.42 |             7.00 |            8.90
+       221 | DRINHO SOYA (KOTAK)                                                                    | 250 ml              | Beverages              |       29 |            1.00 |             0.90 |            1.59
+       230 | F&N OREN (BOTOL)                                                                       | 1.5 liter           | Beverages              |      595 |            3.49 |             1.49 |            4.50
+       229 | F&N OREN (TIN)                                                                         | 325 ml              | Beverages              |      510 |            1.70 |             1.30 |            2.50
+      2115 | INDOCAFE (ORIGINAL BLEND) (PAKET)                                                      | 200 g               | Beverages              |     1041 |           19.50 |            14.90 |           26.50
+       235 | JUS OREN PEEL FRESH (MARIGOLD)                                                         | 1 liter             | Beverages              |      698 |            6.80 |             5.69 |            8.50
+       910 | KORDIAL F&N (PELBAGAI PERISA)                                                          | 2 liter             | Beverages              |     1085 |           12.00 |             7.99 |           15.90
+      1854 | KORDIAL F&N SUN VALLEY (PELBAGAI PERISA)                                               | 2 liter             | Beverages              |      258 |           12.80 |             8.20 |           16.00
+      2113 | KORDIAL SUNQUICK (OREN)                                                                | 700ml               | Beverages              |     1579 |           13.90 |             7.40 |           18.70
+       240 | LIVITA WITH HONEY (BOTOL)                                                              | 150 ml              | Beverages              |      212 |            2.20 |             1.75 |            4.29
+      2114 | MILO (PAKET)                                                                           | 900 g               | Beverages              |     1595 |           20.50 |            13.90 |           27.90
+       232 | MIRINDA OREN (BOTOL)                                                                   | 1.5 liter           | Beverages              |      642 |            2.67 |             1.99 |            4.99
+      2019 | NESCAFE 3 IN 1 ORIGINAL (AROMATIC & BALANCED)                                          | 25 x 18g            | Beverages              |      811 |           14.50 |            10.99 |           19.90
+       929 | NESCAFE CLASSIC (PAKET)                                                                | 200 g               | Beverages              |     1198 |           23.99 |            14.20 |           33.50
+      1635 | NESTLE COFFEE-MATE                                                                     | 450 g               | Beverages              |      646 |            9.90 |             6.70 |           11.90
+      1547 | PEPSI COLA (TIN)                                                                       | 320 ml              | Beverages              |      568 |            1.80 |             0.95 |            2.99
+      1964 | QUAKER OATS INSTANT OATMEALS                                                           | 1kg                 | Beverages              |       80 |           11.85 |            10.65 |           15.80
+       239 | RED BULL (BOTOL)                                                                       | 150 ml              | Beverages              |      466 |            2.50 |             1.95 |            4.10
+      1879 | SEVEN UP LEMON & LIME (TIN)                                                            | 320ml               | Beverages              |      556 |            1.80 |             1.10 |            2.50
+      2060 | SUSU MARIGOLD HL                                                                       | 946ML               | Beverages              |      832 |            8.40 |             5.50 |           10.50
+       224 | SUSU SEGAR DUTCH LADY                                                                  | 1 liter             | Beverages              |      557 |            8.49 |             6.40 |           10.30
+      1960 | SUSU SEGAR KURMA FARM FRESH                                                            | 700 g               | Beverages              |      444 |            9.35 |             6.99 |           12.90
+       180 | TEH BOH (UNCANG)                                                                       | 100 beg             | Beverages              |     1005 |           14.30 |            10.90 |           18.20
+      1650 | TEH LIPTON (UNCANG)                                                                    | 100 beg             | Beverages              |     1007 |           16.50 |             6.90 |           22.40
+       226 | YEO'S LAICI (KOTAK)                                                                    | 250 ml              | Beverages              |       40 |            1.20 |             0.90 |            1.50
+      1651 | YEO'S SOYA (KOTAK)                                                                     | 250 ml              | Beverages              |       50 |            1.20 |             0.95 |            1.50
+      2020 | YOGURT LACTEL (FAT FREE) (STRAWBERRY)                                                  | 130g                | Beverages              |      587 |            2.80 |             2.25 |            3.99
+      1955 | YOGURT MARIGOLD (LOW FAT) (STRAWBERRY)                                                 | 130g                | Beverages              |      579 |            2.90 |             2.40 |            3.50
+      1441 | BAWANG BESAR IMPORT (CHINA)                                                            | 1kg                 | Dry goods              |      369 |            2.95 |             1.50 |           10.00
+      1440 | BAWANG BESAR IMPORT (INDIA)                                                            | 1kg                 | Dry goods              |     1573 |            3.99 |             1.90 |           10.00
+      1931 | BAWANG BESAR IMPORT (PAKISTAN)                                                         | 1kg                 | Dry goods              |       72 |            3.10 |             2.39 |            7.00
+       129 | BAWANG BESAR KUNING/HOLLAND                                                            | 1kg                 | Dry goods              |     1882 |            4.00 |             1.79 |           11.98
+      1442 | BAWANG KECIL MERAH BIASA IMPORT (INDIA)                                                | 1kg                 | Dry goods              |     1016 |            4.50 |             1.69 |           12.00
+      1443 | BAWANG KECIL MERAH IMPORT (CHINA)                                                      | 1kg                 | Dry goods              |       40 |            5.40 |             1.69 |            8.50
+      1444 | BAWANG KECIL MERAH IMPORT (MYANMAR)                                                    | 1kg                 | Dry goods              |       11 |            4.90 |             2.99 |            9.00
+       132 | BAWANG KECIL MERAH IMPORT (THAILAND)                                                   | 1kg                 | Dry goods              |      393 |           12.00 |             4.90 |           23.00
+       131 | BAWANG KECIL MERAH ROSE IMPORT (INDIA)                                                 | 1kg                 | Dry goods              |     1229 |            6.00 |             2.20 |           16.99
+      1564 | BAWANG PUTIH IMPORT (CHINA)                                                            | 1kg                 | Dry goods              |     1861 |            9.00 |             4.89 |           19.99
+      1899 | CILI KERING KERINTING (BERTANGKAI/TIDAK BERTANGKAI)                                    | 1kg                 | Dry goods              |     1314 |           20.75 |            13.90 |           45.00
+      1900 | CILI KERING LEPER (BERTANGKAI/TIDAK BERTANGKAI)                                        | 1kg                 | Dry goods              |      585 |           22.00 |            10.90 |           48.00
+      1422 | KACANG DAL (AUSTRALIA)                                                                 | 1kg                 | Dry goods              |     1228 |            4.99 |             2.64 |           20.00
+      1419 | KACANG DAL BIASA (INDIA)                                                               | 1kg                 | Dry goods              |        2 |           13.90 |            13.90 |           13.90
+      1420 | KACANG DAL MALAVI (INDIA)                                                              | 1kg                 | Dry goods              |        6 |           15.90 |             7.90 |           19.00
+      1944 | KACANG SOYA (IMPORT)                                                                   | 1kg                 | Dry goods              |      495 |            6.99 |             3.58 |           20.00
+       368 | KACANG TANAH (IMPORT)                                                                  | 1kg                 | Dry goods              |     1564 |            9.00 |             5.00 |           25.00
+      1563 | SOTONG KERING (SAIZ SERDAHANA)                                                         | 1kg                 | Dry goods              |       96 |           98.50 |            45.00 |          278.60
+       861 | UBI KENTANG HOLLAND                                                                    | 1kg                 | Dry goods              |      183 |            4.00 |             1.89 |            7.00
+      1131 | UBI KENTANG IMPORT (CHINA)                                                             | 1kg                 | Dry goods              |     1660 |            3.20 |             1.50 |            7.98
+      2107 | UBI KENTANG IMPORT (PAKISTAN)                                                          | 1kg                 | Dry goods              |      194 |            2.99 |             1.79 |            8.50
+      1562 | UDANG KERING                                                                           | 100 g               | Dry goods              |      477 |            7.90 |             4.14 |           19.50
+        26 | ANGGUR HIJAU BERBIJI                                                                   | 1kg                 | Fresh produce          |        9 |           16.99 |             9.90 |           27.90
+        27 | ANGGUR MERAH BERBIJI                                                                   | 1kg                 | Fresh produce          |      386 |           10.90 |             6.99 |           29.99
+         1 | AYAM BERSIH - STANDARD                                                                 | 1kg                 | Fresh produce          |     1191 |            9.40 |             6.00 |           13.30
+         2 | AYAM BERSIH - SUPER                                                                    | 1kg                 | Fresh produce          |      346 |           11.90 |             8.00 |           16.00
+      1400 | BAWANG PERAI (LEEK) IMPORT                                                             | 1kg                 | Fresh produce          |        6 |           10.49 |             7.99 |           13.00
+      1399 | BAWANG PERAI (LEEK) TEMPATAN                                                           | 1kg                 | Fresh produce          |        1 |           15.99 |            15.99 |           15.99
+      1556 | BAYAM HIJAU                                                                            | 1kg                 | Fresh produce          |     1167 |            5.00 |             1.90 |           19.60
+        16 | BETIK BIASA                                                                            | 1kg                 | Fresh produce          |      290 |            6.99 |             3.00 |           10.90
+      1479 | BROKOLI                                                                                | 1kg                 | Fresh produce          |      928 |           11.90 |             2.39 |           23.00
+      1926 | CILI AKAR HIJAU                                                                        | 1kg                 | Fresh produce          |     1376 |           12.99 |             7.90 |           45.00
+      1927 | CILI AKAR MERAH                                                                        | 1kg                 | Fresh produce          |     1238 |           15.00 |             8.49 |           61.30
+       716 | CILI API/PADI HIJAU                                                                    | 1kg                 | Fresh produce          |      384 |           26.00 |            11.99 |           57.10
+        92 | CILI HIJAU                                                                             | 1kg                 | Fresh produce          |     1287 |           13.99 |             6.90 |           42.36
+        93 | CILI MERAH - KULAI                                                                     | 1kg                 | Fresh produce          |      717 |           17.00 |             7.99 |           39.00
+        94 | CILI MERAH - MINYAK                                                                    | 1kg                 | Fresh produce          |     1160 |           15.00 |             7.50 |           40.00
+      1551 | DADA AYAM (CHICKEN KEEL)                                                               | 1kg                 | Fresh produce          |      681 |           13.85 |             9.59 |           21.90
+      1380 | DAGING BABI (DAGING & LEMAK / LEAN & FAT)                                              | 1kg                 | Fresh produce          |       56 |           31.45 |            20.00 |           58.90
+      1379 | DAGING BABI (PERUT / BELLY)                                                            | 1kg                 | Fresh produce          |       90 |           40.00 |            20.98 |           85.00
+         9 | DAGING KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (AUSTRALIA - KOTAK)                    | 1kg                 | Fresh produce          |      220 |           34.00 |            23.99 |           48.90
+        10 | DAGING KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (NEW ZEALAND - KOTAK)                  | 1kg                 | Fresh produce          |       22 |           35.00 |            15.49 |           42.00
+        11 | DAGING KAMBING BEBIRI IMPORT TANPA TULANG (MUTTON) (TIDAK TERMASUK PAHA - AUSTRALIA)   | 1kg                 | Fresh produce          |       24 |           48.45 |            38.90 |           65.80
+        12 | DAGING KAMBING BEBIRI IMPORT TANPA TULANG (MUTTON) (TIDAK TERMASUK PAHA - NEW ZEALAND) | 1kg                 | Fresh produce          |        7 |           48.00 |            40.00 |           60.00
+      1369 | DAGING KAMBING TEMPATAN BERTULANG                                                      | 1kg                 | Fresh produce          |       18 |           60.00 |            40.00 |           70.00
+      1914 | DAGING KERBAU IMPORT (INDIA) (BLOCK)                                                   | 1kg                 | Fresh produce          |      314 |           23.99 |            19.90 |           33.90
+      1377 | DAGING KERBAU IMPORT (INDIA) * (BLADE)                                                 | 1kg                 | Fresh produce          |      212 |           24.53 |            19.99 |           31.99
+      1378 | DAGING KERBAU IMPORT (INDIA) * (CHUCK)                                                 | 1kg                 | Fresh produce          |      145 |           25.99 |            21.90 |           34.99
+      1376 | DAGING KERBAU IMPORT (INDIA) * (RUMP)                                                  | 1kg                 | Fresh produce          |       77 |           23.99 |            20.49 |           29.00
+      1375 | DAGING KERBAU IMPORT (INDIA) * (SILVERSIDE)                                            | 1kg                 | Fresh produce          |      154 |           24.00 |            20.00 |           33.19
+        14 | DAGING KERBAU IMPORT (INDIA) * (TOP SIDE)                                              | 1kg                 | Fresh produce          |      308 |           25.85 |            19.98 |           32.79
+      1371 | DAGING LEMBU IMPORT (BLADE)                                                            | 1kg                 | Fresh produce          |       20 |           49.45 |            22.00 |           85.90
+      1913 | DAGING LEMBU IMPORT (BLOCK)                                                            | 1kg                 | Fresh produce          |       43 |           32.99 |            22.00 |           84.90
+      1372 | DAGING LEMBU IMPORT (CHUCKTENDER)                                                      | 1kg                 | Fresh produce          |       15 |           48.00 |            22.00 |           80.90
+      1373 | DAGING LEMBU IMPORT (KNUCKLE)                                                          | 1kg                 | Fresh produce          |       24 |           48.95 |            23.20 |           81.90
+      1370 | DAGING LEMBU IMPORT (TOPSIDE)                                                          | 1kg                 | Fresh produce          |       18 |           47.90 |            23.50 |           85.90
+      1431 | DAGING LEMBU TEMPATAN (BAHAGIAN 1 DAGING PAHA (KECUALI BATANG PINANG - TENDERLOIN)     | 1kg                 | Fresh produce          |      104 |           36.00 |            25.00 |           58.80
+      1432 | DAGING LEMBU TEMPATAN (BAHAGIAN 2 DAGING PEJAL (KECUALI BATANG PINANG - TENDERLOIN)    | 1kg                 | Fresh produce          |       99 |           36.00 |            25.00 |           62.90
+      1367 | DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG  (MUTTON) (AUSTRALIA)                      | 1kg                 | Fresh produce          |       60 |           38.00 |            29.99 |           53.29
+      1368 | DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (NEW ZEALAND)                     | 1kg                 | Fresh produce          |       11 |           39.99 |            35.00 |           42.00
+        22 | DRAGON FRUIT MERAH                                                                     | 1kg                 | Fresh produce          |      272 |            7.90 |             3.49 |           24.00
+        95 | HALIA BASAH (TUA)                                                                      | 1kg                 | Fresh produce          |     1853 |            8.99 |             4.90 |           20.00
+        43 | IKAN BAWAL HITAM (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)                                   | 1kg                 | Fresh produce          |      844 |           26.90 |             7.29 |           55.00
+      1475 | IKAN BAWAL PUTIH (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)                                   | 1kg                 | Fresh produce          |      259 |           45.00 |            20.90 |           99.00
+        47 | IKAN CENCARU (ANTARA 4 HINGGA 6 EKOR SEKILOGRAM)                                       | 1kg                 | Fresh produce          |     1128 |           10.49 |             2.99 |           25.00
+      1916 | IKAN DEMUDUK/CUPAK/CERMIN (≤ 3 EKOR SEKILOGRAM)                                        | 1kg                 | Fresh produce          |      489 |           28.00 |             9.00 |           49.90
+      1915 | IKAN JENAHAK (KEPINGAN)                                                                | 1kg                 | Fresh produce          |      490 |           45.99 |            19.99 |           89.90
+        88 | IKAN KELI (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)                                          | 1kg                 | Fresh produce          |      830 |            9.99 |             5.59 |           28.00
+      1476 | IKAN KEMBUNG (ANTARA 8 HINGGA 12 EKOR SEKILOGRAM)                                      | 1kg                 | Fresh produce          |      926 |           16.00 |             6.00 |           30.00
+        55 | IKAN KEMBUNG KECIL/PELALING (ANTARA 10 HINGGA 18 EKOR SEKILOGRAM)                      | 1kg                 | Fresh produce          |      818 |           14.95 |             4.00 |           27.90
+      1436 | IKAN KERISI (ANTARA 5 HINGGA 10 EKOR SEKILOGRAM)                                       | 1kg                 | Fresh produce          |     1108 |           15.90 |             5.00 |           33.00
+      1477 | IKAN MABUNG (ANTARA 6 HINGGA 10 EKOR SEKILOGRAM)                                       | 1kg                 | Fresh produce          |      670 |           18.00 |             4.99 |           39.90
+      1554 | IKAN MERAH (KEPINGAN)                                                                  | 1kg                 | Fresh produce          |      486 |           52.00 |            18.00 |           99.90
+        69 | IKAN SELAR KUNING (≥ 11 EKOR SEKILOGRAM)                                               | 1kg                 | Fresh produce          |      696 |           12.99 |             3.99 |           33.00
+        70 | IKAN SELAR/PELATA (≤ 7 EKOR SEKILOGRAM)                                                | 1kg                 | Fresh produce          |     1125 |           18.00 |             6.00 |           39.90
+      2045 | IKAN SELAYANG/SARDIN (ANTARA 8-12 EKOR SEKILOGRAM)                                     | 1kg                 | Fresh produce          |     1194 |           11.99 |             5.00 |           28.00
+      1437 | IKAN SIAKAP (ANTARA 2 HINGGA 4 EKOR SEKILOGRAM)                                        | 1kg                 | Fresh produce          |      696 |           19.97 |             7.99 |           39.00
+      1438 | IKAN TENGGIRI BATANG (KEPINGAN)                                                        | 1kg                 | Fresh produce          |      521 |           45.00 |            15.00 |           79.90
+      1921 | IKAN TILAPIA MERAH (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)                                 | 1kg                 | Fresh produce          |      852 |           16.00 |             6.99 |           39.99
+      2047 | IKAN TONGKOL/AYA/KAYU HITAM/PUTIH (ANTARA 1 HINGGA 2 EKOR SEKILOGRAM)                  | 1kg                 | Fresh produce          |     1191 |           12.90 |             6.00 |           30.00
+        38 | JAMBU BATU BERBIJI                                                                     | 1kg                 | Fresh produce          |      207 |            7.59 |             4.59 |           12.90
+        39 | JAMBU BATU TANPA BIJI                                                                  | 1kg                 | Fresh produce          |      172 |           10.90 |             4.99 |           17.99
+        96 | KACANG BENDI                                                                           | 1kg                 | Fresh produce          |     1563 |            8.49 |             3.24 |           29.99
+        97 | KACANG BUNCIS                                                                          | 1kg                 | Fresh produce          |     1442 |           10.00 |             4.40 |           25.90
+        98 | KACANG PANJANG                                                                         | 1kg                 | Fresh produce          |     1508 |            8.00 |             2.60 |           18.99
+      1560 | KAILAN                                                                                 | 1kg                 | Fresh produce          |     1027 |            7.89 |             3.74 |           24.95
+      1559 | KANGKUNG                                                                               | 1kg                 | Fresh produce          |     1255 |            5.00 |             1.90 |           18.00
+       101 | KELAPA BIJI                                                                            | 1 biji              | Fresh produce          |      349 |            3.50 |             2.00 |            5.00
+       102 | KELAPA PARUT (BIASA)                                                                   | 1kg                 | Fresh produce          |      226 |           12.00 |             3.00 |           22.00
+      1804 | KEPAK AYAM (CHICKEN WING)                                                              | 1kg                 | Fresh produce          |     1144 |           15.50 |             5.99 |           23.50
+        52 | KEPALA IKAN JENAHAK                                                                    | 1kg                 | Fresh produce          |      275 |           22.99 |            12.90 |           45.90
+        64 | KEPALA IKAN MERAH                                                                      | 1kg                 | Fresh produce          |      244 |           25.90 |            10.99 |           45.90
+       847 | KETAM RENJONG/BUNGA (≤ 4 EKOR SEKILOGRAM)                                              | 1kg                 | Fresh produce          |      797 |           36.00 |             8.00 |           70.00
+       105 | KUBIS BULAT (TEMPATAN)                                                                 | 1kg                 | Fresh produce          |      736 |            4.50 |             1.49 |           10.00
+      1458 | KUBIS BULAT IMPORT (BEIJING)                                                           | 1kg                 | Fresh produce          |     1327 |            4.55 |             2.59 |           11.99
+       104 | KUBIS BULAT IMPORT (CHINA)                                                             | 1kg                 | Fresh produce          |     1246 |            2.99 |             1.49 |            9.00
+      1396 | KUBIS BULAT IMPORT (INDONESIA)                                                         | 1kg                 | Fresh produce          |       10 |            4.00 |             3.00 |            5.00
+      1481 | KUBIS BUNGA (CAULIFLOWER)                                                              | 1kg                 | Fresh produce          |     1622 |            8.25 |             4.49 |           20.00
+      1482 | KUBIS PANJANG (TEMPATAN)                                                               | 1kg                 | Fresh produce          |        3 |            7.99 |             3.50 |           10.00
+      1412 | KUBIS PANJANG CHINA - BESAR                                                            | 1kg                 | Fresh produce          |       15 |            3.99 |             2.89 |            6.00
+       108 | KUNYIT HIDUP                                                                           | 1kg                 | Fresh produce          |     1479 |           10.00 |             4.50 |           28.75
+      1128 | LADA BENGGALA HIJAU (CAPSICUM)                                                         | 1kg                 | Fresh produce          |     1193 |           12.00 |             6.99 |           34.50
+        31 | LAI KUNING (SAIZ M)                                                                    | 1 biji              | Fresh produce          |      120 |            1.90 |             0.89 |            3.99
+      1819 | LENGKUAS                                                                               | 1kg                 | Fresh produce          |     1478 |           10.00 |             4.99 |           22.90
+      1928 | LIMAU KASTURI                                                                          | 1kg                 | Fresh produce          |     1520 |            6.90 |             1.98 |           20.00
+      1132 | LIMAU NIPIS                                                                            | 1kg                 | Fresh produce          |     1445 |            7.00 |             2.90 |           17.75
+       109 | LOBAK MERAH                                                                            | 1kg                 | Fresh produce          |     1643 |            3.99 |             1.90 |           10.00
+      2087 | LOBAK PUTIH (1KG)                                                                      | 1kg                 | Fresh produce          |     1370 |            4.99 |             1.98 |           14.00
+      1483 | MEE KUNING BASAH (PELBAGAI JENAMA)                                                     | +-450g              | Fresh produce          |     1361 |            1.80 |             1.20 |            7.80
+        25 | NENAS BIASA (JOSAPINE/MORRIS/SARAWAK)                                                  | 1 biji              | Fresh produce          |      254 |            4.29 |             1.99 |            8.90
+      1550 | PAHA AYAM (CHICKEN DRUMSTICK)                                                          | 1kg                 | Fresh produce          |      810 |           15.90 |            10.99 |           23.79
+        18 | PISANG BERANGAN                                                                        | 1kg                 | Fresh produce          |      237 |            7.49 |             4.50 |            9.99
+        19 | PISANG EMAS                                                                            | 1kg                 | Fresh produce          |      116 |            7.90 |             4.99 |           10.00
+       103 | SANTAN KELAPA SEGAR (BIASA)                                                            | 1kg                 | Fresh produce          |      350 |           10.00 |             4.50 |           20.00
+      1929 | SANTAN KELAPA SEGAR (PEKAT)                                                            | 1kg                 | Fresh produce          |      178 |           15.00 |             6.80 |           28.00
+      1558 | SAWI HIJAU                                                                             | 1kg                 | Fresh produce          |     1450 |            5.60 |             1.10 |           19.95
+      2086 | SAWI PENDEK/JEPUN/SIOW PAK CHOY (1KG)                                                  | 1kg                 | Fresh produce          |     1398 |            6.00 |             1.90 |           23.45
+       845 | SOTONG (ANTARA 11 HINGGA17 EKOR SEKILOGRAM)                                            | 1kg                 | Fresh produce          |     1082 |           36.90 |             9.90 |           69.90
+      1109 | TELUR AYAM GRED A                                                                      | 30 biji             | Fresh produce          |     1187 |           15.59 |            10.89 |           21.00
+       118 | TELUR AYAM GRED A (BERAT 65.0 GM HINGGA 69.9 GM SEBIJI)                                | 10 biji             | Fresh produce          |        2 |            5.38 |             5.25 |            5.50
+      1110 | TELUR AYAM GRED B                                                                      | 30 biji             | Fresh produce          |     1388 |           15.30 |            10.80 |           21.00
+       119 | TELUR AYAM GRED B (BERAT 60.0 GM HINGGA 64.9 GM)                                       | 10 biji             | Fresh produce          |        2 |            5.15 |             5.00 |            5.30
+      1111 | TELUR AYAM GRED C                                                                      | 30 biji             | Fresh produce          |     1294 |           14.70 |             8.99 |           18.80
+       120 | TELUR AYAM GRED C (BERAT 55.0 GM HINGGA 59.9 GM SEBIJI)                                | 10 biji             | Fresh produce          |        1 |            5.10 |             5.10 |            5.10
+        20 | TEMBIKAI MERAH BERBIJI                                                                 | 1kg                 | Fresh produce          |      195 |            4.49 |             1.59 |            8.10
+        21 | TEMBIKAI MERAH TANPA BIJI                                                              | 1kg                 | Fresh produce          |      307 |            2.99 |             1.65 |            7.90
+        24 | TEMBIKAI SUSU                                                                          | 1kg                 | Fresh produce          |      293 |            5.99 |             1.99 |           10.99
+      1923 | TERUNG BULAT                                                                           | 1kg                 | Fresh produce          |      867 |            9.39 |             3.50 |           19.99
+      1552 | THIGH AYAM                                                                             | 1kg                 | Fresh produce          |      549 |           12.00 |             7.59 |           22.50
+       113 | TIMUN                                                                                  | 1kg                 | Fresh produce          |     1629 |            3.90 |             0.99 |           10.00
+       114 | TOMATO                                                                                 | 1kg                 | Fresh produce          |     1627 |            8.00 |             3.30 |           18.40
+       850 | UDANG HARIMAU (ANTARA 20 HINGGA 30 EKOR SEKILOGRAM)                                    | 1kg                 | Fresh produce          |      326 |           38.99 |            23.99 |           89.00
+      1919 | UDANG PUTIH BESAR (ANTARA 20 HINGGA 30 EKOR SEKILOGRAM)                                | 1kg                 | Fresh produce          |       50 |           57.00 |            23.00 |          109.90
+      1391 | UDANG PUTIH BESAR (BERAT ANTARA 41 EKOR HINGGA 60 EKOR SEKILOGRAM)                     | 1kg                 | Fresh produce          |       54 |           44.75 |            25.00 |           75.90
+       849 | UDANG PUTIH KECIL (b    % 61 EKOR SEKILOGRAM)                                          | 1kg                 | Fresh produce          |      234 |           18.99 |            13.89 |           38.80
+      1555 | UDANG PUTIH/VANNAMEI (TERNAK) (ANTARA 41 HINGGA 60 EKOR SEKILOGRAM)                    | 1kg                 | Fresh produce          |     1160 |           34.00 |            20.00 |           65.90
+      1553 | WHOLE LEG AYAM                                                                         | 1kg                 | Fresh produce          |     1074 |           15.50 |             9.70 |           23.90
+      1630 | BERUS GIGI COLGATE (TWISTER - SOFT)                                                    | 1 batang            | Household and hygiene  |      475 |            4.90 |             2.50 |            7.95
+      1524 | BERUS GIGI COLGATE (ZIG ZAG - SOFT)                                                    | 1 batang            | Household and hygiene  |      514 |            4.47 |             2.50 |            5.50
+      1525 | BERUS GIGI ORAL B (COMPLETE EASY CLEAN - SOFT)                                         | 1 batang            | Household and hygiene  |      213 |            5.10 |             2.50 |            5.99
+      1988 | DEODORAN NIVEA (EXTRA BRIGHTENING)                                                     | 150 ml              | Household and hygiene  |      460 |           21.05 |             6.99 |           23.60
+      1987 | DEODORAN NIVEA MAN (BLACK & WHITE INVISIBLE - ORIGINAL)                                | 150 ml              | Household and hygiene  |      421 |           19.90 |            13.90 |           23.60
+      1990 | DEODORAN REXONA (POWDER DRY BRIGHTENING)                                               | 50 ml               | Household and hygiene  |      245 |           10.90 |             4.90 |           16.19
+      1989 | DEODORAN REXONA MEN (SPORT DEFENSE)                                                    | 50 ml               | Household and hygiene  |      452 |           11.60 |             4.90 |           13.99
+      1876 | PELEMBUT PAKAIAN - DOWNY (PREMIUM PARFUM PASSION)                                      | 800ml               | Household and hygiene  |      487 |           13.20 |             8.90 |           17.50
+      2002 | PELUNTUR CLOROX (ORIGINAL)                                                             | 1 liter             | Household and hygiene  |      605 |            5.10 |             3.99 |            6.60
+      2000 | PENCUCI PELBAGAI GUNA AJAX FABULOSO (LAVENDER)                                         | 2 liter             | Household and hygiene  |      709 |           14.90 |            11.00 |           18.00
+      1998 | PENCUCI PELBAGAI GUNA DETTOL (LAVENDER)                                                | 2.5 liter           | Household and hygiene  |      147 |           24.60 |             5.50 |           28.35
+      1999 | PENCUCI PELBAGAI GUNA MR MUSCLE (LAVENDER)                                             | 2 liter             | Household and hygiene  |      623 |           13.99 |             9.90 |           17.99
+      2111 | SABUN DAIA EXCELLENT WASHING POWER (PELBAGAI JENIS)                                    | 2.1kg               | Household and hygiene  |     1269 |           14.80 |            11.99 |           23.50
+      2110 | SABUN DETERGEN TOP (PELBAGAI JENIS)                                                    | 3.6 KG              | Household and hygiene  |     1315 |           21.90 |            15.10 |           36.50
+      2103 | SABUN MANDIAN DETTOL (PELBAGAI JENIS)                                                  | 950g                | Household and hygiene  |     1177 |           19.40 |            11.99 |           28.90
+      2102 | SABUN MANDIAN LIFEBUOY (PELBAGAI JENIS)                                                | 920 ML              | Household and hygiene  |     1335 |           19.50 |            11.90 |           25.80
+      2056 | SABUN PENCUCI AXION PASTE (PELBAGAI JENIS)                                             | 325 g               | Household and hygiene  |     1396 |            4.00 |             3.00 |            5.99
+      1539 | SABUN PENCUCI KUAT HARIMAU (LEMON)                                                     | 400 g               | Household and hygiene  |      471 |            2.70 |             2.29 |            3.90
+      2112 | SABUN PENCUCI SUNLIGHT (PELBAGAI JENIS)                                                | 800ml               | Household and hygiene  |     1677 |            6.70 |             4.50 |            9.90
+      1992 | SABUN SERBUK ATTACK (AROMA FRESH + COLOUR)                                             | 800 g               | Household and hygiene  |      321 |           10.90 |             9.00 |           12.90
+      2109 | SABUN SERBUK BREEZE (PELBAGAI JENIS)                                                   | 2.1kg               | Household and hygiene  |     1037 |           15.50 |            11.99 |           22.90
+      1984 | SYAMPU HEAD & SHOULDERS (SMOOTH & SILKY)                                               | 330 ml              | Household and hygiene  |      619 |           15.90 |            10.90 |           22.00
+      2106 | SYAMPU REJOICE (PELBAGAI JENIS)                                                        | 600 ml              | Household and hygiene  |      868 |           17.90 |            12.99 |           28.30
+      2108 | SYAMPU SUNSILK (PELBAGAI JENIS)                                                        | 625ml               | Household and hygiene  |      987 |           18.49 |            12.50 |           27.90
+       292 | UBAT GIGI COLGATE (PUDINA SEGAR)                                                       | 250 g               | Household and hygiene  |      672 |           14.30 |             9.69 |           16.50
+       293 | UBAT GIGI DARLIE DOUBLE ACTION (PUDINA ASLI)                                           | 250 g               | Household and hygiene  |      681 |           14.60 |             9.60 |           16.60
+       295 | UBAT GIGI FRESH & WHITE (PUDINA SEGAR)                                                 | 160 g               | Household and hygiene  |      497 |            6.50 |             5.30 |            9.90
+      1963 | ANMUM ESSENTIAL LANGKAH 4 PERISA ASLI (TANPA GULA TAMBAHAN) - KOTAK                    | 550 g               | Milk and baby products |      425 |           37.50 |            33.19 |           49.40
+      2100 | DRYPERS DRYPANTZ                                                                       | M58, L48, XL42      | Milk and baby products |     1257 |           29.99 |            19.90 |           48.00
+      2098 | DRYPERS WEE WEE DRY                                                                    | S80, M60, L58, XL50 | Milk and baby products |     1206 |           30.99 |            21.90 |           61.90
+      1904 | DUMEX DUGRO 3 (1-3 TAHUN) (PELBAGAI PERISA)                                            | 850g                | Milk and baby products |     1327 |           25.90 |            22.85 |           34.40
+      2001 | DUMEX DUPRO 2 (RUMUSAN SUSULAN)                                                        | 850g                | Milk and baby products |     1239 |           29.50 |            27.15 |           34.20
+      2009 | DUTCH LADY 123 (PELBAGAI PERISA)                                                       | 850g                | Milk and baby products |     1492 |           24.69 |            20.90 |           35.40
+      2010 | DUTCH LADY 456 (PELBAGAI PERISA)                                                       | 850g                | Milk and baby products |     1476 |           24.54 |            19.89 |           35.40
+      2014 | ENFAGROW A+ MIND PRO LANGKAH 3 (PELBAGAI PERISA) (KOTAK)                               | 500 g               | Milk and baby products |      668 |           57.50 |            51.60 |           59.90
+      2104 | FERNLEAF 1-3 TAHUN (PELBAGAI PERISA)                                                   | 850g                | Milk and baby products |     1248 |           23.95 |            18.99 |           28.50
+      2105 | FERNLEAF 4-6 TAHUN (PELBAGAI PERISA)                                                   | 850g                | Milk and baby products |     1237 |           23.90 |            18.99 |           28.50
+      1517 | HEINZ APPLE PUREE                                                                      | 110 g               | Milk and baby products |      171 |            7.70 |             3.90 |            8.69
+      1515 | HEINZ FARLEY RUSKS (PELBAGAI PERISA)                                                   | 120 g               | Milk and baby products |      245 |            9.00 |             7.49 |           32.50
+      2101 | HUGGIES DRY PANTS                                                                      | S66, M50, L40, XL32 | Milk and baby products |     1221 |           28.90 |            22.90 |           49.80
+      2099 | HUGGIES DRY TAPE                                                                       | S80, M60, L54, XL42 | Milk and baby products |      766 |           29.97 |            24.49 |           48.60
+       299 | LACTOGEN 1 RUMUSAN BAYI (KOTAK)                                                        | 650g                | Milk and baby products |     1302 |           28.50 |            24.90 |           34.90
+       300 | LACTOGEN 2 RUMUSAN SUSULAN (KOTAK)                                                     | 650g                | Milk and baby products |     1320 |           28.50 |            25.70 |           32.00
+      1966 | MILNA BISKUT RUSK (PELBAGAI PERISA)                                                    | 130g                | Milk and baby products |      698 |            7.60 |             6.35 |            9.90
+      2027 | NAN LANGKAH 1 RUMUSAN BAYI (KOTAK)                                                     | 600 g               | Milk and baby products |      311 |           70.95 |            68.99 |           80.29
+      2030 | NAN LANGKAH 2 RUMUSAN SUSULAN (KOTAK)                                                  | 600 g               | Milk and baby products |      275 |           66.80 |            65.90 |           75.70
+      1145 | NESTLE CERELAC BERAS - TIN                                                             | 500 g               | Milk and baby products |     1228 |           17.30 |            12.99 |           19.99
+      1628 | NESTLE CERELAC GANDUM DAN MADU - KOTAK                                                 | 225g                | Milk and baby products |     1273 |            9.90 |             7.90 |           15.60
+      2032 | PETPET GOLD+                                                                           | M64, L54, XL42      | Milk and baby products |      422 |           29.90 |            25.50 |           39.90
+      2042 | PETPET PANTS GOLD+                                                                     | M56, L46, XL38      | Milk and baby products |      390 |           28.90 |            24.90 |           35.50
+      2031 | S-26 RUMUSAN BAYI LANGKAH 1 - (KOTAK)                                                  | 600 g               | Milk and baby products |      805 |           64.90 |            56.50 |           86.60
+      2062 | S-26 SMA RUMUSAN BAYI LANGKAH 1 - (KOTAK) (550g)                                       | 550 g               | Milk and baby products |      775 |           82.39 |            54.90 |           94.90
+      1489 | ASAM JAWA (BERBIJI) PELBAGAI JENAMA                                                    | 200 g               | Packaged goods         |      589 |            1.40 |             1.04 |            4.20
+      1604 | ASAM JAWA (TIDAK BERBIJI) ADABI                                                        | 200 g               | Packaged goods         |      712 |            4.99 |             2.50 |            6.50
+      1832 | BERAS CAP BAO-BAO GOLDEN SARAWAK (SUPER IMPORT)                                        | 10 kg               | Packaged goods         |       36 |           27.90 |            27.49 |           29.50
+      1445 | BERAS CAP FAIZA EMAS (SST5%)                                                           | 10 kg               | Packaged goods         |       57 |           26.00 |            25.95 |           30.79
+      1582 | BERAS CAP JASMINE (SST5%)                                                              | 10 kg               | Packaged goods         |      139 |           26.00 |            25.90 |           26.00
+      2068 | BERAS CAP JASMINE SUPER 5 SPECIAL (IMPORT)                                             | 10 kg               | Packaged goods         |      777 |           34.50 |            30.99 |           46.15
+       992 | BERAS CAP JATI (SST5%)                                                                 | 10 kg               | Packaged goods         |       56 |           26.00 |            25.45 |           29.90
+      1581 | BERAS CAP RAMBUTAN (SST5%)                                                             | 10 kg               | Packaged goods         |        7 |           26.00 |            25.94 |           34.99
+      1951 | BERAS PREMIUM CAP 3A BOY (SUPER IMPORT)                                                | 10 kg               | Packaged goods         |      156 |           29.59 |            28.40 |           32.00
+      1833 | BERAS PREMIUM CAP UNCLE TAN (SUPER IMPORT)                                             | 10 kg               | Packaged goods         |      131 |           30.99 |            29.39 |           32.50
+      1492 | BERAS PULUT THAILAND (BIASA) PELBAGAI JENAMA                                           | 1kg                 | Packaged goods         |        9 |            6.90 |             5.90 |            8.00
+      1491 | BERAS PULUT THAILAND (SUSU) PELBAGAI JENAMA                                            | 1kg                 | Packaged goods         |        9 |            8.89 |             6.99 |            9.99
+      2066 | BERAS PUTIH CAP FAIZA EMAS (IMPORT)                                                    | 10 kg               | Packaged goods         |      912 |           31.99 |            28.99 |           48.00
+      1822 | BERAS PUTIH IMPORT SABAH RICE VAGAS TOKOU                                              | 10 kg               | Packaged goods         |       41 |           28.00 |            27.49 |           29.50
+      1583 | BERAS SUPER CAP JATI TWR  5% (IMPORT)                                                  | 10 kg               | Packaged goods         |      274 |           33.35 |            28.85 |           42.10
+       904 | BERAS SUPER CAP RAMBUTAN 5% (IMPORT)                                                   | 10 kg               | Packaged goods         |      450 |           36.25 |            31.99 |           48.70
+      2004 | BERAS SUPER IMPORT CAP FAMILY                                                          | 10 kg               | Packaged goods         |        2 |           27.60 |            27.20 |           28.00
+      1825 | BERAS SUPER SAZARICE CAP ANGGUR (BERAS PUTIH IMPORT )                                  | 10 kg               | Packaged goods         |      162 |           28.50 |            26.49 |           31.00
+      1826 | BERAS SUPER SAZARICE CAP RODA (BERAS PUTIH IMPORT)                                     | 10 kg               | Packaged goods         |      159 |           28.30 |            27.50 |           30.00
+      1823 | BERAS TKC SABAH CAP TQR 5%                                                             | 10 kg               | Packaged goods         |       53 |           34.00 |            31.50 |           39.00
+      1824 | BERAS TKC SUPER HUMA CAP KELISA EMAS (SABAH)                                           | 10 kg               | Packaged goods         |       36 |           33.00 |            32.50 |           35.00
+      2037 | BIHUN KERING (CAP LONGKOU)                                                             | 400 g               | Packaged goods         |        1 |            4.90 |             4.90 |            4.90
+      1585 | BIHUN KERING IMPORT (PELBAGAI JENAMA)                                                  | 400 g               | Packaged goods         |     1328 |            3.70 |             2.50 |            5.90
+      2003 | BIHUN KERING IMPORT (PELBAGAI JENAMA)                                                  | 400 g               | Packaged goods         |      149 |            4.20 |             2.95 |            6.40
+      1584 | BIHUN KERING TEMPATAN (PELBAGAI JENAMA)                                                | 400 g               | Packaged goods         |     1506 |            3.00 |             1.90 |            6.30
+       869 | BIJI SAWI                                                                              | 100 g               | Packaged goods         |      373 |            1.19 |             0.63 |            5.00
+      1613 | ESEN STAR BRAND 'PELBAGAI PERISA'                                                      | 25 ml               | Packaged goods         |      620 |            2.90 |             2.29 |            3.90
+      1605 | GARAM HALUS BIASA (PELBAGAI JENAMA)                                                    | +-350g              | Packaged goods         |      584 |            0.85 |             0.50 |            2.99
+      1588 | GULA MERAH LEMBUT (PELBAGAI JENAMA)                                                    | +- 500g             | Packaged goods         |      479 |            3.35 |             2.35 |            5.90
+      1590 | GULA PUTIH BERTAPIS HALUS (PELBAGAI JENAMA)                                            | 1kg                 | Packaged goods         |      673 |            2.95 |             2.00 |            2.99
+      1589 | GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA)                                            | 1kg                 | Packaged goods         |     1935 |            2.85 |             2.69 |            2.85
+       201 | JEM STRAWBERI LADY'S CHOICE                                                            | 400 g               | Packaged goods         |      479 |            9.35 |             8.20 |           11.40
+       214 | KICAP LEMAK MANIS CAP KIPAS UDANG                                                      | 345ml               | Packaged goods         |     1728 |            6.80 |             5.40 |           11.00
+      1135 | KICAP MANIS ADABI                                                                      | 340ml               | Packaged goods         |     1170 |            5.20 |             3.20 |            7.50
+      2011 | KIUB SUP TOM YAM (MAGGI)                                                               | 6 X 10g             | Packaged goods         |      751 |            3.30 |             2.69 |            3.99
+       883 | KRIMER MANIS BERVITAMIN CAP F&N                                                        | 500 g               | Packaged goods         |     1385 |            4.20 |             2.99 |            5.90
+       884 | KRIMER MANIS CAP GOLD COIN                                                             | 500 g               | Packaged goods         |      833 |            3.45 |             2.89 |            4.35
+      1953 | KRIMER MANIS PEKAT CAP SAJI                                                            | 500 g               | Packaged goods         |     1200 |            3.40 |             1.75 |            4.50
+      2022 | LEPAAN BUTTERCUP                                                                       | 227g                | Packaged goods         |     1262 |            7.80 |             5.85 |           10.29
+      1976 | MAGGI MI SEGERA PERISA KARI                                                            | 5 X 79g             | Packaged goods         |     1908 |            5.00 |             3.99 |            6.99
+       203 | MAINLAND CHESDALE CHEDDAR CHEESE SPREAD 12 CHEDDAR                                     | 250 g               | Packaged goods         |      713 |           12.60 |             9.99 |           15.50
+       205 | MARJERIN DAISY                                                                         | 480 g               | Packaged goods         |     1087 |            9.50 |             5.00 |           15.00
+       206 | MARJERIN PLANTA                                                                        | 480 g               | Packaged goods         |     1094 |           11.50 |             7.50 |           15.70
+      1872 | MAYONIS SEBENAR LADY'S CHOICE                                                          | 220ml               | Packaged goods         |      671 |            8.30 |             4.45 |           11.40
+      1615 | MENTEGA ANCHOR (SALTED)                                                                | 227g                | Packaged goods         |      709 |           15.45 |            12.88 |           18.50
+      1144 | MENTEGA KACANG HALUS LADY'S CHOICE                                                     | 340 g               | Packaged goods         |      588 |           14.95 |            12.49 |           19.50
+      1606 | MENTEGA KACANG HALUS LADY'S CHOICE                                                     | 500 g               | Packaged goods         |      618 |           17.99 |            13.80 |           23.50
+      1087 | MINYAK JAGUNG CAP DAISY                                                                | 3 kg                | Packaged goods         |      597 |           42.20 |            29.90 |           49.20
+      1595 | MINYAK JAGUNG CAP DAISY                                                                | 2 kg                | Packaged goods         |      581 |           29.50 |            24.49 |           39.99
+      1086 | MINYAK JAGUNG CAP DAISY                                                                | 1kg                 | Packaged goods         |      683 |           16.20 |             9.09 |           19.90
+      1088 | MINYAK JAGUNG CAP MAZOLA                                                               | 3 kg                | Packaged goods         |      248 |           47.90 |            38.88 |           51.90
+      1596 | MINYAK JAGUNG CAP MAZOLA                                                               | 2 kg                | Packaged goods         |       45 |           29.50 |            18.90 |           32.20
+       246 | MINYAK JAGUNG CAP MAZOLA                                                               | 1kg                 | Packaged goods         |      405 |           18.90 |            15.90 |           21.99
+      1089 | MINYAK JAGUNG CAP VECORN                                                               | 3 kg                | Packaged goods         |      223 |           42.67 |            34.99 |           59.79
+      1090 | MINYAK JAGUNG CAP VECORN                                                               | 1kg                 | Packaged goods         |      364 |           15.05 |            12.80 |           22.20
+      1597 | MINYAK JAGUNG CAP VECORN                                                               | 2 kg                | Packaged goods         |      242 |           29.50 |            24.39 |           41.79
+       918 | MINYAK MASAK PAKET (PELBAGAI JENAMA)                                                   | 1kg                 | Packaged goods         |      940 |            2.50 |             2.45 |            2.65
+       260 | MINYAK MASAK SEBATIAN CAP KNIFE                                                        | 5 kg                | Packaged goods         |     1165 |           35.50 |            30.50 |           44.50
+      1093 | MINYAK MASAK SEBATIAN CAP KNIFE                                                        | 1kg                 | Packaged goods         |      933 |            8.50 |             6.90 |           15.39
+      1600 | MINYAK MASAK SEBATIAN CAP KNIFE                                                        | 2 kg                | Packaged goods         |     1083 |           15.99 |            13.30 |           19.90
+      1598 | MINYAK MASAK SEBATIAN CAP RED EAGLE                                                    | 2 kg                | Packaged goods         |      944 |           16.20 |            13.60 |           20.90
+      1091 | MINYAK MASAK SEBATIAN CAP RED EAGLE                                                    | 1kg                 | Packaged goods         |      665 |            8.60 |             6.90 |           16.90
+       254 | MINYAK MASAK SEBATIAN CAP RED EAGLE                                                    | 5 kg                | Packaged goods         |      969 |           36.85 |            24.50 |           45.29
+      1942 | MINYAK MASAK TULEN CAP ALIF                                                            | 5 kg                | Packaged goods         |       11 |           30.90 |            28.90 |           30.90
+      1941 | MINYAK MASAK TULEN CAP ALIF                                                            | 2 kg                | Packaged goods         |        6 |           13.30 |            12.99 |           13.30
+      1940 | MINYAK MASAK TULEN CAP ALIF                                                            | 1kg                 | Packaged goods         |        8 |            6.90 |             6.90 |            6.90
+      1601 | MINYAK MASAK TULEN CAP BURUH                                                           | 2 kg                | Packaged goods         |     1312 |           13.30 |            10.00 |           13.60
+       263 | MINYAK MASAK TULEN CAP BURUH                                                           | 5 kg                | Packaged goods         |     1436 |           30.90 |            13.30 |           31.90
+      1094 | MINYAK MASAK TULEN CAP BURUH                                                           | 1kg                 | Packaged goods         |     1016 |            6.90 |             6.69 |            6.90
+      1939 | MINYAK MASAK TULEN CAP SAJI                                                            | 5 kg                | Packaged goods         |     1150 |           30.90 |            13.30 |           31.50
+      1938 | MINYAK MASAK TULEN CAP SAJI                                                            | 2 kg                | Packaged goods         |      875 |           13.30 |             6.90 |           22.05
+      1937 | MINYAK MASAK TULEN CAP SAJI                                                            | 1kg                 | Packaged goods         |      710 |            6.90 |             6.30 |            6.90
+       266 | MINYAK MASAK TULEN CAP SERI MURNI                                                      | 5 kg                | Packaged goods         |     1333 |           30.90 |            28.40 |           30.90
+      1101 | MINYAK MASAK TULEN CAP SERI MURNI                                                      | 2 kg                | Packaged goods         |     1271 |           13.30 |            11.80 |           30.90
+      1100 | MINYAK MASAK TULEN CAP SERI MURNI                                                      | 1kg                 | Packaged goods         |      572 |            6.90 |             6.69 |           13.30
+      1602 | MINYAK MASAK TULEN CAP VESAWIT                                                         | 2 kg                | Packaged goods         |      875 |           13.30 |             6.85 |           30.90
+      1095 | MINYAK MASAK TULEN CAP VESAWIT                                                         | 5 kg                | Packaged goods         |      950 |           30.90 |            26.30 |           31.50
+       267 | MINYAK MASAK TULEN CAP VESAWIT                                                         | 1kg                 | Packaged goods         |      742 |            6.90 |             5.40 |            7.50
+       271 | MINYAK SAPI CAP QBB                                                                    | 400 g               | Packaged goods         |      231 |           35.40 |            25.90 |           42.90
+      1603 | MINYAK SAPI CAP WINDMILL GHEEBLEND                                                     | 400 g               | Packaged goods         |      588 |           19.60 |            13.59 |           42.90
+      1545 | PERENCAH NASI GORENG IKAN BILIS SERI AJI                                               | 26G                 | Packaged goods         |      559 |            1.47 |             0.99 |            1.90
+      1153 | PERENCAH TOM YAM ADABI                                                                 | 40 g                | Packaged goods         |      678 |            2.40 |             1.65 |            3.00
+      1151 | SANTAN KELAPA JENAMA AYAM BRAND                                                        | 1 liter             | Packaged goods         |     1615 |           15.50 |             4.00 |           19.80
+      1612 | SANTAN KELAPA JENAMA HARMUNI                                                           | 200 ml              | Packaged goods         |      648 |            3.90 |             2.19 |            4.70
+      1611 | SANTAN KELAPA JENAMA KARA                                                              | 200 ml              | Packaged goods         |     1915 |            3.90 |             2.89 |            5.50
+      1610 | SANTAN KELAPA JENAMA M&S                                                               | 500 ml              | Packaged goods         |      798 |            8.20 |             3.99 |           10.60
+      1142 | SARDIN CAP ADABI (SOS TOMATO DENGAN CILI)                                              | 425 g               | Packaged goods         |      927 |            9.69 |             7.50 |           11.80
+       191 | SARDIN CAP AYAM (SOS TOMATO)                                                           | 425 g               | Packaged goods         |     1263 |           10.80 |             9.20 |           15.90
+       193 | SARDIN CAP KING CUP (SOS TOMATO)                                                       | 425 g               | Packaged goods         |     1071 |            9.30 |             6.99 |           12.10
+       364 | SERBUK CILI BABAS                                                                      | 250 g               | Packaged goods         |     1823 |            7.65 |             4.10 |           10.00
+      1570 | SERBUK KARI AYAM DAN DAGING ADABI                                                      | 250 g               | Packaged goods         |     1780 |            6.50 |             4.50 |           11.50
+      1572 | SERBUK KARI DAGING BABAS                                                               | 250 g               | Packaged goods         |     1950 |            6.30 |             5.45 |            8.50
+      1568 | SERBUK KARI IKAN ADABI                                                                 | 250 g               | Packaged goods         |     1623 |            6.69 |             4.50 |            9.90
+       350 | SERBUK KARI IKAN BABAS                                                                 | 250 g               | Packaged goods         |     1944 |            6.30 |             5.45 |            8.00
+       365 | SERBUK KUNYIT CAMPURAN (SEBATIAN) ADABI                                                | 250 g               | Packaged goods         |     1481 |            7.29 |             4.99 |           10.00
+      1544 | SERBUK NASI GORENG CINA ADABI                                                          | 17 g                | Packaged goods         |      674 |            1.39 |             0.99 |            3.40
+      1947 | SERBUK PENAIK ROYAL (TIN)                                                              | 113g                | Packaged goods         |      492 |            6.60 |             2.40 |            7.59
+      1577 | SERBUK PERENCAH SUP ADABI                                                              | 250 g               | Packaged goods         |     1578 |            9.10 |             6.20 |           12.50
+       218 | SOS CILI LIFE                                                                          | 340 g               | Packaged goods         |     1358 |            4.50 |             3.50 |            6.00
+      1070 | SOS CILI MAGGI                                                                         | 340 g               | Packaged goods         |     1803 |            4.30 |             2.99 |            6.50
+      1138 | SOS TIRAM MAGGI                                                                        | 340 g               | Packaged goods         |     1707 |            5.90 |             4.35 |            8.50
+       217 | SOS TOMATO MAGGI                                                                       | 325 g               | Packaged goods         |     1631 |            4.20 |             2.99 |            6.25
+      1619 | SUSU TEPUNG SEGERA DUTCHLADY (BIASA)                                                   | 600 g               | Packaged goods         |      442 |           19.90 |            15.00 |           22.45
+      2025 | SUSU TEPUNG SEGERA EVERYDAY                                                            | 500 g               | Packaged goods         |     1309 |           18.90 |            15.90 |           22.45
+      2036 | TEPUNG GANDUM CAP KUDA HIJAU                                                           | 1kg                 | Packaged goods         |        9 |            3.00 |             2.69 |            4.20
+      1870 | TEPUNG GANDUM NGP (BERBUNGKUS, CAP  FAIZA)                                             | 1kg                 | Packaged goods         |      759 |            3.60 |             2.99 |            4.50
+      1827 | TEPUNG GANDUM NGP (BERBUNGKUS, CAP MUHIBAH)                                            | 1kg                 | Packaged goods         |      121 |            3.20 |             2.69 |            4.50
+       917 | TEPUNG GANDUM NGP (BERBUNGKUS, CAP SAUH)                                               | 1kg                 | Packaged goods         |     1681 |            3.20 |             2.40 |            4.50
+      1849 | TEPUNG NAIK SENDIRI CAP 'BLUE KEY'                                                     | 1kg                 | Packaged goods         |      642 |            5.10 |             4.45 |           14.69
+(329 rows)
+
+Time: 648.355 ms
+ item_code |                    item                     |  unit   | premises | median_price_rm 
+-----------+---------------------------------------------+---------+----------+-----------------
+         1 | AYAM BERSIH - STANDARD                      | 1kg     |     1191 |            9.40
+         2 | AYAM BERSIH - SUPER                         | 1kg     |      346 |           11.90
+       129 | BAWANG BESAR KUNING/HOLLAND                 | 1kg     |     1882 |            4.00
+      1564 | BAWANG PUTIH IMPORT (CHINA)                 | 1kg     |     1861 |            9.00
+      2066 | BERAS PUTIH CAP FAIZA EMAS (IMPORT)         | 10 kg   |      912 |           31.99
+        93 | CILI MERAH - KULAI                          | 1kg     |      717 |           17.00
+      1589 | GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 1kg     |     1935 |            2.85
+       918 | MINYAK MASAK PAKET (PELBAGAI JENAMA)        | 1kg     |      940 |            2.50
+       103 | SANTAN KELAPA SEGAR (BIASA)                 | 1kg     |      350 |           10.00
+      1110 | TELUR AYAM GRED B                           | 30 biji |     1388 |           15.30
+(10 rows)
+
+Time: 30.014 ms
+     item_group_en      | items_priced 
+------------------------+--------------
+                        |          329
+ Fresh produce          |          115
+ Packaged goods         |          109
+ Beverages              |           31
+ Household and hygiene  |           27
+ Milk and baby products |           25
+ Dry goods              |           22
+(7 rows)
+
+Time: 245.482 ms

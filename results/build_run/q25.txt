@@ -1,0 +1,48 @@
+Timing is on.
+psql:sql/04_analysis/q25_first_and_latest_price.sql:28: NOTICE:  table "first_last" does not exist, skipping
+DROP TABLE
+Time: 4.115 ms
+SELECT 300296
+Time: 10167.779 ms (00:10.168)
+ premise_type_en | series | pct_higher | pct_same | pct_lower | median_change_pct 
+-----------------+--------+------------+----------+-----------+-------------------
+ Hypermarket     |  25057 |       32.3 |     36.7 |      31.0 |               0.0
+ Mini market     |  44267 |       28.5 |     48.1 |      23.4 |               0.0
+ Sundry shop     |  17032 |       24.5 |     57.5 |      18.0 |               0.0
+ Supermarket     |  97106 |       31.7 |     43.8 |      24.4 |               0.0
+ Wet market      |  18556 |       31.7 |     46.1 |      22.2 |               0.0
+                 | 202018 |       30.5 |     45.2 |      24.3 |               0.0
+(6 rows)
+
+Time: 1181.606 ms (00:01.182)
+     item_group_en      | series | pct_higher | pct_lower 
+------------------------+--------+------------+-----------
+ Fresh produce          |  64827 |       44.2 |      32.1
+ Dry goods              |  13795 |       43.1 |      25.6
+ Milk and baby products |  19654 |       30.5 |      20.0
+ Household and hygiene  |  15882 |       29.3 |      22.4
+ Beverages              |  15536 |       27.4 |      21.5
+ Packaged goods         |  72324 |       16.7 |      19.1
+(6 rows)
+
+Time: 8417.123 ms (00:08.417)
+                                item                                 | first_month | first_price | last_month | last_price 
+---------------------------------------------------------------------+-------------+-------------+------------+------------
+ 100 PLUS (ORIGINAL)                                                 | 2025-10-01  |        3.75 | 2026-09-01 |       3.45
+ ANGGUR MERAH BERBIJI                                                | 2025-10-01  |        7.99 | 2026-09-01 |       7.99
+ ANMUM ESSENTIAL LANGKAH 4 PERISA ASLI (TANPA GULA TAMBAHAN) - KOTAK | 2025-10-01  |       34.10 | 2026-09-01 |      36.90
+ ASAM JAWA (BERBIJI) PELBAGAI JENAMA                                 | 2025-10-01  |        1.40 | 2026-09-01 |       1.40
+ ASAM JAWA (TIDAK BERBIJI) ADABI                                     | 2025-10-01  |        5.25 | 2026-09-01 |       5.50
+ AYAM BERSIH - STANDARD                                              | 2025-10-01  |        8.29 | 2026-09-01 |       8.99
+ AYAM BERSIH - SUPER                                                 | 2025-10-01  |       10.59 | 2026-09-01 |      12.75
+ BAWANG BESAR IMPORT (CHINA)                                         | 2025-11-01  |        2.49 | 2026-01-01 |       2.49
+ BAWANG BESAR IMPORT (INDIA)                                         | 2025-10-01  |        1.99 | 2026-09-01 |       3.29
+ BAWANG BESAR KUNING/HOLLAND                                         | 2025-10-01  |        2.49 | 2026-09-01 |       2.59
+ BAWANG KECIL MERAH BIASA IMPORT (INDIA)                             | 2025-10-01  |        2.79 | 2026-09-01 |       1.69
+ BAWANG KECIL MERAH IMPORT (THAILAND)                                | 2026-04-01  |        9.99 | 2026-09-01 |       9.99
+ BAWANG KECIL MERAH ROSE IMPORT (INDIA)                              | 2025-10-01  |        3.99 | 2026-09-01 |       5.99
+ BAWANG PUTIH IMPORT (CHINA)                                         | 2025-10-01  |        7.89 | 2026-09-01 |       5.69
+ BAYAM HIJAU                                                         | 2025-10-01  |        5.58 | 2026-09-01 |       4.98
+(15 rows)
+
+Time: 368.929 ms

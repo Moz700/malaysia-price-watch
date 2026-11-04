@@ -1,0 +1,73 @@
+Timing is on.
+psql:sql/04_analysis/q10_cheapest_district_per_state.sql:18: NOTICE:  table "district_index" does not exist, skipping
+DROP TABLE
+Time: 3.263 ms
+SELECT 139
+Time: 1462.683 ms (00:01.463)
+       state       |  cheapest_district   | basket_index | basket_items_priced 
+-------------------+----------------------+--------------+---------------------
+ Perak             | Bagan Datuk          |         91.4 |                 233
+ Kedah             | Kuala Muda           |         94.0 |                 260
+ Selangor          | Klang                |         94.4 |                 251
+ Pahang            | Maran                |         95.1 |                 243
+ Negeri Sembilan   | Bahau                |         95.2 |                 241
+ Johor             | Segamat              |         95.4 |                 246
+ Melaka            | Melaka Tengah        |         95.4 |                 262
+ Pulau Pinang      | Seberang Perai Utara |         96.0 |                 260
+ Kelantan          | Pasir Puteh          |         96.8 |                 242
+ Perlis            | Arau                 |         98.3 |                 222
+ Terengganu        | Kuala Nerus          |         98.6 |                 250
+ W.P. Kuala Lumpur | Bandar Tun Razak     |        100.4 |                 258
+ Sabah             | Kota Kinabalu        |        101.9 |                 226
+ Sarawak           | Sibu                 |        102.7 |                 208
+ W.P. Putrajaya    | Wp Putrajaya         |        104.6 |                 263
+ W.P. Labuan       | W.P Labuan           |        107.0 |                 144
+(16 rows)
+
+Time: 3.862 ms
+       state       | districts_scored | cheapest_index | dearest_index | gap_points 
+-------------------+------------------+----------------+---------------+------------
+ W.P. Kuala Lumpur |               11 |          100.4 |         112.0 |       11.7
+ Sarawak           |               19 |          102.7 |         113.9 |       11.1
+ Kedah             |               11 |           94.0 |         104.8 |       10.8
+ Perak             |               11 |           91.4 |         101.0 |        9.6
+ Sabah             |               18 |          101.9 |         110.3 |        8.4
+ Negeri Sembilan   |                7 |           95.2 |         103.0 |        7.8
+ Selangor          |               10 |           94.4 |         101.8 |        7.4
+ Johor             |                9 |           95.4 |         102.5 |        7.1
+ W.P. Putrajaya    |                2 |          104.6 |         111.1 |        6.5
+ Pahang            |               10 |           95.1 |         101.4 |        6.4
+ Pulau Pinang      |                5 |           96.0 |         101.8 |        5.8
+ Melaka            |                3 |           95.4 |         101.1 |        5.7
+ Terengganu        |                8 |           98.6 |         104.3 |        5.7
+ Perlis            |                3 |           98.3 |         103.9 |        5.6
+ Kelantan          |                9 |           96.8 |         100.9 |        4.2
+ W.P. Labuan       |                3 |          107.0 |         109.0 |        1.9
+(16 rows)
+
+Time: 0.461 ms
+   grp    |       state       |      district       | basket_index 
+----------+-------------------+---------------------+--------------
+ Cheapest | Perak             | Bagan Datuk         |         91.4
+ Cheapest | Perak             | Perak Tengah        |         91.9
+ Cheapest | Kedah             | Kuala Muda          |         94.0
+ Cheapest | Perak             | Kerian              |         94.3
+ Cheapest | Selangor          | Klang               |         94.4
+ Cheapest | Perak             | Hulu Perak          |         94.8
+ Cheapest | Selangor          | Kuala Langat        |         94.9
+ Cheapest | Kedah             | Baling              |         94.9
+ Cheapest | Pahang            | Maran               |         95.1
+ Cheapest | Perak             | Kinta               |         95.2
+ Dearest  | Sarawak           | Limbang             |        113.9
+ Dearest  | W.P. Kuala Lumpur | Segambut            |        112.0
+ Dearest  | Sarawak           | Lawas               |        111.4
+ Dearest  | W.P. Putrajaya    | Cyberjaya           |        111.1
+ Dearest  | W.P. Kuala Lumpur | Lembah Pantai       |        110.7
+ Dearest  | Sarawak           | Tatau               |        110.3
+ Dearest  | Sabah             | Beaufort            |        110.3
+ Dearest  | Sabah             | Sipitang            |        110.0
+ Dearest  | Sarawak           | Serian              |        109.7
+ Dearest  | W.P. Labuan       | Kawasan Luar Bandar |        109.0
+(20 rows)
+
+Time: 1.032 ms

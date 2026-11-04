@@ -1,0 +1,37 @@
+Timing is on.
+       state       | items_compared | price_index | rank_most_expensive 
+-------------------+----------------+-------------+---------------------
+ Sabah             |             10 |       105.9 |                   1
+ W.P. Putrajaya    |             10 |       104.0 |                   2
+ W.P. Kuala Lumpur |             10 |       102.6 |                   3
+ W.P. Labuan       |             10 |       101.6 |                   4
+ Negeri Sembilan   |             10 |       101.0 |                   5
+ Terengganu        |             10 |       100.7 |                   6
+ Johor             |             10 |       100.2 |                   7
+ Kelantan          |             10 |       100.1 |                   8
+ Melaka            |             10 |        99.9 |                   9
+ Pulau Pinang      |             10 |        99.9 |                  10
+ Sarawak           |             10 |        99.7 |                  11
+ Pahang            |             10 |        99.6 |                  12
+ Selangor          |             10 |        98.4 |                  13
+ Perak             |             10 |        97.9 |                  14
+ Kedah             |             10 |        97.2 |                  15
+ Perlis            |             10 |        97.1 |                  16
+(16 rows)
+
+Time: 283.195 ms
+ item_code |                    item                     |  unit   | premises 
+-----------+---------------------------------------------+---------+----------
+      1572 | SERBUK KARI DAGING BABAS                    | 250 g   |     1950
+       350 | SERBUK KARI IKAN BABAS                      | 250 g   |     1944
+      1589 | GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA) | 1kg     |     1935
+      1611 | SANTAN KELAPA JENAMA KARA                   | 200 ml  |     1915
+      1976 | MAGGI MI SEGERA PERISA KARI                 | 5 X 79g |     1908
+       129 | BAWANG BESAR KUNING/HOLLAND                 | 1kg     |     1882
+      1564 | BAWANG PUTIH IMPORT (CHINA)                 | 1kg     |     1861
+        95 | HALIA BASAH (TUA)                           | 1kg     |     1853
+       364 | SERBUK CILI BABAS                           | 250 g   |     1823
+      1070 | SOS CILI MAGGI                              | 340 g   |     1803
+(10 rows)
+
+Time: 84.006 ms
