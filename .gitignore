@@ -1,0 +1,30 @@
+# Raw data is too big for GitHub. Anyone can re-download it with data/download.ps1
+data/*.csv
+data/*.parquet
+
+# Office lock files
+~$*
+
+# Operating system junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Node packages (dashboard tests)
+node_modules/
+
+# Editor folders
+.vscode/
+.idea/
+
+# Environment files (secrets)
+.env
+.env.*
+
+# Power BI local files (personal settings and data cache)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
