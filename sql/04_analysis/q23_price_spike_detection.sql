@@ -5,7 +5,7 @@
    Question    : When did an item's national price jump to more than 2
                  standard deviations above its own recent average? Do the
                  spikes bunch up before festivals?
-   Why WEEKS, not days: 92-96% of mini-market and sundry-shop prices are
+   Why weekly  : 92-96% of mini-market and sundry-shop prices are
                  collected on Mondays (see docs/data_dictionary.md). A daily
                  median therefore mixes different shops on Mondays than on
                  other days and swings by weekday even when no price moved.
@@ -15,14 +15,14 @@
                     than 60% of the item's usual number of shops reported
                     (public-holiday Mondays) are dropped.
                  2) for each week, mean and standard deviation of the
-                    previous 8 kept weeks (NOT including this week, so a
+                    previous 8 kept weeks (excluding this week, so a
                     spike cannot hide itself)
                  3) spike = this week's median > mean + 2 x standard deviation
-                    AND at least 2% above the mean. Without the 2% floor,
+                    and at least 2% above the mean. Without the 2% floor,
                     items whose price almost never moves (baby formula) get
                     "spikes" from a few sen, because their standard
-                    deviation is tiny: statistically unusual, practically
-                    irrelevant.
+                    deviation is tiny. Such moves are statistically unusual
+                    but too small to matter.
                  Items with 50+ shops a week only.
    Answer      : Spike rate was lower in pre-festival weeks (2.83%) than
                  in other weeks (4.52%). December 2025 had the most spike

@@ -6,7 +6,7 @@
                  it dearest, and how big is the gap?
    Method      : September 2026, same basket as q09, one price per shop.
                  Districts do not all price every basket item, so each is
-                 scored with an INDEX: the average of (district median /
+                 scored with an index: the average of (district median /
                  national median) over the basket items it does price
                  (100 = national). A district must price at least half the
                  basket to be scored. The cheapest district per state is the

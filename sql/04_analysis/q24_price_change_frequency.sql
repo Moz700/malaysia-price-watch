@@ -10,9 +10,9 @@
                  changes / comparisons. Full year.
    Read with care: wet markets report an item ~15 times a month, sundry
                  shops ~3 (once a week). A longer gap gives a price more
-                 time to change, so per-report rates FLATTER weekly
+                 time to change, so per-report rates flatter weekly
                  reporters. Sundry shops still change least, so their
-                 stickiness is real, not an artefact.
+                 stickiness is not an artefact of reporting frequency.
    Runtime     : ~2.5 minutes (a window over all 20.7 million rows)
    Answer      : Wet markets change price on 20.2% of reports,
                  hypermarkets 14.8%, supermarkets 13.4%, mini markets

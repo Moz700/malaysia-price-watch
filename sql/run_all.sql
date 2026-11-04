@@ -14,7 +14,7 @@
    The CSVs are read from the repo's data folder by default. If they are
    somewhere else, add  -v datadir="<folder with the 15 CSVs, forward slashes>"
 
-   Give -f the FULL path ($PWD\...): the load step changes psql's
+   Give -f the full path ($PWD\...): the load step changes psql's
    working folder to the data folder (\cd), and a full path keeps the
    remaining \ir steps findable. ON_ERROR_STOP makes psql halt at the
    first error instead of ploughing on.

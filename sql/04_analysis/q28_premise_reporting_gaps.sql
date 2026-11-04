@@ -5,14 +5,14 @@
    Question    : Which shops have holes in their reporting (whole months
                  with no prices between their first and last report), and
                  which went quiet before the end of the period?
-   Method      : 1) every month each premise SHOULD appear in: from its
+   Method      : 1) every month each premise should appear in: from its
                     first month to its last, built with generate_series()
-                 2) anti-join (NOT EXISTS) against the months it DID report
+                 2) anti-join (NOT EXISTS) against the months it did report
                  3) what is left = gap months
    Answer      : Reporting is continuous once a shop starts: only 8
                  premises have internal gaps (16 months in total). Shops
-                 leave rather than pause: 6.3% of supermarkets and 6.1%
-                 of sundry shops stopped before Sep 2026.
+                 that stop tend to leave for good: 6.3% of supermarkets
+                 and 6.1% of sundry shops stopped before Sep 2026.
    ===================================================================== */
 
 DROP TABLE IF EXISTS premise_gap_month;

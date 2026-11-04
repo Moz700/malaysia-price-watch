@@ -12,7 +12,7 @@
        psql ... -v datadir="D:/my/folder" -f sql/01_load/01_load_all.sql
    ===================================================================== */
 
--- Folder that holds the 15 CSVs (see the header above).
+-- Folder that holds the 15 CSVs
 \if :{?datadir}
 \else
   \set datadir 'data'

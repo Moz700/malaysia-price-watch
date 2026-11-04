@@ -44,7 +44,7 @@ JOIN core.dim_premise AS p ON p.premise_code = x.premise_code
 ORDER BY x.price_index
 LIMIT 15;
 
--- 11b. How spread out are shops? Distribution of the index
+-- 11b. Distribution of the index across shops
 SELECT
     COUNT(*)                                                                      AS premises_scored,
     ROUND(MIN(price_index)::numeric, 1)                                           AS cheapest,

@@ -54,7 +54,7 @@ GROUP BY premise_code;
 -- ---------- CREATE THE INDEXES ---------------------------------------
 -- (item_code, date): serves "one item over time" questions.
 -- Column order matters: the index is sorted by item first, then date,
--- so it helps WHERE item_code = ... (and item + date range), but NOT a
+-- so it helps WHERE item_code = ... (and item + date range), but not a
 -- filter on date alone. (The primary key already starts with date.)
 CREATE INDEX idx_fact_item_date ON core.fact_price (item_code, date);
 CREATE INDEX idx_fact_premise   ON core.fact_price (premise_code);

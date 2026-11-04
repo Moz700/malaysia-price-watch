@@ -20,4 +20,5 @@ WHERE NOT EXISTS (
 GROUP BY r.premise_code;
 
 -- Result (build run): 13 rows, one premise (22280), 25-26 Sep 2026 only:
--- a new shop added at the very end of the period, before the lookup file.
+-- a new shop that started reporting at the end of the period, before it
+-- was added to the lookup file.

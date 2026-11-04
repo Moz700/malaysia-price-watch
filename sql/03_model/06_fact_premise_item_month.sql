@@ -1,9 +1,9 @@
 /* =====================================================================
    core.fact_premise_item_month: one value per shop, item, month
    ---------------------------------------------------------------------
-   WHY THIS TABLE EXISTS
-   Shops do not report equally often. In September 2026, for each item:
-       wet markets reported   ~15 prices a month
+   Shops do not report equally often. Prices reported per item per
+   month, September 2026:
+       wet markets            ~15
        supermarkets           ~8
        hypermarkets           ~8
        mini markets           ~3
@@ -14,7 +14,7 @@
    one-shop-one-vote median for 123 of 329 items, by more than 5% for 25
    of them (up to 25.6%).
 
-   So this AGGREGATE FACT TABLE gives each shop ONE price per item per
+   This aggregate fact table gives each shop one price per item per
    month (the median of its own reports). Every analysis that compares
    prices across shops uses it, so each shop counts once.
    It is also ~8x smaller than fact_price, so those queries run faster.
@@ -60,7 +60,7 @@ WHERE m.month = DATE '2026-09-01'
 GROUP BY p.premise_type_en
 ORDER BY avg_reports_per_shop_item_month DESC;
 
--- Why it matters: the national median per item, September 2026, computed two ways.
+-- The national median per item, September 2026, computed two ways.
 --   raw-row median   : every daily report counts (frequent reporters outvote others)
 --   one shop one vote: each shop's monthly price counts once
 WITH sep_rows AS (

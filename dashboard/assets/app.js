@@ -493,7 +493,7 @@
       tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: ps => tip(rows[ps[0].dataIndex]) },
       graphic: [{
         type: 'text', left: 8, top: 4,
-        style: { text: 'Shaded, the first 3 categories: ' + rows[2].cumulative.toFixed(1) + '% of all increases, ' +
+        style: { text: 'The 3 shaded categories: ' + rows[2].cumulative.toFixed(1) + '% of all increases and ' +
           roundTo(rows[0].share_of_items + rows[1].share_of_items + rows[2].share_of_items, 1).toFixed(1) + '% of the items',
           fill: C.ink, font: '600 12.5px Inter, system-ui, sans-serif' }
       }],

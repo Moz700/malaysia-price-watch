@@ -2,7 +2,7 @@
 
 These 8 CSV files feed the web dashboard. They come from the `mart` views of the build run, exported by [`sql/05_views/03_export_dashboard_data.sql`](../../sql/05_views/03_export_dashboard_data.sql); the export log is [`results/build_run/12_dashboard_export.txt`](../../results/build_run/12_dashboard_export.txt). Total size: about 4 MB. The same files load straight into Power BI or Excel (Get Data → Text/CSV).
 
-What each file holds, one row at a time.
+What one row of each file holds, with row counts and the view each file comes from.
 
 | File | One row is | Rows | Source |
 |---|---|---:|---|

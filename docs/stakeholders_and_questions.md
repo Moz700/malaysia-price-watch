@@ -30,7 +30,7 @@ All 31 questions, in order of SQL complexity. Snapshot questions use September 2
 | q10 | A | Cheapest district within each state | correlated subquery |
 | q11 | B | Premise price index: the cheapest shops and chains | ratio metric, HAVING |
 | q12 | B | Price index by shop type × state, and shop type × item group | CTE + GROUP BY, FILTER pivot |
-| q13 | C | Items that changed price most, Oct 2025 → Sep 2026 (naive vs matched shops) | two-period CTE |
+| q13 | C | Items that changed price most from Oct 2025 to Sep 2026 (naive vs matched shops) | two-period CTE |
 | q14 | C | Are increases concentrated in a few categories? | share of total, running share |
 | q15 | B | Rank shops by price for each item within each district | ROW_NUMBER, RANK, DENSE_RANK |
 | q16 | B | Which shop is cheapest most often, day after day | DENSE_RANK + COUNT, ROW_NUMBER |
@@ -56,6 +56,6 @@ The shortest path through the queries for each reader.
 
 | Stakeholder | Start with | Then |
 |---|---|---|
-| A. KPDN | q09 basket by state, q10 districts, q06 thin coverage, q31 KPI checks | q21–q22 festive effect, q27 CPI check |
+| A. KPDN | q09 basket by state, q10 districts, q06 thin coverage, q31 KPI checks | q21 and q22 festive effect, q27 CPI check |
 | B. Retailer | q03 and q12 shop formats, q11 chains | q16 price leaders, q24 re-pricing behaviour |
-| C. Procurement | q13–q14 what changed and where | q29 stability, q23 spikes, q18 staples trend |
+| C. Procurement | q13 and q14 what changed and where | q29 stability, q23 spikes, q18 staples trend |

@@ -8,7 +8,7 @@
    Method      : September 2026 (current coverage). Count distinct
                  reporting premises per district; keep districts with 3 or
                  fewer.
-   Answer      : 30 districts had 3 or fewer reporting shops in Sep 2026,
+   Answer      : 30 districts had 1 to 3 reporting shops in Sep 2026,
                  22 of them in Sabah or Sarawak; 12 listed districts
                  (e.g. Cameron Highlands, Kampar) had none.
    ===================================================================== */
@@ -27,7 +27,7 @@ GROUP BY p.state, p.district
 HAVING COUNT(DISTINCT f.premise_code) <= 3
 ORDER BY reporting_premises, items_priced;
 
--- 6b. How common is that? Districts by number of reporting premises.
+-- 6b. Districts by number of reporting premises
 WITH d AS (
     SELECT p.state, p.district, COUNT(DISTINCT f.premise_code) AS n
     FROM core.fact_price  AS f
@@ -45,7 +45,7 @@ FROM d
 GROUP BY 1
 ORDER BY MIN(n);
 
--- 6c. Districts in the premise list that had NO reporting premise in September
+-- 6c. Districts in the premise list with no reporting premise in September
 SELECT p.state, p.district, COUNT(*) AS premises_listed
 FROM core.dim_premise AS p
 WHERE p.district IS NOT NULL

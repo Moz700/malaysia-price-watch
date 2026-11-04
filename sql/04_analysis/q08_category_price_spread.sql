@@ -8,10 +8,10 @@
                  coefficient of variation (CV) = STDDEV / AVG of its price
                  across shops. CV has no unit, so a RM 50 item and a RM 2
                  item can be compared. Then the average item CV per category.
-                 (A raw STDDEV of a whole category would mostly measure that
-                 the category mixes cheap and dear items, not shop-to-shop
-                 spread.) Also P90/P10: how many times dearer the shop at the
-                 90th percentile is than the shop at the 10th.
+                 (A raw STDDEV over a whole category would mostly measure
+                 its mix of cheap and dear items.) Also P90/P10: how many
+                 times dearer the shop at the 90th percentile is than the
+                 shop at the 10th.
    Answer      : Widest shop-to-shop spread: dried seafood (average CV
                  40.3%) and vegetables (32.4%). Narrowest: rice (3.3%),
                  infant formula (5.3%), cooking oils (5.5%), eggs (5.8%).

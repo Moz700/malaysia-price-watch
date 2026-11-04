@@ -2,12 +2,12 @@
    Normal view vs materialized view: a timing test
    ---------------------------------------------------------------------
    The same weekly-spike query, read two ways:
-     A) as a normal VIEW: PostgreSQL recomputes it from 20.7M rows each time
-     B) as the MATERIALIZED VIEW: PostgreSQL reads the stored result
+     A) as a normal view: PostgreSQL recomputes it from 20.7M rows each time
+     B) as the materialized view: PostgreSQL reads the stored result
    REFRESH then measures the cost of bringing B up to date.
    ===================================================================== */
 
--- A temporary NORMAL view with the same core logic, for the comparison
+-- A temporary normal view with the same core logic, for the comparison
 DROP VIEW IF EXISTS v_item_weekly_spikes_live;
 CREATE TEMP VIEW v_item_weekly_spikes_live AS
 WITH premise_week AS (

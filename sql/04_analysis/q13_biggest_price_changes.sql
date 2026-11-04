@@ -4,15 +4,15 @@
    Stakeholder : C. Procurement / supply chain analyst
    Question    : Over the 12 months, which items rose and fell the most?
    Method      : Two ways, side by side:
-                 NAIVE   = September median / October median - 1.
+                 Naive   = September median / October median - 1.
                            Simple, but if the set of reporting shops changed
                            (quality check 07), this mixes real price change
                            with "different shops".
-                 MATCHED = only (premise, item) pairs that priced the item in
-                           BOTH months. Each pair's change = its Sep price /
+                 Matched = only (premise, item) pairs that priced the item in
+                           both months. Each pair's change = its Sep price /
                            its Oct price - 1; the item's change is the
-                           median of its pairs. Same shops, same item, so it
-                           measures real price change. This is the headline.
+                           median of its pairs. The headline method: with the
+                           same shops and item, it measures price change alone.
                  Items need 30+ matched shops.
    Answer      : Of 288 items, 242 moved less than 5%, 38 rose more than
                  5%, 8 fell more than 5%; median change 0.0%. Tomato

@@ -7,7 +7,7 @@
    Method      : September 2026, one price per shop. Keep only items sold
                  in all five shop types (hypermarket, supermarket, mini
                  market, sundry shop, wet market) so every type is compared
-                 on the SAME items. Median per item per type, divided by the
+                 on the same items. Median per item per type, divided by the
                  item's national median, averaged per type (x 100).
    Answer      : On the 181 items sold in all five formats: hypermarket
                  95.0, supermarket 97.7, mini market 102.3, wet market

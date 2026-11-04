@@ -4,12 +4,11 @@
    Stakeholder : A. Consumer and policy analyst (KPDN)
    Question    : What is the typical (median) price of each item in
                  Malaysia in the latest month, September 2026?
-   Method      : Use core.fact_premise_item_month, which holds ONE price per
+   Method      : Use core.fact_premise_item_month, which holds one price per
                  shop per item per month, so every shop counts once (see
                  sql/03_model/06). Join item names, group by item, take the
-                 median across shops with PERCENTILE_CONT(0.5).
-                 Median, not average: a few shops charging double barely
-                 move a median.
+                 median across shops with PERCENTILE_CONT(0.5). The median
+                 is used because a few shops charging double barely move it.
    Answer      : 329 items were priced in Sep 2026. Medians: chicken
                  (standard) RM 9.40/kg, grade B eggs RM 15.30 per 30,
                  imported white rice (Faiza Emas) RM 31.99 per 10 kg,

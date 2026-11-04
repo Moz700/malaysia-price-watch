@@ -1,13 +1,13 @@
 /* =====================================================================
    Quality check 7: premises that start late or stop early
    ---------------------------------------------------------------------
-   Rule:   do NOT delete these rows (the prices are real). Instead FLAG each
-           premise in core.dim_premise with its first and last reporting
-           date, and use only premises present at both ends of a period
-           when measuring price CHANGE (q13, q17, q20).
+   Rule:   keep these rows (the prices are real). Flag each premise in
+           core.dim_premise with its first and last reporting date, and
+           use only premises present at both ends of a period when
+           measuring price change (q13, q17, q20).
    Why:    if cheap shops drop out and expensive shops join, the average
-           price rises even when no shop changed its price. That is a
-           "composition effect", and it is the classic trap in price data.
+           price rises even when no shop changed its price. This is a
+           "composition effect", a common trap in price data.
    ===================================================================== */
 
 WITH premise_span AS (

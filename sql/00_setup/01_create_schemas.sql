@@ -9,9 +9,9 @@
      core    : cleaned star schema (dimensions + fact tables)
      mart    : views that answer business questions and feed Power BI
 
-   Why separate staging from core? If a cleaning rule turns out to be
-   wrong, the untouched raw data is still in staging, so core can be
-   rebuilt without downloading anything again.
+   Staging is kept apart from core so that if a cleaning rule turns out
+   to be wrong, core can be rebuilt from the untouched raw data without
+   downloading anything again.
    ===================================================================== */
 
 CREATE SCHEMA IF NOT EXISTS staging;   -- safe to re-run

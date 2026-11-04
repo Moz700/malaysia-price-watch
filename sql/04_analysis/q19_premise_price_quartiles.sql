@@ -42,7 +42,7 @@ FROM premise_quartile
 GROUP BY state, price_quartile
 ORDER BY state, price_quartile;
 
--- 19b. Who lives in the cheapest and dearest quartiles? (all states pooled)
+-- 19b. Shop types in the cheapest and dearest quartiles (all states pooled)
 SELECT
     premise_type_en,
     COUNT(*)                                                                           AS premises,

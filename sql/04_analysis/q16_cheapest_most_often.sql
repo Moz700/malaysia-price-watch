@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------
    Stakeholder : B. Retail category manager
    Question    : Day after day, who keeps winning on price? A shop that is
-                 cheapest on 25 of 28 days is a real price leader; one that
+                 cheapest on 25 of 28 days is a price leader; one that
                  is cheapest once is noise.
    Method      : September 2026, daily. On each day, DENSE_RANK the shops
                  pricing an item in a district (3+ shops that day). Count
@@ -71,7 +71,7 @@ FROM presence AS pr
 LEFT JOIN title_share AS t ON t.premise_type_en = pr.premise_type_en
 ORDER BY leader_titles DESC;
 
--- 16c. How dominant are leaders? Share of competed days they win
+-- 16c. Share of competed days that leaders win
 SELECT
     COUNT(*)                                                                         AS district_item_races,
     ROUND(AVG(100.0 * days_cheapest / days_competed), 1)                             AS avg_leader_win_rate_pct,

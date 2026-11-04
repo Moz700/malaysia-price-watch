@@ -32,6 +32,6 @@ ORDER BY price_rows DESC;
 
 -- Result (build run): 313,598 rows across 17 item codes (2023-2096 range),
 -- reported all year by up to 882 premises. They look like real items that
--- the published lookup file has not caught up with, so this is the
--- biggest single exclusion. Re-download lookup_item.csv later; if the
--- codes appear, re-run the build and they flow in automatically.
+-- the published lookup file has not caught up with. This is the biggest
+-- single exclusion. Re-download lookup_item.csv later; if the codes
+-- appear, re-run the build and they flow in automatically.

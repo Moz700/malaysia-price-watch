@@ -1,38 +1,38 @@
 # Malaysia Price Watch
 
-**What 21 million government grocery prices say about where Malaysians pay more, and why: a PostgreSQL analysis with a web dashboard and a Power BI project.**
+A PostgreSQL analysis of 21 million Malaysian grocery prices from KPDN's PriceCatcher (October 2025 to September 2026), with a web dashboard and a Power BI report.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PostgreSQL 16](https://img.shields.io/badge/PostgreSQL-16-336791.svg)](https://www.postgresql.org/)
 
-**[Live dashboard](https://moz700.github.io/malaysia-price-watch/dashboard/)** · **[Power BI report](powerbi/)** · **[Read the report (PDF)](report/Malaysia_Price_Watch_Report.pdf)**
+[Live dashboard](https://moz700.github.io/malaysia-price-watch/dashboard/) · [Power BI project](powerbi/) · [Report (PDF)](report/Malaysia_Price_Watch_Report.pdf)
 
 ![Web dashboard](dashboard/screenshots/hero.png)
 
-PriceCatcher is the daily price surveillance dataset run by KPDN (Ministry of Domestic Trade and Cost of Living) with DOSM. This project loads a full year of it (October 2025 to September 2026) into PostgreSQL, cleans it with seven documented quality checks, models it as a star schema, and answers 31 business questions for three stakeholders.
+PriceCatcher is the daily price surveillance dataset run by KPDN (Ministry of Domestic Trade and Cost of Living) with DOSM. This project loads a full year of it into PostgreSQL, cleans it with seven quality checks, models it as a star schema and answers 31 business questions for three stakeholders.
 
-Data lineage for every headline number: [`docs/data_lineage.md`](docs/data_lineage.md).
+[`docs/data_lineage.md`](docs/data_lineage.md) lists the query and output file behind every headline number.
 
-## At a glance
+## Headline numbers
 
-The six headline KPIs, as shown on the dashboard. Snapshot figures use September 2026.
+The six KPIs on the dashboard. Snapshot figures use September 2026.
 
 | KPI | Result | What it means | Source |
 |---|---:|---|---|
-| Regional basket gap | **9.9%** | The same 265-item basket cost RM 4,349.65 in Kuala Lumpur and RM 3,959.53 in Kedah, RM 390.12 more | `q09` |
-| Staples gap, wet market vs hypermarket | **12.0%** | One unit of each of 8 everyday staples cost RM 99.45 at wet markets and RM 88.76 at hypermarkets | `q03` |
-| Price-control adherence | **99.95%** | Share of 34,609 shop-months at or below the controlled price (coarse sugar RM 2.85, packet cooking oil RM 2.50) | `q31` |
-| Price increases from 3 categories | **58%** | Share of all price increases from 3 fresh categories (vegetables, onions and garlic, meat), which are 17% of the items | `q14` |
-| Gap to the price leader | **12.1 points** | The average supermarket scored 101.4 on the price index; Tesco, the cheapest chain, scored 89.3 | `q12`, `q11` |
-| Spike weeks in December 2025 | **78** | Item-weeks priced well above their recent normal; December 2025 had more than any other month | `q23` |
+| Regional basket gap | 9.9% | The same 265-item basket cost RM 4,349.65 in Kuala Lumpur and RM 3,959.53 in Kedah, RM 390.12 more | `q09` |
+| Staples gap, wet market vs hypermarket | 12.0% | One unit of each of 8 everyday staples cost RM 99.45 at wet markets and RM 88.76 at hypermarkets | `q03` |
+| Price-control adherence | 99.95% | Share of 34,609 shop-months at or below the controlled price (coarse sugar RM 2.85, packet cooking oil RM 2.50) | `q31` |
+| Price increases from 3 categories | 58% | Share of all price increases from 3 fresh categories (vegetables, onions and garlic, meat), which are 17% of the items | `q14` |
+| Gap to the price leader | 12.1 points | The average supermarket scored 101.4 on the price index; Tesco, the cheapest chain, scored 89.3 | `q12`, `q11` |
+| Spike weeks in December 2025 | 78 | Item-weeks priced well above their recent normal; December 2025 had more than any other month | `q23` |
 
 The price index compares a shop's prices with the national median of the same items (100 = national median; below 100 is cheaper).
 
-## The business problem
+## Stakeholders and questions
 
-Malaysian households, retailers and suppliers all ask the same thing: where and when do grocery prices differ, and by how much? PriceCatcher holds the answer, but it arrives as 21 million raw rows with uneven reporting. This project turns it into answers for three readers.
+Households, retailers and suppliers in Malaysia need to know where and when grocery prices differ, and by how much. PriceCatcher records this, but as 21 million raw rows with uneven reporting across shops.
 
-Each stakeholder, the question they bring, and the decision it supports.
+The three stakeholders, their question and the decision it supports.
 
 | Stakeholder | Their question | Decision it supports |
 |---|---|---|
@@ -40,27 +40,27 @@ Each stakeholder, the question they bring, and the decision it supports.
 | B. Retail category manager, supermarket chain | How do our formats and chains price against competitors? | Which items and formats to price against, and where to run promotions |
 | C. Procurement analyst, FMCG supplier | Which items are volatile, seasonal or regionally uneven? | Which items need flexible contracts or hedging, and when |
 
-## Key findings
+## Findings
 
-The full write-up, with method notes, is in [`docs/findings.md`](docs/findings.md).
+More detail and method notes: [`docs/findings.md`](docs/findings.md).
 
-### 1. Shop format matters: hypermarkets were 9.0% cheaper than sundry shops on the same 181 items
+### 1. Hypermarkets were 9.0% cheaper than sundry shops on the same 181 items
 
 On the 181 items sold in all five formats, the price index ran from 95.0 at hypermarkets to 104.3 at sundry shops (September 2026).
 
-### 2. Wet markets are not the cheap option for fresh produce
+### 2. Wet markets were dearer than hypermarkets and supermarkets for fresh produce
 
 Shops' fresh-produce prices averaged 106.5 at wet markets, against 97.7 at hypermarkets and 100.9 at supermarkets. Half of all wet markets (49.5%) sit in their state's dearest quarter of shops.
 
-### 3. Location matters too: the same basket costs 9.9% more in Kuala Lumpur than in Kedah
+### 3. The same basket cost 9.9% more in Kuala Lumpur than in Kedah
 
-The 265-item basket cost RM 4,349.65 in Kuala Lumpur and RM 3,959.53 in Kedah. Districts inside one state differed by up to 11.7 index points (Kuala Lumpur), and 30 districts had three or fewer reporting shops, 22 of them in Sabah or Sarawak.
+The 265-item basket cost RM 4,349.65 in Kuala Lumpur and RM 3,959.53 in Kedah. Districts in one state differed by up to 11.7 index points (Kuala Lumpur). In September 2026, 30 districts had only one to three reporting shops, 22 of them in Sabah or Sarawak, and 12 listed districts had none.
 
-### 4. Inflation was narrow: 84% of items moved less than 5% in a year
+### 4. 84% of items moved less than 5% over the year
 
 242 of 288 items, tracked in the same shops, moved less than 5% between October 2025 and September 2026. Vegetables, onions and garlic, and meat made up 58% of all increases with 17% of the items.
 
-### 5. No festive price hike in 2026: the spikes came in December
+### 5. Festive staples got cheaper before Chinese New Year and Hari Raya, and spike weeks peaked in December 2025
 
 In the two weeks before Chinese New Year and Hari Raya Aidilfitri, festive staples got cheaper on average (−2.4% and −5.0%), more than other items. December 2025 had the most spike weeks of the year (78, 74 of them fresh produce).
 
@@ -68,21 +68,21 @@ In the two weeks before Chinese New Year and Hari Raya Aidilfitri, festive stapl
 
 ### Web dashboard
 
-A static, interactive dashboard built from the 8 CSV files in [`dashboard/data/`](dashboard/data/). It runs at the [live link](https://moz700.github.io/malaysia-price-watch/dashboard/) and also offline: double-click `dashboard/index.html`.
+An interactive dashboard built from the 8 CSV files in [`dashboard/data/`](dashboard/data/). It runs at the [live link](https://moz700.github.io/malaysia-price-watch/dashboard/) and offline (open `dashboard/index.html`).
 
-What a visitor can do:
+It has:
 
-- Read the five findings in order, each with the chart behind it and who should act on it.
-- Explore by state on a map of Malaysia: click a state, or filter by state, shop type, item group and item, and every chart follows, including a state by shop-type heatmap of the price index. The address bar keeps the selection, so a copied link opens the same view.
-- Find where an item is cheapest: the lowest price in each state, how many shops charge it and an example shop.
-- Compare two states side by side, and overlay up to four items' prices across the year with spike weeks marked and festive periods shaded.
-- Open the stakeholder views for KPDN, a supermarket and a procurement team, switch to the dark theme, and download any chart as a PNG.
+- the five findings, each with its chart and the stakeholder who should act on it;
+- a map of Malaysia and filters for state, shop type, item group and item that every chart follows, including a heatmap of the price index by state and shop type (the address bar keeps the selection, so a copied link opens the same view);
+- a lookup of the lowest price of an item in each state, with how many shops charge it and an example shop;
+- a side-by-side comparison of two states, and a chart of up to four items' prices across the year with spike weeks marked and festive periods shaded;
+- views for KPDN, a supermarket and a procurement team, a dark theme, and a PNG download for every chart.
 
 ![Five findings](dashboard/screenshots/findings.png)
 
 ![Map explorer filtered to Kedah](dashboard/screenshots/map_explorer.png)
 
-![Where is it cheapest?](dashboard/screenshots/cheapest_tool.png)
+![Lowest price of an item in each state](dashboard/screenshots/cheapest_tool.png)
 
 ![Price trends with spike weeks and festive periods](dashboard/screenshots/trends.png)
 
@@ -92,15 +92,13 @@ On a phone the page stacks into one column: [phone screenshot](dashboard/screens
 
 ### Power BI report
 
-Saved as a Power BI Project (PBIP), with the semantic model in TMDL and the report in PBIR, so every change is reviewable in Git.
+Saved as a Power BI Project (PBIP), with the semantic model in TMDL and the report in PBIR, so every change can be reviewed in Git.
 
-- **Model:** the same 8 CSV files as fact tables, plus State, Item, Shop type and Month dimension tables, loaded from this repo by one shared Power Query function, or from a local folder.
-- **Measures:** a `_Measures` table with the 6 KPIs, grain-safe medians that return blank instead of adding pre-computed medians, and the festive change weighted by matched pairs (as in q21).
-- **Pages:** Overview, Households and policy, Retail pricing and Cost risk, mirroring the web dashboard. How to open it: [`powerbi/README.md`](powerbi/README.md).
+The model loads the same 8 CSV files as fact tables, plus State, Item, Shop type and Month dimensions, through one shared Power Query function (from this repo or from a local folder). A `_Measures` table holds the 6 KPIs, median measures that return blank at levels where pre-computed medians cannot be combined, and the festive change weighted by matched pairs (as in q21). The four pages (Overview, Households and policy, Retail pricing, Cost risk) follow the web dashboard. Setup: [`powerbi/README.md`](powerbi/README.md).
 
 ## Data
 
-The four public sources this project uses.
+The four public sources used.
 
 | Source | What it is | Licence |
 |---|---|---|
@@ -109,15 +107,13 @@ The four public sources this project uses.
 | [lookup_premise](https://data.gov.my/data-catalogue/lookup_premise) | shop name, type, state, district | CC BY 4.0 |
 | [CPI by state](https://open.dosm.gov.my/data-catalogue/cpi_state) (DOSM) | monthly CPI by division, 2010 = 100 | CC BY 4.0 |
 
-Raw files are not in the repo (about 545 MB). `data/download.ps1` (Windows) or `data/download.sh` (Mac/Linux) downloads all 15.
+The raw files (about 545 MB) are not in the repo. `data/download.ps1` (Windows) or `data/download.sh` (Mac/Linux) downloads all 15.
 
-The data is not covered by this repo's MIT licence; it keeps its source licence (CC BY 4.0).
+The data keeps its source licence (CC BY 4.0); this repo's MIT licence covers the code only.
 
-**Caveat:** data.gov.my states that PriceCatcher is built for price surveillance, not to measure inflation; DOSM's CPI is the official measure. This project uses CPI only as a consistency check (q27).
+## Pipeline
 
-## How it is built
-
-The pipeline runs in four schemas, one per stage, so raw data is never edited in place.
+Four schemas, one per stage, so raw data is never edited in place.
 
 | Schema | Holds | Built by |
 |---|---|---|
@@ -126,11 +122,11 @@ The pipeline runs in four schemas, one per stage, so raw data is never edited in
 | `core` | cleaned star schema: `fact_price` (20,722,545 rows), `fact_premise_item_month`, `dim_item`, `dim_premise`, `dim_date`, `dim_festival` | `sql/03_model` |
 | `mart` | 6 views and 1 materialized view that feed both dashboards | `sql/05_views` |
 
-The entity-relationship diagram is defined in [`docs/erd.dbml`](docs/erd.dbml) (DBML; paste it into dbdiagram.io to view it).
+The entity-relationship diagram is in [`docs/erd.dbml`](docs/erd.dbml) (DBML; paste it into dbdiagram.io to view it).
 
 ### Data quality
 
-Seven checks, each its own file in `sql/02_quality/`. This table shows how many rows each rule removed. Full report: [`docs/data_quality_report.md`](docs/data_quality_report.md).
+Seven checks, one file each in `sql/02_quality/`. Rows removed by each rule; the full report is [`docs/data_quality_report.md`](docs/data_quality_report.md).
 
 | Check | Rows |
 |---|---:|
@@ -141,15 +137,15 @@ Seven checks, each its own file in `sql/02_quality/`. This table shows how many 
 | Outliers (above 5x or below 1/5 of the item's monthly median) | 3,115 |
 | **Removed in total** | **316,802 (1.51%)** |
 
-### Three traps in this data, and how the analysis avoids them
+### Data issues and how they were handled
 
-1. **Shops report at very different rates.** In September 2026 a wet market reported each item about 15 times in the month, a sundry shop about 3 times. A median over raw rows lets frequent reporters outvote the others: for 123 of 329 items it gave a different national median than counting each shop once. The fix is `core.fact_premise_item_month`, which holds one price per shop per item per month.
-2. **The set of reporting shops changes.** 234 premises joined late or stopped early. Year-on-year and pre-festival changes are measured on matched shops, the same shop and item in both periods; the naive method misstated the year's change by more than 2 points for 82 of 288 items.
-3. **Collection is concentrated on Mondays.** 42.3% of all rows are Monday prices (over 90% for mini markets and sundry shops), so a public-holiday Monday empties a week. Spike detection uses weekly series with a minimum-coverage filter, not daily ones.
+1. Shops report at very different rates. In September 2026 a wet market reported each item about 15 times in the month and a sundry shop about 3 times, so a median over raw rows lets frequent reporters outvote the rest: for 123 of 329 items it gave a different national median than counting each shop once. `core.fact_premise_item_month` keeps one price per shop, item and month to fix this.
+2. The set of reporting shops changes. 234 premises joined late or stopped early, so year-on-year and pre-festival changes are measured on matched pairs (the same shop and item in both periods). Comparing all shops in each period misstated the year's change by more than 2 points for 82 of 288 items.
+3. Collection is concentrated on Mondays. 42.3% of all rows are Monday prices (over 90% for mini markets and sundry shops), so a Monday public holiday leaves that week with few prices. Spike detection uses weekly series with a minimum-coverage filter.
 
 ### Performance
 
-The before and after timings, from the build run (`results/build_run/run_all_log.txt`).
+Timings from the build run (`results/build_run/run_all_log.txt`).
 
 | Test | Before | After |
 |---|---:|---:|
@@ -159,26 +155,34 @@ The before and after timings, from the build run (`results/build_run/run_all_log
 
 Timings depend on the machine and on what is already cached in memory; rerun `sql/03_model/05_indexes_and_timing.sql` to measure on yours.
 
+## Limitations
+
+- data.gov.my describes PriceCatcher as a price surveillance dataset and names DOSM's CPI as the official inflation measure. This project uses CPI only as a consistency check (q27).
+- 313,598 price rows were dropped because their item codes are missing from the published item list.
+- Weekly figures depend on Monday collection, so weeks with a Monday public holiday have few prices.
+- In September 2026, 30 districts had only one to three reporting shops (22 of them in Sabah or Sarawak) and 12 listed districts had none, so district results there rest on very few shops.
+- State, district and shop comparisons use a single month, September 2026.
+
 ## The 31 questions
 
-The questions, grouped by SQL technique. Each file in `sql/04_analysis/` opens with its stakeholder, question, method and answer; the full list, mapped to stakeholders, is in [`docs/stakeholders_and_questions.md`](docs/stakeholders_and_questions.md).
+Grouped by SQL technique. Each file in `sql/04_analysis/` opens with its stakeholder, question, method and answer; [`docs/stakeholders_and_questions.md`](docs/stakeholders_and_questions.md) maps every question to its stakeholder.
 
 | Group | Questions | SQL used |
 |---|---|---|
-| 1. Aggregation and joins | q01–q08 | JOIN, GROUP BY, HAVING, PERCENTILE_CONT, FILTER, anti-joins |
-| 2. CTEs and subqueries | q09–q14 | multi-step CTEs, correlated subqueries, ratio metrics, running shares |
-| 3. Window functions | q15–q25 | ROW_NUMBER, RANK, DENSE_RANK, NTILE, LAG, rolling AVG, FIRST_VALUE / LAST_VALUE |
-| 4. Reporting and checks | q26–q31 | GROUPING SETS, CPI correlation, gap detection with generate_series, findings table, KPI checks |
+| 1. Aggregation and joins | q01 to q08 | JOIN, GROUP BY, HAVING, PERCENTILE_CONT, FILTER, anti-joins |
+| 2. CTEs and subqueries | q09 to q14 | multi-step CTEs, correlated subqueries, ratio metrics, running shares |
+| 3. Window functions | q15 to q25 | ROW_NUMBER, RANK, DENSE_RANK, NTILE, LAG, rolling AVG, FIRST_VALUE / LAST_VALUE |
+| 4. Reporting and checks | q26 to q31 | GROUPING SETS, CPI correlation, gap detection with generate_series, findings table, KPI checks |
 
-## Skills shown
+## Skills
 
 Where each skill appears in the repo.
 
-| Skill | Files that show it |
+| Skill | Files |
 |---|---|
-| SQL aggregation, joins and CTEs | `sql/04_analysis/q01`–`q14` |
-| Window functions | `sql/04_analysis/q15`–`q25` |
-| Advanced SQL (GROUPING SETS, correlation, gap detection) | `sql/04_analysis/q26`–`q31` |
+| SQL aggregation, joins and CTEs | `sql/04_analysis/q01` to `q14` |
+| Window functions | `sql/04_analysis/q15` to `q25` |
+| Advanced SQL (GROUPING SETS, correlation, gap detection) | `sql/04_analysis/q26` to `q31` |
 | Data cleaning and quality checks | `sql/02_quality/`, [`docs/data_quality_report.md`](docs/data_quality_report.md) |
 | Data modelling (star schema) | `sql/03_model/`, [`docs/erd.dbml`](docs/erd.dbml), [`docs/data_dictionary.md`](docs/data_dictionary.md) |
 | Query performance (indexes, materialized views) | `sql/03_model/05_indexes_and_timing.sql`, `sql/05_views/02_materialized_view_timing.sql` |
@@ -259,6 +263,6 @@ malaysia-price-watch/
 
 ## Author
 
-**Moztoba Mutashim Billah** · MSc Business Analytics, Sunway University · [LinkedIn](https://www.linkedin.com/in/moztoba-mutashim-billah) · [GitHub](https://github.com/Moz700)
+Moztoba Mutashim Billah · MSc Business Analytics, Sunway University · [LinkedIn](https://www.linkedin.com/in/moztoba-mutashim-billah) · [GitHub](https://github.com/Moz700)
 
 Code: MIT licence ([`LICENSE`](LICENSE)). Data: PriceCatcher (KPDN, via data.gov.my) and DOSM, CC BY 4.0.

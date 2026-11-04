@@ -29,7 +29,7 @@ These appear in the README "At a glance" table, the dashboard KPI tiles (`dashbo
 | 78 | Spike weeks in December 2025, the peak month | `q23.txt`, monthly table, row 2025-12. Power BI measure `Spike weeks in December 2025` = 78 |
 | 74 | Of those, fresh produce | `q23.txt`, row 2025-12, column `of_which_fresh` |
 
-## Key findings and other README numbers
+## Other README numbers
 
 The numbers in the README's findings, data and build sections.
 
@@ -43,7 +43,7 @@ The numbers in the README's findings, data and build sections.
 | 106.5, 97.7, 100.9 | Fresh-produce index of the average wet market, hypermarket, supermarket | `docs/findings.md`, finding 2 (q12c) |
 | 49.5% | Wet markets in their state's dearest quarter | `docs/findings.md`, finding 2 (q19) |
 | 11.7 | Largest district gap inside one state (Kuala Lumpur) | `q10.txt`, row W.P. Kuala Lumpur, `gap_points` |
-| 30, 22 | Districts with three or fewer reporting shops; of them in Sabah or Sarawak | `docs/findings.md`, finding 3 (q05, q06) |
+| 30, 22 | Districts with one to three reporting shops; of them in Sabah or Sarawak | `docs/findings.md`, finding 3 (q05, q06) |
 | 84%, 242, 288 | Items that moved less than 5%, of all items tracked | `docs/findings.md`, finding 4 (q13) |
 | 5% | Threshold for "moved" | `docs/findings.md`, finding 4 |
 | −2.4%, −5.0% | Festive staples before Chinese New Year and Hari Raya Aidilfitri | `q21.txt`: −2.42 and −4.98 |

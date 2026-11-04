@@ -52,7 +52,7 @@ SELECT
 FROM staging.lookup_premise
 WHERE premise_code > 0;          -- removes the -1 placeholder
 
--- Check: after TRIM there is ONE 'Wet market' line, not two
+-- Check: after TRIM there is one 'Wet market' line, not two
 SELECT premise_type_en, COUNT(*) AS premises
 FROM core.dim_premise
 GROUP BY premise_type_en

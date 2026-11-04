@@ -6,7 +6,7 @@
                  of categories?
    Method      : Matched Oct 2025 -> Sep 2026 item changes (same method as
                  q13). For each category: how many items rose, and what
-                 share of ALL the year's item-level increases (sum of the
+                 share of all the year's item-level increases (sum of the
                  positive % changes) it accounts for.
    Answer      : Vegetables, onions/garlic/shallots and meat made 57.6%
                  of all increases with 17.0% of the items; the top nine

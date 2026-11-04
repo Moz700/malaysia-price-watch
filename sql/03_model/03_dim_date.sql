@@ -8,12 +8,12 @@
      Ramadan (1st day of fasting) Thu 19 Feb 2026
      Hari Raya Aidilfitri 2026   Sat 21 Mar 2026
      Hari Raya Haji 2026         Wed 27 May 2026
+
    Note: in 2026 Chinese New Year, Ramadan and Hari Raya fell within five
    weeks of each other. Their "before" windows overlap, which matters
    when reading q21 and q22.
 
-   dim_date: one row per calendar day, built with generate_series()
-   instead of typed by hand.
+   dim_date: one row per calendar day, built with generate_series().
    ===================================================================== */
 
 DROP TABLE IF EXISTS core.dim_festival CASCADE;
@@ -57,7 +57,7 @@ SELECT
     EXTRACT(ISODOW  FROM d),
     TO_CHAR(d, 'FMDay'),
     EXTRACT(ISODOW  FROM d) IN (6, 7),
-    -- For each day, find the NEAREST festival that is
+    -- For each day, find the nearest festival that is
     -- 1 to 14 days ahead. If none, the result is NULL (not festive).
     (SELECT 'Pre-' || f.festival
        FROM core.dim_festival AS f

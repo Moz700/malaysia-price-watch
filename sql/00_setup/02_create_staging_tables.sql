@@ -11,7 +11,7 @@
      price         -> NUMERIC(10,2)   (exact decimal; see note below)
      text columns  -> TEXT
 
-   Why NUMERIC and not FLOAT for money?
+   Money is stored as NUMERIC, not FLOAT:
      FLOAT cannot hold values such as 0.10 exactly, so sums drift.
      NUMERIC keeps the exact decimal digits, so RM 10.60 stays RM 10.60.
      All source prices have at most 2 decimal places, so NUMERIC(10,2)

@@ -27,7 +27,7 @@ JOIN core.dim_premise AS p ON p.premise_code = f.premise_code
 GROUP BY p.state
 ORDER BY premises DESC;
 
--- How unequal is it? Biggest vs smallest state on each measure.
+-- Biggest vs smallest state on each measure
 WITH s AS (
     SELECT p.state,
            COUNT(DISTINCT f.premise_code) AS premises,

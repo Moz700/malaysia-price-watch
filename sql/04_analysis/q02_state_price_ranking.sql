@@ -9,7 +9,7 @@
                  2) median price of each item in each state
                  3) divide by the item's national median -> 1.00 = national;
                     average the 10 ratios per state, x 100 = state index
-                 Ratios, not raw RM, so a RM 14/kg chilli and a RM 4/kg onion
+                 Averaging ratios lets a RM 14/kg chilli and a RM 4/kg onion
                  count equally.
    Answer      : Sabah is the dearest state on the 10 most widely priced
                  items (index 105.9) and Perlis the cheapest (97.1). Seven

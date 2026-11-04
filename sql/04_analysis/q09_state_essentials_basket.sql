@@ -10,8 +10,8 @@
                     for each basket item
                  3) A state that does not price a basket item gets the
                     national median for it, so every state's basket holds the
-                    same items. The number filled in is shown, so the result
-                    can be judged.
+                    same items. The output shows how many items were filled
+                    in this way.
    Answer      : 265-item basket: RM 4,349.65 in Kuala Lumpur (dearest)
                  vs RM 3,959.53 in Kedah (cheapest), 9.9% more. Labuan
                  had to borrow the national median for 58 items, so read

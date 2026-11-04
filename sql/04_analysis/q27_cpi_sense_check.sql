@@ -5,10 +5,10 @@
    Question    : Month by month and state by state, does a food price
                  index built from PriceCatcher move in the same direction
                  as DOSM's official CPI for Food & Non-Alcoholic Beverages?
-   OFFICIAL CAVEAT: data.gov.my states PriceCatcher is built for price
-                 SURVEILLANCE, not for measuring inflation; DOSM's CPI is the
-                 official measure. This query is a CONSISTENCY CHECK only.
-                 It is not an inflation estimate.
+   Caveat      : data.gov.my states that PriceCatcher is built for price
+                 surveillance, not for measuring inflation; DOSM's CPI is
+                 the official measure. This query only checks consistency
+                 with the CPI and gives no inflation estimate.
    Method      : 1) food items only (no household/hygiene, no diapers)
                  2) each shop's monthly price per item (fact_premise_item_month)
                  3) month-on-month change per (shop, item) present in both
@@ -17,7 +17,7 @@
                     statistics offices use for the lowest level of a CPI.
                  4) join to CPI division '01' month-on-month change per state
                  5) CORR() = Pearson correlation, -1 to +1
-                 CPI data ends August 2026, so months are Nov 2025 - Aug 2026.
+                 CPI data ends August 2026, so months are Nov 2025 to Aug 2026.
    Answer      : PriceCatcher food and CPI food month-on-month changes
                  correlate at 0.60 over 160 state-months. Oct 2025-Aug
                  2026 cumulative: PriceCatcher -2.4% to +2.0% by state,

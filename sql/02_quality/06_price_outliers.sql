@@ -1,15 +1,15 @@
 /* =====================================================================
    Quality check 6: extreme price outliers
    ---------------------------------------------------------------------
-   Rule:   drop a price that is MORE than 5x, or LESS than 1/5 of, that
+   Rule:   drop a price that is more than 5x, or less than 1/5 of, that
            item's national median price for the same month. If the item has
            fewer than 20 reports that month, its full-year median is used,
            because in a thin month one odd price can itself be the median.
-   Why:    5x / 0.2x is wide enough to keep genuine promotions and remote
-           -area premiums, but catches unit mix-ups (price per 100 g typed
-           as per kg) and typing slips (7985 instead of 7.98).
-           The median is used, not the average, because the outliers we
-           are hunting would themselves drag an average around.
+   Why:    5x / 0.2x is wide enough to keep genuine promotions and
+           remote-area premiums, but catches unit mix-ups (price per 100 g
+           typed as per kg) and typing slips (7985 instead of 7.98).
+           The yardstick is the median because the outliers being hunted
+           would drag an average around.
    Order:  measured only on rows that already passed checks 1-5, so each
            removed row is counted under exactly one check.
    ===================================================================== */
@@ -41,7 +41,7 @@ JOIN item_month_median AS m
   ON m.item_code = v.item_code
  AND m.month     = DATE_TRUNC('month', v.date)::date;
 
--- What do they look like? The 15 most common outlier patterns.
+-- The 15 most common outlier patterns
 WITH valid AS (
     SELECT r.*
     FROM staging.raw_price AS r

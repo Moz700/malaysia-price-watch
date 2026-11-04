@@ -5,8 +5,8 @@
    Question    : By each month, how far has each item's price moved since
                  October 2025?
    Method      : Monthly median per item (q17 method). Month-on-month
-                 changes cannot simply be ADDED: +10% then -10% is not 0%
-                 (100 -> 110 -> 99). The exact way is to add LOGARITHMS:
+                 changes cannot be added: +10% then -10% is not 0%
+                 (100 -> 110 -> 99). Adding logarithms gives the exact result:
                      cumulative = EXP( SUM( LN(this month / last month) ) ) - 1
                  The query also computes the direct answer (this month /
                  October - 1) as a cross-check.

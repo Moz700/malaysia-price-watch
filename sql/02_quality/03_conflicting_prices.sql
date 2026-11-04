@@ -2,7 +2,7 @@
    Quality check 3: one shop, one item, one day, two prices
    ---------------------------------------------------------------------
    Rule:   if a premise reports more than one price for the same item on
-           the same day, keep ONE row whose price is the median of those
+           the same day, keep one row whose price is the median of those
            prices.
    Why:    the median is not pulled by a single typo (RM 4.50 vs RM 45.00),
            and it keeps the grain of the fact table at exactly one row per

@@ -7,7 +7,7 @@
                  typed-in numbers), then the three results are stacked with
                  UNION ALL into a 3-row report.
                  F1 (B, retailer): price gap between the cheapest and the
-                    dearest shop type on the SAME items (q03 method)
+                    dearest shop type on the same items (q03 method)
                  F2 (A, KPDN): gap between the dearest and cheapest state
                     for the same basket (q09 method)
                  F3 (C, procurement): how concentrated the year's price

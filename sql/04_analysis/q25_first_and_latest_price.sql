@@ -13,7 +13,7 @@
                  Oct 2025 and end in Sep 2026, so every series covers the
                  full year.
                  Note: with ORDER BY, the default window frame stops at the
-                 CURRENT row, so LAST_VALUE would just return the current
+                 current row, so LAST_VALUE would just return the current
                  row's price. The frame must be widened to the whole
                  partition: ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED
                  FOLLOWING.

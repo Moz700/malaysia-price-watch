@@ -1,5 +1,5 @@
 /* =====================================================================
-   q18 · Rolling 4-week average price for five key staples
+   q18 · Rolling 4-week average price for five staples
    ---------------------------------------------------------------------
    Stakeholder : C. Procurement / supply chain analyst
    Question    : What is the underlying trend for rice, chicken, eggs,

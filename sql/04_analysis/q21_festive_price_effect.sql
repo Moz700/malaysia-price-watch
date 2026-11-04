@@ -7,12 +7,12 @@
                  staples rise, and by more than everything else?
    Staples     : chicken, meat, eggs, coconut (fresh and boxed santan),
                  onions/garlic, and fresh chillies.
-   Method      : MATCHED pairs again: a (shop, item) counts only if it was
-                 priced in both windows, so the change is real, not a change
-                 in which shops reported. Each pair: pre-festival average /
-                 baseline average - 1. Then, per festival, the MEAN and the
-                 MEDIAN pair change for staples vs all other items (the
-                 "control"). Most shops do not change a price within a few
+   Method      : Matched pairs again: a (shop, item) counts only if it was
+                 priced in both windows, so a change in which shops reported
+                 cannot show up as a price change. Each pair: pre-festival
+                 average / baseline average - 1. Then, per festival, the mean
+                 and the median pair change for staples vs all other items
+                 (the "control"). Most shops do not change a price within a few
                  weeks, so the median is usually 0; the mean shows which way
                  the prices that did move went. If staples rise and the
                  control does not, the festival is the likely cause rather

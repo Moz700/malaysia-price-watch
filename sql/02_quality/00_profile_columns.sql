@@ -1,9 +1,8 @@
 /* =====================================================================
    Profile every column before trusting it
    ---------------------------------------------------------------------
-   What is really in the data: nulls, ranges and the actual category
-   labels. Results feed docs/data_dictionary.md.
-
+   Nulls, ranges and the category labels as written in the source.
+   Results feed docs/data_dictionary.md.
    ===================================================================== */
 
 -- P1. Nulls and price range in the raw price table.
@@ -42,7 +41,7 @@ LEFT JOIN staging.raw_price AS r
 GROUP BY p.premise_type
 ORDER BY price_rows DESC, premises_in_lookup DESC;
 
--- P4. States: premises in the lookup vs premises that actually report prices
+-- P4. States: premises in the lookup vs premises that report prices
 SELECT
     p.state,
     COUNT(DISTINCT p.premise_code)  AS premises_in_lookup,
@@ -54,7 +53,7 @@ LEFT JOIN staging.raw_price AS r
 GROUP BY p.state
 ORDER BY price_rows DESC;
 
--- P5. Item groups: items in the lookup vs items that actually get priced
+-- P5. Item groups: items in the lookup vs items that get priced
 SELECT
     i.item_group,
     COUNT(DISTINCT i.item_code)  AS items_in_lookup,
@@ -66,7 +65,7 @@ LEFT JOIN staging.raw_price AS r
 GROUP BY i.item_group
 ORDER BY price_rows DESC;
 
--- P6. Item categories that actually get priced (inner JOIN drops unpriced ones)
+-- P6. Item categories with at least one price (inner JOIN drops unpriced ones)
 SELECT
     i.item_group,
     i.item_category,
@@ -109,7 +108,7 @@ GROUP BY r.premise_code, p.premise, p.premise_type, p.state
 ORDER BY price_rows DESC
 LIMIT 20;
 
--- P9. Calendar days with NO price data at all.
+-- P9. Calendar days with no price data at all
 SELECT
     d::date                        AS missing_date,
     TO_CHAR(d, 'Dy')               AS weekday

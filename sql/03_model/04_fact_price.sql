@@ -14,8 +14,8 @@
         (full-year median if the item has < 20 reports that month)
      7  late joiners / early leavers             -> keep, flag in dim_premise
 
-   Load order: create the table WITHOUT keys, insert 20 million rows,
-   THEN add the primary and foreign keys. Checking keys once at the end is
+   Load order: create the table without keys, insert 20 million rows,
+   then add the primary and foreign keys. Checking keys once at the end is
    far faster than checking them row by row during the insert.
 
    Runtime on the build machine: about 4 minutes.
@@ -39,7 +39,7 @@ GROUP BY r.date, r.premise_code, r.item_code;                                   
 
 -- Step 2. The yardstick for check 6: the item's national median for the
 --         month. If an item has fewer than 20 reports in a month, one odd
---         price could BE the median (e.g. a single RM 0.01 report), so for
+--         price can itself be the median (e.g. a single RM 0.01 report), so for
 --         those thin months the item's full-year median is used instead.
 DROP TABLE IF EXISTS staging.item_month_median;
 CREATE TABLE staging.item_month_median AS

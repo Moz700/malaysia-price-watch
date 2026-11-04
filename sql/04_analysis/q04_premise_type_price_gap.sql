@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------
    Stakeholder : B. Retail category manager
    Question    : On which items does the choice of shop type matter most
-                 to the shopper (so price positioning is a real weapon)?
+                 to the shopper (where price positioning pays off most)?
    Method      : September 2026, one price per shop. Median per item per
                  premise type, counting a type only if 10+ of its shops price
                  the item. Gap = dearest type median - cheapest type median,

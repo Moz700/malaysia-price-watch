@@ -14,15 +14,15 @@ The files behind the project, who publishes them and where each one lands.
 | `cpi_2d_state.csv` (CPI by state) | DOSM, open.dosm.gov.my | 44,800 | `ref.cpi_state` |
 | MCOICOP lookup | DOSM, open.dosm.gov.my | not loaded | names of CPI divisions 01 to 13 |
 
-- **Licence:** CC BY 4.0 for every file. Credit data.gov.my and DOSM when reusing.
-- **Study window:** 1 Oct 2025 to 30 Sep 2026, 365 days. Prices exist on 346 of them.
-- **Scope of use:** PriceCatcher is a price surveillance dataset. data.gov.my points to DOSM's CPI for measuring inflation, so the project uses CPI only as a sense check (q27).
+- Every file is licensed CC BY 4.0; credit data.gov.my and DOSM when reusing them.
+- The study window is 1 Oct 2025 to 30 Sep 2026, 365 days. Prices exist on 346 of them.
+- PriceCatcher is a price surveillance dataset. data.gov.my points to DOSM's CPI for measuring inflation, so the project uses CPI only as a sense check (q27).
 
 ## 2. Tables
 
 ### staging.raw_price
 
-**Grain:** one published price: one item at one premise on one day. **Rows:** 21,039,347. No column has nulls, no price is zero or negative, and no (date, premise, item) key appears twice. The four columns exactly as they arrive in the monthly CSVs:
+Grain: one published price (one item at one premise on one day). Rows: 21,039,347. No column has nulls, no price is zero or negative, and no (date, premise, item) key appears twice. The four columns exactly as they arrive in the monthly CSVs:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -33,7 +33,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### staging.lookup_item
 
-**Grain:** one item code. **Rows:** 797 (796 items plus the `-1` placeholder). The item lookup as published, in Malay:
+Grain: one item code. Rows: 797 (796 items plus the `-1` placeholder). The item lookup as published, in Malay:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -45,7 +45,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### staging.lookup_premise
 
-**Grain:** one premise code. **Rows:** 3,929 (3,928 premises plus the `-1` placeholder). The premise lookup as published; text may carry stray spaces:
+Grain: one premise code. Rows: 3,929 (3,928 premises plus the `-1` placeholder). The premise lookup as published; text may carry stray spaces:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -56,11 +56,11 @@ The files behind the project, who publishes them and where each one lands.
 | `state` | TEXT | State or federal territory | Selangor |
 | `district` | TEXT | District | Petaling |
 
-`staging.price_step1` (20,725,660 rows) and `staging.item_month_median` (3,939 rows) are working tables made by `sql/03_model/04_fact_price.sql`. They are build steps, not analysis tables.
+`staging.price_step1` (20,725,660 rows) and `staging.item_month_median` (3,939 rows) are intermediate working tables that `sql/03_model/04_fact_price.sql` builds; they are not meant for analysis.
 
 ### ref.cpi_state
 
-**Grain:** one index value per state, month and CPI division. **Rows:** 44,800 = 16 states x 14 divisions x 200 months (Jan 2010 to Aug 2026). Base 2010 = 100 (the 2010 average of `overall` is 100.0). The DOSM file as published:
+Grain: one index value per state, month and CPI division. Rows: 44,800 = 16 states x 14 divisions x 200 months (Jan 2010 to Aug 2026). Base 2010 = 100 (the 2010 average of `overall` is 100.0). The DOSM file as published:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -71,7 +71,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.dim_item
 
-**Grain:** one item. **Rows:** 796. Built by `sql/03_model/01_dim_item.sql`: drops the `-1` placeholder, trims every text column and adds an English group label. 338 of the 796 items have prices in `core.fact_price`. Item attributes used to filter and group prices:
+Grain: one item. Rows: 796. Built by `sql/03_model/01_dim_item.sql`: drops the `-1` placeholder, trims every text column and adds an English group label. 338 of the 796 items have prices in `core.fact_price`. Item attributes used to filter and group prices:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -84,7 +84,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.dim_premise
 
-**Grain:** one premise. **Rows:** 3,928. Built by `sql/03_model/02_dim_premise.sql`: drops the `-1` placeholder, trims `premise_type` (merging the two wet market spellings), adds an English type label and leaves out `address`. The last four columns are filled from `core.fact_price` at the end of `04_fact_price.sql`. Premise attributes plus each premise's reporting history:
+Grain: one premise. Rows: 3,928. Built by `sql/03_model/02_dim_premise.sql`: drops the `-1` placeholder, trims `premise_type` (merging the two wet market spellings), adds an English type label and leaves out `address`. The last four columns are filled from `core.fact_price` at the end of `04_fact_price.sql`. Premise attributes plus each premise's reporting history:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -103,7 +103,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.dim_date
 
-**Grain:** one calendar day. **Rows:** 365 (1 Oct 2025 to 30 Sep 2026), generated with `generate_series()`. Calendar attributes for grouping by month, week, weekday and festive season:
+Grain: one calendar day. Rows: 365 (1 Oct 2025 to 30 Sep 2026), generated with `generate_series()`. Calendar attributes for grouping by month, week, weekday and festive season:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -121,7 +121,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.dim_festival
 
-**Grain:** one festival. **Rows:** 5. Columns: `festival` (TEXT, PK) and `festival_date` (DATE, not null). The five festivals and the `festive_period` window each one produces in `core.dim_date`; 307 days are in no window, and Pre-Ramadan has only 2 days because each day takes the nearest festival ahead and Chinese New Year falls two days before Ramadan:
+Grain: one festival. Rows: 5. Columns: `festival` (TEXT, PK) and `festival_date` (DATE, not null). The five festivals and the `festive_period` window each one produces in `core.dim_date`; 307 days are in no window, and Pre-Ramadan has only 2 days because each day takes the nearest festival ahead and Chinese New Year falls two days before Ramadan:
 
 | festival | festival_date | festive_period window | Days |
 |---|---|---|---:|
@@ -133,7 +133,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.fact_price
 
-**Grain:** one clean price per day, premise and item. **Rows:** 20,722,545 (98.494% of loaded rows), covering 338 items, 2,262 premises and 346 days. **Keys:** PK (`date`, `premise_code`, `item_code`); FKs to `dim_date`, `dim_premise` and `dim_item`. Built by `sql/03_model/04_fact_price.sql`, which applies the rules logged in `core.data_quality_log`. The cleaned daily price table:
+Grain: one clean price per day, premise and item. Rows: 20,722,545 (98.494% of loaded rows), covering 338 items, 2,262 premises and 346 days. Keys: PK (`date`, `premise_code`, `item_code`); FKs to `dim_date`, `dim_premise` and `dim_item`. Built by `sql/03_model/04_fact_price.sql`, which applies the rules logged in `core.data_quality_log`. The cleaned daily price table:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -144,7 +144,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.fact_premise_item_month
 
-**Grain:** one shop's price for one item in one month. **Rows:** 2,851,413. **Keys:** PK (`month`, `premise_code`, `item_code`); FKs to `dim_premise` and `dim_item`; index on (`item_code`, `month`). Built by `sql/03_model/06_fact_premise_item_month.sql`; `n_reports` adds back up to `fact_price` (Oct 2025: 238,303 rows from 1,797,312 daily prices). One price per shop per item per month, so every shop counts once in comparisons:
+Grain: one shop's price for one item in one month. Rows: 2,851,413. Keys: PK (`month`, `premise_code`, `item_code`); FKs to `dim_premise` and `dim_item`; index on (`item_code`, `month`). Built by `sql/03_model/06_fact_premise_item_month.sql`; `n_reports` adds back up to `fact_price` (Oct 2025: 238,303 rows from 1,797,312 daily prices). One price per shop per item per month, so every shop counts once in comparisons:
 
 | Column | Type | Meaning | Example |
 |---|---|---|---|
@@ -159,7 +159,7 @@ The files behind the project, who publishes them and where each one lands.
 
 ### core.data_quality_log
 
-**Grain:** one cleaning step. **Rows:** 7. Columns: `step` (SMALLINT, PK), `check_name` (TEXT), `rows` (BIGINT), `action` (TEXT). The full log, where every removed row is counted under exactly one step:
+Grain: one cleaning step. Rows: 7. Columns: `step` (SMALLINT, PK), `check_name` (TEXT), `rows` (BIGINT), `action` (TEXT). The full log, where every removed row is counted under exactly one step:
 
 | step | check_name | rows | action |
 |---:|---|---:|---|
@@ -203,7 +203,7 @@ Every `premise_type` in `lookup_premise` as written (brackets show spaces), its 
 
 ### Item groups
 
-The 8 item groups, their English labels and how many items actually get priced.
+The 8 item groups, their English labels and how many items in each are priced.
 
 | `item_group` | `item_group_en` | Items in lookup | Items priced | Price rows |
 |---|---|---:|---:|---:|
@@ -286,11 +286,11 @@ The 36 categories that have prices, with an English gloss, items priced and raw 
 
 ## 4. Things to know before analysing
 
-- **19 days have no prices at all.** 13 are national public holidays; the other 6 are not.
+- 19 days have no prices at all. 13 are national public holidays; the other 6 are not.
   - Public holidays: Christmas (Thu 25 Dec 2025), Chinese New Year (Tue 17, Wed 18 Feb 2026), Hari Raya Aidilfitri (Sat 21, Sun 22, Mon 23 Mar), Labour Day (Fri 1 May), Hari Raya Haji (Wed 27 May), Agong's Birthday (Mon 1 Jun), Awal Muharram (Wed 17 Jun), Maulidur Rasul (Tue 25 Aug), National Day (Mon 31 Aug), Malaysia Day (Wed 16 Sep).
   - No national holiday: Fri 13 Feb, Sat 14 Mar, Thu 19 Mar, Fri 20 Mar, Sat 20 Jun, Wed 30 Sep 2026.
   - February and March 2026 have the fewest days with data (25 each); February has the fewest rows (1,369,552).
-- **Collection happens mostly on Mondays.** 42.3% of all rows fall on a Monday, against 8.7% to 12.3% for each other weekday. Mini markets and sundry shops report almost only on Mondays, about once a week.
+- Collection happens mostly on Mondays. 42.3% of all rows fall on a Monday, against 8.7% to 12.3% for each other weekday. Mini markets and sundry shops report almost only on Mondays, about once a week.
 
 Share of September 2026 rows collected on a Monday, and average reports per shop per item per month, by outlet type.
 
@@ -302,11 +302,11 @@ Share of September 2026 rows collected on a Monday, and average reports per shop
 | Supermarket | 42.5% | 8.1 |
 | Wet market | 18.8% | 15.4 |
 
-- **A public-holiday Monday thins out the whole week.** Three Mondays have no data (23 Mar, 1 Jun, 31 Aug 2026). In the week of 31 Aug only 1,138 premises reported, against 2,117 in the median week; the week of 23 Mar had 1,203. Weekly series need a minimum-premises filter (q18 uses 100 shops per item).
-- **Shops do not report equally often.** A wet market sends about 15.4 prices per item per month, a sundry shop about 3.3. A median over `fact_price` rows lets frequent reporters outvote the rest, so `core.fact_premise_item_month` gives each shop one price per item per month. Use it for any comparison across shops, states or outlet types.
-- **Placeholder rows.** `lookup_item` has `item_code = -1` (all text blank) and `lookup_premise` has `premise_code = -1` ("Unknown Premise", "Unknown Address", blank type, state and district). No price row uses either code; both are dropped from the dimensions.
-- **17 item codes in the prices are missing from `lookup_item`.** They cover 313,598 rows (1.491%), codes between 2023 and 2096. The 12 largest were priced all year by 440 to 882 premises. With no name or unit they are dropped from `fact_price`. Premise 22280 is likewise missing from `lookup_premise` (13 rows, 25 to 26 Sep 2026).
-- **Prices have at most 2 decimals,** so `NUMERIC(10,2)` stores them exactly. This was checked on the raw CSV text before loading (no price has a third decimal), because once loaded into `NUMERIC(10,2)` a third decimal would already be rounded away. The raw data holds 3,735 distinct price values.
-- **Raw prices run from RM 0.01 to RM 7,985.00.** The maximum is one row for S-26 SMA infant formula 550 g (item 2062, 27 Apr 2026). Two rules handle the extremes: an absolute floor drops the 76 prices below RM 0.10, and a relative rule drops 3,115 prices above 5x (367) or below 1/5 (2,748) of the item's median for the month (the full-year median when the item has fewer than 20 reports that month). The floor exists because the relative rule alone let one RM 0.01 price through: IKAN GELAMA (item 49) was reported once all year, so that price was its own median. After both rules `fact_price` runs from RM 0.45 to RM 285.50.
-- **Premises join and leave.** 2,028 premises report for the full year; 234 joined late or stopped early (`dim_premise.reporting_pattern`). Compare like with like when tracking a price over time.
-- **CPI stops at August 2026.** Any join from prices to `ref.cpi_state` covers October 2025 to August 2026 only.
+- A public-holiday Monday thins out the whole week. Three Mondays have no data (23 Mar, 1 Jun, 31 Aug 2026). In the week of 31 Aug only 1,138 premises reported, against 2,117 in the median week; the week of 23 Mar had 1,203. Weekly series need a minimum-premises filter (q18 uses 100 shops per item).
+- Shops do not report equally often. A wet market sends about 15.4 prices per item per month, a sundry shop about 3.3. A median over `fact_price` rows lets frequent reporters outvote the rest, so `core.fact_premise_item_month` gives each shop one price per item per month. Use it for any comparison across shops, states or outlet types.
+- Both lookups have a placeholder row: `lookup_item` has `item_code = -1` (all text blank) and `lookup_premise` has `premise_code = -1` ("Unknown Premise", "Unknown Address", blank type, state and district). No price row uses either code; both are dropped from the dimensions.
+- 17 item codes in the prices are missing from `lookup_item`. They cover 313,598 rows (1.491%), codes between 2023 and 2096. The 12 largest were priced all year by 440 to 882 premises. With no name or unit they are dropped from `fact_price`. Premise 22280 is likewise missing from `lookup_premise` (13 rows, 25 to 26 Sep 2026).
+- Prices have at most 2 decimals, so `NUMERIC(10,2)` stores them exactly. This was checked on the raw CSV text before loading (no price has a third decimal), because once loaded into `NUMERIC(10,2)` a third decimal would already be rounded away. The raw data holds 3,735 distinct price values.
+- Raw prices run from RM 0.01 to RM 7,985.00. The maximum is one row for S-26 SMA infant formula 550 g (item 2062, 27 Apr 2026). Two rules handle the extremes: an absolute floor drops the 76 prices below RM 0.10, and a relative rule drops 3,115 prices above 5x (367) or below 1/5 (2,748) of the item's median for the month (the full-year median when the item has fewer than 20 reports that month). The floor exists because the relative rule alone let one RM 0.01 price through: IKAN GELAMA (item 49) was reported once all year, so that price was its own median. After both rules `fact_price` runs from RM 0.45 to RM 285.50.
+- Premises join and leave. 2,028 premises report for the full year; 234 joined late or stopped early (`dim_premise.reporting_pattern`). Compare like with like when tracking a price over time.
+- CPI stops at August 2026. Any join from prices to `ref.cpi_state` covers October 2025 to August 2026 only.

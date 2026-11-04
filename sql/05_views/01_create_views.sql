@@ -211,7 +211,7 @@ GROUP BY pr.festival, pr.festival_date, p.state, 4;
 
 -- ---------------------------------------------------------------------
 -- 7. mart.mv_item_weekly_spikes  (page 3: spikes, logic of q23)
---    MATERIALIZED: stored, because computing it takes ~30 seconds
+--    Materialized (stored), because computing it takes ~30 seconds
 -- ---------------------------------------------------------------------
 DROP MATERIALIZED VIEW IF EXISTS mart.mv_item_weekly_spikes;
 CREATE MATERIALIZED VIEW mart.mv_item_weekly_spikes AS
