@@ -1,0 +1,167 @@
+state,district,max_shops_per_item,basket_items_priced,basket_index,enough_items_to_score
+Johor,Ledang,1,70,113.6,f
+Johor,Kota Tinggi,21,253,102.5,t
+Johor,Batu Pahat,15,254,102.0,t
+Johor,Pontian,17,244,101.4,t
+Johor,Johor Bahru,65,265,100.6,t
+Johor,Kluang,23,249,100.3,t
+Johor,Mersing,21,237,98.3,t
+Johor,Tangkak,7,246,96.1,t
+Johor,Muar,22,254,95.8,t
+Johor,Segamat,20,246,95.4,t
+Kedah,Langkawi,12,223,104.8,t
+Kedah,Padang Terap,5,200,102.0,t
+Kedah,Sik,7,193,100.9,t
+Kedah,Yan,10,189,98.6,t
+Kedah,Pokok Sena,3,192,97.5,t
+Kedah,Kulim,13,243,97.0,t
+Kedah,Kota Setar,21,257,96.6,t
+Kedah,Kubang Pasu,18,238,96.6,t
+Kedah,Pendang,4,190,96.0,t
+Kedah,Baling,8,233,94.9,t
+Kedah,Kuala Muda,18,260,94.0,t
+Kelantan,Jeli,10,117,108.5,f
+Kelantan,Dabong,7,87,104.0,f
+Kelantan,Pasir Mas,14,229,100.9,t
+Kelantan,Bachok,15,223,100.7,t
+Kelantan,Tumpat,17,222,100.1,t
+Kelantan,Tanah Merah,19,224,100.0,t
+Kelantan,Kuala Krai,12,226,99.7,t
+Kelantan,Machang,12,227,99.4,t
+Kelantan,Kota Bharu,63,255,99.1,t
+Kelantan,Gua Musang,18,238,98.2,t
+Kelantan,Pasir Puteh,12,242,96.8,t
+Melaka,Alor Gajah,16,252,101.1,t
+Melaka,Jasin,12,244,96.9,t
+Melaka,Melaka Tengah,25,262,95.4,t
+Negeri Sembilan,Johol,1,84,119.3,f
+Negeri Sembilan,Jelebu,3,136,103.0,t
+Negeri Sembilan,Tampin,2,213,101.5,t
+Negeri Sembilan,Port Dickson,11,246,101.2,t
+Negeri Sembilan,Kuala Pilah,11,230,100.9,t
+Negeri Sembilan,Rembau,4,213,97.3,t
+Negeri Sembilan,Seremban,25,264,97.2,t
+Negeri Sembilan,Bahau,7,241,95.2,t
+Pahang,Kuantan,42,255,101.4,t
+Pahang,Temerloh,31,253,101.4,t
+Pahang,Pekan,15,228,100.3,t
+Pahang,Bentong,11,247,99.1,t
+Pahang,Jerantut,23,245,98.6,t
+Pahang,Bera,13,248,98.3,t
+Pahang,Lipis,10,225,97.7,t
+Pahang,Rompin,24,232,97.4,t
+Pahang,Raub,12,252,96.9,t
+Pahang,Maran,8,243,95.1,t
+Perak,Batang Padang,12,252,101.0,t
+Perak,"Larut, Matang & Selama",28,263,98.9,t
+Perak,Hilir Perak,21,257,97.5,t
+Perak,Kuala Kangsar,20,257,97.5,t
+Perak,Muallim,6,231,96.9,t
+Perak,Manjung,23,259,96.3,t
+Perak,Kinta,40,264,95.2,t
+Perak,Hulu Perak,15,256,94.8,t
+Perak,Kerian,18,255,94.3,t
+Perak,Perak Tengah,5,232,91.9,t
+Perak,Bagan Datuk,3,233,91.4,t
+Perlis,Padang Besar,12,194,103.9,t
+Perlis,Kangar,13,247,100.0,t
+Perlis,Arau,11,222,98.3,t
+Pulau Pinang,Timur Laut,38,258,101.8,t
+Pulau Pinang,Barat Daya,21,255,100.7,t
+Pulau Pinang,Seberang Perai Selatan,15,237,97.0,t
+Pulau Pinang,Seberang Perai Tengah,34,260,96.3,t
+Pulau Pinang,Seberang Perai Utara,35,260,96.0,t
+Sabah,Nabawan,2,73,116.8,f
+Sabah,Tambunan,3,81,115.0,f
+Sabah,Tenom,3,72,114.5,f
+Sabah,Kimanis,3,103,111.7,f
+Sabah,Sook,2,77,110.8,f
+Sabah,Beaufort,9,200,110.3,t
+Sabah,Sipitang,3,184,110.0,t
+Sabah,Ranau,4,111,109.3,f
+Sabah,Kuala Penyu,3,94,108.9,f
+Sabah,Kalabakan,7,181,108.4,t
+Sabah,Membakut,1,60,108.3,f
+Sabah,Tuaran,9,206,108.1,t
+Sabah,Tawau,17,217,107.8,t
+Sabah,Pitas,2,71,107.5,f
+Sabah,Lahad Datu,18,197,107.1,t
+Sabah,Keningau,17,228,107.0,t
+Sabah,Penampang,6,220,106.5,t
+Sabah,Tamparuli,5,192,105.8,t
+Sabah,Kota Marudu,6,194,105.6,t
+Sabah,Sandakan,16,217,105.3,t
+Sabah,Papar,4,195,105.0,t
+Sabah,Kota Belud,5,191,104.9,t
+Sabah,Kunak,6,196,103.9,t
+Sabah,Putatan,7,218,103.8,t
+Sabah,Semporna,9,201,103.7,t
+Sabah,Kudat,7,183,102.7,t
+Sabah,Kota Kinabalu,16,226,101.9,t
+Sarawak,Batu Niah,1,99,118.5,f
+Sarawak,Pakan,2,71,118.0,f
+Sarawak,Bekenu,7,117,117.4,f
+Sarawak,Belaga,3,41,116.2,f
+Sarawak,Engkelili,2,66,115.3,f
+Sarawak,Limbang,14,195,113.9,t
+Sarawak,Marudi,3,99,113.3,f
+Sarawak,Lawas,12,209,111.4,t
+Sarawak,Song,5,104,110.8,f
+Sarawak,Sebauh,4,82,110.7,f
+Sarawak,Tatau,4,175,110.3,t
+Sarawak,Lundu,3,128,110.1,f
+Sarawak,Julau,2,60,109.9,f
+Sarawak,Dalat,2,85,109.7,f
+Sarawak,Serian,8,220,109.7,t
+Sarawak,Miri,19,227,108.9,t
+Sarawak,Bau,7,219,107.7,t
+Sarawak,Kota Padawan,6,216,107.7,t
+Sarawak,Simunjan,3,84,107.6,f
+Sarawak,Kanowit,2,135,107.4,t
+Sarawak,Tanjung Manis,2,78,107.2,f
+Sarawak,Kuching,34,239,106.8,t
+Sarawak,Kapit,12,176,106.2,t
+Sarawak,Selangau,3,123,105.9,f
+Sarawak,Sri Aman,11,179,105.9,t
+Sarawak,Betong,2,142,105.2,t
+Sarawak,Mukah,7,209,105.1,t
+Sarawak,Kota Samarahan,5,226,104.7,t
+Sarawak,Sarikei,10,203,104.7,t
+Sarawak,Bintulu,12,222,104.1,t
+Sarawak,Sibujaya,5,182,103.3,t
+Sarawak,Meradong,4,182,102.9,t
+Sarawak,Sibu,15,208,102.7,t
+Selangor,Petaling,40,261,101.8,t
+Selangor,Sabak Bernam,6,239,101.4,t
+Selangor,Sepang,11,251,99.7,t
+Selangor,Petaling Jaya,19,258,99.6,t
+Selangor,Gombak,7,252,98.8,t
+Selangor,Hulu Selangor,8,230,98.4,t
+Selangor,Hulu Langat,13,249,98.1,t
+Selangor,Kuala Selangor,16,248,96.4,t
+Selangor,Kuala Langat,2,210,94.9,t
+Selangor,Klang,9,251,94.4,t
+Terengganu,Setiu,6,185,104.3,t
+Terengganu,Marang,10,214,102.4,t
+Terengganu,Dungun,12,220,101.1,t
+Terengganu,Kuala Terengganu,35,253,101.1,t
+Terengganu,Hulu Terengganu,10,224,99.9,t
+Terengganu,Besut,21,239,99.8,t
+Terengganu,Kemaman,17,237,99.3,t
+Terengganu,Kuala Nerus,27,250,98.6,t
+W.P. Kuala Lumpur,Segambut,14,251,112.0,t
+W.P. Kuala Lumpur,Lembah Pantai,15,252,110.7,t
+W.P. Kuala Lumpur,Titiwangsa,14,252,108.8,t
+W.P. Kuala Lumpur,Seputeh,11,254,106.1,t
+W.P. Kuala Lumpur,Bukit Bintang,18,257,105.8,t
+W.P. Kuala Lumpur,Batu,15,248,105.6,t
+W.P. Kuala Lumpur,Cheras,17,263,104.2,t
+W.P. Kuala Lumpur,Wangsa Maju,17,254,103.9,t
+W.P. Kuala Lumpur,Setiawangsa,19,253,103.0,t
+W.P. Kuala Lumpur,Kepong,12,257,101.3,t
+W.P. Kuala Lumpur,Bandar Tun Razak,19,258,100.4,t
+W.P. Labuan,Kawasan Luar Bandar,6,190,109.0,t
+W.P. Labuan,Kawasan Bandar,7,188,107.7,t
+W.P. Labuan,W.P Labuan,2,144,107.0,t
+W.P. Putrajaya,Cyberjaya,8,245,111.1,t
+W.P. Putrajaya,Wp Putrajaya,20,263,104.6,t

@@ -1,0 +1,161 @@
+festival,festival_date,state,item_set,matched_pairs,mean_change_pct,pct_pairs_up
+Deepavali,2025-10-20,Johor,Festive staples,1605,-0.10,25.0
+Deepavali,2025-10-20,Johor,Other items (control),3873,1.91,34.4
+Deepavali,2025-10-20,Kedah,Festive staples,639,-0.34,25.7
+Deepavali,2025-10-20,Kedah,Other items (control),1775,3.21,36.9
+Deepavali,2025-10-20,Kelantan,Festive staples,731,0.17,33.7
+Deepavali,2025-10-20,Kelantan,Other items (control),2167,2.97,40.1
+Deepavali,2025-10-20,Melaka,Festive staples,273,-0.20,22.0
+Deepavali,2025-10-20,Melaka,Other items (control),726,2.24,36.6
+Deepavali,2025-10-20,Negeri Sembilan,Festive staples,450,0.46,29.8
+Deepavali,2025-10-20,Negeri Sembilan,Other items (control),1153,2.27,39.1
+Deepavali,2025-10-20,Pahang,Festive staples,915,-0.19,27.1
+Deepavali,2025-10-20,Pahang,Other items (control),2454,2.30,36.5
+Deepavali,2025-10-20,Perak,Festive staples,1186,1.45,30.7
+Deepavali,2025-10-20,Perak,Other items (control),3073,3.50,44.0
+Deepavali,2025-10-20,Perlis,Festive staples,161,-1.20,26.7
+Deepavali,2025-10-20,Perlis,Other items (control),408,3.13,33.6
+Deepavali,2025-10-20,Pulau Pinang,Festive staples,844,-0.34,26.1
+Deepavali,2025-10-20,Pulau Pinang,Other items (control),2311,2.41,41.0
+Deepavali,2025-10-20,Sabah,Festive staples,659,-0.54,19.0
+Deepavali,2025-10-20,Sabah,Other items (control),1871,0.84,22.2
+Deepavali,2025-10-20,Sarawak,Festive staples,989,-0.89,19.2
+Deepavali,2025-10-20,Sarawak,Other items (control),2735,1.20,25.6
+Deepavali,2025-10-20,Selangor,Festive staples,1016,0.27,31.6
+Deepavali,2025-10-20,Selangor,Other items (control),2700,1.35,36.1
+Deepavali,2025-10-20,Terengganu,Festive staples,580,-0.53,24.8
+Deepavali,2025-10-20,Terengganu,Other items (control),1513,1.47,34.7
+Deepavali,2025-10-20,W.P. Kuala Lumpur,Festive staples,1511,-0.27,28.3
+Deepavali,2025-10-20,W.P. Kuala Lumpur,Other items (control),3541,2.02,32.7
+Deepavali,2025-10-20,W.P. Labuan,Festive staples,69,0.77,18.8
+Deepavali,2025-10-20,W.P. Labuan,Other items (control),232,0.60,23.7
+Deepavali,2025-10-20,W.P. Putrajaya,Festive staples,173,0.66,31.8
+Deepavali,2025-10-20,W.P. Putrajaya,Other items (control),457,1.88,32.2
+Chinese New Year,2026-02-17,Johor,Festive staples,3721,-2.40,19.9
+Chinese New Year,2026-02-17,Johor,Other items (control),19845,-1.37,16.2
+Chinese New Year,2026-02-17,Kedah,Festive staples,1551,-2.29,19.4
+Chinese New Year,2026-02-17,Kedah,Other items (control),9667,-1.30,14.3
+Chinese New Year,2026-02-17,Kelantan,Festive staples,1912,-4.38,16.4
+Chinese New Year,2026-02-17,Kelantan,Other items (control),13403,-1.03,14.1
+Chinese New Year,2026-02-17,Melaka,Festive staples,872,-2.47,14.9
+Chinese New Year,2026-02-17,Melaka,Other items (control),4480,-1.79,12.7
+Chinese New Year,2026-02-17,Negeri Sembilan,Festive staples,1097,-2.71,19.9
+Chinese New Year,2026-02-17,Negeri Sembilan,Other items (control),5872,-1.16,16.4
+Chinese New Year,2026-02-17,Pahang,Festive staples,2270,-3.64,14.9
+Chinese New Year,2026-02-17,Pahang,Other items (control),13918,-1.81,12.5
+Chinese New Year,2026-02-17,Perak,Festive staples,3033,-2.61,18.7
+Chinese New Year,2026-02-17,Perak,Other items (control),16298,-1.63,18.0
+Chinese New Year,2026-02-17,Perlis,Festive staples,398,-3.43,15.1
+Chinese New Year,2026-02-17,Perlis,Other items (control),2245,-0.77,11.7
+Chinese New Year,2026-02-17,Pulau Pinang,Festive staples,2161,-2.51,15.4
+Chinese New Year,2026-02-17,Pulau Pinang,Other items (control),11091,-1.66,14.8
+Chinese New Year,2026-02-17,Sabah,Festive staples,1905,0.35,18.9
+Chinese New Year,2026-02-17,Sabah,Other items (control),11471,-0.01,10.8
+Chinese New Year,2026-02-17,Sarawak,Festive staples,2820,-0.04,18.8
+Chinese New Year,2026-02-17,Sarawak,Other items (control),16797,-0.06,12.3
+Chinese New Year,2026-02-17,Selangor,Festive staples,2431,-2.64,20.3
+Chinese New Year,2026-02-17,Selangor,Other items (control),11865,-1.70,17.1
+Chinese New Year,2026-02-17,Terengganu,Festive staples,1647,-4.17,13.6
+Chinese New Year,2026-02-17,Terengganu,Other items (control),9718,-1.68,11.5
+Chinese New Year,2026-02-17,W.P. Kuala Lumpur,Festive staples,2963,-2.92,16.2
+Chinese New Year,2026-02-17,W.P. Kuala Lumpur,Other items (control),17203,-1.55,12.0
+Chinese New Year,2026-02-17,W.P. Labuan,Festive staples,161,1.85,31.1
+Chinese New Year,2026-02-17,W.P. Labuan,Other items (control),1061,0.59,14.9
+Chinese New Year,2026-02-17,W.P. Putrajaya,Festive staples,478,-2.51,17.6
+Chinese New Year,2026-02-17,W.P. Putrajaya,Other items (control),2682,-1.31,15.4
+Ramadan,2026-02-19,Johor,Festive staples,3717,-2.49,19.9
+Ramadan,2026-02-19,Johor,Other items (control),19828,-1.29,16.1
+Ramadan,2026-02-19,Kedah,Festive staples,1549,-2.44,18.7
+Ramadan,2026-02-19,Kedah,Other items (control),9666,-1.23,14.5
+Ramadan,2026-02-19,Kelantan,Festive staples,1909,-4.60,15.6
+Ramadan,2026-02-19,Kelantan,Other items (control),13396,-0.97,14.3
+Ramadan,2026-02-19,Melaka,Festive staples,870,-2.51,14.9
+Ramadan,2026-02-19,Melaka,Other items (control),4480,-1.76,12.7
+Ramadan,2026-02-19,Negeri Sembilan,Festive staples,1106,-2.77,19.3
+Ramadan,2026-02-19,Negeri Sembilan,Other items (control),5895,-1.09,16.4
+Ramadan,2026-02-19,Pahang,Festive staples,2270,-3.75,14.8
+Ramadan,2026-02-19,Pahang,Other items (control),13913,-1.74,12.5
+Ramadan,2026-02-19,Perak,Festive staples,3028,-2.75,18.1
+Ramadan,2026-02-19,Perak,Other items (control),16289,-1.52,18.2
+Ramadan,2026-02-19,Perlis,Festive staples,397,-3.47,14.4
+Ramadan,2026-02-19,Perlis,Other items (control),2244,-0.73,11.5
+Ramadan,2026-02-19,Pulau Pinang,Festive staples,2161,-2.68,14.8
+Ramadan,2026-02-19,Pulau Pinang,Other items (control),11081,-1.58,15.0
+Ramadan,2026-02-19,Sabah,Festive staples,1889,0.28,18.3
+Ramadan,2026-02-19,Sabah,Other items (control),11431,-0.06,10.6
+Ramadan,2026-02-19,Sarawak,Festive staples,2805,-0.32,17.8
+Ramadan,2026-02-19,Sarawak,Other items (control),16775,-0.16,12.1
+Ramadan,2026-02-19,Selangor,Festive staples,2423,-2.74,20.5
+Ramadan,2026-02-19,Selangor,Other items (control),11862,-1.61,17.2
+Ramadan,2026-02-19,Terengganu,Festive staples,1646,-4.32,13.2
+Ramadan,2026-02-19,Terengganu,Other items (control),9713,-1.60,11.6
+Ramadan,2026-02-19,W.P. Kuala Lumpur,Festive staples,2969,-3.06,15.8
+Ramadan,2026-02-19,W.P. Kuala Lumpur,Other items (control),17216,-1.45,12.0
+Ramadan,2026-02-19,W.P. Labuan,Festive staples,160,1.58,31.3
+Ramadan,2026-02-19,W.P. Labuan,Other items (control),1058,0.48,14.7
+Ramadan,2026-02-19,W.P. Putrajaya,Festive staples,477,-2.58,17.0
+Ramadan,2026-02-19,W.P. Putrajaya,Other items (control),2682,-1.31,15.5
+Hari Raya Aidilfitri,2026-03-21,Johor,Festive staples,3702,-5.31,16.0
+Hari Raya Aidilfitri,2026-03-21,Johor,Other items (control),19351,-0.73,18.8
+Hari Raya Aidilfitri,2026-03-21,Kedah,Festive staples,1553,-5.66,12.7
+Hari Raya Aidilfitri,2026-03-21,Kedah,Other items (control),9507,-0.07,17.7
+Hari Raya Aidilfitri,2026-03-21,Kelantan,Festive staples,1939,-5.09,21.7
+Hari Raya Aidilfitri,2026-03-21,Kelantan,Other items (control),13268,-0.46,16.6
+Hari Raya Aidilfitri,2026-03-21,Melaka,Festive staples,878,-5.50,14.7
+Hari Raya Aidilfitri,2026-03-21,Melaka,Other items (control),4427,-0.45,17.7
+Hari Raya Aidilfitri,2026-03-21,Negeri Sembilan,Festive staples,1086,-5.45,13.7
+Hari Raya Aidilfitri,2026-03-21,Negeri Sembilan,Other items (control),5509,-0.50,19.7
+Hari Raya Aidilfitri,2026-03-21,Pahang,Festive staples,2300,-5.86,14.2
+Hari Raya Aidilfitri,2026-03-21,Pahang,Other items (control),13655,-0.42,17.6
+Hari Raya Aidilfitri,2026-03-21,Perak,Festive staples,3035,-5.51,17.0
+Hari Raya Aidilfitri,2026-03-21,Perak,Other items (control),15920,-0.50,21.3
+Hari Raya Aidilfitri,2026-03-21,Perlis,Festive staples,423,-4.37,9.7
+Hari Raya Aidilfitri,2026-03-21,Perlis,Other items (control),2340,-0.32,14.0
+Hari Raya Aidilfitri,2026-03-21,Pulau Pinang,Festive staples,2116,-5.17,13.7
+Hari Raya Aidilfitri,2026-03-21,Pulau Pinang,Other items (control),10990,-0.39,19.0
+Hari Raya Aidilfitri,2026-03-21,Sabah,Festive staples,1852,-1.02,21.9
+Hari Raya Aidilfitri,2026-03-21,Sabah,Other items (control),11064,-0.38,11.3
+Hari Raya Aidilfitri,2026-03-21,Sarawak,Festive staples,2851,-3.67,13.3
+Hari Raya Aidilfitri,2026-03-21,Sarawak,Other items (control),16595,-0.40,11.9
+Hari Raya Aidilfitri,2026-03-21,Selangor,Festive staples,2362,-5.88,15.1
+Hari Raya Aidilfitri,2026-03-21,Selangor,Other items (control),11672,-0.51,21.8
+Hari Raya Aidilfitri,2026-03-21,Terengganu,Festive staples,1672,-5.24,13.0
+Hari Raya Aidilfitri,2026-03-21,Terengganu,Other items (control),9571,-0.48,16.8
+Hari Raya Aidilfitri,2026-03-21,W.P. Kuala Lumpur,Festive staples,2965,-5.63,14.2
+Hari Raya Aidilfitri,2026-03-21,W.P. Kuala Lumpur,Other items (control),16882,-0.82,16.8
+Hari Raya Aidilfitri,2026-03-21,W.P. Labuan,Festive staples,149,-1.10,30.9
+Hari Raya Aidilfitri,2026-03-21,W.P. Labuan,Other items (control),1033,-0.38,13.8
+Hari Raya Aidilfitri,2026-03-21,W.P. Putrajaya,Festive staples,476,-4.89,14.5
+Hari Raya Aidilfitri,2026-03-21,W.P. Putrajaya,Other items (control),2654,-0.82,19.9
+Hari Raya Haji,2026-05-27,Johor,Festive staples,3762,1.71,36.3
+Hari Raya Haji,2026-05-27,Johor,Other items (control),22024,2.08,22.1
+Hari Raya Haji,2026-05-27,Kedah,Festive staples,1556,2.50,35.4
+Hari Raya Haji,2026-05-27,Kedah,Other items (control),10947,1.77,18.6
+Hari Raya Haji,2026-05-27,Kelantan,Festive staples,2007,2.05,38.1
+Hari Raya Haji,2026-05-27,Kelantan,Other items (control),15545,1.40,17.6
+Hari Raya Haji,2026-05-27,Melaka,Festive staples,863,1.75,33.5
+Hari Raya Haji,2026-05-27,Melaka,Other items (control),4820,1.98,20.5
+Hari Raya Haji,2026-05-27,Negeri Sembilan,Festive staples,1107,1.18,35.8
+Hari Raya Haji,2026-05-27,Negeri Sembilan,Other items (control),6263,1.96,24.4
+Hari Raya Haji,2026-05-27,Pahang,Festive staples,2313,1.56,33.8
+Hari Raya Haji,2026-05-27,Pahang,Other items (control),15453,2.01,21.5
+Hari Raya Haji,2026-05-27,Perak,Festive staples,3109,2.03,39.2
+Hari Raya Haji,2026-05-27,Perak,Other items (control),18487,1.66,24.7
+Hari Raya Haji,2026-05-27,Perlis,Festive staples,426,1.10,32.9
+Hari Raya Haji,2026-05-27,Perlis,Other items (control),2791,1.23,15.6
+Hari Raya Haji,2026-05-27,Pulau Pinang,Festive staples,2168,1.79,32.5
+Hari Raya Haji,2026-05-27,Pulau Pinang,Other items (control),12476,1.83,21.7
+Hari Raya Haji,2026-05-27,Sabah,Festive staples,2026,-1.71,18.8
+Hari Raya Haji,2026-05-27,Sabah,Other items (control),12752,-0.02,12.0
+Hari Raya Haji,2026-05-27,Sarawak,Festive staples,2879,-2.72,14.3
+Hari Raya Haji,2026-05-27,Sarawak,Other items (control),18344,0.30,12.6
+Hari Raya Haji,2026-05-27,Selangor,Festive staples,2430,1.01,37.0
+Hari Raya Haji,2026-05-27,Selangor,Other items (control),13187,2.00,24.8
+Hari Raya Haji,2026-05-27,Terengganu,Festive staples,1706,1.13,32.8
+Hari Raya Haji,2026-05-27,Terengganu,Other items (control),11123,1.68,18.3
+Hari Raya Haji,2026-05-27,W.P. Kuala Lumpur,Festive staples,3002,1.49,36.8
+Hari Raya Haji,2026-05-27,W.P. Kuala Lumpur,Other items (control),18818,1.87,20.0
+Hari Raya Haji,2026-05-27,W.P. Labuan,Festive staples,181,-3.14,14.9
+Hari Raya Haji,2026-05-27,W.P. Labuan,Other items (control),1175,0.43,12.9
+Hari Raya Haji,2026-05-27,W.P. Putrajaya,Festive staples,463,0.71,30.9
+Hari Raya Haji,2026-05-27,W.P. Putrajaya,Other items (control),2909,1.52,19.4
