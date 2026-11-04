@@ -1,0 +1,71 @@
+// Malaysia Price Watch - star schema (core) for dbdiagram.io
+// Paste this whole file into https://dbdiagram.io/d to redraw or edit the ERD.
+
+Table core.dim_date {
+  date date [pk]
+  year smallint
+  month smallint
+  month_name text
+  year_month text
+  month_start date
+  iso_week smallint
+  day_of_week smallint
+  day_name text
+  is_weekend boolean
+  festive_period text
+}
+
+Table core.dim_festival {
+  festival text [pk]
+  festival_date date
+}
+
+Table core.dim_item {
+  item_code integer [pk]
+  item text
+  unit text
+  item_group text
+  item_group_en text
+  item_category text
+}
+
+Table core.dim_premise {
+  premise_code integer [pk]
+  premise text
+  premise_type text
+  premise_type_en text
+  state text
+  district text
+  first_seen date
+  last_seen date
+  days_reported integer
+  reporting_pattern text
+}
+
+Table core.fact_price {
+  date date [pk, ref: > core.dim_date.date]
+  premise_code integer [pk, ref: > core.dim_premise.premise_code]
+  item_code integer [pk, ref: > core.dim_item.item_code]
+  price numeric(10,2)
+  Note: 'Grain: one clean price per day, premise and item'
+}
+
+Table core.fact_premise_item_month {
+  month date [pk]
+  premise_code integer [pk, ref: > core.dim_premise.premise_code]
+  item_code integer [pk, ref: > core.dim_item.item_code]
+  n_reports bigint
+  price numeric
+  avg_price numeric
+  min_price numeric
+  max_price numeric
+  Note: 'Aggregate fact: one price per shop, item and month'
+}
+
+Table ref.cpi_state {
+  state text
+  date date
+  division text
+  index numeric(6,1)
+  Note: 'DOSM CPI by state, 2010 = 100 (sense check only)'
+}
