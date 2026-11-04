@@ -1,0 +1,12 @@
+{
+  "name": "malaysia-price-watch-dashboard-tests",
+  "private": true,
+  "description": "Browser checks for the web dashboard. Run from this folder: npm install, then npm test.",
+  "type": "module",
+  "scripts": {
+    "test": "node check_dashboard.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.10.0"
+  }
+}
