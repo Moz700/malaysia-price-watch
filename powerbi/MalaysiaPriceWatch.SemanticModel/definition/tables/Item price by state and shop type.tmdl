@@ -1,0 +1,72 @@
+/// item_price_by_state_type.csv: one row per item, state and shop type in September 2026. Shops, median, lowest and highest price, and the national median.
+table 'Item price by state and shop type'
+
+	/// Key to Item.
+	column 'Item code'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: item_code
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// Key to Shop type.
+	column 'Shop type'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: premise_type
+
+	/// Shops pricing the item.
+	column Shops
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: shops
+
+	/// Median price in RM.
+	column 'Median price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: median_price_rm
+
+	/// Lowest price in RM.
+	column 'Lowest price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: min_price_rm
+
+	/// Highest price in RM.
+	column 'Highest price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: max_price_rm
+
+	/// National median price of the item in RM.
+	column 'National median (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: national_median_rm
+
+	partition 'Item price by state and shop type' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("item_price_by_state_type.csv", {{"item_code", Int64.Type}, {"state", type text}, {"premise_type", type text}, {"shops", Int64.Type}, {"median_price_rm", Currency.Type}, {"min_price_rm", Currency.Type}, {"max_price_rm", Currency.Type}, {"national_median_rm", Currency.Type}})
+			in
+				Source

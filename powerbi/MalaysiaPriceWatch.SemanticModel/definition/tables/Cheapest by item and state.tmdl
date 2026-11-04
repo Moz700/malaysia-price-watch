@@ -1,0 +1,75 @@
+/// cheapest_by_item_state.csv: one row per item and state in September 2026. Lowest price, how many shops charge it, shops compared, and one example shop (several shops can share the lowest price).
+table 'Cheapest by item and state'
+
+	/// Key to Item.
+	column 'Item code'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: item_code
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// Lowest price in the state in RM.
+	column 'Lowest price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: lowest_price_rm
+
+	/// Shops charging the lowest price.
+	column 'Shops at lowest price'
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: shops_at_lowest_price
+
+	/// Shops pricing the item in the state.
+	column 'Shops compared'
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: shops_compared
+
+	/// One shop charging the lowest price (an example: several shops can share it).
+	column 'Example shop'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: example_shop
+
+	/// Shop type of the example shop.
+	column 'Example shop type'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: example_shop_type
+
+	/// District of the example shop.
+	column 'Example shop district'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: example_shop_district
+
+	/// National median price of the item in RM.
+	column 'National median (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: national_median_rm
+
+	partition 'Cheapest by item and state' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("cheapest_by_item_state.csv", {{"item_code", Int64.Type}, {"state", type text}, {"lowest_price_rm", Currency.Type}, {"shops_at_lowest_price", Int64.Type}, {"shops_compared", Int64.Type}, {"example_shop", type text}, {"example_shop_type", type text}, {"example_shop_district", type text}, {"national_median_rm", Currency.Type}})
+			in
+				Source

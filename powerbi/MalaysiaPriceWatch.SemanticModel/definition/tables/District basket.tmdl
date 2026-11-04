@@ -1,0 +1,61 @@
+/// district_basket.csv: one row per district. Basket index; enough_items_to_score = false means too few items were priced to compare fairly. Logic of q10.
+table 'District basket'
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// District name.
+	column District
+		dataType: string
+		summarizeBy: none
+		sourceColumn: district
+
+	/// Most shops pricing any one basket item in the district.
+	column 'Max shops per item'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: max_shops_per_item
+
+	/// Basket items priced in the district.
+	column 'Basket items priced'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: basket_items_priced
+
+	/// Basket index, 100 = national.
+	column 'Basket index'
+		dataType: decimal
+		isHidden
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: basket_index
+
+	/// False when too few items were priced to compare fairly.
+	column 'Enough items to score'
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: enough_items_to_score
+
+	/// Scored, or Not enough items.
+	column 'Score status'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: score_status
+
+	partition 'District basket' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("district_basket.csv", {{"state", type text}, {"district", type text}, {"max_shops_per_item", Int64.Type}, {"basket_items_priced", Int64.Type}, {"basket_index", Currency.Type}, {"enough_items_to_score", type logical}}),
+				#"Added score status" = Table.AddColumn(Source, "score_status", each if [enough_items_to_score] = true then "Scored" else "Not enough items", type text)
+			in
+				#"Added score status"

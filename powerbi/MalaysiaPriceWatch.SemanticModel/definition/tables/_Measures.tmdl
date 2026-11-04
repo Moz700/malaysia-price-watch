@@ -1,0 +1,478 @@
+/// Holds every measure of the model, grouped in display folders. The Dummy column only keeps the table valid.
+table _Measures
+
+	/// 9.9%: the same 265-item basket costs RM 4,349.65 in W.P. Kuala Lumpur vs RM 3,959.53 in Kedah, RM 390.12 more (September 2026). Source: results/build_run/q09.txt.
+	measure 'Regional basket gap' = 0.099
+		formatString: 0.0%
+		displayFolder: KPI
+
+	/// 12.0%: one unit of each of 8 everyday staples costs RM 99.45 at wet markets vs RM 88.76 at hypermarkets. Source: results/build_run/q03.txt (second table).
+	measure 'Staples gap, wet market vs hypermarket' = 0.12
+		formatString: 0.0%
+		displayFolder: KPI
+
+	/// 99.95% of 34,609 shop-months were at or below the controlled price (coarse sugar RM 2.85/kg, packet cooking oil RM 2.50/kg). Source: results/build_run/q31.txt.
+	measure 'Price-control adherence' = 0.9995
+		formatString: 0.00%
+		displayFolder: KPI
+
+	/// 58% of all price increases came from 3 fresh categories (vegetables, onions and garlic, meat), which are 17% of the items. Source: results/build_run/q14.txt.
+	measure 'Share of price increases from 3 fresh categories' = 0.58
+		formatString: 0%
+		displayFolder: KPI
+
+	/// 12.1 points: the average supermarket scores 101.4 on the price index (q12) vs 89.3 for Tesco, the cheapest chain (q11). Sources: results/build_run/q12.txt and q11.txt.
+	measure 'Gap to the price leader (index points)' = 12.1
+		formatString: 0.0
+		displayFolder: KPI
+
+	/// 78 spike weeks in December 2025, the peak month. Source: results/build_run/q23.txt.
+	measure 'Spike weeks in December 2025' = 78
+		formatString: 0
+		displayFolder: KPI
+
+	/// Cost of the 265-item basket in one state (RM). Blank when more than one state is in view, because costs are not added across states.
+	measure 'State basket cost (RM)' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Basket cost (RM)]))
+		formatString: #,##0.00
+		displayFolder: Households and policy
+
+	/// Basket index of one state (100 = national). Blank when more than one state is in view.
+	measure 'State basket index' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Basket index]))
+		formatString: 0.0
+		displayFolder: Households and policy
+
+	/// Basket items not priced in the state and filled with the national median. Blank when more than one state is in view.
+	measure 'Basket items filled with national median' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Items filled with national median]))
+		formatString: 0
+		displayFolder: Households and policy
+
+	/// Basket index of one district in the chosen state (100 = national). Uses W.P. Kuala Lumpur when no single state is chosen. Blank above district level.
+	measure 'District basket index (chosen state)' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+			RETURN
+			    IF(COUNTROWS(_rows) = 1, MAXX(_rows, 'District basket'[Basket index]))
+			```
+		formatString: 0.0
+		displayFolder: Households and policy
+
+	/// Basket items priced in one district of the chosen state. Blank above district level.
+	measure 'District items priced (chosen state)' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+			RETURN
+			    IF(COUNTROWS(_rows) = 1, MAXX(_rows, 'District basket'[Basket items priced]))
+			```
+		formatString: 0
+		displayFolder: Households and policy
+
+	/// Scored, or Not enough items, for one district of the chosen state.
+	measure 'District score status' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+			RETURN
+			    IF(COUNTROWS(_rows) = 1, CONCATENATEX(_rows, 'District basket'[Score status]))
+			```
+		displayFolder: Households and policy
+
+	/// Bar colour for the district chart: blue when scored, light grey when there are not enough items to score.
+	measure 'District bar colour' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+			RETURN
+			    IF(
+			        COUNTROWS(_rows) = 1,
+			        IF(MAXX(_rows, IF('District basket'[Enough items to score], 1, 0)) = 1, "#2a78d6", "#c8cdd4")
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Mean price change in the two weeks before a festival, weighted by matched pairs across the states in view (as in q21). Needs one festival and one item set.
+	measure 'Festive price change' = ```
+			IF(
+			    HASONEVALUE('Festive effect'[Festival]) && HASONEVALUE('Festive effect'[Item set]),
+			    DIVIDE(
+			        SUMX('Festive effect', 'Festive effect'[Matched pairs] * 'Festive effect'[Mean change (%)]),
+			        SUM('Festive effect'[Matched pairs])
+			    ) / 100
+			)
+			```
+		formatString: 0.00%
+		displayFolder: Households and policy
+
+	/// Festive price change for festive staples. All states: -2.42% before Chinese New Year and -4.98% before Hari Raya Aidilfitri (q21).
+	measure 'Festive price change, festive staples' = CALCULATE([Festive price change], 'Festive effect'[Item set] = "Festive staples")
+		formatString: 0.00%
+		displayFolder: Households and policy
+
+	/// Festive price change for the other items (control set).
+	measure 'Festive price change, other items' = CALCULATE([Festive price change], 'Festive effect'[Item set] = "Other items (control)")
+		formatString: 0.00%
+		displayFolder: Households and policy
+
+	/// Shop-item pairs priced before and in the festive window. Counts can be added.
+	measure 'Festive matched pairs' = SUM('Festive effect'[Matched pairs])
+		formatString: #,##0
+		displayFolder: Households and policy
+
+	/// Average shop's price index (100 = national median of the same items). By shop type, all states: Hypermarket 98.4, Supermarket 101.4, Mini market 103.4, Sundry shop 106.8, Wet market 108.2 (as in q12).
+	measure 'Average shop price index' = AVERAGE('Shop index'[Price index])
+		formatString: 0.0
+		displayFolder: Retail pricing
+
+	/// Number of shops with a price index.
+	measure 'Shop count' = COUNTROWS('Shop index')
+		formatString: #,##0
+		displayFolder: Retail pricing
+
+	/// Share of the shops in view that sit in the cheapest quarter of their state.
+	measure 'Share of shops in cheapest quarter' = DIVIDE(CALCULATE(COUNTROWS('Shop index'), 'Shop index'[Price quarter in state] = 1), COUNTROWS('Shop index'))
+		formatString: 0.0%
+		displayFolder: Retail pricing
+
+	/// Share of the shops in view that sit in the dearest quarter of their state.
+	measure 'Share of shops in dearest quarter' = DIVIDE(CALCULATE(COUNTROWS('Shop index'), 'Shop index'[Price quarter in state] = 4), COUNTROWS('Shop index'))
+		formatString: 0.0%
+		displayFolder: Retail pricing
+
+	/// Items priced at one shop. Blank when more than one shop is in view.
+	measure 'Shop items priced' = IF(HASONEVALUE('Shop index'[Shop code]), SELECTEDVALUE('Shop index'[Items priced]))
+		formatString: #,##0
+		displayFolder: Retail pricing
+
+	/// Median price (RM) of one item at one shop type in the chosen state (W.P. Kuala Lumpur when no single state is chosen). Medians are pre-computed, so it is blank for more than one item or shop type.
+	measure 'Item median price by shop type (RM)' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('Item price by state and shop type', 'State'[State] = _state)
+			RETURN
+			    IF(
+			        HASONEVALUE('Item'[Item code]) && HASONEVALUE('Shop type'[Shop type]) && COUNTROWS(_rows) = 1,
+			        MAXX(_rows, 'Item price by state and shop type'[Median price (RM)])
+			    )
+			```
+		formatString: #,##0.00
+		displayFolder: Retail pricing
+
+	/// Shops pricing one item at one shop type in the chosen state.
+	measure 'Item shops priced (chosen state)' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
+			VAR _rows = CALCULATETABLE('Item price by state and shop type', 'State'[State] = _state)
+			RETURN
+			    IF(
+			        HASONEVALUE('Item'[Item code]) && HASONEVALUE('Shop type'[Shop type]) && COUNTROWS(_rows) = 1,
+			        MAXX(_rows, 'Item price by state and shop type'[Shops])
+			    )
+			```
+		formatString: #,##0
+		displayFolder: Retail pricing
+
+	/// National median price (RM) of one item, September 2026. Blank for more than one item.
+	measure 'Item national median (RM)' = ```
+			IF(
+			    HASONEVALUE('Item'[Item code]),
+			    CALCULATE(
+			        SELECTEDVALUE('Item price by state and shop type'[National median (RM)]),
+			        REMOVEFILTERS('State'),
+			        REMOVEFILTERS('Shop type')
+			    )
+			)
+			```
+		formatString: #,##0.00
+		displayFolder: Retail pricing
+
+	/// Lowest price (RM) of one item in one state, September 2026.
+	measure 'Lowest price in state (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Lowest price (RM)]))
+		formatString: #,##0.00
+		displayFolder: Retail pricing
+
+	/// Shops charging the lowest price for one item in one state.
+	measure 'Shops at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Shops at lowest price]))
+		formatString: #,##0
+		displayFolder: Retail pricing
+
+	/// Shops pricing one item in one state.
+	measure 'Shops compared for lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Shops compared]))
+		formatString: #,##0
+		displayFolder: Retail pricing
+
+	/// One example shop charging the lowest price (several shops can share it).
+	measure 'Example shop at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop]))
+		displayFolder: Retail pricing
+
+	/// Shop type of the example shop.
+	measure 'Example shop type at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop type]))
+		displayFolder: Retail pricing
+
+	/// District of the example shop.
+	measure 'Example shop district at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop district]))
+		displayFolder: Retail pricing
+
+	/// National median price (RM) of one item in one month. Blank for more than one item or month, because medians are not added or averaged.
+	measure 'Monthly median price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Median price (RM)]))
+		formatString: #,##0.00
+		displayFolder: Cost risk
+
+	/// Change in the national median price of one item since October 2025, for one month.
+	measure 'Change since October 2025' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Change since October 2025 (%)]) / 100)
+		formatString: 0.00%
+		displayFolder: Cost risk
+
+	/// Change in the national median price of one item on the previous month.
+	measure 'Change on previous month' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Change on previous month (%)]) / 100)
+		formatString: 0.00%
+		displayFolder: Cost risk
+
+	/// Change in the national median price of one item from October 2025 to September 2026.
+	measure 'Change since October 2025, September 2026' = CALCULATE([Change since October 2025], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2026, 9, 1))
+		formatString: 0.00%
+		displayFolder: Cost risk
+
+	/// National median price (RM) of one item in one week. Blank for more than one item or week.
+	measure 'Weekly median price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Median price (RM)]))
+		formatString: #,##0.00
+		displayFolder: Cost risk
+
+	/// Mean of the previous 8 weekly medians (RM) for one item and week.
+	measure 'Rolling 8-week mean price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Rolling 8-week mean (RM)]))
+		formatString: #,##0.00
+		displayFolder: Cost risk
+
+	/// Spike week or Normal week, for one item and week.
+	measure 'Spike week flag' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), IF(SELECTEDVALUE('Weekly spikes'[Is spike]), "Spike week", "Normal week"))
+		displayFolder: Cost risk
+
+	/// Festive window the week falls in, if any.
+	measure 'Festive period of week' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Festive period]))
+		displayFolder: Cost risk
+
+	/// Marker colour for the weekly price line: red for spike weeks, blue otherwise.
+	measure 'Weekly marker colour' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), IF(SELECTEDVALUE('Weekly spikes'[Is spike]), "#e34948", "#2a78d6"))
+		isHidden
+		displayFolder: Helpers
+
+	/// Item-weeks flagged as spikes, counted by the month of week_start. December 2025 shows 78 (as in q23).
+	measure 'Spike weeks' = CALCULATE(COUNTROWS('Weekly spikes'), 'Weekly spikes'[Is spike] = TRUE())
+		formatString: #,##0
+		displayFolder: Cost risk
+
+	/// Spike weeks for fresh produce items.
+	measure 'Spike weeks, fresh produce' = CALCULATE([Spike weeks], 'Weekly spikes'[Produce group] = "Fresh produce")
+		formatString: #,##0
+		displayFolder: Cost risk
+
+	/// Spike weeks for all items that are not fresh produce.
+	measure 'Spike weeks, other items' = CALCULATE([Spike weeks], 'Weekly spikes'[Produce group] = "Other items")
+		formatString: #,##0
+		displayFolder: Cost risk
+
+	/// Rank of an item by its rise in national median price, October 2025 to September 2026 (1 = biggest rise), among the items in view. Ties go to the lower item code, so the risers chart shows exactly 10 items.
+	measure 'Riser rank' = ```
+			VAR _code = SELECTEDVALUE('Item'[Item code])
+			VAR _chg = [Change since October 2025, September 2026]
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_chg)),
+			        VAR _items =
+			            CALCULATETABLE(
+			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]),
+			                ALLSELECTED()
+			            )
+			        RETURN
+			            COUNTROWS(
+			                FILTER(_items, NOT(ISBLANK([@chg])) && ([@chg] > _chg || ([@chg] = _chg && 'Item'[Item code] < _code)))
+			            ) + 1
+			    )
+			```
+		formatString: 0
+		isHidden
+		displayFolder: Helpers
+
+	/// Rank of an item by its fall in national median price, October 2025 to September 2026 (1 = biggest fall), among the items in view. Ties go to the lower item code, so the fallers chart shows exactly 10 items.
+	measure 'Faller rank' = ```
+			VAR _code = SELECTEDVALUE('Item'[Item code])
+			VAR _chg = [Change since October 2025, September 2026]
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_chg)),
+			        VAR _items =
+			            CALCULATETABLE(
+			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]),
+			                ALLSELECTED()
+			            )
+			        RETURN
+			            COUNTROWS(
+			                FILTER(_items, NOT(ISBLANK([@chg])) && ([@chg] < _chg || ([@chg] = _chg && 'Item'[Item code] < _code)))
+			            ) + 1
+			    )
+			```
+		formatString: 0
+		isHidden
+		displayFolder: Helpers
+
+	/// Rank of a shop by price index, lowest first, among the shops in view. Ties go to the lower shop code, so the cheapest-shops table shows exactly 10 shops.
+	measure 'Cheapest shop rank' = ```
+			VAR _code = SELECTEDVALUE('Shop index'[Shop code])
+			VAR _idx = SELECTEDVALUE('Shop index'[Price index])
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_idx)),
+			        VAR _shops = CALCULATETABLE('Shop index', ALLSELECTED())
+			        RETURN
+			            COUNTROWS(
+			                FILTER(
+			                    _shops,
+			                    NOT(ISBLANK('Shop index'[Price index])) && ('Shop index'[Price index] < _idx || ('Shop index'[Price index] = _idx && 'Shop index'[Shop code] < _code))
+			                )
+			            ) + 1
+			    )
+			```
+		formatString: 0
+		isHidden
+		displayFolder: Helpers
+
+	/// Rank of a shop by price index, highest first, among the shops in view. Ties go to the lower shop code, so the dearest-shops table shows exactly 10 shops.
+	measure 'Dearest shop rank' = ```
+			VAR _code = SELECTEDVALUE('Shop index'[Shop code])
+			VAR _idx = SELECTEDVALUE('Shop index'[Price index])
+			RETURN
+			    IF(
+			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_idx)),
+			        VAR _shops = CALCULATETABLE('Shop index', ALLSELECTED())
+			        RETURN
+			            COUNTROWS(
+			                FILTER(
+			                    _shops,
+			                    NOT(ISBLANK('Shop index'[Price index])) && ('Shop index'[Price index] > _idx || ('Shop index'[Price index] = _idx && 'Shop index'[Shop code] < _code))
+			                )
+			            ) + 1
+			    )
+			```
+		formatString: 0
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the chosen-item card: the item's change in national median price from October 2025 to September 2026.
+	measure 'Title, chosen item change' = ```
+			VAR _item = SELECTEDVALUE('Item'[Item label])
+			VAR _chg = [Change since October 2025, September 2026]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_item) || ISBLANK(_chg), "Pick one item to see its change since October 2025",
+			        _chg > 0, _item & ": up " & FORMAT(_chg, "0.00%") & " from October 2025 to September 2026",
+			        _chg < 0, _item & ": down " & FORMAT(-_chg, "0.00%") & " from October 2025 to September 2026",
+			        _item & ": no change from October 2025 to September 2026"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the monthly price chart: the chosen item's national median price in October 2025 and September 2026.
+	measure 'Title, chosen item monthly price' = ```
+			VAR _item = SELECTEDVALUE('Item'[Item label])
+			VAR _first = CALCULATE([Monthly median price (RM)], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2025, 10, 1))
+			VAR _last = CALCULATE([Monthly median price (RM)], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2026, 9, 1))
+			RETURN
+			    IF(
+			        ISBLANK(_item) || ISBLANK(_first) || ISBLANK(_last),
+			        "Pick one item to see its national median price month by month",
+			        _item & ": national median RM " & FORMAT(_first, "0.00") & " in October 2025 and RM " & FORMAT(_last, "0.00") & " in September 2026"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the weekly price chart: the number of spike weeks of the chosen item.
+	measure 'Title, chosen item spike weeks' = ```
+			VAR _item = SELECTEDVALUE('Item'[Item label])
+			VAR _weeks = COUNTROWS('Weekly spikes')
+			VAR _n = [Spike weeks]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_item), "Pick one item to see its weekly price and spike weeks",
+			        ISBLANK(_weeks), _item & ": no weekly prices in the data",
+			        ISBLANK(_n), _item & ": no spike weeks",
+			        _n = 1, _item & ": 1 spike week (red marker)",
+			        _item & ": " & FORMAT(_n, "0") & " spike weeks (red markers)"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the top-10 risers chart: the item that rose most among the items in view.
+	measure 'Title, top riser' = ```
+			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]), NOT(ISBLANK([@chg])))
+			VAR _edge = MAXX(_items, [@chg])
+			VAR _code = MINX(FILTER(_items, [@chg] = _edge), 'Item'[Item code])
+			VAR _item = LOOKUPVALUE('Item'[Item label], 'Item'[Item code], _code)
+			RETURN
+			    IF(
+			        _edge > 0,
+			        "Top 10 price risers since October 2025: " & _item & " rose most (+" & FORMAT(_edge, "0.00%") & ")",
+			        "Top 10 price risers since October 2025: no item in this group rose"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the top-10 fallers chart: the item that fell most among the items in view.
+	measure 'Title, top faller' = ```
+			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]), NOT(ISBLANK([@chg])))
+			VAR _edge = MINX(_items, [@chg])
+			VAR _code = MINX(FILTER(_items, [@chg] = _edge), 'Item'[Item code])
+			VAR _item = LOOKUPVALUE('Item'[Item label], 'Item'[Item code], _code)
+			RETURN
+			    IF(
+			        _edge < 0,
+			        "Top 10 price fallers since October 2025: " & _item & " fell most (" & FORMAT(_edge, "0.00%") & ")",
+			        "Top 10 price fallers since October 2025: no item in this group fell"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the cheapest-shops table: the shop with the lowest price index in the chosen state.
+	measure 'Title, cheapest shop' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), IF(ISFILTERED('State'[State]), "the chosen states", "all states"))
+			VAR _edge = MIN('Shop index'[Price index])
+			VAR _code = CALCULATE(MIN('Shop index'[Shop code]), 'Shop index'[Price index] = _edge)
+			VAR _shop = LOOKUPVALUE('Shop index'[Shop], 'Shop index'[Shop code], _code)
+			RETURN
+			    IF(
+			        ISBLANK(_edge),
+			        "The 10 cheapest shops in the chosen state",
+			        "The 10 cheapest shops in " & _state & ": " & _shop & " is cheapest (index " & FORMAT(_edge, "0.0") & ")"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Title text for the dearest-shops table: the shop with the highest price index in the chosen state.
+	measure 'Title, dearest shop' = ```
+			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), IF(ISFILTERED('State'[State]), "the chosen states", "all states"))
+			VAR _edge = MAX('Shop index'[Price index])
+			VAR _code = CALCULATE(MIN('Shop index'[Shop code]), 'Shop index'[Price index] = _edge)
+			VAR _shop = LOOKUPVALUE('Shop index'[Shop], 'Shop index'[Shop code], _code)
+			RETURN
+			    IF(
+			        ISBLANK(_edge),
+			        "The 10 dearest shops in the chosen state",
+			        "The 10 dearest shops in " & _state & ": " & _shop & " is dearest (index " & FORMAT(_edge, "0.0") & ")"
+			    )
+			```
+		isHidden
+		displayFolder: Helpers
+
+	/// Placeholder column. Hidden.
+	column Dummy
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: [Dummy]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW("Dummy", 0)

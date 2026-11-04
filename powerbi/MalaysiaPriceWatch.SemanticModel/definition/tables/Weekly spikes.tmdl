@@ -1,0 +1,87 @@
+/// weekly_spikes.csv: one row per item and week. Median price, 8-week rolling mean and whether the week was a spike. Spike weeks are counted by the month of week_start, as in q23.
+table 'Weekly spikes'
+
+	/// Key to Item.
+	column 'Item code'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: item_code
+
+	/// First day of the week.
+	column 'Week start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: week_start
+
+	/// Shops pricing the item in the week.
+	column Shops
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: premises
+
+	/// National median price in RM.
+	column 'Median price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: median_price_rm
+
+	/// Mean of the previous 8 weekly medians, in RM.
+	column 'Rolling 8-week mean (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: rolling_8wk_mean_rm
+
+	/// Standard deviation of the previous 8 weekly medians, in RM.
+	column 'Rolling 8-week SD (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: rolling_8wk_sd
+
+	/// True when the week was a price spike.
+	column 'Is spike'
+		dataType: boolean
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_spike
+
+	/// Festive window the week falls in, if any.
+	column 'Festive period'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: festive_period
+
+	/// First day of the month of week_start. Key to Month.
+	column 'Month of week start'
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: month_of_week_start
+
+	/// Fresh produce, or Other items.
+	column 'Produce group'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: produce_group
+
+	partition 'Weekly spikes' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("weekly_spikes.csv", {{"item_code", Int64.Type}, {"item_group", type text}, {"week_start", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"rolling_8wk_mean_rm", Currency.Type}, {"rolling_8wk_sd", Currency.Type}, {"is_spike", type logical}, {"festive_period", type text}}),
+				#"Added month of week start" = Table.AddColumn(Source, "month_of_week_start", each Date.StartOfMonth([week_start]), type date),
+				#"Added produce group" = Table.AddColumn(#"Added month of week start", "produce_group", each if [item_group] = "Fresh produce" then "Fresh produce" else "Other items", type text),
+				#"Removed item group" = Table.RemoveColumns(#"Added produce group", {"item_group"})
+			in
+				#"Removed item group"

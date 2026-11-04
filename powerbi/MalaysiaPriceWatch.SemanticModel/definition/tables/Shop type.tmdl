@@ -1,0 +1,25 @@
+/// The 5 KPDN shop types (premise types), in price order for sorting.
+table 'Shop type'
+
+	/// KPDN premise type.
+	column 'Shop type'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: premise_type
+		sortByColumn: 'Shop type order'
+
+	/// Sort order for shop types.
+	column 'Shop type order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: shop_type_order
+
+	partition 'Shop type' = m
+		mode: import
+		source =
+			let
+				Source = #table(type table [premise_type = text, shop_type_order = Int64.Type], {{"Hypermarket", 1}, {"Supermarket", 2}, {"Mini market", 3}, {"Sundry shop", 4}, {"Wet market", 5}})
+			in
+				Source

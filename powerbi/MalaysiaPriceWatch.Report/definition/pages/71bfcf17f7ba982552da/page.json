@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "71bfcf17f7ba982552da",
+  "displayName": "Households and policy",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "bf50b1914b3904db5833",
+      "target": "370113a5ab7c5ca731b2",
+      "type": "NoFilter"
+    }
+  ]
+}

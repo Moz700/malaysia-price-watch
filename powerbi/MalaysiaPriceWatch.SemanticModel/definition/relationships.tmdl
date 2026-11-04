@@ -1,0 +1,55 @@
+relationship 'State basket State to State'
+	fromColumn: 'State basket'.State
+	toColumn: State.State
+
+relationship 'District basket State to State'
+	fromColumn: 'District basket'.State
+	toColumn: State.State
+
+relationship 'Shop index State to State'
+	fromColumn: 'Shop index'.State
+	toColumn: State.State
+
+relationship 'Shop index Shop type to Shop type'
+	fromColumn: 'Shop index'.'Shop type'
+	toColumn: 'Shop type'.'Shop type'
+
+relationship 'Festive effect State to State'
+	fromColumn: 'Festive effect'.State
+	toColumn: State.State
+
+relationship 'Item monthly Item code to Item'
+	fromColumn: 'Item monthly'.'Item code'
+	toColumn: Item.'Item code'
+
+relationship 'Item monthly Month to Month'
+	fromColumn: 'Item monthly'.Month
+	toColumn: Month.Month
+
+relationship 'Weekly spikes Item code to Item'
+	fromColumn: 'Weekly spikes'.'Item code'
+	toColumn: Item.'Item code'
+
+relationship 'Weekly spikes Month of week start to Month'
+	fromColumn: 'Weekly spikes'.'Month of week start'
+	toColumn: Month.Month
+
+relationship 'Item price by state and shop type Item code to Item'
+	fromColumn: 'Item price by state and shop type'.'Item code'
+	toColumn: Item.'Item code'
+
+relationship 'Item price by state and shop type State to State'
+	fromColumn: 'Item price by state and shop type'.State
+	toColumn: State.State
+
+relationship 'Item price by state and shop type Shop type to Shop type'
+	fromColumn: 'Item price by state and shop type'.'Shop type'
+	toColumn: 'Shop type'.'Shop type'
+
+relationship 'Cheapest by item and state Item code to Item'
+	fromColumn: 'Cheapest by item and state'.'Item code'
+	toColumn: Item.'Item code'
+
+relationship 'Cheapest by item and state State to State'
+	fromColumn: 'Cheapest by item and state'.State
+	toColumn: State.State

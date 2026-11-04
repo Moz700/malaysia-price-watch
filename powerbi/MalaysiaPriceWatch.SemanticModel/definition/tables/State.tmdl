@@ -1,0 +1,17 @@
+/// One row per state (16 states). Built from state_basket.csv. Filters every file that has a state column.
+table State
+
+	/// State name as KPDN publishes it.
+	column State
+		dataType: string
+		summarizeBy: none
+		sourceColumn: state
+
+	partition State = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("state_basket.csv", {{"state", type text}}),
+				#"Removed duplicate states" = Table.Distinct(Source)
+			in
+				#"Removed duplicate states"

@@ -1,0 +1,58 @@
+/// item_monthly.csv: one row per item and month. National median price, change on the previous month and since October 2025. Logic of q17 and q20.
+table 'Item monthly'
+
+	/// Key to Item.
+	column 'Item code'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: item_code
+
+	/// Key to Month.
+	column Month
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: month
+
+	/// Shops pricing the item in the month.
+	column Shops
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: premises
+
+	/// National median price in RM.
+	column 'Median price (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: median_price_rm
+
+	/// Change on the previous month, in percent. Empty for October 2025.
+	column 'Change on previous month (%)'
+		dataType: decimal
+		isHidden
+		formatString: 0.00
+		summarizeBy: none
+		sourceColumn: mom_change_pct
+
+	/// Change since October 2025, in percent.
+	column 'Change since October 2025 (%)'
+		dataType: decimal
+		isHidden
+		formatString: 0.00
+		summarizeBy: none
+		sourceColumn: change_since_first_month_pct
+
+	partition 'Item monthly' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("item_monthly.csv", {{"item_code", Int64.Type}, {"month", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"mom_change_pct", Currency.Type}, {"change_since_first_month_pct", Currency.Type}})
+			in
+				Source

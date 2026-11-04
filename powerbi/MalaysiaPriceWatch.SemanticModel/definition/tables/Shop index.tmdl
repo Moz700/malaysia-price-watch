@@ -1,0 +1,67 @@
+/// premise_index.csv: one row per shop (premise). Price index against the national median of the same items (100 = national), and its price quarter within its state (1 = cheapest). Logic of q11 and q19.
+table 'Shop index'
+
+	/// KPDN premise code.
+	column 'Shop code'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: premise_code
+
+	/// Shop (premise) name.
+	column Shop
+		dataType: string
+		summarizeBy: none
+		sourceColumn: premise
+
+	/// Key to Shop type.
+	column 'Shop type'
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: premise_type
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// District of the shop.
+	column District
+		dataType: string
+		summarizeBy: none
+		sourceColumn: district
+
+	/// Items priced at the shop.
+	column 'Items priced'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: items_priced
+
+	/// Shop price index, 100 = national median of the same items.
+	column 'Price index'
+		dataType: decimal
+		isHidden
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: price_index
+
+	/// 1 = cheapest quarter of shops in the state, 4 = dearest.
+	column 'Price quarter in state'
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: price_quartile_in_state
+
+	partition 'Shop index' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("premise_index.csv", {{"premise_code", Int64.Type}, {"premise", type text}, {"premise_type", type text}, {"state", type text}, {"district", type text}, {"items_priced", Int64.Type}, {"price_index", Currency.Type}, {"price_quartile_in_state", Int64.Type}})
+			in
+				Source

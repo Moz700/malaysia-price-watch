@@ -1,0 +1,61 @@
+/// festive_effect.csv: one row per festival, state and item set. Mean price change on matched shop-item pairs in the two weeks before the festival. National figures = average of the state rows weighted by matched pairs (as in q21).
+table 'Festive effect'
+
+	/// Festival name.
+	column Festival
+		dataType: string
+		summarizeBy: none
+		sourceColumn: festival
+		sortByColumn: 'Festival date'
+
+	/// Date of the festival.
+	column 'Festival date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		summarizeBy: none
+		sourceColumn: festival_date
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// Festive staples, or Other items (control).
+	column 'Item set'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: item_set
+
+	/// Shop-item pairs priced both before and in the festive window.
+	column 'Matched pairs'
+		dataType: int64
+		isHidden
+		formatString: #,##0
+		summarizeBy: none
+		sourceColumn: matched_pairs
+
+	/// Mean price change of the pairs, in percent.
+	column 'Mean change (%)'
+		dataType: decimal
+		isHidden
+		formatString: 0.00
+		summarizeBy: none
+		sourceColumn: mean_change_pct
+
+	/// Share of pairs whose price went up, in percent.
+	column 'Share of pairs up (%)'
+		dataType: decimal
+		isHidden
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: pct_pairs_up
+
+	partition 'Festive effect' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("festive_effect.csv", {{"festival", type text}, {"festival_date", type date}, {"state", type text}, {"item_set", type text}, {"matched_pairs", Int64.Type}, {"mean_change_pct", Currency.Type}, {"pct_pairs_up", Currency.Type}})
+			in
+				Source

@@ -1,0 +1,49 @@
+/// state_basket.csv: one row per state. Cost of the same 265-item basket in September 2026 and its index (100 = national). Logic of q09.
+table 'State basket'
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: state
+
+	/// Items in the basket.
+	column 'Basket items'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: basket_items
+
+	/// Basket items not priced in the state, filled with the national median.
+	column 'Items filled with national median'
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: items_filled_with_national
+
+	/// Cost of the basket in RM.
+	column 'Basket cost (RM)'
+		dataType: decimal
+		isHidden
+		formatString: #,##0.00
+		summarizeBy: none
+		sourceColumn: basket_cost_rm
+
+	/// Basket index, 100 = national.
+	column 'Basket index'
+		dataType: decimal
+		isHidden
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: basket_index
+
+	partition 'State basket' = m
+		mode: import
+		source =
+			let
+				Source = fnLoadCsv("state_basket.csv", {{"state", type text}, {"basket_items", Int64.Type}, {"items_filled_with_national", Int64.Type}, {"basket_cost_rm", Currency.Type}, {"basket_index", Currency.Type}})
+			in
+				Source
