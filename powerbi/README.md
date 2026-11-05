@@ -32,6 +32,24 @@ Seven pages at 1280 x 720 share a navigation rail on the left. Its page navigato
 - In Power BI Desktop, hold Ctrl when you click the page navigator or the Reset filters button; in the Power BI service a plain click works.
 - The map is a scatter chart drawn over an image of the state outlines (`MalaysiaPriceWatch.Report/StaticResources/RegisteredResources/map.png`, made from DOSM's state boundaries), so it needs no internet connection and no map service. Sabah, Sarawak and Labuan are drawn 3.2 degrees closer to the peninsula than they really are.
 
+### Screenshots
+
+Exported from Power BI Desktop after a refresh, with no slicer selections except the default item (TOMATO, 1kg). The same pages are in [`MalaysiaPriceWatch.pdf`](MalaysiaPriceWatch.pdf).
+
+![Overview](screenshots/overview.png)
+
+![Households and policy](screenshots/households_and_policy.png)
+
+![Retail pricing](screenshots/retail_pricing.png)
+
+![Shop ranking](screenshots/shop_ranking.png)
+
+![Item lookup](screenshots/item_lookup.png)
+
+![Cost risk](screenshots/cost_risk.png)
+
+![About the data](screenshots/about_the_data.png)
+
 ## Design
 
 - The colours follow the charts in the PDF report: blue `#2A78D6` and orange `#EB6834` on navy `#0F2440`. The map, the heatmap and every index bar use one diverging scale: three blues below 100 (cheaper), grey close to 100, three oranges above (dearer). Text on the darkest fills is white.

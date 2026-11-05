@@ -68,11 +68,21 @@ In the two weeks before Chinese New Year and Hari Raya Aidilfitri, festive stapl
 
 ### Power BI report
 
+![Power BI report, Overview page](powerbi/screenshots/overview.png)
+
 The report is saved as a Power BI Project (PBIP), with the semantic model in TMDL and the report definition in PBIR, so every change can be reviewed in Git. Open `powerbi/MalaysiaPriceWatch.pbip` and select Home > Refresh to load the data.
 
 The model loads the same 8 CSV files as fact tables through one shared Power Query function, from this repo or from a local folder. It adds State, Item, Shop type and Month dimensions and keeps the index q12 prints for each state and shop type as a small table. A `_Measures` table holds the 6 KPIs, median measures that return blank at levels where pre-computed medians cannot be combined, and the festive change weighted by matched pairs (as in q21).
 
 The seven pages are an overview with the six KPIs, a map of Malaysia with a marker for each state, coloured by basket index, a heatmap of the price index by state and shop type, the cheapest and dearest shops, an item lookup, a cost-risk page and notes on the data. They share a navigation rail and a custom theme. Selecting a state on the map or a cell on the heatmap filters its page. The State and Shop type slicers take several choices at once and stay in sync across pages, and chart titles restate the finding for the current selection. Setup and page guide: [`powerbi/README.md`](powerbi/README.md).
+
+![Households and policy page](powerbi/screenshots/households_and_policy.png)
+
+![Retail pricing page](powerbi/screenshots/retail_pricing.png)
+
+![Cost risk page](powerbi/screenshots/cost_risk.png)
+
+The other pages: [Shop ranking](powerbi/screenshots/shop_ranking.png), [Item lookup](powerbi/screenshots/item_lookup.png), [About the data](powerbi/screenshots/about_the_data.png). All seven pages as one PDF: [`powerbi/MalaysiaPriceWatch.pdf`](powerbi/MalaysiaPriceWatch.pdf).
 
 ### Web dashboard
 
@@ -257,6 +267,8 @@ malaysia-price-watch/
   dashboard/tests/                  browser test of the dashboard (Puppeteer drives a real Chrome)
   dashboard/screenshots/            screenshots of the dashboard
   powerbi/                          Power BI project: semantic model (TMDL) and report (PBIR)
+  powerbi/screenshots/              the seven report pages, exported from Power BI Desktop
+  powerbi/MalaysiaPriceWatch.pdf    the same seven pages as a PDF
   index.html                        sends the GitHub Pages address to the dashboard
 ```
 
