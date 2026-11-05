@@ -13,7 +13,7 @@
                  time to change, so per-report rates flatter weekly
                  reporters. Sundry shops still change least, so their
                  stickiness is not an artefact of reporting frequency.
-   Runtime     : ~2.5 minutes (a window over all 20.7 million rows)
+   Runtime     : about 5 minutes (a window over all 20.7 million rows)
    Answer      : Wet markets change price on 20.2% of reports,
                  hypermarkets 14.8%, supermarkets 13.4%, mini markets
                  13.3%, sundry shops 9.8%. Rises are about half of all

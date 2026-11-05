@@ -4,7 +4,7 @@ The source of each number in the [README](../README.md), the dashboard KPI tiles
 
 ## The 6 headline KPIs
 
-These appear in the README "At a glance" table, the dashboard KPI tiles (`dashboard/build_data.py`) and the Power BI `_Measures` table, folder KPI (`powerbi/MalaysiaPriceWatch.SemanticModel/definition/tables/_Measures.tmdl`).
+These appear in the README "Headline numbers" table, the dashboard KPI tiles (`dashboard/build_data.py`) and the Power BI `_Measures` table, folder KPI (`powerbi/MalaysiaPriceWatch.SemanticModel/definition/tables/_Measures.tmdl`).
 
 | Number | What it is | Source (file and row) |
 |---|---|---|
@@ -20,7 +20,7 @@ These appear in the README "At a glance" table, the dashboard KPI tiles (`dashbo
 | 99.95% | Price-control adherence | `q31.txt`, first table, row for both items together, `pct_at_or_below`. Power BI measure `Price-control adherence` = 0.9995 |
 | 34,609 | Shop-months checked | `q31.txt`, same row, `shop_months` |
 | RM 2.85, RM 2.50 | Controlled prices of coarse sugar and packet cooking oil | `sql/04_analysis/q31_kpi_checks.sql` header and `q03.txt` second table (both items at those prices in every format) |
-| 58% | Share of all price increases from 3 fresh categories | `q14.txt`, row DAGING, `cumulative_share_pct` 57.6, shown as 58%. Power BI measure `Share of price increases from 3 fresh categories` = 0.58 |
+| 58% | Share of all price increases from 3 categories | `q14.txt`, row DAGING, `cumulative_share_pct` 57.6, shown as 58%. Power BI measure `Share of price increases from 3 categories` = 0.58 |
 | 17% | Share of items in those 3 categories | `q14.txt`, `share_of_items_pct`: 9.7 + 2.8 + 4.5 = 17.0 |
 | 12.1 points | Gap to the price leader | 101.4 − 89.3. Power BI measure `Gap to the price leader (index points)` = 12.1 |
 | 101.4 | Average supermarket's price index | `q12.txt`, first table, row Supermarket (679 shops) |

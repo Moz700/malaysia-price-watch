@@ -1,55 +1,64 @@
 /// One row per item code. Built from item_monthly.csv, which lists every item code used in the other files. Item names stay in Malay, as KPDN publishes them.
 table Item
+	lineageTag: 01fbf63f-ab23-4f08-8793-59eccbf11494
 
 	/// KPDN item code. Key to the item-level files.
 	column 'Item code'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: 12a98671-dc8c-4a14-ac0c-17fa55f0d922
 		summarizeBy: none
 		sourceColumn: item_code
 
 	/// Item name as KPDN publishes it (Malay).
 	column Item
 		dataType: string
+		lineageTag: f193f4e9-083a-4209-ac06-b3f7e211fce3
 		summarizeBy: none
 		sourceColumn: item
 
 	/// Pack size or unit, for example 1kg.
 	column Unit
 		dataType: string
+		lineageTag: c9d79377-9801-405b-8c9e-6830245ef710
 		summarizeBy: none
 		sourceColumn: unit
 
 	/// Broad group, for example Fresh produce.
 	column 'Item group'
 		dataType: string
+		lineageTag: 762fe5d3-210e-48cf-b1fa-80a3aab79dea
 		summarizeBy: none
 		sourceColumn: item_group
 
 	/// KPDN item category.
 	column 'Item category'
 		dataType: string
+		lineageTag: 215f6103-157d-4a86-ac14-638743e05333
 		summarizeBy: none
 		sourceColumn: item_category
 
 	/// Item name and unit, for slicers. The item code is added only when two items share the same name and unit.
 	column 'Item label'
 		dataType: string
+		lineageTag: 8fa959bd-1b5e-43dc-8276-b7dd35bf068a
 		summarizeBy: none
 		sourceColumn: item_label
 
 	partition Item = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("item_monthly.csv", {{"item_code", Int64.Type}, {"item", type text}, {"unit", type text}, {"item_group", type text}, {"item_category", type text}}),
-				#"Kept one row per item code" = Table.Distinct(Source, {"item_code"}),
-				#"Added base label" = Table.AddColumn(#"Kept one row per item code", "base_label", each [item] & " (" & [unit] & ")", type text),
-				#"Listed base labels" = #"Added base label"[base_label],
-				// Labels that occur more than once get the item code added, so every label is unique
-				#"Found duplicate labels" = List.Distinct(List.Select(#"Listed base labels", (l) => List.Count(List.Select(#"Listed base labels", (m) => m = l)) > 1)),
-				#"Added item label" = Table.AddColumn(#"Added base label", "item_label", each if List.Contains(#"Found duplicate labels", [base_label]) then [base_label] & " - code " & Text.From([item_code]) else [base_label], type text),
-				#"Removed base label" = Table.RemoveColumns(#"Added item label", {"base_label"})
-			in
-				#"Removed base label"
+				let
+					Source = fnLoadCsv("item_monthly.csv", {{"item_code", Int64.Type}, {"item", type text}, {"unit", type text}, {"item_group", type text}, {"item_category", type text}}),
+					#"Kept one row per item code" = Table.Distinct(Source, {"item_code"}),
+					#"Added base label" = Table.AddColumn(#"Kept one row per item code", "base_label", each [item] & " (" & [unit] & ")", type text),
+					// List.Buffer keeps the list in memory, so the loops below do not re-read the file
+					#"Listed base labels" = List.Buffer(#"Added base label"[base_label]),
+					// Labels that occur more than once get the item code added, so every label is unique
+					#"Found duplicate labels" = List.Buffer(List.Distinct(List.Select(#"Listed base labels", (l) => List.Count(List.Select(#"Listed base labels", (m) => m = l)) > 1))),
+					#"Added item label" = Table.AddColumn(#"Added base label", "item_label", each if List.Contains(#"Found duplicate labels", [base_label]) then [base_label] & " - code " & Text.From([item_code]) else [base_label], type text),
+					#"Removed base label" = Table.RemoveColumns(#"Added item label", {"base_label"})
+				in
+					#"Removed base label"
+

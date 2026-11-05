@@ -5,7 +5,7 @@ A PostgreSQL analysis of 21 million Malaysian grocery prices from KPDN's PriceCa
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![PostgreSQL 16](https://img.shields.io/badge/PostgreSQL-16-336791.svg)](https://www.postgresql.org/)
 
-[Live dashboard](https://moz700.github.io/malaysia-price-watch/dashboard/) · [Power BI project](powerbi/) · [Report (PDF)](report/Malaysia_Price_Watch_Report.pdf)
+[Live dashboard](https://moz700.github.io/malaysia-price-watch/dashboard/) · [Power BI report](powerbi/README.md) · [Report (PDF)](report/Malaysia_Price_Watch_Report.pdf)
 
 ![Web dashboard](dashboard/screenshots/hero.png)
 
@@ -21,8 +21,8 @@ The six KPIs on the dashboard. Snapshot figures use September 2026.
 |---|---:|---|---|
 | Regional basket gap | 9.9% | The same 265-item basket cost RM 4,349.65 in Kuala Lumpur and RM 3,959.53 in Kedah, RM 390.12 more | `q09` |
 | Staples gap, wet market vs hypermarket | 12.0% | One unit of each of 8 everyday staples cost RM 99.45 at wet markets and RM 88.76 at hypermarkets | `q03` |
-| Price-control adherence | 99.95% | Share of 34,609 shop-months at or below the controlled price (coarse sugar RM 2.85, packet cooking oil RM 2.50) | `q31` |
-| Price increases from 3 categories | 58% | Share of all price increases from 3 fresh categories (vegetables, onions and garlic, meat), which are 17% of the items | `q14` |
+| Price-control adherence | 99.95% | Share of 34,609 shop-months at or below the controlled price (coarse sugar RM 2.85/kg, packet cooking oil RM 2.50/kg) | `q31` |
+| Price increases from 3 categories | 58% | Share of all price increases from 3 categories (vegetables, onions and garlic, meat), which are 17% of the items | `q14` |
 | Gap to the price leader | 12.1 points | The average supermarket scored 101.4 on the price index; Tesco, the cheapest chain, scored 89.3 | `q12`, `q11` |
 | Spike weeks in December 2025 | 78 | Item-weeks priced well above their recent normal; December 2025 had more than any other month | `q23` |
 
@@ -66,6 +66,14 @@ In the two weeks before Chinese New Year and Hari Raya Aidilfitri, festive stapl
 
 ## Dashboards
 
+### Power BI report
+
+The report is saved as a Power BI Project (PBIP), with the semantic model in TMDL and the report definition in PBIR, so every change can be reviewed in Git. Open `powerbi/MalaysiaPriceWatch.pbip` and select Home > Refresh to load the data.
+
+The model loads the same 8 CSV files as fact tables through one shared Power Query function, from this repo or from a local folder. It adds State, Item, Shop type and Month dimensions and keeps the index q12 prints for each state and shop type as a small table. A `_Measures` table holds the 6 KPIs, median measures that return blank at levels where pre-computed medians cannot be combined, and the festive change weighted by matched pairs (as in q21).
+
+The seven pages are an overview with the six KPIs, a map of Malaysia with a marker for each state, coloured by basket index, a heatmap of the price index by state and shop type, the cheapest and dearest shops, an item lookup, a cost-risk page and notes on the data. They share a navigation rail and a custom theme. Selecting a state on the map or a cell on the heatmap filters its page. The State and Shop type slicers take several choices at once and stay in sync across pages, and chart titles restate the finding for the current selection. Setup and page guide: [`powerbi/README.md`](powerbi/README.md).
+
 ### Web dashboard
 
 An interactive dashboard built from the 8 CSV files in [`dashboard/data/`](dashboard/data/). It runs at the [live link](https://moz700.github.io/malaysia-price-watch/dashboard/) and offline (open `dashboard/index.html`).
@@ -76,7 +84,7 @@ It has:
 - a map of Malaysia and filters for state, shop type, item group and item that every chart follows, including a heatmap of the price index by state and shop type (the address bar keeps the selection, so a copied link opens the same view);
 - a lookup of the lowest price of an item in each state, with how many shops charge it and an example shop;
 - a side-by-side comparison of two states, and a chart of up to four items' prices across the year with spike weeks marked and festive periods shaded;
-- views for KPDN, a supermarket and a procurement team, a dark theme, and a PNG download for every chart.
+- views for KPDN, a supermarket and a procurement team, a dark theme, and a PNG download for every main chart.
 
 ![Five findings](dashboard/screenshots/findings.png)
 
@@ -89,12 +97,6 @@ It has:
 ![Dark theme](dashboard/screenshots/dark_mode.png)
 
 On a phone the page stacks into one column: [phone screenshot](dashboard/screenshots/phone.png).
-
-### Power BI report
-
-Saved as a Power BI Project (PBIP), with the semantic model in TMDL and the report in PBIR, so every change can be reviewed in Git.
-
-The model loads the same 8 CSV files as fact tables, plus State, Item, Shop type and Month dimensions, through one shared Power Query function (from this repo or from a local folder). A `_Measures` table holds the 6 KPIs, median measures that return blank at levels where pre-computed medians cannot be combined, and the festive change weighted by matched pairs (as in q21). The four pages (Overview, Households and policy, Retail pricing, Cost risk) follow the web dashboard. Setup: [`powerbi/README.md`](powerbi/README.md).
 
 ## Data
 
@@ -122,7 +124,9 @@ Four schemas, one per stage, so raw data is never edited in place.
 | `core` | cleaned star schema: `fact_price` (20,722,545 rows), `fact_premise_item_month`, `dim_item`, `dim_premise`, `dim_date`, `dim_festival` | `sql/03_model` |
 | `mart` | 6 views and 1 materialized view that feed both dashboards | `sql/05_views` |
 
-The entity-relationship diagram is in [`docs/erd.dbml`](docs/erd.dbml) (DBML; paste it into dbdiagram.io to view it).
+The entity-relationship diagram of the `core` and `ref` schemas, drawn from [`docs/erd.dbml`](docs/erd.dbml) in dbdiagram.io:
+
+![Entity-relationship diagram](docs/erd.png)
 
 ### Data quality
 
@@ -184,7 +188,7 @@ Where each skill appears in the repo.
 | Window functions | `sql/04_analysis/q15` to `q25` |
 | Advanced SQL (GROUPING SETS, correlation, gap detection) | `sql/04_analysis/q26` to `q31` |
 | Data cleaning and quality checks | `sql/02_quality/`, [`docs/data_quality_report.md`](docs/data_quality_report.md) |
-| Data modelling (star schema) | `sql/03_model/`, [`docs/erd.dbml`](docs/erd.dbml), [`docs/data_dictionary.md`](docs/data_dictionary.md) |
+| Data modelling (star schema) | `sql/03_model/`, [`docs/erd.dbml`](docs/erd.dbml) and [`docs/erd.png`](docs/erd.png), [`docs/data_dictionary.md`](docs/data_dictionary.md) |
 | Query performance (indexes, materialized views) | `sql/03_model/05_indexes_and_timing.sql`, `sql/05_views/02_materialized_view_timing.sql` |
 | Data modelling and DAX in Power BI | [`powerbi/`](powerbi/) |
 | Data visualisation | [`dashboard/`](dashboard/), `docs/charts/make_charts.py` |
@@ -235,7 +239,7 @@ The main folders and what each holds.
 malaysia-price-watch/
   README.md
   LICENSE                           MIT, for the code only
-  report/                           the 11-page stakeholder report (PDF and editable .docx)
+  report/                           the 10-page stakeholder report (PDF and editable .docx)
   data/download.ps1, download.sh    download the 15 source files (CSVs are git-ignored)
   sql/run_all.sql                   rebuilds staging -> core -> mart in one go
   sql/00_setup/                     database, schemas, staging tables
@@ -245,7 +249,7 @@ malaysia-price-watch/
   sql/04_analysis/                  q01 ... q31, one file per business question
   sql/05_views/                     mart views, materialized view timing, dashboard export
   results/build_run/                output of every script from the build run
-  docs/                             findings, data dictionary, quality report, ERD (DBML), chart script, data lineage
+  docs/                             findings, data dictionary, quality report, ERD (DBML and PNG), chart script, data lineage
   dashboard/index.html              the web dashboard (works offline)
   dashboard/assets/                 style, app code, data.js and ECharts
   dashboard/data/                   the 8 CSV files both dashboards use
@@ -253,6 +257,7 @@ malaysia-price-watch/
   dashboard/tests/                  browser test of the dashboard (Puppeteer drives a real Chrome)
   dashboard/screenshots/            screenshots of the dashboard
   powerbi/                          Power BI project: semantic model (TMDL) and report (PBIR)
+  index.html                        sends the GitHub Pages address to the dashboard
 ```
 
 ## Next steps

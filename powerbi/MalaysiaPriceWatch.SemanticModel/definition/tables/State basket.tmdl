@@ -1,10 +1,12 @@
 /// state_basket.csv: one row per state. Cost of the same 265-item basket in September 2026 and its index (100 = national). Logic of q09.
 table 'State basket'
+	lineageTag: 979ffb8f-4700-4b72-8400-85fced935b44
 
 	/// Key to State.
 	column State
 		dataType: string
 		isHidden
+		lineageTag: aa64fff6-8a34-4ab0-9da2-aa358e3b92ac
 		summarizeBy: none
 		sourceColumn: state
 
@@ -13,6 +15,7 @@ table 'State basket'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: 549a4771-b031-4c95-9225-cc9bedcc15e3
 		summarizeBy: none
 		sourceColumn: basket_items
 
@@ -21,6 +24,7 @@ table 'State basket'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: cdc8638b-6fc5-453e-9ad6-d520c628e76e
 		summarizeBy: none
 		sourceColumn: items_filled_with_national
 
@@ -29,6 +33,7 @@ table 'State basket'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: f6daae23-b1d8-4087-a6ec-5346a6b75eef
 		summarizeBy: none
 		sourceColumn: basket_cost_rm
 
@@ -37,13 +42,15 @@ table 'State basket'
 		dataType: decimal
 		isHidden
 		formatString: 0.0
+		lineageTag: 102dd0e7-687e-4440-b51c-f74d18266ccb
 		summarizeBy: none
 		sourceColumn: basket_index
 
 	partition 'State basket' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("state_basket.csv", {{"state", type text}, {"basket_items", Int64.Type}, {"items_filled_with_national", Int64.Type}, {"basket_cost_rm", Currency.Type}, {"basket_index", Currency.Type}})
-			in
-				Source
+				let
+					Source = fnLoadCsv("state_basket.csv", {{"state", type text}, {"basket_items", Int64.Type}, {"items_filled_with_national", Int64.Type}, {"basket_cost_rm", Currency.Type}, {"basket_index", Currency.Type}})
+				in
+					Source
+

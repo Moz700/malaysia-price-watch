@@ -28,3 +28,6 @@ node_modules/
 # Power BI local files (personal settings and data cache)
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+
+# Chart images made by docs/charts/make_charts.py
+docs/charts/*.png

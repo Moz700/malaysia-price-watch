@@ -3,7 +3,7 @@
    ---------------------------------------------------------------------
    Stakeholder : A. Consumer and policy analyst (KPDN)
    Question    : Where is price monitoring thinnest: districts where only
-                 one or two shops report, so a price complaint there has
+                 one to three shops report, so a price complaint there has
                  little evidence behind it ("price-information deserts")?
    Method      : September 2026 (current coverage). Count distinct
                  reporting premises per district; keep districts with 3 or

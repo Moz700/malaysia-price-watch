@@ -1,11 +1,13 @@
 /// cheapest_by_item_state.csv: one row per item and state in September 2026. Lowest price, how many shops charge it, shops compared, and one example shop (several shops can share the lowest price).
 table 'Cheapest by item and state'
+	lineageTag: 08547e9a-fda0-478c-bd85-7555f3dd91c3
 
 	/// Key to Item.
 	column 'Item code'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: c080a953-3323-4bfb-9681-d0a3bdd88cdf
 		summarizeBy: none
 		sourceColumn: item_code
 
@@ -13,6 +15,7 @@ table 'Cheapest by item and state'
 	column State
 		dataType: string
 		isHidden
+		lineageTag: 8e13cbde-0918-41ea-b404-b1eb2deec45a
 		summarizeBy: none
 		sourceColumn: state
 
@@ -21,6 +24,7 @@ table 'Cheapest by item and state'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 470fcd95-248a-4f54-9493-65d270485e5b
 		summarizeBy: none
 		sourceColumn: lowest_price_rm
 
@@ -29,6 +33,7 @@ table 'Cheapest by item and state'
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: d83e5a36-8a08-4ac8-887f-a2f631d3082e
 		summarizeBy: none
 		sourceColumn: shops_at_lowest_price
 
@@ -37,24 +42,28 @@ table 'Cheapest by item and state'
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: 6e83f344-4523-4077-9cbf-7d16c1be6f25
 		summarizeBy: none
 		sourceColumn: shops_compared
 
 	/// One shop charging the lowest price (an example: several shops can share it).
 	column 'Example shop'
 		dataType: string
+		lineageTag: d265966e-a85d-40d3-a1a9-6a5be8a5fa0f
 		summarizeBy: none
 		sourceColumn: example_shop
 
 	/// Shop type of the example shop.
 	column 'Example shop type'
 		dataType: string
+		lineageTag: 95fd3348-0ea2-47fb-b26c-0d59cab6be47
 		summarizeBy: none
 		sourceColumn: example_shop_type
 
 	/// District of the example shop.
 	column 'Example shop district'
 		dataType: string
+		lineageTag: c79e8fb1-79a5-4de3-b688-894f70afd2ce
 		summarizeBy: none
 		sourceColumn: example_shop_district
 
@@ -63,13 +72,15 @@ table 'Cheapest by item and state'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 94e09ba2-e4f8-491a-a4b3-def1043bcda3
 		summarizeBy: none
 		sourceColumn: national_median_rm
 
 	partition 'Cheapest by item and state' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("cheapest_by_item_state.csv", {{"item_code", Int64.Type}, {"state", type text}, {"lowest_price_rm", Currency.Type}, {"shops_at_lowest_price", Int64.Type}, {"shops_compared", Int64.Type}, {"example_shop", type text}, {"example_shop_type", type text}, {"example_shop_district", type text}, {"national_median_rm", Currency.Type}})
-			in
-				Source
+				let
+					Source = fnLoadCsv("cheapest_by_item_state.csv", {{"item_code", Int64.Type}, {"state", type text}, {"lowest_price_rm", Currency.Type}, {"shops_at_lowest_price", Int64.Type}, {"shops_compared", Int64.Type}, {"example_shop", type text}, {"example_shop_type", type text}, {"example_shop_district", type text}, {"national_median_rm", Currency.Type}})
+				in
+					Source
+

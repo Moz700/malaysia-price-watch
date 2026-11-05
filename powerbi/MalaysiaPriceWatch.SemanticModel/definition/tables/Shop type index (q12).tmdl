@@ -1,0 +1,38 @@
+/// Average shop's price index by state and shop type, as printed in results/build_run/q12.txt (second table): 79 state and shop-type pairs (W.P. Labuan has no sundry shop). premise_index.csv rounds each shop's index to 0.1, so a mean taken from it can be 0.1 off; this table keeps the printed values. 100 = national median of the same items.
+table 'Shop type index (q12)'
+	lineageTag: c183d2c0-7f8b-409d-9796-0553b9fd604e
+
+	/// Key to State.
+	column State
+		dataType: string
+		isHidden
+		lineageTag: 5221d2af-2ed9-4ce9-8090-fd811f052e66
+		summarizeBy: none
+		sourceColumn: state
+
+	/// Key to Shop type.
+	column 'Shop type'
+		dataType: string
+		isHidden
+		lineageTag: 2e54a1f2-4e7e-4f2c-a245-ad9aa0ae6b68
+		summarizeBy: none
+		sourceColumn: premise_type
+
+	/// Average shop's price index, 100 = national median of the same items.
+	column 'Average shop index'
+		dataType: decimal
+		isHidden
+		formatString: 0.0
+		lineageTag: 03b4ec26-c7ed-4963-a8f9-ca60a34eb87f
+		summarizeBy: none
+		sourceColumn: avg_price_index
+
+	partition 'Shop type index (q12)' = m
+		mode: import
+		source =
+				let
+					// Copied from results/build_run/q12.txt, second table
+					Source = #table(type table [state = text, premise_type = text, avg_price_index = Currency.Type], {{"W.P. Putrajaya", "Hypermarket", 105.2}, {"W.P. Putrajaya", "Supermarket", 105.7}, {"W.P. Putrajaya", "Mini market", 111.8}, {"W.P. Putrajaya", "Sundry shop", 119.1}, {"W.P. Putrajaya", "Wet market", 123.9}, {"W.P. Labuan", "Hypermarket", 99.5}, {"W.P. Labuan", "Supermarket", 109.9}, {"W.P. Labuan", "Mini market", 108.3}, {"W.P. Labuan", "Wet market", 113.8}, {"Sarawak", "Hypermarket", 107.8}, {"Sarawak", "Supermarket", 105.6}, {"Sarawak", "Mini market", 107.9}, {"Sarawak", "Sundry shop", 109.1}, {"Sarawak", "Wet market", 121.5}, {"Sabah", "Hypermarket", 102.3}, {"Sabah", "Supermarket", 107.1}, {"Sabah", "Mini market", 110.2}, {"Sabah", "Sundry shop", 109.7}, {"Sabah", "Wet market", 111.4}, {"W.P. Kuala Lumpur", "Hypermarket", 99.0}, {"W.P. Kuala Lumpur", "Supermarket", 108.8}, {"W.P. Kuala Lumpur", "Mini market", 106.9}, {"W.P. Kuala Lumpur", "Sundry shop", 106.2}, {"W.P. Kuala Lumpur", "Wet market", 103.6}, {"Terengganu", "Hypermarket", 99.2}, {"Terengganu", "Supermarket", 97.2}, {"Terengganu", "Mini market", 101.2}, {"Terengganu", "Sundry shop", 105.8}, {"Terengganu", "Wet market", 108.2}, {"Johor", "Hypermarket", 97.5}, {"Johor", "Supermarket", 97.3}, {"Johor", "Mini market", 105.7}, {"Johor", "Sundry shop", 109.4}, {"Johor", "Wet market", 108.8}, {"Selangor", "Hypermarket", 96.3}, {"Selangor", "Supermarket", 99.5}, {"Selangor", "Mini market", 104.3}, {"Selangor", "Sundry shop", 114.7}, {"Selangor", "Wet market", 108.2}, {"Negeri Sembilan", "Hypermarket", 93.1}, {"Negeri Sembilan", "Supermarket", 96.7}, {"Negeri Sembilan", "Mini market", 107.2}, {"Negeri Sembilan", "Sundry shop", 101.5}, {"Negeri Sembilan", "Wet market", 107.5}, {"Perlis", "Hypermarket", 100.2}, {"Perlis", "Supermarket", 99.6}, {"Perlis", "Mini market", 99.6}, {"Perlis", "Sundry shop", 105.4}, {"Perlis", "Wet market", 111.7}, {"Melaka", "Hypermarket", 92.6}, {"Melaka", "Supermarket", 95.4}, {"Melaka", "Mini market", 103.0}, {"Melaka", "Sundry shop", 111.6}, {"Melaka", "Wet market", 108.8}, {"Pulau Pinang", "Hypermarket", 93.5}, {"Pulau Pinang", "Supermarket", 96.2}, {"Pulau Pinang", "Mini market", 101.7}, {"Pulau Pinang", "Sundry shop", 107.3}, {"Pulau Pinang", "Wet market", 106.8}, {"Pahang", "Hypermarket", 98.4}, {"Pahang", "Supermarket", 97.5}, {"Pahang", "Mini market", 101.7}, {"Pahang", "Sundry shop", 108.6}, {"Pahang", "Wet market", 107.9}, {"Kelantan", "Hypermarket", 95.4}, {"Kelantan", "Supermarket", 98.7}, {"Kelantan", "Mini market", 102.8}, {"Kelantan", "Sundry shop", 103.9}, {"Kelantan", "Wet market", 102.5}, {"Kedah", "Hypermarket", 93.9}, {"Kedah", "Supermarket", 96.0}, {"Kedah", "Mini market", 99.0}, {"Kedah", "Sundry shop", 101.6}, {"Kedah", "Wet market", 104.9}, {"Perak", "Hypermarket", 96.6}, {"Perak", "Supermarket", 95.9}, {"Perak", "Mini market", 97.9}, {"Perak", "Sundry shop", 100.1}, {"Perak", "Wet market", 104.7}})
+				in
+					Source
+

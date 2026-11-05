@@ -1,11 +1,13 @@
 /// item_monthly.csv: one row per item and month. National median price, change on the previous month and since October 2025. Logic of q17 and q20.
 table 'Item monthly'
+	lineageTag: f51cc725-da8b-4afc-9c8b-edb743dbc607
 
 	/// Key to Item.
 	column 'Item code'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: ef18c6cf-d88a-49ad-8408-99e24ee6fb22
 		summarizeBy: none
 		sourceColumn: item_code
 
@@ -14,14 +16,18 @@ table 'Item monthly'
 		dataType: dateTime
 		isHidden
 		formatString: yyyy-mm-dd
+		lineageTag: 85b52cdb-12b3-49b9-95b6-505240967187
 		summarizeBy: none
 		sourceColumn: month
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	/// Shops pricing the item in the month.
 	column Shops
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: 9523d031-e3bf-4894-9e67-0af25790d626
 		summarizeBy: none
 		sourceColumn: premises
 
@@ -30,6 +36,7 @@ table 'Item monthly'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: dc63aaa4-4c99-46a3-b43c-dc8f95e467ea
 		summarizeBy: none
 		sourceColumn: median_price_rm
 
@@ -38,6 +45,7 @@ table 'Item monthly'
 		dataType: decimal
 		isHidden
 		formatString: 0.00
+		lineageTag: 756fcc7f-a011-4f48-a594-9fc477c6d4b7
 		summarizeBy: none
 		sourceColumn: mom_change_pct
 
@@ -46,13 +54,15 @@ table 'Item monthly'
 		dataType: decimal
 		isHidden
 		formatString: 0.00
+		lineageTag: 1421494e-3001-49a8-ac54-4a69b65fcd36
 		summarizeBy: none
 		sourceColumn: change_since_first_month_pct
 
 	partition 'Item monthly' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("item_monthly.csv", {{"item_code", Int64.Type}, {"month", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"mom_change_pct", Currency.Type}, {"change_since_first_month_pct", Currency.Type}})
-			in
-				Source
+				let
+					Source = fnLoadCsv("item_monthly.csv", {{"item_code", Int64.Type}, {"month", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"mom_change_pct", Currency.Type}, {"change_since_first_month_pct", Currency.Type}})
+				in
+					Source
+

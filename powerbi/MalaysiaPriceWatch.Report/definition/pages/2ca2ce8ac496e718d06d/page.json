@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "2ca2ce8ac496e718d06d",
+  "displayName": "Cost risk",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#EEF2F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#E2E7EE'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "d81e50ae9c6a4f9ce92b",
+      "target": "37385614357b8299cd8e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d81e50ae9c6a4f9ce92b",
+      "target": "05a6ac53aa37a6b1dbfa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d81e50ae9c6a4f9ce92b",
+      "target": "6390e5e34dbfc0496033",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d81e50ae9c6a4f9ce92b",
+      "target": "bcc32b4ec62a21726ebe",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "f11a42f178c7fca83459",
+  "position": {
+    "x": 748,
+    "y": 430,
+    "z": 12000,
+    "height": 274,
+    "width": 516,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, state_basket.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, state_basket.csv",
+              "nativeQueryRef": "Rows, state_basket.csv",
+              "displayName": "state_basket.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, district_basket.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, district_basket.csv",
+              "nativeQueryRef": "Rows, district_basket.csv",
+              "displayName": "district_basket.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, premise_index.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, premise_index.csv",
+              "nativeQueryRef": "Rows, premise_index.csv",
+              "displayName": "premise_index.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, item_monthly.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, item_monthly.csv",
+              "nativeQueryRef": "Rows, item_monthly.csv",
+              "displayName": "item_monthly.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, festive_effect.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, festive_effect.csv",
+              "nativeQueryRef": "Rows, festive_effect.csv",
+              "displayName": "festive_effect.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, weekly_spikes.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, weekly_spikes.csv",
+              "nativeQueryRef": "Rows, weekly_spikes.csv",
+              "displayName": "weekly_spikes.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, item_price_by_state_type.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, item_price_by_state_type.csv",
+              "nativeQueryRef": "Rows, item_price_by_state_type.csv",
+              "displayName": "item_price_by_state_type.csv"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rows, cheapest_by_item_state.csv"
+                }
+              },
+              "queryRef": "_Measures.Rows, cheapest_by_item_state.csv",
+              "nativeQueryRef": "Rows, cheapest_by_item_state.csv",
+              "displayName": "cheapest_by_item_state.csv"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Rows loaded from each file'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Select Home > Refresh to reload. For local files, set DataSource to the CSV folder.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table: rows loaded from each of the 8 CSV files'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "valuesOnRow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EBEEF3'"
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontalWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

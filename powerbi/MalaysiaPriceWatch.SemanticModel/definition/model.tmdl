@@ -6,7 +6,11 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-	annotation __PBI_TimeIntelligenceEnabled = 0
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["State","Item","Shop type","Month","State basket","District basket","Shop index","Item monthly","Festive effect","Weekly spikes","Item price by state and shop type","Cheapest by item and state","Shop type index (q12)","DataSource","fnLoadCsv"]
+
+annotation PBI_ProTooling = ["DevMode"]
 
 ref table State
 ref table Item
@@ -20,4 +24,8 @@ ref table 'Festive effect'
 ref table 'Weekly spikes'
 ref table 'Item price by state and shop type'
 ref table 'Cheapest by item and state'
+ref table 'Shop type index (q12)'
 ref table _Measures
+
+ref cultureInfo en-US
+

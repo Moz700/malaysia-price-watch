@@ -1,11 +1,13 @@
 /// weekly_spikes.csv: one row per item and week. Median price, 8-week rolling mean and whether the week was a spike. Spike weeks are counted by the month of week_start, as in q23.
 table 'Weekly spikes'
+	lineageTag: c61270b2-ad9e-4b84-9dfa-153e573051ba
 
 	/// Key to Item.
 	column 'Item code'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: cb9c58e6-8053-4efc-89be-faab057ceea4
 		summarizeBy: none
 		sourceColumn: item_code
 
@@ -13,14 +15,18 @@ table 'Weekly spikes'
 	column 'Week start'
 		dataType: dateTime
 		formatString: yyyy-mm-dd
+		lineageTag: c521649a-a02e-427d-bc88-4e110b2d2fd0
 		summarizeBy: none
 		sourceColumn: week_start
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	/// Shops pricing the item in the week.
 	column Shops
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: 15f07be2-079e-4878-a88f-241b9ad77d9b
 		summarizeBy: none
 		sourceColumn: premises
 
@@ -29,6 +35,7 @@ table 'Weekly spikes'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: adb66f2b-8ba0-403a-a1b9-abaa4c56c055
 		summarizeBy: none
 		sourceColumn: median_price_rm
 
@@ -37,6 +44,7 @@ table 'Weekly spikes'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 055fd265-c9f1-4ba1-a484-a7a9426fcd72
 		summarizeBy: none
 		sourceColumn: rolling_8wk_mean_rm
 
@@ -45,6 +53,7 @@ table 'Weekly spikes'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 4315767b-32fd-448e-b4a8-ebfe37c489ed
 		summarizeBy: none
 		sourceColumn: rolling_8wk_sd
 
@@ -52,12 +61,14 @@ table 'Weekly spikes'
 	column 'Is spike'
 		dataType: boolean
 		isHidden
+		lineageTag: 0e7164ed-2479-47de-b915-91dcc257de45
 		summarizeBy: none
 		sourceColumn: is_spike
 
 	/// Festive window the week falls in, if any.
 	column 'Festive period'
 		dataType: string
+		lineageTag: d6a994e0-9e3c-48a5-ad00-75e7398297cc
 		summarizeBy: none
 		sourceColumn: festive_period
 
@@ -66,22 +77,27 @@ table 'Weekly spikes'
 		dataType: dateTime
 		isHidden
 		formatString: yyyy-mm-dd
+		lineageTag: ef85745c-1f64-479f-bbca-2eaad92befc8
 		summarizeBy: none
 		sourceColumn: month_of_week_start
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	/// Fresh produce, or Other items.
 	column 'Produce group'
 		dataType: string
+		lineageTag: 7817d327-5b3d-4034-acf9-43f9665a3dde
 		summarizeBy: none
 		sourceColumn: produce_group
 
 	partition 'Weekly spikes' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("weekly_spikes.csv", {{"item_code", Int64.Type}, {"item_group", type text}, {"week_start", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"rolling_8wk_mean_rm", Currency.Type}, {"rolling_8wk_sd", Currency.Type}, {"is_spike", type logical}, {"festive_period", type text}}),
-				#"Added month of week start" = Table.AddColumn(Source, "month_of_week_start", each Date.StartOfMonth([week_start]), type date),
-				#"Added produce group" = Table.AddColumn(#"Added month of week start", "produce_group", each if [item_group] = "Fresh produce" then "Fresh produce" else "Other items", type text),
-				#"Removed item group" = Table.RemoveColumns(#"Added produce group", {"item_group"})
-			in
-				#"Removed item group"
+				let
+					Source = fnLoadCsv("weekly_spikes.csv", {{"item_code", Int64.Type}, {"item_group", type text}, {"week_start", type date}, {"premises", Int64.Type}, {"median_price_rm", Currency.Type}, {"rolling_8wk_mean_rm", Currency.Type}, {"rolling_8wk_sd", Currency.Type}, {"is_spike", type logical}, {"festive_period", type text}}),
+					#"Added month of week start" = Table.AddColumn(Source, "month_of_week_start", each Date.StartOfMonth([week_start]), type date),
+					#"Added produce group" = Table.AddColumn(#"Added month of week start", "produce_group", each if [item_group] = "Fresh produce" then "Fresh produce" else "Other items", type text),
+					#"Removed item group" = Table.RemoveColumns(#"Added produce group", {"item_group"})
+				in
+					#"Removed item group"
+

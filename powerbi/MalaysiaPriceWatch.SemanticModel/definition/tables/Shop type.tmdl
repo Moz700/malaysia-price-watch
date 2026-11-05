@@ -1,9 +1,11 @@
 /// The 5 KPDN shop types (premise types), in price order for sorting.
 table 'Shop type'
+	lineageTag: da40d42f-7a63-4727-9ff6-9d711c9dea86
 
 	/// KPDN premise type.
 	column 'Shop type'
 		dataType: string
+		lineageTag: ae037740-f482-4530-a3d6-8ef88943ad14
 		summarizeBy: none
 		sourceColumn: premise_type
 		sortByColumn: 'Shop type order'
@@ -13,13 +15,15 @@ table 'Shop type'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: 29c717f2-cb1a-42c8-a60d-a87fb45716ef
 		summarizeBy: none
 		sourceColumn: shop_type_order
 
 	partition 'Shop type' = m
 		mode: import
 		source =
-			let
-				Source = #table(type table [premise_type = text, shop_type_order = Int64.Type], {{"Hypermarket", 1}, {"Supermarket", 2}, {"Mini market", 3}, {"Sundry shop", 4}, {"Wet market", 5}})
-			in
-				Source
+				let
+					Source = #table(type table [premise_type = text, shop_type_order = Int64.Type], {{"Hypermarket", 1}, {"Supermarket", 2}, {"Mini market", 3}, {"Sundry shop", 4}, {"Wet market", 5}})
+				in
+					Source
+

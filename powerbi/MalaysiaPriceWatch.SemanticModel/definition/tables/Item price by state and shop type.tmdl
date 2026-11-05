@@ -1,11 +1,13 @@
 /// item_price_by_state_type.csv: one row per item, state and shop type in September 2026. Shops, median, lowest and highest price, and the national median.
 table 'Item price by state and shop type'
+	lineageTag: a8dd53e6-ce3a-48e1-bf36-c97334a44472
 
 	/// Key to Item.
 	column 'Item code'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: de2cb728-4cfb-4815-969c-0a8a8cfaebe6
 		summarizeBy: none
 		sourceColumn: item_code
 
@@ -13,6 +15,7 @@ table 'Item price by state and shop type'
 	column State
 		dataType: string
 		isHidden
+		lineageTag: 69728a22-3a70-477a-b04a-bf7bd1c87267
 		summarizeBy: none
 		sourceColumn: state
 
@@ -20,6 +23,7 @@ table 'Item price by state and shop type'
 	column 'Shop type'
 		dataType: string
 		isHidden
+		lineageTag: 1c061003-27d7-45e4-94ac-930080cf1709
 		summarizeBy: none
 		sourceColumn: premise_type
 
@@ -28,6 +32,7 @@ table 'Item price by state and shop type'
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: e29fb264-69b0-4b42-b917-1139582ad5b9
 		summarizeBy: none
 		sourceColumn: shops
 
@@ -36,6 +41,7 @@ table 'Item price by state and shop type'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 061c5710-6748-4c13-8844-93afd098de3c
 		summarizeBy: none
 		sourceColumn: median_price_rm
 
@@ -44,6 +50,7 @@ table 'Item price by state and shop type'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 545337e2-883f-4e4e-b9f3-489fb869db15
 		summarizeBy: none
 		sourceColumn: min_price_rm
 
@@ -52,6 +59,7 @@ table 'Item price by state and shop type'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: d28fb151-6d50-4561-81f3-0683ec02cc30
 		summarizeBy: none
 		sourceColumn: max_price_rm
 
@@ -60,13 +68,15 @@ table 'Item price by state and shop type'
 		dataType: decimal
 		isHidden
 		formatString: #,##0.00
+		lineageTag: 68662ad6-d43f-465b-b87a-372d22a4d171
 		summarizeBy: none
 		sourceColumn: national_median_rm
 
 	partition 'Item price by state and shop type' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("item_price_by_state_type.csv", {{"item_code", Int64.Type}, {"state", type text}, {"premise_type", type text}, {"shops", Int64.Type}, {"median_price_rm", Currency.Type}, {"min_price_rm", Currency.Type}, {"max_price_rm", Currency.Type}, {"national_median_rm", Currency.Type}})
-			in
-				Source
+				let
+					Source = fnLoadCsv("item_price_by_state_type.csv", {{"item_code", Int64.Type}, {"state", type text}, {"premise_type", type text}, {"shops", Int64.Type}, {"median_price_rm", Currency.Type}, {"min_price_rm", Currency.Type}, {"max_price_rm", Currency.Type}, {"national_median_rm", Currency.Type}})
+				in
+					Source
+

@@ -1,16 +1,19 @@
 /// district_basket.csv: one row per district. Basket index; enough_items_to_score = false means too few items were priced to compare fairly. Logic of q10.
 table 'District basket'
+	lineageTag: d9e38006-59e0-4191-b4bc-27a659d245c6
 
 	/// Key to State.
 	column State
 		dataType: string
 		isHidden
+		lineageTag: 03fb1ff5-1a1a-482f-9275-e89a0a59f160
 		summarizeBy: none
 		sourceColumn: state
 
 	/// District name.
 	column District
 		dataType: string
+		lineageTag: aa260b45-0260-4601-aea5-dc807078c36e
 		summarizeBy: none
 		sourceColumn: district
 
@@ -19,6 +22,7 @@ table 'District basket'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: f41af044-faca-440c-863f-dd2dcc38b41e
 		summarizeBy: none
 		sourceColumn: max_shops_per_item
 
@@ -27,6 +31,7 @@ table 'District basket'
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: 96385e47-b7ca-405e-baab-02769a10c0ee
 		summarizeBy: none
 		sourceColumn: basket_items_priced
 
@@ -35,6 +40,7 @@ table 'District basket'
 		dataType: decimal
 		isHidden
 		formatString: 0.0
+		lineageTag: c161055f-a722-431c-924b-bfeb7aabca07
 		summarizeBy: none
 		sourceColumn: basket_index
 
@@ -42,20 +48,23 @@ table 'District basket'
 	column 'Enough items to score'
 		dataType: boolean
 		isHidden
+		lineageTag: b2ccaec3-9185-45f2-8336-d6975e55326a
 		summarizeBy: none
 		sourceColumn: enough_items_to_score
 
 	/// Scored, or Not enough items.
 	column 'Score status'
 		dataType: string
+		lineageTag: 0c25438a-7655-469a-8a4d-7f19c18cff7a
 		summarizeBy: none
 		sourceColumn: score_status
 
 	partition 'District basket' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("district_basket.csv", {{"state", type text}, {"district", type text}, {"max_shops_per_item", Int64.Type}, {"basket_items_priced", Int64.Type}, {"basket_index", Currency.Type}, {"enough_items_to_score", type logical}}),
-				#"Added score status" = Table.AddColumn(Source, "score_status", each if [enough_items_to_score] = true then "Scored" else "Not enough items", type text)
-			in
-				#"Added score status"
+				let
+					Source = fnLoadCsv("district_basket.csv", {{"state", type text}, {"district", type text}, {"max_shops_per_item", Int64.Type}, {"basket_items_priced", Int64.Type}, {"basket_index", Currency.Type}, {"enough_items_to_score", type logical}}),
+					#"Added score status" = Table.AddColumn(Source, "score_status", each if [enough_items_to_score] = true then "Scored" else "Not enough items", type text)
+				in
+					#"Added score status"
+

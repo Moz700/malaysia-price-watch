@@ -20,7 +20,7 @@
    It is also ~8x smaller than fact_price, so those queries run faster.
 
    Grain: one row per (month, premise, item).
-   Runtime on the build machine: about 2 minutes.
+   Runtime on the build machine: about 1 minute.
    ===================================================================== */
 
 DROP TABLE IF EXISTS core.fact_premise_item_month CASCADE;

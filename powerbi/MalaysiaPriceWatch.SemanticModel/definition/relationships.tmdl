@@ -53,3 +53,12 @@ relationship 'Cheapest by item and state Item code to Item'
 relationship 'Cheapest by item and state State to State'
 	fromColumn: 'Cheapest by item and state'.State
 	toColumn: State.State
+
+relationship 'Shop type index (q12) State to State'
+	fromColumn: 'Shop type index (q12)'.State
+	toColumn: State.State
+
+relationship 'Shop type index (q12) Shop type to Shop type'
+	fromColumn: 'Shop type index (q12)'.'Shop type'
+	toColumn: 'Shop type'.'Shop type'
+

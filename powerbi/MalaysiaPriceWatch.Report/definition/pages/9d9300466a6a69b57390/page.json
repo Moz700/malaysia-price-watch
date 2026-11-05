@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "9d9300466a6a69b57390",
+  "displayName": "Households and policy",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#EEF2F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#E2E7EE'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ade345424ea8a34cb45a",
+      "target": "a6e20e1cb1013cdd90e5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ade345424ea8a34cb45a",
+      "target": "26320a0d084ed2b1cee5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "26320a0d084ed2b1cee5",
+      "target": "a6e20e1cb1013cdd90e5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d53117fb1a2cf537ba2",
+      "target": "a6e20e1cb1013cdd90e5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "322dcb271b11c42f98d0",
+      "target": "a6e20e1cb1013cdd90e5",
+      "type": "NoFilter"
+    }
+  ]
+}

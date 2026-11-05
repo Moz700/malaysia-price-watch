@@ -1,5 +1,6 @@
 /// Where the 8 CSV files are read from. Default: the public GitHub repo. To use a local copy, set it to the folder path, for example C:\malaysia-price-watch\dashboard\data\
 expression DataSource = "https://raw.githubusercontent.com/Moz700/malaysia-price-watch/main/dashboard/data/" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5e21fa00-022f-4643-a37b-c20043b5f6a3
 
 /// Loads one CSV file from DataSource and sets every column type with culture en-US. Columns typed as logical turn t/f into true/false. Web paths use Web.Contents with a fixed host and RelativePath, so the Power BI service can refresh without a gateway.
 expression fnLoadCsv =
@@ -14,10 +15,13 @@ expression fnLoadCsv =
 				else Csv.Document(File.Contents(LocalFolder & fileName), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 			#"Promoted headers" = Table.PromoteHeaders(#"Read csv file", [PromoteAllScalars = true]),
 			#"Kept listed columns" = Table.SelectColumns(#"Promoted headers", List.Transform(columnTypes, each _{0})),
-			#"Replaced empty text with null" = Table.TransformColumns(#"Kept listed columns", {}, each if _ = "" then null else _),
+			// Empty cells become null: one native pass instead of a function call for every cell
+			#"Replaced empty text with null" = Table.ReplaceValue(#"Kept listed columns", "", null, Replacer.ReplaceValue, Table.ColumnNames(#"Kept listed columns")),
 			// PostgreSQL writes booleans as t and f
 			#"Listed logical columns" = List.Select(columnTypes, each Type.Is(_{1}, type logical)),
 			#"Converted t and f" = Table.TransformColumns(#"Replaced empty text with null", List.Transform(#"Listed logical columns", (c) => {c{0}, each if _ = "t" then true else if _ = "f" then false else null})),
 			#"Set column types" = Table.TransformColumnTypes(#"Converted t and f", columnTypes, "en-US")
 		in
 			#"Set column types"
+	lineageTag: 951121ea-f6a6-4574-9126-613e309bc287
+

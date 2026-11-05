@@ -1,17 +1,22 @@
 /// One row per month, October 2025 to September 2026.
 table Month
+	lineageTag: 35726f6d-dc33-497c-8022-d46f29921b5e
 
 	/// First day of the month. Key to item_monthly.csv and to the month of week_start in weekly_spikes.csv.
 	column Month
 		dataType: dateTime
 		isHidden
 		formatString: yyyy-mm-dd
+		lineageTag: 2883f30c-b830-4ae6-9589-56a43410bf6c
 		summarizeBy: none
 		sourceColumn: month
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	/// Short month name and year, for example Oct 2025.
 	column 'Month label'
 		dataType: string
+		lineageTag: da318eca-b720-4be5-87f5-bda0e27250a4
 		summarizeBy: none
 		sourceColumn: month_label
 		sortByColumn: 'Month order'
@@ -21,16 +26,18 @@ table Month
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: 8010ffdc-b033-4011-a3d6-c294b889b97c
 		summarizeBy: none
 		sourceColumn: month_order
 
 	partition Month = m
 		mode: import
 		source =
-			let
-				#"Listed month starts" = List.Transform({0..11}, each Date.AddMonths(#date(2025, 10, 1), _)),
-				#"Converted to table" = Table.FromList(#"Listed month starts", Splitter.SplitByNothing(), type table [month = date]),
-				#"Added month label" = Table.AddColumn(#"Converted to table", "month_label", each Date.ToText([month], [Format = "MMM yyyy", Culture = "en-US"]), type text),
-				#"Added month order" = Table.AddColumn(#"Added month label", "month_order", each (Date.Year([month]) - 2025) * 12 + Date.Month([month]) - 9, Int64.Type)
-			in
-				#"Added month order"
+				let
+					#"Listed month starts" = List.Transform({0..11}, each Date.AddMonths(#date(2025, 10, 1), _)),
+					#"Converted to table" = Table.FromList(#"Listed month starts", Splitter.SplitByNothing(), type table [month = date]),
+					#"Added month label" = Table.AddColumn(#"Converted to table", "month_label", each Date.ToText([month], [Format = "MMM yyyy", Culture = "en-US"]), type text),
+					#"Added month order" = Table.AddColumn(#"Added month label", "month_order", each (Date.Year([month]) - 2025) * 12 + Date.Month([month]) - 9, Int64.Type)
+				in
+					#"Added month order"
+

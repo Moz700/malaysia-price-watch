@@ -4,9 +4,9 @@
     "customTheme": {
       "name": "MalaysiaPriceWatch-7c41d2e9.json",
       "reportVersionAtImport": {
-        "visual": "2.13.0",
-        "report": "3.3.0",
-        "page": "2.1.0"
+        "visual": "2.14.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
       },
       "type": "RegisteredResources"
     }
@@ -20,6 +20,11 @@
           "name": "MalaysiaPriceWatch-7c41d2e9.json",
           "path": "MalaysiaPriceWatch-7c41d2e9.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "map.png",
+          "path": "map.png",
+          "type": "Image"
         }
       ]
     }
@@ -27,7 +32,7 @@
   "settings": {
     "useStylableVisualContainerHeader": true,
     "exportDataMode": "AllowSummarized",
-    "useEnhancedTooltips": true,
-    "defaultDrillFilterOtherVisuals": true
+    "defaultDrillFilterOtherVisuals": true,
+    "useEnhancedTooltips": true
   }
 }

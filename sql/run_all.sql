@@ -27,7 +27,7 @@
 \ir 00_setup/01_create_schemas.sql
 \ir 00_setup/02_create_staging_tables.sql
 
-\echo '== 01 load (about 30 seconds)'
+\echo '== 01 load (about 1 minute)'
 \ir 01_load/01_load_all.sql
 \ir 01_load/02_first_look.sql
 

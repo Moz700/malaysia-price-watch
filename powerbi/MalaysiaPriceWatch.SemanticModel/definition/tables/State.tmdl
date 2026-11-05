@@ -1,17 +1,50 @@
-/// One row per state (16 states). Built from state_basket.csv. Filters every file that has a state column.
+/// One row per state (16 states). Built from state_basket.csv. Filters every file that has a state column. Map x and Map y place each state's marker on the map; East Malaysia is drawn 3.2 degrees closer to the peninsula than it is.
 table State
+	lineageTag: fadb9093-8870-4f0a-b3fa-48bef0e82b97
 
 	/// State name as KPDN publishes it.
 	column State
 		dataType: string
+		lineageTag: fcfe9d79-772a-4b4f-b772-0f188c560655
 		summarizeBy: none
 		sourceColumn: state
+
+	/// Three-letter state code, used as the label on the map and in the state ranking.
+	column 'State code'
+		dataType: string
+		lineageTag: 7ff02d3d-10d4-40c5-8cb5-353466d1058a
+		summarizeBy: none
+		sourceColumn: state_code
+
+	/// Longitude of the state's marker on the map (East Malaysia shifted 3.2 degrees west).
+	column 'Map x'
+		dataType: double
+		isHidden
+		formatString: 0.00
+		lineageTag: 26e8b8d9-8f8c-44bb-b15b-0f2dddcdf77b
+		summarizeBy: none
+		sourceColumn: map_x
+
+	/// Latitude of the state's marker on the map.
+	column 'Map y'
+		dataType: double
+		isHidden
+		formatString: 0.00
+		lineageTag: 31868007-6738-442f-ae91-3777ac76ed60
+		summarizeBy: none
+		sourceColumn: map_y
 
 	partition State = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("state_basket.csv", {{"state", type text}}),
-				#"Removed duplicate states" = Table.Distinct(Source)
-			in
-				#"Removed duplicate states"
+				let
+					Source = fnLoadCsv("state_basket.csv", {{"state", type text}}),
+					#"Removed duplicate states" = Table.Distinct(Source),
+					// Marker position of each state on the map: longitude and latitude, with East Malaysia shifted 3.2 degrees west
+					#"Map positions" = #table(type table [state = text, state_code = text, map_x = number, map_y = number], {{"Perlis", "PLS", 100.24, 6.51}, {"Kedah", "KDH", 100.65, 5.93}, {"Kelantan", "KTN", 102.02, 5.29}, {"Pulau Pinang", "PNG", 100.25, 5.38}, {"Perak", "PRK", 101.10, 4.77}, {"Pahang", "PHG", 102.54, 3.73}, {"Terengganu", "TRG", 102.95, 4.94}, {"Selangor", "SGR", 101.37, 3.60}, {"W.P. Kuala Lumpur", "KUL", 101.69, 3.15}, {"W.P. Putrajaya", "PJY", 101.69, 2.94}, {"Negeri Sembilan", "NSN", 102.20, 2.78}, {"Melaka", "MLK", 102.30, 2.33}, {"Johor", "JHR", 103.38, 2.04}, {"Sarawak", "SWK", 110.09, 2.59}, {"W.P. Labuan", "LBN", 112.01, 5.32}, {"Sabah", "SBH", 113.90, 5.33}}),
+					#"Merged map positions" = Table.NestedJoin(#"Removed duplicate states", {"state"}, #"Map positions", {"state"}, "map", JoinKind.LeftOuter),
+					#"Expanded map positions" = Table.ExpandTableColumn(#"Merged map positions", "map", {"state_code", "map_x", "map_y"}),
+					#"Set map types" = Table.TransformColumnTypes(#"Expanded map positions", {{"state_code", type text}, {"map_x", type number}, {"map_y", type number}})
+				in
+					#"Set map types"
+

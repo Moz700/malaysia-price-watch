@@ -18,7 +18,7 @@
    then add the primary and foreign keys. Checking keys once at the end is
    far faster than checking them row by row during the insert.
 
-   Runtime on the build machine: about 4 minutes.
+   Runtime on the build machine: about 5 minutes.
    ===================================================================== */
 
 -- Step 1. Rows that pass checks 1, 4 and 5, collapsed to one row per

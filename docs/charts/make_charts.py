@@ -1,14 +1,15 @@
 """
-Malaysia Price Watch - charts for docs/findings.md
+Malaysia Price Watch - charts for the five findings in docs/findings.md
 
 Reads straight from the pricewatch database (via psql) and writes five PNGs
 next to this file. Run after sql/run_all.sql:
 
     python docs/charts/make_charts.py
 
-Needs: Python 3 with matplotlib, and psql on PATH (or set PSQL below).
-On Windows set PSQL to the full path, e.g.
-    PSQL = [r"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe", "-U", "postgres"]
+Needs: Python 3 with matplotlib, and psql on PATH. If psql is not on PATH,
+set the PSQL_CMD environment variable to the command, with "|" between the
+parts, e.g. on Windows (PowerShell):
+    $env:PSQL_CMD = "C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe|-U|postgres"
 """
 import csv
 import io
@@ -23,7 +24,7 @@ PSQL = os.environ.get("PSQL_CMD", "psql").split("|")
 DB = "pricewatch"
 OUT = os.path.dirname(os.path.abspath(__file__))
 
-# Palette (validated: 2 categorical slots pass CVD and contrast checks on #fcfcfb)
+# Colours (the two series colours are colour-blind safe on the light background)
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK2 = "#52514e"

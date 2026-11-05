@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "98f8ea0b22429ba77b5d",
+  "displayName": "Item lookup",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#EEF2F6'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#E2E7EE'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "29a02c61a972f1972b45",
+      "target": "560118d17166fac30cbd",
+      "type": "NoFilter"
+    },
+    {
+      "source": "29a02c61a972f1972b45",
+      "target": "1d848b6773303e2856fc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "06541b5d867c9d9f0304",
+      "target": "2496dc2f3e56c3e51cde",
+      "type": "NoFilter"
+    }
+  ]
+}

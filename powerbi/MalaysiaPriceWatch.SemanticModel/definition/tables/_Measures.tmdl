@@ -1,95 +1,109 @@
 /// Holds every measure of the model, grouped in display folders. The Dummy column only keeps the table valid.
 table _Measures
+	lineageTag: 63bd8b33-e67b-44f4-b97f-7d0d2ebe92b4
 
 	/// 9.9%: the same 265-item basket costs RM 4,349.65 in W.P. Kuala Lumpur vs RM 3,959.53 in Kedah, RM 390.12 more (September 2026). Source: results/build_run/q09.txt.
 	measure 'Regional basket gap' = 0.099
 		formatString: 0.0%
 		displayFolder: KPI
+		lineageTag: 659a8c24-4aa3-4e30-9618-ebc2aaa7cd0e
 
 	/// 12.0%: one unit of each of 8 everyday staples costs RM 99.45 at wet markets vs RM 88.76 at hypermarkets. Source: results/build_run/q03.txt (second table).
 	measure 'Staples gap, wet market vs hypermarket' = 0.12
 		formatString: 0.0%
 		displayFolder: KPI
+		lineageTag: 1dd2c3bc-cbbf-468a-a604-842e1b7d4d09
 
 	/// 99.95% of 34,609 shop-months were at or below the controlled price (coarse sugar RM 2.85/kg, packet cooking oil RM 2.50/kg). Source: results/build_run/q31.txt.
 	measure 'Price-control adherence' = 0.9995
 		formatString: 0.00%
 		displayFolder: KPI
+		lineageTag: 85a98d3b-b5d1-468b-bd36-88206628744b
 
-	/// 58% of all price increases came from 3 fresh categories (vegetables, onions and garlic, meat), which are 17% of the items. Source: results/build_run/q14.txt.
-	measure 'Share of price increases from 3 fresh categories' = 0.58
+	/// 58% of all price increases came from 3 categories (vegetables, onions and garlic, meat), which are 17% of the items. Source: results/build_run/q14.txt.
+	measure 'Share of price increases from 3 categories' = 0.58
 		formatString: 0%
 		displayFolder: KPI
+		lineageTag: a8604503-d1e2-4a05-b62c-e0421646b28f
 
 	/// 12.1 points: the average supermarket scores 101.4 on the price index (q12) vs 89.3 for Tesco, the cheapest chain (q11). Sources: results/build_run/q12.txt and q11.txt.
 	measure 'Gap to the price leader (index points)' = 12.1
 		formatString: 0.0
 		displayFolder: KPI
+		lineageTag: 6c65ba5c-6acf-4d03-a078-549e75939e41
 
 	/// 78 spike weeks in December 2025, the peak month. Source: results/build_run/q23.txt.
 	measure 'Spike weeks in December 2025' = 78
 		formatString: 0
 		displayFolder: KPI
+		lineageTag: e5e064ae-d883-4cd6-8a26-ad04fd6a79db
 
 	/// Cost of the 265-item basket in one state (RM). Blank when more than one state is in view, because costs are not added across states.
 	measure 'State basket cost (RM)' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Basket cost (RM)]))
 		formatString: #,##0.00
 		displayFolder: Households and policy
+		lineageTag: 6204c1f2-8296-4a20-8bb3-cb644281c945
 
 	/// Basket index of one state (100 = national). Blank when more than one state is in view.
 	measure 'State basket index' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Basket index]))
 		formatString: 0.0
 		displayFolder: Households and policy
+		lineageTag: 2e7ed43b-b7dd-4e8a-9e6e-2f06eabc01b0
 
 	/// Basket items not priced in the state and filled with the national median. Blank when more than one state is in view.
 	measure 'Basket items filled with national median' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State basket'[Items filled with national median]))
 		formatString: 0
 		displayFolder: Households and policy
+		lineageTag: 3e53cc8c-2e3a-4a53-a99d-411ce53f300b
 
-	/// Basket index of one district in the chosen state (100 = national). Uses W.P. Kuala Lumpur when no single state is chosen. Blank above district level.
-	measure 'District basket index (chosen state)' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+	/// Basket index of one district in the chosen state (100 = national). Uses the picked states, or W.P. Kuala Lumpur when none is picked. Blank above district level.
+	measure 'District basket index (chosen state)' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('District basket', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(COUNTROWS(_rows) = 1, MAXX(_rows, 'District basket'[Basket index]))
-			```
 		formatString: 0.0
 		displayFolder: Households and policy
+		lineageTag: a0652842-cc26-41a7-8b66-811826ed6fc0
 
 	/// Basket items priced in one district of the chosen state. Blank above district level.
-	measure 'District items priced (chosen state)' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+	measure 'District items priced (chosen state)' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('District basket', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(COUNTROWS(_rows) = 1, MAXX(_rows, 'District basket'[Basket items priced]))
-			```
 		formatString: 0
 		displayFolder: Households and policy
+		lineageTag: bd9749a0-abb6-4940-89dc-bb69fece396e
 
 	/// Scored, or Not enough items, for one district of the chosen state.
-	measure 'District score status' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+	measure 'District score status' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('District basket', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(COUNTROWS(_rows) = 1, CONCATENATEX(_rows, 'District basket'[Score status]))
-			```
 		displayFolder: Households and policy
+		lineageTag: 6745dd4c-81a1-4723-bd5a-1e14a21b0520
 
 	/// Bar colour for the district chart: blue when scored, light grey when there are not enough items to score.
-	measure 'District bar colour' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('District basket', 'State'[State] = _state)
+	measure 'District bar colour' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('District basket', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(
 			        COUNTROWS(_rows) = 1,
 			        IF(MAXX(_rows, IF('District basket'[Enough items to score], 1, 0)) = 1, "#2a78d6", "#c8cdd4")
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 74e0011c-6c33-4cca-bd27-0876b8cdf02b
 
 	/// Mean price change in the two weeks before a festival, weighted by matched pairs across the states in view (as in q21). Needs one festival and one item set.
-	measure 'Festive price change' = ```
+	measure 'Festive price change' =
 			IF(
 			    HASONEVALUE('Festive effect'[Festival]) && HASONEVALUE('Festive effect'[Item set]),
 			    DIVIDE(
@@ -97,78 +111,88 @@ table _Measures
 			        SUM('Festive effect'[Matched pairs])
 			    ) / 100
 			)
-			```
 		formatString: 0.00%
 		displayFolder: Households and policy
+		lineageTag: a656ef2e-5aa5-476d-8331-440085dd8e0d
 
 	/// Festive price change for festive staples. All states: -2.42% before Chinese New Year and -4.98% before Hari Raya Aidilfitri (q21).
 	measure 'Festive price change, festive staples' = CALCULATE([Festive price change], 'Festive effect'[Item set] = "Festive staples")
 		formatString: 0.00%
 		displayFolder: Households and policy
+		lineageTag: dff1a68a-79dc-45cb-b90a-06b820a73974
 
 	/// Festive price change for the other items (control set).
 	measure 'Festive price change, other items' = CALCULATE([Festive price change], 'Festive effect'[Item set] = "Other items (control)")
 		formatString: 0.00%
 		displayFolder: Households and policy
+		lineageTag: b62ee363-044b-4f53-8f91-5c33b2ffd2f6
 
 	/// Shop-item pairs priced before and in the festive window. Counts can be added.
 	measure 'Festive matched pairs' = SUM('Festive effect'[Matched pairs])
 		formatString: #,##0
 		displayFolder: Households and policy
+		lineageTag: 6555dc1c-db81-4106-ba0f-9d83a7a6b4fc
 
 	/// Average shop's price index (100 = national median of the same items). By shop type, all states: Hypermarket 98.4, Supermarket 101.4, Mini market 103.4, Sundry shop 106.8, Wet market 108.2 (as in q12).
 	measure 'Average shop price index' = AVERAGE('Shop index'[Price index])
 		formatString: 0.0
 		displayFolder: Retail pricing
+		lineageTag: bc4d28f4-1006-43fe-b4e9-38c887f33bf0
 
 	/// Number of shops with a price index.
 	measure 'Shop count' = COUNTROWS('Shop index')
 		formatString: #,##0
 		displayFolder: Retail pricing
+		lineageTag: 6720a4e8-fb91-4fc0-9ed0-a6a03e373b1d
 
 	/// Share of the shops in view that sit in the cheapest quarter of their state.
 	measure 'Share of shops in cheapest quarter' = DIVIDE(CALCULATE(COUNTROWS('Shop index'), 'Shop index'[Price quarter in state] = 1), COUNTROWS('Shop index'))
 		formatString: 0.0%
 		displayFolder: Retail pricing
+		lineageTag: 4fb57758-323a-4ae1-b19b-95f65fe023f1
 
 	/// Share of the shops in view that sit in the dearest quarter of their state.
 	measure 'Share of shops in dearest quarter' = DIVIDE(CALCULATE(COUNTROWS('Shop index'), 'Shop index'[Price quarter in state] = 4), COUNTROWS('Shop index'))
 		formatString: 0.0%
 		displayFolder: Retail pricing
+		lineageTag: d3311a3e-2faa-45c2-a4d8-de602531b44b
 
 	/// Items priced at one shop. Blank when more than one shop is in view.
 	measure 'Shop items priced' = IF(HASONEVALUE('Shop index'[Shop code]), SELECTEDVALUE('Shop index'[Items priced]))
 		formatString: #,##0
 		displayFolder: Retail pricing
+		lineageTag: 29c8fd3e-bcf9-4fe2-b742-73b0cff19653
 
-	/// Median price (RM) of one item at one shop type in the chosen state (W.P. Kuala Lumpur when no single state is chosen). Medians are pre-computed, so it is blank for more than one item or shop type.
-	measure 'Item median price by shop type (RM)' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('Item price by state and shop type', 'State'[State] = _state)
+	/// Median price (RM) of one item at one shop type in the chosen state (W.P. Kuala Lumpur when none is chosen). Medians are pre-computed, so it is blank for more than one item, shop type or state.
+	measure 'Item median price by shop type (RM)' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('Item price by state and shop type', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(
 			        HASONEVALUE('Item'[Item code]) && HASONEVALUE('Shop type'[Shop type]) && COUNTROWS(_rows) = 1,
 			        MAXX(_rows, 'Item price by state and shop type'[Median price (RM)])
 			    )
-			```
 		formatString: #,##0.00
 		displayFolder: Retail pricing
+		lineageTag: f072b68c-7d01-40c9-abea-6d98cf69fc1c
 
 	/// Shops pricing one item at one shop type in the chosen state.
-	measure 'Item shops priced (chosen state)' = ```
-			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), "W.P. Kuala Lumpur")
-			VAR _rows = CALCULATETABLE('Item price by state and shop type', 'State'[State] = _state)
+	measure 'Item shops priced (chosen state)' =
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _rows = CALCULATETABLE('Item price by state and shop type', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur")))
 			RETURN
 			    IF(
 			        HASONEVALUE('Item'[Item code]) && HASONEVALUE('Shop type'[Shop type]) && COUNTROWS(_rows) = 1,
 			        MAXX(_rows, 'Item price by state and shop type'[Shops])
 			    )
-			```
 		formatString: #,##0
 		displayFolder: Retail pricing
+		lineageTag: 9c151ce5-3f1b-4153-a70a-dd0ecf7aeee5
 
 	/// National median price (RM) of one item, September 2026. Blank for more than one item.
-	measure 'Item national median (RM)' = ```
+	measure 'Item national median (RM)' =
 			IF(
 			    HASONEVALUE('Item'[Item code]),
 			    CALCULATE(
@@ -177,105 +201,123 @@ table _Measures
 			        REMOVEFILTERS('Shop type')
 			    )
 			)
-			```
 		formatString: #,##0.00
 		displayFolder: Retail pricing
+		lineageTag: 12e54b67-f008-4f7d-89d8-b8ad2404b778
 
 	/// Lowest price (RM) of one item in one state, September 2026.
 	measure 'Lowest price in state (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Lowest price (RM)]))
 		formatString: #,##0.00
 		displayFolder: Retail pricing
+		lineageTag: 7b909b81-6d8f-4c50-8566-df9b4c574534
 
 	/// Shops charging the lowest price for one item in one state.
 	measure 'Shops at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Shops at lowest price]))
 		formatString: #,##0
 		displayFolder: Retail pricing
+		lineageTag: 81dce508-f522-4fc3-922b-b0bb9ecac68b
 
 	/// Shops pricing one item in one state.
 	measure 'Shops compared for lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Shops compared]))
 		formatString: #,##0
 		displayFolder: Retail pricing
+		lineageTag: 5ea18b35-07c9-45bd-85ec-136a5bdf1ba3
 
 	/// One example shop charging the lowest price (several shops can share it).
 	measure 'Example shop at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop]))
 		displayFolder: Retail pricing
+		lineageTag: 3b93d9c5-af77-4818-9ea6-63e41a0231af
 
 	/// Shop type of the example shop.
 	measure 'Example shop type at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop type]))
 		displayFolder: Retail pricing
+		lineageTag: 33e2fa4d-d5b9-4dc6-89be-46f93bac6c03
 
 	/// District of the example shop.
 	measure 'Example shop district at lowest price' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('State'[State]), SELECTEDVALUE('Cheapest by item and state'[Example shop district]))
 		displayFolder: Retail pricing
+		lineageTag: 5dad9e80-100a-4cb7-9efa-41f8f4649da9
 
 	/// National median price (RM) of one item in one month. Blank for more than one item or month, because medians are not added or averaged.
 	measure 'Monthly median price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Median price (RM)]))
 		formatString: #,##0.00
 		displayFolder: Cost risk
+		lineageTag: 42b23451-da27-42d1-adab-fd075b5b521f
 
 	/// Change in the national median price of one item since October 2025, for one month.
 	measure 'Change since October 2025' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Change since October 2025 (%)]) / 100)
 		formatString: 0.00%
 		displayFolder: Cost risk
+		lineageTag: 0ca18db2-3bbf-4187-a46b-ccb18e4e5f16
 
 	/// Change in the national median price of one item on the previous month.
 	measure 'Change on previous month' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Month'[Month]), SELECTEDVALUE('Item monthly'[Change on previous month (%)]) / 100)
 		formatString: 0.00%
 		displayFolder: Cost risk
+		lineageTag: f5019bc3-0755-43f8-b5cd-577f2230d29a
 
 	/// Change in the national median price of one item from October 2025 to September 2026.
 	measure 'Change since October 2025, September 2026' = CALCULATE([Change since October 2025], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2026, 9, 1))
 		formatString: 0.00%
 		displayFolder: Cost risk
+		lineageTag: 859bfa8f-69a9-43ff-860e-49189a804692
 
 	/// National median price (RM) of one item in one week. Blank for more than one item or week.
 	measure 'Weekly median price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Median price (RM)]))
 		formatString: #,##0.00
 		displayFolder: Cost risk
+		lineageTag: 72d9c19f-8543-4cf1-bd16-b9b1070b3743
 
 	/// Mean of the previous 8 weekly medians (RM) for one item and week.
 	measure 'Rolling 8-week mean price (RM)' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Rolling 8-week mean (RM)]))
 		formatString: #,##0.00
 		displayFolder: Cost risk
+		lineageTag: 7ff0f1a7-48dc-4c10-8b73-29a23a8e942e
 
 	/// Spike week or Normal week, for one item and week.
 	measure 'Spike week flag' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), IF(SELECTEDVALUE('Weekly spikes'[Is spike]), "Spike week", "Normal week"))
 		displayFolder: Cost risk
+		lineageTag: ee3f8e43-a0be-4a7c-85b3-9afccfbf278a
 
 	/// Festive window the week falls in, if any.
 	measure 'Festive period of week' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), SELECTEDVALUE('Weekly spikes'[Festive period]))
 		displayFolder: Cost risk
+		lineageTag: c9ff75e7-4ea4-4ca5-b2a9-b4e55a279429
 
-	/// Marker colour for the weekly price line: red for spike weeks, blue otherwise.
-	measure 'Weekly marker colour' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), IF(SELECTEDVALUE('Weekly spikes'[Is spike]), "#e34948", "#2a78d6"))
+	/// Marker colour for the weekly price line: orange for spike weeks, blue otherwise.
+	measure 'Weekly marker colour' = IF(HASONEVALUE('Item'[Item code]) && HASONEVALUE('Weekly spikes'[Week start]), IF(SELECTEDVALUE('Weekly spikes'[Is spike]), "#EB6834", "#2A78D6"))
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 519a7168-5699-4bd9-b0f6-3d3e7e289767
 
 	/// Item-weeks flagged as spikes, counted by the month of week_start. December 2025 shows 78 (as in q23).
 	measure 'Spike weeks' = CALCULATE(COUNTROWS('Weekly spikes'), 'Weekly spikes'[Is spike] = TRUE())
 		formatString: #,##0
 		displayFolder: Cost risk
+		lineageTag: 0b0245b4-f2b9-446a-9c3f-878f92fe3b72
 
 	/// Spike weeks for fresh produce items.
 	measure 'Spike weeks, fresh produce' = CALCULATE([Spike weeks], 'Weekly spikes'[Produce group] = "Fresh produce")
 		formatString: #,##0
 		displayFolder: Cost risk
+		lineageTag: eb1a7646-5182-45b7-b56f-9976fe5f454f
 
 	/// Spike weeks for all items that are not fresh produce.
 	measure 'Spike weeks, other items' = CALCULATE([Spike weeks], 'Weekly spikes'[Produce group] = "Other items")
 		formatString: #,##0
 		displayFolder: Cost risk
+		lineageTag: 5aef1ffc-9c71-4dc7-892a-4f54257f8209
 
-	/// Rank of an item by its rise in national median price, October 2025 to September 2026 (1 = biggest rise), among the items in view. Ties go to the lower item code, so the risers chart shows exactly 10 items.
-	measure 'Riser rank' = ```
+	/// Rank of an item by its rise in national median price, October 2025 to September 2026 (1 = biggest rise), among the items in view that 30 or more shops priced in both months (the q13 rule). Ties go to the lower item code, so the risers chart shows exactly 10 items.
+	measure 'Riser rank' =
 			VAR _code = SELECTEDVALUE('Item'[Item code])
-			VAR _chg = [Change since October 2025, September 2026]
+			VAR _chg = [Change since October 2025 (30+ shops)]
 			RETURN
 			    IF(
 			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_chg)),
 			        VAR _items =
 			            CALCULATETABLE(
-			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]),
+			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025 (30+ shops)]),
 			                ALLSELECTED()
 			            )
 			        RETURN
@@ -283,21 +325,21 @@ table _Measures
 			                FILTER(_items, NOT(ISBLANK([@chg])) && ([@chg] > _chg || ([@chg] = _chg && 'Item'[Item code] < _code)))
 			            ) + 1
 			    )
-			```
 		formatString: 0
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 45ddbb36-1a68-4b54-9a65-9e7d15f3fde3
 
-	/// Rank of an item by its fall in national median price, October 2025 to September 2026 (1 = biggest fall), among the items in view. Ties go to the lower item code, so the fallers chart shows exactly 10 items.
-	measure 'Faller rank' = ```
+	/// Rank of an item by its fall in national median price, October 2025 to September 2026 (1 = biggest fall), among the items in view that 30 or more shops priced in both months (the q13 rule). Ties go to the lower item code, so the fallers chart shows exactly 10 items.
+	measure 'Faller rank' =
 			VAR _code = SELECTEDVALUE('Item'[Item code])
-			VAR _chg = [Change since October 2025, September 2026]
+			VAR _chg = [Change since October 2025 (30+ shops)]
 			RETURN
 			    IF(
 			        NOT(ISBLANK(_code)) && NOT(ISBLANK(_chg)),
 			        VAR _items =
 			            CALCULATETABLE(
-			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]),
+			                ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025 (30+ shops)]),
 			                ALLSELECTED()
 			            )
 			        RETURN
@@ -305,13 +347,13 @@ table _Measures
 			                FILTER(_items, NOT(ISBLANK([@chg])) && ([@chg] < _chg || ([@chg] = _chg && 'Item'[Item code] < _code)))
 			            ) + 1
 			    )
-			```
 		formatString: 0
 		isHidden
 		displayFolder: Helpers
+		lineageTag: cac5e0a1-6827-4412-8806-84d6621a0ba9
 
 	/// Rank of a shop by price index, lowest first, among the shops in view. Ties go to the lower shop code, so the cheapest-shops table shows exactly 10 shops.
-	measure 'Cheapest shop rank' = ```
+	measure 'Cheapest shop rank' =
 			VAR _code = SELECTEDVALUE('Shop index'[Shop code])
 			VAR _idx = SELECTEDVALUE('Shop index'[Price index])
 			RETURN
@@ -326,13 +368,13 @@ table _Measures
 			                )
 			            ) + 1
 			    )
-			```
 		formatString: 0
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 7023c7d2-0574-4d72-a2a8-ff4f147b3c11
 
 	/// Rank of a shop by price index, highest first, among the shops in view. Ties go to the lower shop code, so the dearest-shops table shows exactly 10 shops.
-	measure 'Dearest shop rank' = ```
+	measure 'Dearest shop rank' =
 			VAR _code = SELECTEDVALUE('Shop index'[Shop code])
 			VAR _idx = SELECTEDVALUE('Shop index'[Price index])
 			RETURN
@@ -347,13 +389,13 @@ table _Measures
 			                )
 			            ) + 1
 			    )
-			```
 		formatString: 0
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 52be92cc-474b-47ed-9aed-56473b38b6f8
 
 	/// Title text for the chosen-item card: the item's change in national median price from October 2025 to September 2026.
-	measure 'Title, chosen item change' = ```
+	measure 'Title, chosen item change' =
 			VAR _item = SELECTEDVALUE('Item'[Item label])
 			VAR _chg = [Change since October 2025, September 2026]
 			RETURN
@@ -364,12 +406,12 @@ table _Measures
 			        _chg < 0, _item & ": down " & FORMAT(-_chg, "0.00%") & " from October 2025 to September 2026",
 			        _item & ": no change from October 2025 to September 2026"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: b9f1b545-7c65-4cdc-b7e5-56f685d6fbbf
 
 	/// Title text for the monthly price chart: the chosen item's national median price in October 2025 and September 2026.
-	measure 'Title, chosen item monthly price' = ```
+	measure 'Title, chosen item monthly price' =
 			VAR _item = SELECTEDVALUE('Item'[Item label])
 			VAR _first = CALCULATE([Monthly median price (RM)], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2025, 10, 1))
 			VAR _last = CALCULATE([Monthly median price (RM)], REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2026, 9, 1))
@@ -379,12 +421,12 @@ table _Measures
 			        "Pick one item to see its national median price month by month",
 			        _item & ": national median RM " & FORMAT(_first, "0.00") & " in October 2025 and RM " & FORMAT(_last, "0.00") & " in September 2026"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 7649acb7-1c2a-4333-b834-653031a93af7
 
 	/// Title text for the weekly price chart: the number of spike weeks of the chosen item.
-	measure 'Title, chosen item spike weeks' = ```
+	measure 'Title, chosen item spike weeks' =
 			VAR _item = SELECTEDVALUE('Item'[Item label])
 			VAR _weeks = COUNTROWS('Weekly spikes')
 			VAR _n = [Spike weeks]
@@ -394,47 +436,47 @@ table _Measures
 			        ISBLANK(_item), "Pick one item to see its weekly price and spike weeks",
 			        ISBLANK(_weeks), _item & ": no weekly prices in the data",
 			        ISBLANK(_n), _item & ": no spike weeks",
-			        _n = 1, _item & ": 1 spike week (red marker)",
-			        _item & ": " & FORMAT(_n, "0") & " spike weeks (red markers)"
+			        _n = 1, _item & ": 1 spike week (orange marker)",
+			        _item & ": " & FORMAT(_n, "0") & " spike weeks (orange markers)"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 75ddfeeb-889d-4b3e-81f4-31dcf9ed53f4
 
-	/// Title text for the top-10 risers chart: the item that rose most among the items in view.
-	measure 'Title, top riser' = ```
-			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]), NOT(ISBLANK([@chg])))
+	/// Title text for the top-10 risers chart: the item that rose most among the items in view (30 or more shops in both months).
+	measure 'Title, top riser' =
+			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025 (30+ shops)]), NOT(ISBLANK([@chg])))
 			VAR _edge = MAXX(_items, [@chg])
 			VAR _code = MINX(FILTER(_items, [@chg] = _edge), 'Item'[Item code])
 			VAR _item = LOOKUPVALUE('Item'[Item label], 'Item'[Item code], _code)
 			RETURN
 			    IF(
 			        _edge > 0,
-			        "Top 10 price risers since October 2025: " & _item & " rose most (+" & FORMAT(_edge, "0.00%") & ")",
-			        "Top 10 price risers since October 2025: no item in this group rose"
+			        _item & " rose the most since October 2025: +" & FORMAT(_edge, "0.00%"),
+			        "No item in this group rose since October 2025"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: cec00e69-e487-486c-b031-048c3fa08a2d
 
-	/// Title text for the top-10 fallers chart: the item that fell most among the items in view.
-	measure 'Title, top faller' = ```
-			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025, September 2026]), NOT(ISBLANK([@chg])))
+	/// Title text for the top-10 fallers chart: the item that fell most among the items in view (30 or more shops in both months).
+	measure 'Title, top faller' =
+			VAR _items = FILTER(ADDCOLUMNS(VALUES('Item'[Item code]), "@chg", [Change since October 2025 (30+ shops)]), NOT(ISBLANK([@chg])))
 			VAR _edge = MINX(_items, [@chg])
 			VAR _code = MINX(FILTER(_items, [@chg] = _edge), 'Item'[Item code])
 			VAR _item = LOOKUPVALUE('Item'[Item label], 'Item'[Item code], _code)
 			RETURN
 			    IF(
 			        _edge < 0,
-			        "Top 10 price fallers since October 2025: " & _item & " fell most (" & FORMAT(_edge, "0.00%") & ")",
-			        "Top 10 price fallers since October 2025: no item in this group fell"
+			        _item & " fell the most since October 2025: " & FORMAT(_edge, "0.00%"),
+			        "No item in this group fell since October 2025"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 2340ee97-0b93-4688-9342-23cbe7f12840
 
 	/// Title text for the cheapest-shops table: the shop with the lowest price index in the chosen state.
-	measure 'Title, cheapest shop' = ```
+	measure 'Title, cheapest shop' =
 			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), IF(ISFILTERED('State'[State]), "the chosen states", "all states"))
 			VAR _edge = MIN('Shop index'[Price index])
 			VAR _code = CALCULATE(MIN('Shop index'[Shop code]), 'Shop index'[Price index] = _edge)
@@ -445,12 +487,12 @@ table _Measures
 			        "The 10 cheapest shops in the chosen state",
 			        "The 10 cheapest shops in " & _state & ": " & _shop & " is cheapest (index " & FORMAT(_edge, "0.0") & ")"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 8a5e82d4-23e5-4ac8-9d26-7d11b57fc77a
 
 	/// Title text for the dearest-shops table: the shop with the highest price index in the chosen state.
-	measure 'Title, dearest shop' = ```
+	measure 'Title, dearest shop' =
 			VAR _state = IF(HASONEVALUE('State'[State]), VALUES('State'[State]), IF(ISFILTERED('State'[State]), "the chosen states", "all states"))
 			VAR _edge = MAX('Shop index'[Price index])
 			VAR _code = CALCULATE(MIN('Shop index'[Shop code]), 'Shop index'[Price index] = _edge)
@@ -461,18 +503,543 @@ table _Measures
 			        "The 10 dearest shops in the chosen state",
 			        "The 10 dearest shops in " & _state & ": " & _shop & " is dearest (index " & FORMAT(_edge, "0.0") & ")"
 			    )
-			```
 		isHidden
 		displayFolder: Helpers
+		lineageTag: 499fd5ca-ca13-467d-b0a9-257a19186d4a
+
+	/// Status line on the overview: asks for a refresh when no data is loaded, otherwise counts the shops and items loaded.
+	measure 'Data status' =
+			VAR _shops = CALCULATE(COUNTROWS('Shop index'), REMOVEFILTERS())
+			VAR _items = CALCULATE(COUNTROWS('Item'), REMOVEFILTERS())
+			RETURN
+			    IF(
+			        ISBLANK(_shops),
+			        "No data loaded yet. Select Home > Refresh and choose Anonymous if Power BI asks how to connect.",
+			        FORMAT(_shops, "#,0") & " shops and " & FORMAT(_items, "#,0") & " items loaded"
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 723777c9-8db4-4e93-8f7d-cf97c82078a1
+
+	/// Font colour of the status line: light orange when no data is loaded.
+	measure 'Data status colour' = IF(ISBLANK(CALCULATE(COUNTROWS('Shop index'), REMOVEFILTERS())), "#FFB38A", "#AFC0D6")
+		isHidden
+		displayFolder: Report
+		lineageTag: 4ff50049-9977-4173-8ab5-7944c075ab8f
+
+	/// Basket index of one state minus 100: points above (+) or below (-) the national cost of the same basket.
+	measure 'State basket index vs national' =
+			VAR _i = [State basket index]
+			RETURN IF(NOT ISBLANK(_i), _i - 100)
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Households and policy
+		lineageTag: c1167d82-e5f1-4f51-b5ac-ac29157b8d74
+
+	/// Rank of one state by basket index, 1 = dearest of the 16 states.
+	measure 'State basket rank' = IF(HASONEVALUE('State'[State]) && NOT ISBLANK([State basket index]), RANKX(ALL('State'), [State basket index], , DESC))
+		formatString: 0
+		displayFolder: Households and policy
+		lineageTag: 0c80598a-be15-4b90-89e8-f04f208bb1e8
+
+	/// Fill colour for a state basket index: three blues below 100, grey within 0.5 points of 100, three oranges above (steps at 0.5, 1.5 and 3 points).
+	measure 'Basket index colour' =
+			VAR _i = [State basket index]
+			VAR _d = _i - 100
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_i), BLANK(),
+			        _d <= -3, "#184F95",
+			        _d <= -1.5, "#256ABF",
+			        _d <= -0.5, "#9EC5F4",
+			        _d < 0.5, "#D9DEE5",
+			        _d < 1.5, "#F6C1A6",
+			        _d < 3, "#EB6834",
+			        "#B8451A"
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 7c6b6469-bef6-40d2-94fa-fe1846046c16
+
+	/// Bar colour on the overview basket chart: W.P. Kuala Lumpur (dearest) in orange, Kedah (cheapest) in blue, the other states in grey.
+	measure 'Basket emphasis colour' = SWITCH(SELECTEDVALUE('State'[State]), "W.P. Kuala Lumpur", "#EB6834", "Kedah", "#2A78D6", "#C3CCD7")
+		isHidden
+		displayFolder: Report
+		lineageTag: 4fbdbaa5-4712-475d-bd1a-4f18dc9a0b9f
+
+	/// Horizontal position (longitude) of a state's marker on the map.
+	measure 'Map point x' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State'[Map x]))
+		formatString: 0.00
+		isHidden
+		displayFolder: Report
+		lineageTag: 751f5067-6dc9-430f-b640-847551d99580
+
+	/// Vertical position (latitude) of a state's marker on the map.
+	measure 'Map point y' = IF(HASONEVALUE('State'[State]), SELECTEDVALUE('State'[Map y]))
+		formatString: 0.00
+		isHidden
+		displayFolder: Report
+		lineageTag: 135d5ad0-39ec-436b-bb95-dce481fe6bb6
+
+	/// Name of one state, for tooltips.
+	measure 'State name' = SELECTEDVALUE('State'[State])
+		isHidden
+		displayFolder: Report
+		lineageTag: 7acd77da-b0a5-449a-ab6e-4f735ebc8d56
+
+	/// The state picked on the page, a count when several are picked, or All 16 states.
+	measure 'Chosen state' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			RETURN SWITCH(TRUE(), _n = 1, SELECTEDVALUE('State'[State]), _n < 16, FORMAT(_n, "0") & " states", "All 16 states")
+		isHidden
+		displayFolder: Report
+		lineageTag: dab40182-c86d-4230-ad05-d473f3ea5d0b
+
+	/// Basket cost of the chosen state, the range across the 16 states, or a prompt when several states are picked.
+	measure 'Chosen state basket cost' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _all = ALL('State basket')
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _n = 1, "RM " & FORMAT([State basket cost (RM)], "#,0.00"),
+			        _n < 16, "Choose one state",
+			        "RM " & FORMAT(MINX(_all, 'State basket'[Basket cost (RM)]), "#,0.00") & " to " & FORMAT(MAXX(_all, 'State basket'[Basket cost (RM)]), "#,0.00")
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 08237e9b-3dd9-484e-97ba-4bee3101ef95
+
+	/// Basket index of the chosen state, the range across the 16 states, or a prompt when several states are picked.
+	measure 'Chosen state basket index' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _all = ALL('State basket')
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        _n = 1, FORMAT([State basket index], "0.0"),
+			        _n < 16, "Choose one state",
+			        FORMAT(MINX(_all, 'State basket'[Basket index]), "0.0") & " to " & FORMAT(MAXX(_all, 'State basket'[Basket index]), "0.0")
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 5b1f23e5-b2ea-4b28-a9bd-d9bad9526b68
+
+	/// Rank of the chosen state by basket cost, dearest first.
+	measure 'Chosen state rank' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			RETURN SWITCH(TRUE(), _n = 1, FORMAT([State basket rank], "0") & " of 16", _n < 16, "Choose one state", "1 to 16")
+		isHidden
+		displayFolder: Report
+		lineageTag: 29705e45-8c9e-4233-b93d-2787481bbbe5
+
+	/// Districts with enough items priced to score, out of all districts in view.
+	measure 'Chosen state districts scored' =
+			VAR _scored = CALCULATE(COUNTROWS('District basket'), 'District basket'[Enough items to score] = TRUE())
+			VAR _all = COUNTROWS('District basket')
+			RETURN IF(NOT ISBLANK(_all), FORMAT(_scored + 0, "0") & " of " & FORMAT(_all, "0"))
+		isHidden
+		displayFolder: Report
+		lineageTag: 373e18f5-7167-439f-a915-4f217685b9b7
+
+	/// Basket index of one district in the chosen state minus 100.
+	measure 'District basket index vs national' =
+			VAR _i = [District basket index (chosen state)]
+			RETURN IF(NOT ISBLANK(_i), _i - 100)
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Households and policy
+		lineageTag: 4aafae52-0b61-4796-80d8-ed0e1ca819b7
+
+	/// Title text for the basket maps and charts: the dearest and the cheapest state.
+	measure 'Title, state map' =
+			VAR _t = ADDCOLUMNS(ALL('State'[State]), "@i", CALCULATE([State basket index]))
+			VAR _hi = MAXX(_t, [@i])
+			VAR _lo = MINX(_t, [@i])
+			VAR _hiState = MAXX(FILTER(_t, [@i] = _hi), 'State'[State])
+			VAR _loState = MAXX(FILTER(_t, [@i] = _lo), 'State'[State])
+			RETURN
+			    IF(
+			        ISBLANK(_hi),
+			        "Basket index by state",
+			        _hiState & " has the dearest basket (" & FORMAT(_hi, "0.0") & ") and " & _loState & " the cheapest (" & FORMAT(_lo, "0.0") & ")"
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: fb545706-03b7-49e7-9a67-2e86c0e0e6ef
+
+	/// Title text for the district chart: the cheapest and the dearest scored district of the picked state or states (W.P. Kuala Lumpur when none is picked).
+	measure 'Title, district range' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _picked = ISFILTERED('State'[State])
+			VAR _sel = VALUES('State'[State])
+			VAR _multi = _picked && _n > 1
+			VAR _state = IF(_n = 1, SELECTEDVALUE('State'[State]), IF(_picked, "the " & FORMAT(_n, "0") & " chosen states", "W.P. Kuala Lumpur"))
+			VAR _rows = FILTER(CALCULATETABLE('District basket', FILTER(ALL('State'[State]), IF(_picked, 'State'[State] IN _sel, 'State'[State] = "W.P. Kuala Lumpur"))), 'District basket'[Enough items to score])
+			VAR _lo = MINX(_rows, 'District basket'[Basket index])
+			VAR _hi = MAXX(_rows, 'District basket'[Basket index])
+			VAR _loName = MAXX(FILTER(_rows, 'District basket'[Basket index] = _lo), 'District basket'[District] & IF(_multi, " (" & 'District basket'[State] & ")", ""))
+			VAR _hiName = MAXX(FILTER(_rows, 'District basket'[Basket index] = _hi), 'District basket'[District] & IF(_multi, " (" & 'District basket'[State] & ")", ""))
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        COUNTROWS(_rows) >= 2, "In " & _state & ", the district basket index runs from " & FORMAT(_lo, "0.0") & " in " & _loName & " to " & FORMAT(_hi, "0.0") & " in " & _hiName,
+			        COUNTROWS(_rows) = 1, "In " & _state & ", only " & _hiName & " has enough items priced to score",
+			        "In " & _state & ", no district has enough items priced to score"
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 7abce2a2-bb50-4524-b28d-f19b9a09ea71
+
+	/// Title text for the festive chart: the change in festive staples before Chinese New Year and Hari Raya Aidilfitri, for the chosen state or all states.
+	measure 'Title, festive' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _place = IF(_n = 1, SELECTEDVALUE('State'[State]), IF(ISFILTERED('State'[State]) && _n < 16, "The " & FORMAT(_n, "0") & " chosen states", "All states"))
+			VAR _cny = CALCULATE([Festive price change, festive staples], 'Festive effect'[Festival] = "Chinese New Year")
+			VAR _raya = CALCULATE([Festive price change, festive staples], 'Festive effect'[Festival] = "Hari Raya Aidilfitri")
+			RETURN
+			    IF(
+			        ISBLANK(_cny) || ISBLANK(_raya),
+			        "Price change before each festival",
+			        _place & ": festive staples changed " & FORMAT(_cny, "+0.00%;-0.00%;0.00%") & " before Chinese New Year and " & FORMAT(_raya, "+0.00%;-0.00%;0.00%") & " before Hari Raya Aidilfitri"
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 6ef5e618-2c0b-490d-9b2a-5622960a27d2
+
+	/// Average shop's price index (100 = national median). For one state and one shop type it is the value printed in q12; otherwise it is the mean of premise_index.csv, which for one shop type across all states matches q12 (Hypermarket 98.4, Supermarket 101.4, Mini market 103.4, Sundry shop 106.8, Wet market 108.2).
+	measure 'Average shop price index (q12)' =
+			VAR _oneState = HASONEVALUE('State'[State])
+			VAR _oneType = HASONEVALUE('Shop type'[Shop type])
+			RETURN
+			    IF(
+			        _oneState && _oneType,
+			        SELECTEDVALUE('Shop type index (q12)'[Average shop index]),
+			        [Average shop price index]
+			    )
+		formatString: 0.0
+		displayFolder: Retail pricing
+		lineageTag: 1aac9163-dd50-4a9a-afb6-2c6e77f9a141
+
+	/// Average shop's price index minus 100: points above (+) or below (-) the national median.
+	measure 'Shop type index vs national' =
+			VAR _i = [Average shop price index (q12)]
+			RETURN IF(NOT ISBLANK(_i), _i - 100)
+		formatString: +0.0;-0.0;0.0
+		displayFolder: Retail pricing
+		lineageTag: 433564e8-9dcc-4792-ac29-209abf06bf90
+
+	/// Fill colour for an average shop index: three blues below 100, grey within 1.5 points, three oranges above (steps at 1.5, 4 and 8 points).
+	measure 'Shop index colour' =
+			VAR _i = [Average shop price index (q12)]
+			VAR _d = _i - 100
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_i), BLANK(),
+			        _d <= -8, "#184F95",
+			        _d <= -4, "#256ABF",
+			        _d <= -1.5, "#9EC5F4",
+			        _d < 1.5, "#D9DEE5",
+			        _d < 4, "#F6C1A6",
+			        _d < 8, "#EB6834",
+			        "#B8451A"
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 2124b8ed-55e5-41b4-bae4-b68c689195e5
+
+	/// Text colour on the heatmap: white on the darkest fills, near-black elsewhere.
+	measure 'Shop index font colour' =
+			VAR _i = [Average shop price index (q12)]
+			VAR _d = _i - 100
+			RETURN IF(NOT ISBLANK(_i), IF(_d <= -4 || _d >= 8, "#FFFFFF", "#13243B"))
+		isHidden
+		displayFolder: Report
+		lineageTag: af1eaede-4ec6-4f68-8a1c-6c07be56d44f
+
+	/// Fill colour for one shop's price index in the shop tables, on the same scale as the heatmap.
+	measure 'Shop colour' =
+			VAR _i = [Average shop price index]
+			VAR _d = _i - 100
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_i), BLANK(),
+			        _d <= -8, "#184F95",
+			        _d <= -4, "#256ABF",
+			        _d <= -1.5, "#9EC5F4",
+			        _d < 1.5, "#D9DEE5",
+			        _d < 4, "#F6C1A6",
+			        _d < 8, "#EB6834",
+			        "#B8451A"
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: cf0e7e6a-ac9d-4575-8417-5f1cd8c58ccc
+
+	/// Text colour for the shop index cells: white on the darkest fills, near-black elsewhere.
+	measure 'Shop font colour' =
+			VAR _i = [Average shop price index]
+			VAR _d = _i - 100
+			RETURN IF(NOT ISBLANK(_i), IF(_d <= -4 || _d >= 8, "#FFFFFF", "#13243B"))
+		isHidden
+		displayFolder: Report
+		lineageTag: 6c40d80d-b47c-41f0-bb58-1cc98669bfd5
+
+	/// Number of states where wet markets have the highest average shop index of the five shop types (q12 values).
+	measure 'Wet market dearest states' =
+			COUNTROWS(
+			    FILTER(
+			        ALL('State'[State]),
+			        VAR _max = CALCULATE(MAX('Shop type index (q12)'[Average shop index]), REMOVEFILTERS('Shop type'))
+			        RETURN
+			            NOT ISBLANK(_max)
+			                && CALCULATE(MAX('Shop type index (q12)'[Average shop index]), 'Shop type'[Shop type] = "Wet market") = _max
+			    )
+			)
+		formatString: 0
+		displayFolder: Retail pricing
+		lineageTag: 026658cd-48cd-482e-af6d-ff9a0ec1d6a9
+
+	/// Number of states where hypermarkets have the lowest average shop index of the five shop types (q12 values).
+	measure 'Hypermarket cheapest states' =
+			COUNTROWS(
+			    FILTER(
+			        ALL('State'[State]),
+			        VAR _min = CALCULATE(MIN('Shop type index (q12)'[Average shop index]), REMOVEFILTERS('Shop type'))
+			        RETURN
+			            NOT ISBLANK(_min)
+			                && CALCULATE(MIN('Shop type index (q12)'[Average shop index]), 'Shop type'[Shop type] = "Hypermarket") = _min
+			    )
+			)
+		formatString: 0
+		displayFolder: Retail pricing
+		lineageTag: 318b2fcd-c534-4450-a8cb-d33233b8d0c8
+
+	/// Title text for the state by shop type heatmap.
+	measure 'Title, heatmap' = "Wet markets are the dearest shop type in " & [Wet market dearest states] & " of 16 states, and hypermarkets the cheapest in " & [Hypermarket cheapest states]
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 95fed33e-9ae9-4c56-85e8-1a4c78b4f3be
+
+	/// Title text for the shop type chart: the cheapest and the dearest shop type, for the chosen state or all states.
+	measure 'Title, shop type index' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _place = IF(_n = 1, "In " & SELECTEDVALUE('State'[State]) & ", ", IF(ISFILTERED('State'[State]) && _n < 16, "In the " & FORMAT(_n, "0") & " chosen states, ", ""))
+			VAR _t = FILTER(ADDCOLUMNS(ALL('Shop type'[Shop type]), "@v", [Average shop price index (q12)]), NOT ISBLANK([@v]))
+			VAR _lo = MINX(_t, [@v])
+			VAR _hi = MAXX(_t, [@v])
+			VAR _loNames = CONCATENATEX(FILTER(_t, [@v] = _lo), LOWER('Shop type'[Shop type]) & "s", " and ")
+			VAR _hiNames = CONCATENATEX(FILTER(_t, [@v] = _hi), LOWER('Shop type'[Shop type]) & "s", " and ")
+			VAR _text = _loNames & " have the lowest average shop index (" & FORMAT(_lo, "0.0") & "), " & _hiNames & " the highest (" & FORMAT(_hi, "0.0") & ")"
+			RETURN
+			    IF(
+			        ISBLANK(_lo),
+			        "Average shop's price index by shop type",
+			        IF(_place = "", UPPER(LEFT(_text, 1)) & MID(_text, 2, LEN(_text)), _place & _text)
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: f6fb2fbe-b44d-4d6f-ae63-2b89d40f72f3
+
+	/// Title text for the quarter chart. Leaves out shop types with fewer than 5 shops in view.
+	measure 'Title, quarters' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _place = IF(_n = 1, "In " & SELECTEDVALUE('State'[State]) & ", ", IF(ISFILTERED('State'[State]) && _n < 16, "In the " & FORMAT(_n, "0") & " chosen states, ", ""))
+			VAR _t =
+			    FILTER(
+			        ADDCOLUMNS(
+			            ALL('Shop type'[Shop type]),
+			            "@n", CALCULATE(COUNTROWS('Shop index')),
+			            "@q1", [Share of shops in cheapest quarter],
+			            "@q4", [Share of shops in dearest quarter]
+			        ),
+			        [@n] >= 5
+			    )
+			VAR _hi1 = MAXX(_t, [@q1])
+			VAR _hi4 = MAXX(_t, [@q4])
+			VAR _n1 = CONCATENATEX(FILTER(_t, [@q1] = _hi1), LOWER('Shop type'[Shop type]) & "s", " and ")
+			VAR _n4 = CONCATENATEX(FILTER(_t, [@q4] = _hi4), LOWER('Shop type'[Shop type]) & "s", " and ")
+			VAR _text = _n1 & " are most often in the cheapest quarter (" & FORMAT(_hi1, "0.0%") & "), " & _n4 & " in the dearest (" & FORMAT(_hi4, "0.0%") & ")"
+			RETURN
+			    IF(
+			        ISBLANK(_hi1) || _n1 = _n4,
+			        "Shops in the cheapest and the dearest quarter of their state",
+			        IF(_place = "", UPPER(LEFT(_text, 1)) & MID(_text, 2, LEN(_text)), _place & _text)
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 10618150-c821-4b1c-8f8c-06b1fe489e60
+
+	/// Lowest price of one item in any state, September 2026.
+	measure 'Lowest price in Malaysia (RM)' = IF(HASONEVALUE('Item'[Item code]), CALCULATE(MIN('Cheapest by item and state'[Lowest price (RM)]), REMOVEFILTERS('State')))
+		formatString: #,##0.00
+		displayFolder: Retail pricing
+		lineageTag: b4b7fc76-6aa0-4f8f-94db-f81fe75ba32b
+
+	/// Number of states where at least one shop priced the item, September 2026.
+	measure 'States with a price' = IF(HASONEVALUE('Item'[Item code]), CALCULATE(COUNTROWS('Cheapest by item and state'), REMOVEFILTERS('State')))
+		formatString: 0
+		displayFolder: Retail pricing
+		lineageTag: 3525cc88-a5ee-4483-a0fb-6f4fee143320
+
+	/// The state or states with the lowest price of the item (a count when more than 3 share it).
+	measure 'Cheapest state for item' =
+			VAR _min = [Lowest price in Malaysia (RM)]
+			VAR _rows = FILTER(CALCULATETABLE('Cheapest by item and state', REMOVEFILTERS('State')), 'Cheapest by item and state'[Lowest price (RM)] = _min)
+			VAR _n = COUNTROWS(_rows)
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_min), BLANK(),
+			        _n <= 3, CONCATENATEX(_rows, 'Cheapest by item and state'[State], ", ", 'Cheapest by item and state'[State], ASC),
+			        FORMAT(_n, "0") & " states"
+			    )
+		isHidden
+		displayFolder: Report
+		lineageTag: 8abbce47-4cff-4409-84da-bea1884c6442
+
+	/// Bar colour for the lowest-price chart: blue for the cheapest state, grey for the rest.
+	measure 'Lowest price bar colour' =
+			VAR _p = [Lowest price in state (RM)]
+			RETURN IF(NOT ISBLANK(_p), IF(_p = [Lowest price in Malaysia (RM)], "#2A78D6", "#AEB9C7"))
+		isHidden
+		displayFolder: Report
+		lineageTag: aa2db32f-8834-41ea-b62d-523b248d7426
+
+	/// Column colour for the shop type chart: orange above the national median, blue below, grey equal.
+	measure 'Item shop type colour' =
+			VAR _m = [Item median price by shop type (RM)]
+			VAR _n = [Item national median (RM)]
+			RETURN IF(NOT ISBLANK(_m), SWITCH(TRUE(), _m > _n, "#EB6834", _m < _n, "#2A78D6", "#AEB9C7"))
+		isHidden
+		displayFolder: Report
+		lineageTag: d6fcbda6-6a89-4aba-a084-c4dd103a91d3
+
+	/// Title text for the lowest-price chart.
+	measure 'Title, lowest price' =
+			VAR _item = SELECTEDVALUE('Item'[Item label])
+			VAR _min = [Lowest price in Malaysia (RM)]
+			RETURN
+			    IF(
+			        ISBLANK(_item) || ISBLANK(_min),
+			        "Pick one item to see where it was cheapest",
+			        _item & " was cheapest in " & [Cheapest state for item] & ": RM " & FORMAT(_min, "#,0.00")
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 46d528b9-6681-4053-b8e5-f947acb8797b
+
+	/// Title text for the shop type chart on the item page (W.P. Kuala Lumpur when no state is chosen).
+	measure 'Title, item by shop type' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _multi = ISFILTERED('State'[State]) && _n > 1
+			VAR _state = IF(_n = 1, SELECTEDVALUE('State'[State]), "W.P. Kuala Lumpur")
+			VAR _item = SELECTEDVALUE('Item'[Item label])
+			VAR _t = FILTER(ADDCOLUMNS(ALL('Shop type'[Shop type]), "@m", [Item median price by shop type (RM)]), NOT ISBLANK([@m]))
+			VAR _lo = MINX(_t, [@m])
+			VAR _types = CONCATENATEX(FILTER(_t, [@m] = _lo), LOWER('Shop type'[Shop type]) & "s", " and ")
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(_item), "Pick one item to compare its price by shop type",
+			        _multi, "Pick one state in the State slicer to compare the item's price by shop type",
+			        ISBLANK(_lo), "Pick one item to compare its price by shop type",
+			        "In " & _state & ", " & _types & " had the lowest median: RM " & FORMAT(_lo, "#,0.00")
+			    )
+		isHidden
+		displayFolder: Helpers
+		lineageTag: 932a0200-a69a-46fa-85d7-f752fa0e0c7d
+
+	/// Subtitle text for the shop type chart on the item page.
+	measure 'Subtitle, item by shop type' =
+			VAR _n = COUNTROWS(VALUES('State'[State]))
+			VAR _state = IF(_n = 1, SELECTEDVALUE('State'[State]), IF(ISFILTERED('State'[State]) && _n < 16, "the chosen states", "W.P. Kuala Lumpur"))
+			VAR _nat = [Item national median (RM)]
+			RETURN
+			    "Median price by shop type in " & _state & ", September 2026. Orange is above the national median"
+			        & IF(ISBLANK(_nat), "", " of RM " & FORMAT(_nat, "#,0.00")) & ", blue below it."
+		isHidden
+		displayFolder: Helpers
+		lineageTag: c678877b-9e4a-4f47-b3c9-d4a272b24cf7
+
+	/// Change in the national median price of one item from October 2025 to September 2026, only for items 30 or more shops priced in both months (the q13 rule, as on the web dashboard).
+	measure 'Change since October 2025 (30+ shops)' =
+			VAR _oct = CALCULATE(MAX('Item monthly'[Shops]), REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2025, 10, 1))
+			VAR _sep = CALCULATE(MAX('Item monthly'[Shops]), REMOVEFILTERS('Month'), 'Month'[Month] = DATE(2026, 9, 1))
+			RETURN IF(HASONEVALUE('Item'[Item code]) && _oct >= 30 && _sep >= 30, [Change since October 2025, September 2026])
+		formatString: 0.00%
+		displayFolder: Cost risk
+		lineageTag: 5264e412-6f79-4768-9a38-c4264b8b9998
+
+	/// Title text for the spike weeks chart: the month with the most spike weeks for the items in view.
+	measure 'Title, spike months' =
+			VAR _t = ADDCOLUMNS(ALL('Month'[Month], 'Month'[Month label]), "@n", CALCULATE([Spike weeks]))
+			VAR _max = MAXX(_t, [@n])
+			VAR _month = MAXX(FILTER(_t, [@n] = _max), 'Month'[Month label])
+			RETURN IF(ISBLANK(_max), "No spike weeks for these items", "Spike weeks peaked in " & _month & ": " & FORMAT(_max, "0"))
+		isHidden
+		displayFolder: Helpers
+		lineageTag: a406863a-b4cd-44ff-9eec-06b20cfc2b72
+
+	/// Rows loaded from state_basket.csv.
+	measure 'Rows, state_basket.csv' = CALCULATE(COUNTROWS('State basket'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: 05a7872f-5008-4465-993d-0b7402ad7d46
+
+	/// Rows loaded from district_basket.csv.
+	measure 'Rows, district_basket.csv' = CALCULATE(COUNTROWS('District basket'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: 0d6cb8b5-258a-45bb-bdd3-6f4f3a9de6f4
+
+	/// Rows loaded from premise_index.csv.
+	measure 'Rows, premise_index.csv' = CALCULATE(COUNTROWS('Shop index'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: cd7ef5a9-6257-49c8-bdc6-da2fd803feff
+
+	/// Rows loaded from item_monthly.csv.
+	measure 'Rows, item_monthly.csv' = CALCULATE(COUNTROWS('Item monthly'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: 3ac8edb3-b46a-490f-8d74-c10d814064fc
+
+	/// Rows loaded from festive_effect.csv.
+	measure 'Rows, festive_effect.csv' = CALCULATE(COUNTROWS('Festive effect'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: a12f462d-3729-45f8-8776-8285eff60a64
+
+	/// Rows loaded from weekly_spikes.csv.
+	measure 'Rows, weekly_spikes.csv' = CALCULATE(COUNTROWS('Weekly spikes'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: ba841376-2a24-4403-b882-7e7c744e384d
+
+	/// Rows loaded from item_price_by_state_type.csv.
+	measure 'Rows, item_price_by_state_type.csv' = CALCULATE(COUNTROWS('Item price by state and shop type'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: 92d1f3b7-9e31-47b5-aef8-20afb6e00a58
+
+	/// Rows loaded from cheapest_by_item_state.csv.
+	measure 'Rows, cheapest_by_item_state.csv' = CALCULATE(COUNTROWS('Cheapest by item and state'), REMOVEFILTERS())
+		formatString: #,##0
+		displayFolder: Report
+		lineageTag: 042f915b-7195-465b-8963-316064d2f8a2
 
 	/// Placeholder column. Hidden.
 	column Dummy
 		dataType: int64
 		isHidden
 		formatString: 0
+		lineageTag: c4a57aff-0a8e-46e6-9ace-bebd421342c9
 		summarizeBy: none
 		sourceColumn: [Dummy]
 
 	partition _Measures = calculated
 		mode: import
 		source = ROW("Dummy", 0)
+

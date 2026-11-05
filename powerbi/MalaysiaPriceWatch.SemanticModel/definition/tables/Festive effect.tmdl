@@ -1,9 +1,11 @@
 /// festive_effect.csv: one row per festival, state and item set. Mean price change on matched shop-item pairs in the two weeks before the festival. National figures = average of the state rows weighted by matched pairs (as in q21).
 table 'Festive effect'
+	lineageTag: 8524c50f-7186-446f-987a-a815296b9973
 
 	/// Festival name.
 	column Festival
 		dataType: string
+		lineageTag: a9598e1a-a98c-47ac-bd32-bf7efd12dec2
 		summarizeBy: none
 		sourceColumn: festival
 		sortByColumn: 'Festival date'
@@ -12,19 +14,24 @@ table 'Festive effect'
 	column 'Festival date'
 		dataType: dateTime
 		formatString: yyyy-mm-dd
+		lineageTag: 04d7fb2a-6d72-41fb-8536-4a678e5a7875
 		summarizeBy: none
 		sourceColumn: festival_date
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	/// Key to State.
 	column State
 		dataType: string
 		isHidden
+		lineageTag: 2e8358ed-ffe9-4b48-a672-c5d7874de9c6
 		summarizeBy: none
 		sourceColumn: state
 
 	/// Festive staples, or Other items (control).
 	column 'Item set'
 		dataType: string
+		lineageTag: e71ef9ba-a4bb-44db-a114-9d0077b2142a
 		summarizeBy: none
 		sourceColumn: item_set
 
@@ -33,6 +40,7 @@ table 'Festive effect'
 		dataType: int64
 		isHidden
 		formatString: #,##0
+		lineageTag: bd7945e4-0b1a-408d-aada-d61bcea3158a
 		summarizeBy: none
 		sourceColumn: matched_pairs
 
@@ -41,6 +49,7 @@ table 'Festive effect'
 		dataType: decimal
 		isHidden
 		formatString: 0.00
+		lineageTag: 71746a5b-5a73-427f-bbcb-d43a8ea7eb08
 		summarizeBy: none
 		sourceColumn: mean_change_pct
 
@@ -49,13 +58,15 @@ table 'Festive effect'
 		dataType: decimal
 		isHidden
 		formatString: 0.0
+		lineageTag: fd253be7-936f-4aa2-955d-53562186394a
 		summarizeBy: none
 		sourceColumn: pct_pairs_up
 
 	partition 'Festive effect' = m
 		mode: import
 		source =
-			let
-				Source = fnLoadCsv("festive_effect.csv", {{"festival", type text}, {"festival_date", type date}, {"state", type text}, {"item_set", type text}, {"matched_pairs", Int64.Type}, {"mean_change_pct", Currency.Type}, {"pct_pairs_up", Currency.Type}})
-			in
-				Source
+				let
+					Source = fnLoadCsv("festive_effect.csv", {{"festival", type text}, {"festival_date", type date}, {"state", type text}, {"item_set", type text}, {"matched_pairs", Int64.Type}, {"mean_change_pct", Currency.Type}, {"pct_pairs_up", Currency.Type}})
+				in
+					Source
+
